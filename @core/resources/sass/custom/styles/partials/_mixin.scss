@@ -1,0 +1,299 @@
+/*      VARIABLES      */
+@use 'colorVariable' as colorVar;
+/*      VARIABLES      */
+
+@mixin plain-all {
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+@mixin rotation($angle) {
+    -webkit-transform: rotate(#{$angle}deg);
+    -moz-transform: rotate(#{$angle}deg);
+    -o-transform: rotate(#{$angle}deg);
+    -ms-transform: rotate(#{$angle}deg);
+    transform: rotate(#{$angle}deg);
+}
+
+@mixin rotationX($angle) {
+    -webkit-transform: rotateX(#{$angle}deg);
+    -moz-transform: rotateX(#{$angle}deg);
+    -o-transform: rotateX(#{$angle}deg);
+    -ms-transform: rotateX(#{$angle}deg);
+    transform: rotateX(#{$angle}deg);
+}
+
+@mixin rotationY($angle) {
+    -webkit-transform: rotateY(#{$angle}deg);
+    -moz-transform: rotateY(#{$angle}deg);
+    -o-transform: rotateY(#{$angle}deg);
+    -ms-transform: rotateY(#{$angle}deg);
+    transform: rotateY(#{$angle}deg);
+}
+
+@mixin d-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@mixin flex-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flex-column-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
+
+@mixin flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+@mixin flex-row-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+@mixin justify-content-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+@mixin justify-content-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+@mixin justify-content-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+@mixin justify-content-around {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+@mixin justify-content-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+@mixin flex-wrap {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@mixin flex-nowrap {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+@mixin flex-wrap-reverse {
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+}
+
+@mixin flex-flow-row-wrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+@mixin flex-flow-row-nowrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+}
+
+@mixin flex-flow-column-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+}
+
+@mixin flex-flow-column-nowrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+}
+
+@mixin align-items-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+@mixin align-items-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+@mixin align-items-center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+@mixin align-items-stretch {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+@mixin align-items-baseline {
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+@mixin align-content-start {
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+@mixin align-content-end {
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+}
+
+@mixin align-content-around {
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+}
+
+@mixin align-content-between {
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+}
+
+@mixin align-content-center {
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+@mixin align-content-stretch {
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+}
+
+@mixin transition-normal {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    @include plain-all;
+}
+
+@mixin transition-hover {
+    z-index: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    @include plain-all;
+}
+
+@mixin flex-horizontally-center {
+    @include d-flex;
+    @include justify-content-center;
+}
+
+@mixin flex-vertically-center {
+    @include d-flex;
+    @include align-items-center;
+}
+
+@mixin flex-both-center {
+    @include d-flex;
+    @include align-items-center;
+    @include justify-content-center;
+}
+
+@mixin noshadow {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+@mixin shadow {
+    -webkit-box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+@mixin shadow-2 {
+    -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.03);
+}
+
+@mixin shadow-light-0 {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-light {
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-light-2 {
+    -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-dark {
+    -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-dark-1 {
+    -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-dark-2 {
+    -webkit-box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+}
+
+@mixin button-hover($btnColor) {
+    background-color: $btnColor !important;
+    border-color: $btnColor !important;
+    color: colorVar.$white !important;
+}
+
+@mixin button-revert-hover($btnColor) {
+    background-color: colorVar.$white !important;
+    border-color: $btnColor !important;
+    color: $btnColor !important;
+}
+
+@mixin color($color) {
+    color: $color !important;
+}
+
+@mixin border-color($color) {
+    border-color: $color !important;
+}
+
+@mixin background-color($color) {
+    background-color: $color !important;
+}

@@ -1,0 +1,32 @@
+@use "partials/mixin" as mix;
+
+/* HOME */
+
+/*      Banner section      */
+
+/*      /Banner section      */
+
+.adds-wrapper {
+  @include mix.d-flex;
+  @include mix.flex-wrap;
+  @include mix.justify-content-between;
+}
+
+.select2-container {
+
+  &.select2-container--open {
+
+    .select2-dropdown {
+
+      &.select2-dropdown--below {
+        border-top: 1px solid #ddd;
+        top: 0.25rem;
+      }
+
+    }
+
+  }
+
+}
+
+/* /HOME */

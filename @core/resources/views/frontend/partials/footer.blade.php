@@ -70,7 +70,7 @@
 @php $site_google_captcha_v3_site_key = get_static_option('site_google_captcha_v3_site_key'); @endphp
 @if(!empty($site_google_captcha_v3_site_key) && request()->path() == 'home/01' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/02' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/03' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/04' || !empty($site_google_captcha_v3_site_key) && request()->path() == '/')
     <script
-        src="https://www.google.com/recaptcha/api.js?render={{get_static_option('site_google_captcha_v3_site_key')}}"></script>
+            src="https://www.google.com/recaptcha/api.js?render={{get_static_option('site_google_captcha_v3_site_key')}}"></script>
     <script>
         grecaptcha.ready(function () {
             grecaptcha.execute("{{get_static_option('site_google_captcha_v3_site_key')}}", {action: 'homepage'}).then(function (token) {
@@ -169,7 +169,7 @@
 
         });
         $(document).ready(function () {
-            @if(!empty(get_static_option('popup_enable_status') && !empty(get_static_option('popup_selected_'.$user_select_lang_slug.'_id'))) && !empty($popup_details))
+                    @if(!empty(get_static_option('popup_enable_status') && !empty(get_static_option('popup_selected_'.$user_select_lang_slug.'_id'))) && !empty($popup_details))
 
             var delayTime = "{{get_static_option('popup_delay_time')}}";
             delayTime = delayTime ? delayTime : 4000;
@@ -264,6 +264,6 @@
     </script>
     @endif
 
-</body>
+    </body>
 
-</html>
+    </html>

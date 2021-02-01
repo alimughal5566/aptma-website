@@ -1,0 +1,18 @@
+@use 'colorVariable' as color;
+@use 'mixin' as mix;
+
+@each $name, $color in color.$color-range {
+    /* Hello*/
+    .background-#{$name} {
+        @include mix.border-color($color);
+    }
+
+    .color-#{$name} {
+        @include mix.color($color);
+    }
+
+    .border-#{$name} {
+        @include mix.border-color($color);
+    }
+
+}

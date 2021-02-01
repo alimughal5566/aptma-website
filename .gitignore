@@ -2,6 +2,7 @@
 /install
 /.idea
 /node_modules
+/@core/node_modules
 /public/hot
 /public/storage
 /@core/storage

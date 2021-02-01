@@ -1,0 +1,41 @@
+/*      MIXINS      */
+@use "partials/mixin" as mix;
+/*      /MIXINS      */
+
+/*      HEADER      */
+
+.header {
+
+  .navbar {
+
+    .navbar-brand {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      img {
+        max-width: 135px;
+      }
+
+    }
+
+    ul {
+
+      &.navbar-nav {
+
+        li {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/*      /HEADER      */
+
+.page-header-wrapper {
+}
