@@ -67,12 +67,12 @@ function render_about_us_widget($id)
 {
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $description = !empty($widget_saved_values) && isset($widget_saved_values['description_' .get_user_lang()]) ? $widget_saved_values['description_' . get_user_lang()] : '';
+    $description = !empty($widget_saved_values) && isset($widget_saved_values['description_' . get_user_lang()]) ? $widget_saved_values['description_' . get_user_lang()] : '';
     $image_val = !empty($widget_saved_values) ? $widget_saved_values['site_logo'] : '';
 
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget"><div class="about_us_widget">';
-    $output .= render_image_markup_by_attachment_id($image_val,'footer-logo');
-    $output .= '<p>'.$description.'</p>';
+    $output .= render_image_markup_by_attachment_id($image_val, 'footer-logo');
+    $output .= '<p>' . $description . '</p>';
     $output .= '</div></div></div>';
 
     return $output;
@@ -103,7 +103,8 @@ function get_widget_default_fields($type, $admin_func, $front_func, $widget_name
  * it will be used for drag & drop Widget Builder
  * **/
 
-function contact_info_widget($type = 'new', $id = null){
+function contact_info_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -129,10 +130,10 @@ function contact_info_widget($type = 'new', $id = null){
         $phone = !empty($widget_saved_values) && isset($widget_saved_values['phone_' . $lang->slug]) ? $widget_saved_values['phone_' . $lang->slug] : '';
         $email = !empty($widget_saved_values) && isset($widget_saved_values['email_' . $lang->slug]) ? $widget_saved_values['email_' . $lang->slug] : '';
 
-        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="'. $widget_title .'"></div>';
-        $output .= '<div class="form-group"><input type="text" name="location_' . $lang->slug . '" id="location_' . $lang->slug . '" class="form-control" placeholder="' . __('Location') . '" value="'. $location .'"></div>';
-        $output .= '<div class="form-group"><input type="text" name="phone_' . $lang->slug . '" id="phone_' . $lang->slug . '" class="form-control" placeholder="' . __('Phone') . '" value="'. $phone .'"></div>';
-        $output .= '<div class="form-group"><input type="email" name="email_' . $lang->slug . '" id="email_' . $lang->slug . '" class="form-control" placeholder="' . __('Email') . '" value="'. $email .'"></div>';
+        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="' . $widget_title . '"></div>';
+        $output .= '<div class="form-group"><input type="text" name="location_' . $lang->slug . '" id="location_' . $lang->slug . '" class="form-control" placeholder="' . __('Location') . '" value="' . $location . '"></div>';
+        $output .= '<div class="form-group"><input type="text" name="phone_' . $lang->slug . '" id="phone_' . $lang->slug . '" class="form-control" placeholder="' . __('Phone') . '" value="' . $phone . '"></div>';
+        $output .= '<div class="form-group"><input type="email" name="email_' . $lang->slug . '" id="email_' . $lang->slug . '" class="form-control" placeholder="' . __('Email') . '" value="' . $email . '"></div>';
 
         $output .= '</div>';
     }
@@ -149,49 +150,50 @@ function contact_info_widget($type = 'new', $id = null){
  * contact us widgets
  * it will be used for render content in frontend
  * */
-function render_contact_info_widget($id){
+function render_contact_info_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
     $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
-    $location = !empty($widget_saved_values) && isset($widget_saved_values['location_' .get_user_lang()]) ? $widget_saved_values['location_' . get_user_lang()] : '';
+    $location = !empty($widget_saved_values) && isset($widget_saved_values['location_' . get_user_lang()]) ? $widget_saved_values['location_' . get_user_lang()] : '';
     $phone = !empty($widget_saved_values) && isset($widget_saved_values['phone_' . get_user_lang()]) ? $widget_saved_values['phone_' . get_user_lang()] : '';
     $email = !empty($widget_saved_values) && isset($widget_saved_values['email_' . get_user_lang()]) ? $widget_saved_values['email_' . get_user_lang()] : '';
 
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
     $output .= '<ul class="contact_info_list">';
-    if(!empty($location)){
-    $output .= ' <li class="single-info-item">
+    if (!empty($location)) {
+        $output .= ' <li class="single-info-item">
                     <div class="icon">
                         <i class="fa fa-home"></i>
                     </div>
                     <div class="details">
-                        '.$location.'
+                        ' . $location . '
                     </div>
                 </li>';
     }
-    if(!empty($phone)){
-    $output .= '<li class="single-info-item">
+    if (!empty($phone)) {
+        $output .= '<li class="single-info-item">
                     <div class="icon">
                         <i class="fa fa-phone"></i>
                     </div>
                     <div class="details">
-                       '.$phone.'
+                       ' . $phone . '
                     </div>
                 </li>';
-    }            
-     if(!empty($email)){
-     $output .= '<li class="single-info-item">
+    }
+    if (!empty($email)) {
+        $output .= '<li class="single-info-item">
                     <div class="icon">
                         <i class="fas fa-envelope-open"></i>
                     </div>
                     <div class="details">
-                       '.$email.'
+                       ' . $email . '
                     </div>
                 </li>';
-     }            
+    }
     $output .= '</ul>';
     $output .= '</div></div>';
 
@@ -204,7 +206,8 @@ function render_contact_info_widget($id){
  * it will be used for drag & drop Widget Builder
  * **/
 
-function navigation_menu_widget($type = 'new', $id = null){
+function navigation_menu_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -226,19 +229,19 @@ function navigation_menu_widget($type = 'new', $id = null){
     foreach ($all_languages as $key => $lang) {
         $active_tab_class = $key == 0 ? 'tab-pane fade show active' : 'tab-pane fade';
         $output .= '<div class="' . $active_tab_class . '" id="nav-recent-post-' . $lang->slug . '" role="tabpanel">';
-        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. $lang->slug]) ? $widget_saved_values['widget_title_'. $lang->slug] : '';
-        $selected_menu_id = !empty($widget_saved_values) && isset($widget_saved_values['menu_id_'. $lang->slug]) ? $widget_saved_values['menu_id_'. $lang->slug] : '';
+        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . $lang->slug]) ? $widget_saved_values['widget_title_' . $lang->slug] : '';
+        $selected_menu_id = !empty($widget_saved_values) && isset($widget_saved_values['menu_id_' . $lang->slug]) ? $widget_saved_values['menu_id_' . $lang->slug] : '';
 
-        $output .= '<div class="form-group"><input type="text" name="widget_title_'. $lang->slug . '" id="widget_title_'. $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="'. $widget_title .'"></div>';
+        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="' . $widget_title . '"></div>';
 
         $output .= '<div class="form-group">';
-        $output .= '<select class="form-control" name="menu_id_'. $lang->slug.'">';
+        $output .= '<select class="form-control" name="menu_id_' . $lang->slug . '">';
 
         $navigation_menus = Menu::where(['lang' => $lang->slug])->get();
 
-        foreach($navigation_menus as $menu_item){
+        foreach ($navigation_menus as $menu_item) {
             $selected = $selected_menu_id == $menu_item->id ? 'selected' : '';
-            $output .= '<option value="'.$menu_item->id.'" '.$selected.'>'.$menu_item->title.'</option>';
+            $output .= '<option value="' . $menu_item->id . '" ' . $selected . '>' . $menu_item->title . '</option>';
         }
         $output .= '</select>';
         $output .= '</div>';
@@ -252,19 +255,21 @@ function navigation_menu_widget($type = 'new', $id = null){
 
     return $output;
 }
+
 /**
  * navigation menu widgets
  * it will be used for render content in frontend
  * */
-function render_navigation_menu_widget($id){
+function render_navigation_menu_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. get_user_lang()]) ? $widget_saved_values['widget_title_'. get_user_lang()] : '';
-    $menu_id = !empty($widget_saved_values) && isset($widget_saved_values['menu_id_'.get_user_lang()]) ? $widget_saved_values['menu_id_'. get_user_lang()] : '';
+    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
+    $menu_id = !empty($widget_saved_values) && isset($widget_saved_values['menu_id_' . get_user_lang()]) ? $widget_saved_values['menu_id_' . get_user_lang()] : '';
 
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
     $output .= '<div class="widget-ul-wrapper">';
     $output .= '<ul>';
@@ -281,7 +286,8 @@ function render_navigation_menu_widget($id){
  * it will be used for drag & drop Widget Builder
  * **/
 
-function recent_post_widget($type = 'new', $id = null){
+function recent_post_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -303,13 +309,13 @@ function recent_post_widget($type = 'new', $id = null){
     foreach ($all_languages as $key => $lang) {
         $active_tab_class = $key == 0 ? 'tab-pane fade show active' : 'tab-pane fade';
         $output .= '<div class="' . $active_tab_class . '" id="nav-recent-post-' . $lang->slug . '" role="tabpanel">';
-        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. $lang->slug]) ? $widget_saved_values['widget_title_'. $lang->slug] : '';
+        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . $lang->slug]) ? $widget_saved_values['widget_title_' . $lang->slug] : '';
         $post_items = !empty($widget_saved_values) && isset($widget_saved_values['post_items']) ? $widget_saved_values['post_items'] : '';
 
-        $output .= '<div class="form-group"><input type="text" name="widget_title_'. $lang->slug . '" id="widget_title_'. $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="'. $widget_title .'"></div>';
+        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="' . $widget_title . '"></div>';
         $output .= '</div>';
     }
-    $output .= '<div class="form-group"><input type="text" name="post_items" id="post_items" class="form-control" placeholder="' . __('Post Items') . '" value="'. $post_items .'"></div>';
+    $output .= '<div class="form-group"><input type="text" name="post_items" id="post_items" class="form-control" placeholder="' . __('Post Items') . '" value="' . $post_items . '"></div>';
     $output .= '</div>';
     //end multi langual tab option
     $output .= '<button class="btn btn-info btn-xs widget_save_change_button">' . __('Save Changes') . '</button>';
@@ -317,28 +323,30 @@ function recent_post_widget($type = 'new', $id = null){
 
     return $output;
 }
+
 /**
  * recent post widgets
  * it will be used for render content in frontend
  * */
-function render_recent_post_widget($id){
+function render_recent_post_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. get_user_lang()]) ? $widget_saved_values['widget_title_'. get_user_lang()] : '';
+    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
     $post_items = !empty($widget_saved_values) && isset($widget_saved_values['post_items']) ? $widget_saved_values['post_items'] : '';
-    $blog_posts = Blog::where(['lang' => get_user_lang(),'status' => 'publish'])->orderBy('id','DESC')->take($post_items)->get();
+    $blog_posts = Blog::where(['lang' => get_user_lang(), 'status' => 'publish'])->orderBy('id', 'DESC')->take($post_items)->get();
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
     $output .= '<ul class="recent_post_item">';
 
-    foreach ($blog_posts as $post){
+    foreach ($blog_posts as $post) {
         $output .= '<li class="single-recent-post-item">
-                    <div class="thumb">'.render_image_markup_by_attachment_id($post->image,'','thumb').'</div>
+                    <div class="thumb">' . render_image_markup_by_attachment_id($post->image, '', 'thumb') . '</div>
                     <div class="content">
-                        <h4 class="title"><a href="'.route('frontend.blog.single',$post->slug).'">'.$post->title.'</a></h4>
-                        <span class="time"> '.date_format($post->created_at,'D M Y').'</span>
+                        <h4 class="title"><a href="' . route('frontend.blog.single', $post->slug) . '">' . $post->title . '</a></h4>
+                        <span class="time"> ' . date_format($post->created_at, 'D M Y') . '</span>
                     </div>
                 </li>';
     }
@@ -354,7 +362,8 @@ function render_recent_post_widget($id){
  * it will be used for drag & drop Widget Builder
  * **/
 
-function recent_service_widget($type = 'new', $id = null){
+function recent_service_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -376,13 +385,13 @@ function recent_service_widget($type = 'new', $id = null){
     foreach ($all_languages as $key => $lang) {
         $active_tab_class = $key == 0 ? 'tab-pane fade show active' : 'tab-pane fade';
         $output .= '<div class="' . $active_tab_class . '" id="nav-recent-service-' . $lang->slug . '" role="tabpanel">';
-        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. $lang->slug]) ? $widget_saved_values['widget_title_'. $lang->slug] : '';
+        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . $lang->slug]) ? $widget_saved_values['widget_title_' . $lang->slug] : '';
         $post_items = !empty($widget_saved_values) && isset($widget_saved_values['post_items']) ? $widget_saved_values['post_items'] : '';
 
-        $output .= '<div class="form-group"><input type="text" name="widget_title_'. $lang->slug . '" id="widget_title_'. $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="'. $widget_title .'"></div>';
+        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="' . $widget_title . '"></div>';
         $output .= '</div>';
     }
-    $output .= '<div class="form-group"><input type="text" name="post_items" id="post_items" class="form-control" placeholder="' . __('Post Items') . '" value="'. $post_items .'"></div>';
+    $output .= '<div class="form-group"><input type="text" name="post_items" id="post_items" class="form-control" placeholder="' . __('Post Items') . '" value="' . $post_items . '"></div>';
     $output .= '</div>';
     //end multi langual tab option
     $output .= '<button class="btn btn-info btn-xs widget_save_change_button">' . __('Save Changes') . '</button>';
@@ -395,24 +404,25 @@ function recent_service_widget($type = 'new', $id = null){
  * recent services widgets
  * it will be used for render content in frontend
  * */
-function render_recent_service_widget($id){
+function render_recent_service_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. get_user_lang()]) ? $widget_saved_values['widget_title_'. get_user_lang()] : '';
+    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
     $post_items = !empty($widget_saved_values) && isset($widget_saved_values['post_items']) ? $widget_saved_values['post_items'] : '';
-    $service_posts = Services::where(['lang' => get_user_lang(),'status' => 'publish'])->orderBy('id','DESC')->take($post_items)->get();
+    $service_posts = Services::where(['lang' => get_user_lang(), 'status' => 'publish'])->orderBy('id', 'DESC')->take($post_items)->get();
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
     $output .= '<ul class="recent_post_item">';
 
-    foreach ($service_posts as $service){
+    foreach ($service_posts as $service) {
         $output .= '<li class="single-recent-post-item">
-                    <div class="thumb">'.render_image_markup_by_attachment_id($service->image,'','thumb').'</div>
+                    <div class="thumb">' . render_image_markup_by_attachment_id($service->image, '', 'thumb') . '</div>
                     <div class="content">
-                        <h4 class="title"><a href="'.route('frontend.services.single',$service->slug).'">'.$service->title.'</a></h4>
-                        <span class="time"> '.date_format($service->created_at,'D M Y').'</span>
+                        <h4 class="title"><a href="' . route('frontend.services.single', $service->slug) . '">' . $service->title . '</a></h4>
+                        <span class="time"> ' . date_format($service->created_at, 'D M Y') . '</span>
                     </div>
                 </li>';
     }
@@ -428,7 +438,8 @@ function render_recent_service_widget($id){
  * it will be used for drag & drop Widget Builder
  * **/
 
-function recent_case_study_widget($type = 'new', $id = null){
+function recent_case_study_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -450,13 +461,13 @@ function recent_case_study_widget($type = 'new', $id = null){
     foreach ($all_languages as $key => $lang) {
         $active_tab_class = $key == 0 ? 'tab-pane fade show active' : 'tab-pane fade';
         $output .= '<div class="' . $active_tab_class . '" id="nav-recent-case-study-' . $lang->slug . '" role="tabpanel">';
-        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. $lang->slug]) ? $widget_saved_values['widget_title_'. $lang->slug] : '';
+        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . $lang->slug]) ? $widget_saved_values['widget_title_' . $lang->slug] : '';
         $post_items = !empty($widget_saved_values) && isset($widget_saved_values['post_items']) ? $widget_saved_values['post_items'] : '';
 
-        $output .= '<div class="form-group"><input type="text" name="widget_title_'. $lang->slug . '" id="widget_title_'. $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="'. $widget_title .'"></div>';
+        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="' . $widget_title . '"></div>';
         $output .= '</div>';
     }
-    $output .= '<div class="form-group"><input type="text" name="post_items" id="post_items" class="form-control" placeholder="' . __('Post Items') . '" value="'. $post_items .'"></div>';
+    $output .= '<div class="form-group"><input type="text" name="post_items" id="post_items" class="form-control" placeholder="' . __('Post Items') . '" value="' . $post_items . '"></div>';
     $output .= '</div>';
     //end multi langual tab option
     $output .= '<button class="btn btn-info btn-xs widget_save_change_button">' . __('Save Changes') . '</button>';
@@ -470,24 +481,25 @@ function recent_case_study_widget($type = 'new', $id = null){
  * recent case study widgets
  * it will be used for render content in frontend
  * */
-function render_recent_case_study_widget($id){
+function render_recent_case_study_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. get_user_lang()]) ? $widget_saved_values['widget_title_'. get_user_lang()] : '';
+    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
     $post_items = !empty($widget_saved_values) && isset($widget_saved_values['post_items']) ? $widget_saved_values['post_items'] : '';
-    $service_posts = Works::where(['lang' => get_user_lang(),'status' => 'publish'])->orderBy('id','DESC')->take($post_items)->get();
+    $service_posts = Works::where(['lang' => get_user_lang(), 'status' => 'publish'])->orderBy('id', 'DESC')->take($post_items)->get();
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
     $output .= '<ul class="recent_post_item">';
 
-    foreach ($service_posts as $service){
+    foreach ($service_posts as $service) {
         $output .= '<li class="single-recent-post-item">
-                    <div class="thumb">'.render_image_markup_by_attachment_id($service->image,'','thumb').'</div>
+                    <div class="thumb">' . render_image_markup_by_attachment_id($service->image, '', 'thumb') . '</div>
                     <div class="content">
-                        <h4 class="title"><a href="'.route('frontend.work.single',$service->slug).'">'.$service->title.'</a></h4>
-                        <span class="time"> '.date_format($service->created_at,'D M Y').'</span>
+                        <h4 class="title"><a href="' . route('frontend.work.single', $service->slug) . '">' . $service->title . '</a></h4>
+                        <span class="time"> ' . date_format($service->created_at, 'D M Y') . '</span>
                     </div>
                 </li>';
     }
@@ -498,13 +510,13 @@ function render_recent_case_study_widget($id){
 }
 
 
-
 /**
  * newsletter widget widget admin function
  * it will be used for drag & drop Widget Builder
  * **/
 
-function newsletter_widget($type = 'new', $id = null){
+function newsletter_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -526,11 +538,11 @@ function newsletter_widget($type = 'new', $id = null){
     foreach ($all_languages as $key => $lang) {
         $active_tab_class = $key == 0 ? 'tab-pane fade show active' : 'tab-pane fade';
         $output .= '<div class="' . $active_tab_class . '" id="nav-newsletter-' . $lang->slug . '" role="tabpanel">';
-        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. $lang->slug]) ? $widget_saved_values['widget_title_'. $lang->slug] : '';
-        $description = !empty($widget_saved_values) && isset($widget_saved_values['description_'. $lang->slug]) ? $widget_saved_values['description_'. $lang->slug] : '';
+        $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . $lang->slug]) ? $widget_saved_values['widget_title_' . $lang->slug] : '';
+        $description = !empty($widget_saved_values) && isset($widget_saved_values['description_' . $lang->slug]) ? $widget_saved_values['description_' . $lang->slug] : '';
 
-        $output .= '<div class="form-group"><input type="text" name="widget_title_'. $lang->slug . '" id="widget_title_'. $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="'. $widget_title .'"></div>';
-        $output .= '<div class="form-group"><input type="text" name="description_'.$lang->slug.'" id="description_'.$lang->slug.'" class="form-control" placeholder="' . __('Description') . '" value="'. $description .'"></div>';
+        $output .= '<div class="form-group"><input type="text" name="widget_title_' . $lang->slug . '" id="widget_title_' . $lang->slug . '" class="form-control" placeholder="' . __('Widget Title') . '" value="' . $widget_title . '"></div>';
+        $output .= '<div class="form-group"><input type="text" name="description_' . $lang->slug . '" id="description_' . $lang->slug . '" class="form-control" placeholder="' . __('Description') . '" value="' . $description . '"></div>';
         $output .= '</div>';
     }
     $output .= '</div>';
@@ -545,24 +557,25 @@ function newsletter_widget($type = 'new', $id = null){
  * newsletter widgets
  * it will be used for render content in frontend
  * */
-function render_newsletter_widget($id){
+function render_newsletter_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. get_user_lang()]) ? $widget_saved_values['widget_title_'. get_user_lang()] : '';
-    $description = !empty($widget_saved_values) && isset($widget_saved_values['description_'.get_user_lang()]) ? $widget_saved_values['description_'.get_user_lang()] : '';
+    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
+    $description = !empty($widget_saved_values) && isset($widget_saved_values['description_' . get_user_lang()]) ? $widget_saved_values['description_' . get_user_lang()] : '';
 
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget newsletter-widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
-    $output .= '<p>'.$description.'</p>';
+    $output .= '<p>' . $description . '</p>';
     $output .= '<div class="form-message-show"></div><div class="newsletter-form-wrap">';
 
-    $output .= '<form action="'.route('frontend.subscribe.newsletter').'" method="post" enctype="multipart/form-data">';
+    $output .= '<form action="' . route('frontend.subscribe.newsletter') . '" method="post" enctype="multipart/form-data">';
 
-    $output .= '<input type="hidden" name="_token" value="'.csrf_token().'">
+    $output .= '<input type="hidden" name="_token" value="' . csrf_token() . '">
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="'.__('your email').'" class="form-control">
+                        <input type="email" name="email" placeholder="' . __('your email') . '" class="form-control">
                     </div>
                     <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i></button>
                 </form>';
@@ -577,7 +590,8 @@ function render_newsletter_widget($id){
  * it will be used for drag & drop Widget Builder
  * **/
 
-function raw_html_widget($type = 'new', $id = null){
+function raw_html_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -587,7 +601,7 @@ function raw_html_widget($type = 'new', $id = null){
     $raw_html = !empty($widget_saved_values) && isset($widget_saved_values['raw_html']) ? $widget_saved_values['raw_html'] : '';
 
     $output .= '<div class="form-group">';
-    $output .= '<textarea name="raw_html" class="form-control custom_html_area" cols="30" rows="10">'.$raw_html.'</textarea>';
+    $output .= '<textarea name="raw_html" class="form-control custom_html_area" cols="30" rows="10">' . $raw_html . '</textarea>';
     $output .= '</div>';
     //end multi langual tab option
     $output .= '<button class="btn btn-info btn-xs widget_save_change_button">' . __('Save Changes') . '</button>';
@@ -601,13 +615,14 @@ function raw_html_widget($type = 'new', $id = null){
  * raw html  widgets
  * it will be used for render content in frontend
  * */
-function render_raw_html_widget($id){
+function render_raw_html_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
     $raw_html = !empty($widget_saved_values) && isset($widget_saved_values['raw_html']) ? $widget_saved_values['raw_html'] : '';
 
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget newsletter-widget">';
-    $output .= '<div class="custom-html-widget">'.$raw_html.'</div>';
+    $output .= '<div class="custom-html-widget">' . $raw_html . '</div>';
 
     $output .= '</div></div>';
 
@@ -615,13 +630,13 @@ function render_raw_html_widget($id){
 }
 
 
-
 /**
  * Image widget admin function
  * it will be used for drag & drop Widget Builder
  * **/
 
-function single_image_widget($type = 'new', $id = null){
+function single_image_widget($type = 'new', $id = null)
+{
     $output = '';
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_order = !empty($widget_data) ? $widget_data->widget_order : '';
@@ -651,18 +666,19 @@ function single_image_widget($type = 'new', $id = null){
  * image widgets
  * it will be used for render content in frontend
  * */
-function render_single_image_widget($id){
+function render_single_image_widget($id)
+{
     $widget_data = !empty($id) ? Widgets::find($id) : '';
     $widget_saved_values = !empty($widget_data) ? unserialize($widget_data->widget_content) : '';
-    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_'. get_user_lang()]) ? $widget_saved_values['widget_title_'. get_user_lang()] : '';
+    $widget_title = !empty($widget_saved_values) && isset($widget_saved_values['widget_title_' . get_user_lang()]) ? $widget_saved_values['widget_title_' . get_user_lang()] : '';
     $image_val = !empty($widget_saved_values) ? $widget_saved_values['single_image'] : '';
 
     $output = '<div class="col-lg-3 col-md-6"><div class="footer-widget widget">';
-    if (!empty($widget_title)){
-        $output .= '<h4 class="widget-title">'.$widget_title.'</h4>';
+    if (!empty($widget_title)) {
+        $output .= '<h4 class="widget-title">' . $widget_title . '</h4>';
     }
     $output .= '<div class="single-wrap">';
-    $output .= render_image_markup_by_attachment_id($image_val,'footer-logo');
+    $output .= render_image_markup_by_attachment_id($image_val, 'footer-logo');
     $output .= '</div></div></div>';
 
     return $output;

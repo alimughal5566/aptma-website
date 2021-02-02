@@ -1,8 +1,52 @@
+@use "partials/colorVariable" as colorVar;
 @use "partials/mixin" as mix;
 
 /*      FOOTER      */
 
 footer {
+
+  .footer-top {
+    background-image: linear-gradient(0deg, #107C35, #12843A, #002A00);
+
+    .counterup-area {
+      background-color: transparent;
+      position: relative;
+      top: -30px;
+
+      .counter-container {
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
+
+        .singler-counterup-item {
+
+          .icon {
+            margin-right: 15px;
+            @include mix.d-flex;
+            @include mix.align-items-center;
+          }
+
+          .content {
+
+            .count-wrap {
+              font-size: 45px;
+              line-height: 50px;
+              @include mix.d-flex;
+              @include mix.align-items-center;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .copyright-area {
+    background-color: colorVar.$primary1;
+  }
 
 }
 

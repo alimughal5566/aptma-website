@@ -43,8 +43,12 @@
                                 ];
                             @endphp
                             @foreach($widget_list as $name => $widget)
-                                <li class="ui-state-default widget-handler" widgetName="{{ucfirst(str_replace('_',' ',$name))}}" FrontendFunc="{{$widget[1]}}" AdminFunc="{{$widget[0]}}">
-                                    <h4 class="top-part"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{__('Widget: '.ucfirst(str_replace('_',' ',$name)))}}</h4>
+                                <li class="ui-state-default widget-handler"
+                                    widgetName="{{ucfirst(str_replace('_',' ',$name))}}" FrontendFunc="{{$widget[1]}}"
+                                    AdminFunc="{{$widget[0]}}">
+                                    <h4 class="top-part">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span> {{__('Widget: '.ucfirst(str_replace('_',' ',$name)))}}
+                                    </h4>
                                 </li>
                             @endforeach
                         </ul>
@@ -60,20 +64,25 @@
                     <div class="card-body widget-area-body hide">
                         <ul id="sortable" class="sortable available-form-field main-fields">
                             @if(count($all_widgets) > 0)
-                            @foreach($all_widgets as $data)
-                                @php $widget_data = unserialize($data->widget_content);@endphp
-                                <li class="ui-state-default widget-handler" widgetName="{{$data->widget_name}}" FrontendFunc="{{$widget_data['frontend_render_function']}}" AdminFunc="{{$widget_data['admin_render_function']}}">
-                                    <h4 class="top-part"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Widget: {{$data->widget_name}}</h4>
-                                    <span class="expand"><i class="ti-angle-down"></i></span>
-                                    <span class="remove-widget"><i class="ti-close"></i></span>
-                                    <div class="content-part">
-                                        {!! call_user_func_array($data->admin_render_function,['type' => 'update', 'id' => $data->id ]) !!}
-                                    </div>
-                                </li>
-                             @endforeach
+                                @foreach($all_widgets as $data)
+                                    @php $widget_data = unserialize($data->widget_content);@endphp
+                                    <li class="ui-state-default widget-handler" widgetName="{{$data->widget_name}}"
+                                        FrontendFunc="{{$widget_data['frontend_render_function']}}"
+                                        AdminFunc="{{$widget_data['admin_render_function']}}">
+                                        <h4 class="top-part"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Widget: {{$data->widget_name}}
+                                        </h4>
+                                        <span class="expand"><i class="ti-angle-down"></i></span>
+                                        <span class="remove-widget"><i class="ti-close"></i></span>
+                                        <div class="content-part">
+                                            {!! call_user_func_array($data->admin_render_function,['type' => 'update', 'id' => $data->id ]) !!}
+                                        </div>
+                                    </li>
+                                @endforeach
                             @else
                                 <li class="ui-state-default widget-handler">
-                                    <h4 class="top-part"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>{{__('Widget: Placeholder')}}</h4>
+                                    <h4 class="top-part">
+                                        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span> {{__('Widget: Placeholder')}}
+                                    </h4>
                                     <span class="remove-widget"><i class="ti-close"></i></span>
                                 </li>
                             @endif
@@ -97,10 +106,10 @@
                 $(".sortable").sortable({
                     axis: "y",
                     placeholder: "sortable-placeholder",
-                    receive : function(event,ui){
+                    receive: function (event, ui) {
                         resetOrder();
                     },
-                    stop: function( event, ui ){
+                    stop: function (event, ui) {
                         resetOrder();
                     }
                 }).disableSelection();
@@ -113,11 +122,11 @@
                         var markup = '<span class="expand"><i class="ti-angle-down"></i></span>\n <span class="remove-widget"><i class="ti-close"></i></span> \n <div class="content-part show">\n';
 
                         $.ajax({
-                           'url' : "{{route('admin.widgets.markup')}}",
-                            'type' : "POST",
-                            'data' : {
-                                '_token' : "{!! csrf_token() !!}",
-                                'func_name' : funcName
+                            'url': "{{route('admin.widgets.markup')}}",
+                            'type': "POST",
+                            'data': {
+                                '_token': "{!! csrf_token() !!}",
+                                'func_name': funcName
                             },
                             async: false,
                             success: function (data) {
@@ -125,7 +134,7 @@
                             }
                         });
 
-                         markup += '</div>'; //end content div
+                        markup += '</div>'; //end content div
 
                         li.item.clone()
                             .append(markup)
@@ -137,19 +146,19 @@
 
                 $('body').on('click', '.remove-widget', function (e) {
                     $(this).parent().remove();
-                    $( "#sortable_02" ).sortable( "refreshPositions" );
-                    var parent =  $(this).parent();
+                    $("#sortable_02").sortable("refreshPositions");
+                    var parent = $(this).parent();
                     var widgetType = parent.find('input[name="widget_type"]').val();
                     resetOrder();
 
-                    if(widgetType == 'update'){
+                    if (widgetType == 'update') {
                         var widget_id = parent.find('input[name="id"]').val();
                         $.ajax({
-                            'url' : "{{route('admin.widgets.delete')}}",
-                            'type' : "POST",
-                            'data' : {
-                                '_token' : "{!! csrf_token() !!}",
-                                'id' : widget_id
+                            'url': "{{route('admin.widgets.delete')}}",
+                            'type': "POST",
+                            'data': {
+                                '_token': "{!! csrf_token() !!}",
+                                'id': widget_id
                             },
                             success: function (data) {
                             }
@@ -159,9 +168,9 @@
                 $('body').on('click', '.expand', function (e) {
                     $(this).parent().find('.content-part').toggleClass('show');
                     var expand = $(this).children('i');
-                    if(expand.hasClass('ti-angle-down')){
+                    if (expand.hasClass('ti-angle-down')) {
                         expand.attr('class', 'ti-angle-up');
-                    }else{
+                    } else {
                         expand.attr('class', 'ti-angle-down');
                     }
                 });
@@ -169,8 +178,8 @@
                 $('body').on('click', '.widget_save_change_button', function (e) {
                     e.preventDefault();
                     var parent = $(this).parent().find('.widget_save_change_button');
-                    parent.text('Saving...').attr('disabled',true);
-                    var formClass =  $(this).parent();
+                    parent.text('Saving...').attr('disabled', true);
+                    var formClass = $(this).parent();
                     var formData = formClass.serializeArray();
                     var widgetType = $(this).parent().find('input[name="widget_type"]').val();
                     var formAction = $(this).parent().attr('action');
@@ -179,63 +188,63 @@
 
                     $.ajax({
                         type: "POST",
-                        url:  formAction,
-                        data: formClass.serializeArray() ,
-                       success:function (data) {
-                           udpateId = data.id;
-                           if(widgetType == 'new'){
-                               formContainer.attr('action',"{{route('admin.widgets.update')}}")
-                               formContainer.find('input[name="widget_type"]').val('update');
-                               formContainer.prepend('<input type="hidden" name="id" value="'+udpateId+'">');
-                           }
-                       }
+                        url: formAction,
+                        data: formClass.serializeArray(),
+                        success: function (data) {
+                            udpateId = data.id;
+                            if (widgetType == 'new') {
+                                formContainer.attr('action', "{{route('admin.widgets.update')}}")
+                                formContainer.find('input[name="widget_type"]').val('update');
+                                formContainer.prepend('<input type="hidden" name="id" value="' + udpateId + '">');
+                            }
+                        }
                     });
                     parent.text('saved..');
-                   setTimeout(function () {
-                       parent.text('Save Changes').attr('disabled',false);
-                   },1000);
+                    setTimeout(function () {
+                        parent.text('Save Changes').attr('disabled', false);
+                    }, 1000);
                 });
 
                 /**
-                * reset order function
-                * */
+                 * reset order function
+                 * */
                 function resetOrder() {
                     var allItems = $('#sortable li');
-                    $.each(allItems,function (index,value) {
-                        $(this).find('input[name="widget_order"]').val(index+1);
+                    $.each(allItems, function (index, value) {
+                        $(this).find('input[name="widget_order"]').val(index + 1);
                         var id = $(this).find('input[name="id"]').val();
-                        var widget_order = index+1;
-                        if(typeof id != 'undefined'){
-                            reset_db_order(id,widget_order);
+                        var widget_order = index + 1;
+                        if (typeof id != 'undefined') {
+                            reset_db_order(id, widget_order);
                         }
                     });
                 }
 
                 /**
-                * reorder funciton
-                * */
-                function reset_db_order(id,widget_order){
+                 * reorder funciton
+                 * */
+                function reset_db_order(id, widget_order) {
                     $.ajax({
                         type: "POST",
-                        url:  "{{route('admin.widgets.update.order')}}",
+                        url: "{{route('admin.widgets.update.order')}}",
                         data: {
                             _token: "{{csrf_token()}}",
-                            id : id,
+                            id: id,
                             widget_order: widget_order
                         },
-                        success:function (data) {
+                        success: function (data) {
                             //response ok if it saved success
                         }
                     });
                 }
             });
-            $(document).on('click','.widget-area-expand',function (e) {
+            $(document).on('click', '.widget-area-expand', function (e) {
                 e.preventDefault();
                 $(this).parent().parent().find('.widget-area-body').toggleClass('hide');
                 var expand = $(this).children('i');
-                if(expand.hasClass('ti-angle-down')){
+                if (expand.hasClass('ti-angle-down')) {
                     expand.attr('class', 'ti-angle-up');
-                }else{
+                } else {
                     expand.attr('class', 'ti-angle-down');
                 }
             });

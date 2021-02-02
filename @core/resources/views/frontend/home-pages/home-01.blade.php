@@ -170,27 +170,7 @@
     </div>
 </div>
 @endif
-@if(!empty(get_static_option('home_page_counterup_section_status')))
-<div class="counterup-area counterup-bg padding-top-115 padding-bottom-115">
-    <div class="container">
-        <div class="row">
-            @foreach($all_counterup as $data)
-            <div class="col-lg-3 col-md-6">
-                <div class="singler-counterup-item-01">
-                    <div class="icon">
-                        <i class="{{$data->icon}}" aria-hidden="true"></i>
-                    </div>
-                    <div class="content">
-                        <div class="count-wrap"><span class="count-num">{{$data->number}}</span>{{$data->extra_text}}</div>
-                        <h4 class="title">{{$data->title}}</h4>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endif
+
 @if(!empty(get_static_option('home_page_case_study_section_status')))
 <div class="case-studies-area">
     <div class="container-fluid p-0">

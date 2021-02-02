@@ -1,8 +1,30 @@
+@use "partials/colorVariable" as colorVar;
 @use "partials/mixin" as mix;
 
 /* HOME */
 
 /*      Banner section      */
+.header-slider-one.owl-carousel, .header-slider-one.owl-carousel .owl-stage-outer {
+  max-height: 600px;
+}
+
+.header-slider-one.owl-carousel .owl-stage-outer .owl-stage {
+  height: 100%;
+}
+
+.header-slider-one.owl-carousel .owl-stage-outer .owl-stage {
+  @include mix.d-flex;
+}
+
+.header-slider-one .header-area:before {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.25);
+}
 
 /*      /Banner section      */
 
@@ -29,4 +51,12 @@
 
 }
 
+.contact-info {
+  border-radius: 0.5rem;
+}
+
 /* /HOME */
+
+.grecaptcha {
+  display: none !important;
+}

@@ -25,6 +25,21 @@ $primary-lighter: rgba(105, 209, 97, 0.5);
 $primary-lightest: rgba(105, 209, 97, 0.25);
 $primary-grad: linear-gradient(to right, #69B661, #69E961);
 
+$primary1: rgb(0, 42, 0, 1);
+$primary1-light: rgba(0, 42, 0, 0.75);
+$primary1-lighter: rgba(0, 42, 0, 0.5);
+$primary1-lightest: rgba(0, 42, 0, 0.25);
+
+$primary2: rgb(16, 124, 53, 1);
+$primary2-light: rgba(16, 124, 53, 0.75);
+$primary2-lighter: rgba(16, 124, 53, 0.5);
+$primary2-lightest: rgba(16, 124, 53, 0.25);
+
+$primary3: rgb(18, 132, 58, 1);
+$primary3-light: rgba(18, 132, 58, 0.75);
+$primary3-lighter: rgba(18, 132, 58, 0.5);
+$primary3-lightest: rgba(18, 132, 58, 0.25);
+
 $secondary: rgba(223, 152, 51, 1);
 $secondary-light: rgba(223, 152, 51, 0.75);
 $secondary-lighter: rgba(223, 152, 51, 0.5);
@@ -34,6 +49,11 @@ $tertiary: rgba(43, 43, 43, 1);
 $tertiary-light: rgba(43, 43, 43, 0.75);
 $tertiary-lighter: rgba(43, 43, 43, 0.5);
 $tertiary-lightest: rgba(43, 43, 43, 0.25);
+
+$tertiary1: rgba(154, 154, 154, 1);
+$tertiary1-light: rgba(154, 154, 154, 0.75);
+$tertiary1-lighter: rgba(154, 154, 154, 0.5);
+$tertiary1-lightest: rgba(154, 154, 154, 0.25);
 
 $dark-blue: rgba(19, 15, 73, 1);
 $dark-blue-light: rgba(19, 15, 73, 0.75);
@@ -64,8 +84,12 @@ $color-range: ('white': $white, 'white-light': $white-light, 'white-lighter': $w
         'black': $black, 'black-light': $black-light, 'black-lighter': $black-lighter, 'black-lightest': $black-lightest,
         'gray': $gray, 'gray1': $gray1, 'gray2': $gray2, 'gray3': $gray3, 'gray4': $gray4, 'gray-light': $gray-light, 'gray-light-light': $gray-light-light, 'gray-light-lighter': $gray-light-lighter, 'gray-light-lightest': $gray-light-lightest,
         'primary': $primary, 'primary-light': $primary-light, 'primary-lighter': $primary-lighter, 'primary-lightest': $primary-lightest, 'primary-grad': $primary-grad,
+        'primary1': $primary1, 'primary1-light': $primary1-light, 'primary1-lighter': $primary1-lighter, 'primary1-lightest': $primary1-lightest,
+        'primary2': $primary2, 'primary2-light': $primary2-light, 'primary2-lighter': $primary2-lighter, 'primary2-lightest': $primary2-lightest,
+        'primary3': $primary3, 'primary3-light': $primary3-light, 'primary3-lighter': $primary3-lighter, 'primary3-lightest': $primary3-lightest,
         'secondary': $secondary, 'secondary-light': $secondary-light, 'secondary-lighter': $secondary-lighter, 'secondary-lightest': $secondary-lightest,
         'tertiary': $tertiary, 'tertiary-light': $tertiary-light, 'tertiary-lighter': $tertiary-lighter, 'tertiary-lightest': $tertiary-lightest,
+        'tertiary1': $tertiary1, 'tertiary1-light': $tertiary1-light, 'tertiary1-lighter': $tertiary1-lighter, 'tertiary1-lightest': $tertiary1-lightest,
         'dark-blue': $dark-blue, 'dark-blue-light': $dark-blue-light, 'dark-blue-lighter': $dark-blue-lighter, 'dark-blue-lightest': $dark-blue-lightest,
         'info':$info, 'info-light': $info-light, 'info-lighter': $info-lighter, 'info-lightest': $info-lightest,
         'success': $success, 'success-light':$success-light, 'success-lighter': $success-lighter, 'success-lightest':$success-lightest,
