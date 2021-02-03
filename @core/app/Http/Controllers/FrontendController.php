@@ -95,6 +95,12 @@ class FrontendController extends Controller
 
         $all_work_category = WorksCategory::find($all_contain_cat);
 
+        $all_contain_cat = [];
+        foreach ($all_gallery_images as $work) {
+            array_push($all_contain_cat, $work->cat_id);
+        }
+        $all_img_category = ImageGalleryCategory::find($all_contain_cat);
+
         return view('frontend.frontend-home')->with([
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,
@@ -108,6 +114,7 @@ class FrontendController extends Controller
             'all_team_members' => $all_team_members,
             'all_brand_logo' => $all_brand_logo,
             'all_work_category' => $all_work_category,
+            'all_img_category' => $all_img_category,
             'all_work' => $all_work,
             'all_service_category' => $all_service_category,
         ]);

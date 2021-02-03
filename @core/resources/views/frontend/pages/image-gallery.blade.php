@@ -23,7 +23,7 @@
                        </ul>
                        <div class="case-studies-masonry">
                            @foreach($all_gallery_images as $data)
-                               <div class="col-lg-4 col-md-6 masonry-item {{Str::slug(get_image_category_name_by_id($data->id))}}">
+                               <div class="col-lg-4 col-md-6 masonry-item {{Str::slug(get_image_category_name_by_id($data->cat_id))}}">
                                    <div class="single-gallery-image ">
                                        @php
                                            $gallery_img = get_attachment_image_by_id($data->image,'full',false);
