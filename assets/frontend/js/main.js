@@ -1,15 +1,15 @@
 ;
-(function($) {
+(function ($) {
     "use strict";
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         var rtlEnable = $('html').attr('dir');
-        var sliderRtlValue = typeof rtlEnable === 'undefined' ||  rtlEnable === 'ltr' ? false : true ;
-        if($(window).width() < 992) {
-            $(document).on('click', '.navbar-area .navbar-nav li.menu-item-has-mega-menu>a', function(e) {
+        var sliderRtlValue = typeof rtlEnable === 'undefined' || rtlEnable === 'ltr' ? false : true;
+        if ($(window).width() < 992) {
+            $(document).on('click', '.navbar-area .navbar-nav li.menu-item-has-mega-menu>a', function (e) {
                 e.preventDefault();
             });
-             $(document).on('click', '.navbar-area .navbar-nav li.menu-item-has-children>a', function(e) {
+            $(document).on('click', '.navbar-area .navbar-nav li.menu-item-has-children>a', function (e) {
                 e.preventDefault();
             });
         }
@@ -42,7 +42,7 @@
         /*------------------
            back to top
        ------------------*/
-        $(document).on('click', '.back-to-top', function() {
+        $(document).on('click', '.back-to-top', function () {
             $("html,body").animate({
                 scrollTop: 0
             }, 2000);
@@ -51,7 +51,7 @@
            counter section activation
        -------------------------------*/
         var counternumber = $('.count-num');
-        if (counternumber.length > 1){
+        if (counternumber.length > 1) {
             counternumber.rCounter();
         }
 
@@ -60,21 +60,21 @@
         ---------------------------------*/
         var $caseStudyThreeContainer = $('.case-studies-masonry');
         if ($caseStudyThreeContainer.length > 0) {
-            $('.case-studies-masonry').imagesLoaded(function() {
+            $('.case-studies-masonry').imagesLoaded(function () {
                 var caseMasonry = $caseStudyThreeContainer.isotope({
                     itemSelector: '.masonry-item', // use a separate class for itemSelector, other than .col-
                     masonry: {
                         gutter: 0
                     }
                 });
-                $(document).on('click', '.case-studies-menu li', function() {
+                $(document).on('click', '.case-studies-menu li', function () {
                     var filterValue = $(this).attr('data-filter');
                     caseMasonry.isotope({
                         filter: filterValue
                     });
                 });
             });
-            $(document).on('click', '.case-studies-menu li', function() {
+            $(document).on('click', '.case-studies-menu li', function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
             });
@@ -97,19 +97,19 @@
                 responsive: {
                     0: {
                         items: 1,
-                        nav:false
+                        nav: false
                     },
                     460: {
                         items: 2,
-                        nav:false
+                        nav: false
                     },
                     599: {
                         items: 2,
-                        nav:false
+                        nav: false
                     },
                     768: {
                         items: 2,
-                        nav:false
+                        nav: false
                     },
                     960: {
                         items: 3
@@ -136,24 +136,24 @@
                 margin: 30,
                 dots: false,
                 nav: true,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                 responsive: {
                     0: {
                         items: 1,
-                        nav:false
+                        nav: false
                     },
                     460: {
                         items: 1,
-                        nav:false
+                        nav: false
                     },
                     599: {
                         items: 2,
-                        nav:false
+                        nav: false
                     },
                     768: {
                         items: 2,
-                        nav:false
+                        nav: false
                     },
                     960: {
                         items: 3
@@ -181,7 +181,7 @@
                 margin: 30,
                 dots: false,
                 nav: true,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>'],
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
@@ -221,7 +221,7 @@
                 autoPlayTimeout: 1000,
                 margin: 30,
                 dots: true,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 nav: false,
                 navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>'],
                 animateOut: 'fadeOut',
@@ -263,7 +263,7 @@
                 margin: 30,
                 dots: true,
                 nav: false,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>'],
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
@@ -304,7 +304,7 @@
                 margin: 30,
                 dots: true,
                 nav: true,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
@@ -312,20 +312,20 @@
                     0: {
                         items: 1
                     },
-                    460: {
+                    360: {
                         items: 1
                     },
-                    599: {
-                        items: 1
+                    575: {
+                        items: 2
                     },
                     768: {
-                        items: 2
+                        items: 3
                     },
                     960: {
-                        items: 2
+                        items: 4
                     },
                     1200: {
-                        items: 2
+                        items: 4
                     },
                 }
             });
@@ -339,7 +339,7 @@
             nav: true,
             margin: 30,
             center: true,
-            rtl:sliderRtlValue,
+            rtl: sliderRtlValue,
             navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
             responsive: {
                 0: {
@@ -382,7 +382,7 @@
             nav: true,
             margin: 100,
             dots: false,
-            rtl:sliderRtlValue,
+            rtl: sliderRtlValue,
             navText: ['<span data-icon="&#x23;"></span>', '<span data-icon="&#x24;"></span>'],
             responsive: {
                 0: {
@@ -399,14 +399,14 @@
                 }
             }
         })
-        if($('.price-plan-slider').length > 0){
+        if ($('.price-plan-slider').length > 0) {
             // price plan - active
             $('.price-plan-slider').owlCarousel({
                 loop: true,
                 nav: true,
                 margin: 30,
                 dots: false,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                 responsive: {
                     0: {
@@ -437,7 +437,7 @@
                 autoPlayTimeout: 1000,
                 margin: 30,
                 dots: true,
-                rtl:sliderRtlValue,
+                rtl: sliderRtlValue,
                 nav: true,
                 navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
                 responsive: {
@@ -474,12 +474,12 @@
         var bodyOvrelay = $('#body-overlay');
         var searchPopup = $('#search-popup');
 
-        $(document).on('click', '#body-overlay,.search-popup-close-btn', function(e) {
+        $(document).on('click', '#body-overlay,.search-popup-close-btn', function (e) {
             e.preventDefault();
             bodyOvrelay.removeClass('active');
             searchPopup.removeClass('show');
         });
-        $(document).on('click', '#search', function(e) {
+        $(document).on('click', '#search', function (e) {
             e.preventDefault();
             searchPopup.addClass('show');
             bodyOvrelay.addClass('active');
@@ -487,7 +487,7 @@
 
     });
 
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
 
         //back to top show/hide
         var ScrollTop = $('.back-to-top');
@@ -500,7 +500,7 @@
     });
 
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
 
         /*-----------------
             preloader

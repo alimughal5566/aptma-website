@@ -170,7 +170,9 @@ function render_contact_info_widget($id)
                         <i class="fa fa-home"></i>
                     </div>
                     <div class="details">
-                        ' . $location . '
+                        <a href="javascript:void(0);">
+                        ' . $location . '                        
+                        </a>
                     </div>
                 </li>';
     }
@@ -180,7 +182,9 @@ function render_contact_info_widget($id)
                         <i class="fa fa-phone"></i>
                     </div>
                     <div class="details">
-                       ' . $phone . '
+                        <a href="tel:' . str_replace(' ', '', $phone) . '" target="_blank">
+                           ' . $phone . '
+                        </a>                    
                     </div>
                 </li>';
     }
@@ -190,7 +194,9 @@ function render_contact_info_widget($id)
                         <i class="fas fa-envelope-open"></i>
                     </div>
                     <div class="details">
-                       ' . $email . '
+                        <a href="mailto:' .  str_replace(' ', '', $email) . '" target="_blank">
+                           ' . $email . '
+                        </a>                                       
                     </div>
                 </li>';
     }

@@ -177,9 +177,9 @@
 
                       .xg_mega_menu_wrapper {
                         visibility: visible;
+                        position: relative;
                         height: auto;
                         opacity: 1;
-                        position: relative;
                         width: 100%;
                         top: 10px;
 
@@ -332,6 +332,7 @@
 
                     .sub-menu {
                       border-radius: 0.5rem;
+                      border-bottom: none;
 
                       li {
 
@@ -390,13 +391,45 @@
 
         }
 
+        &.nav-fixed {
+
+          .nav-container {
+
+            .navbar-collapse {
+
+              ul {
+
+                &.navbar-nav {
+
+                  li {
+
+                    &.menu-item-has-mega-menu {
+
+                      .xg_mega_menu_wrapper {
+                        top: 105px;
+                      }
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
       }
 
     }
 
   }
 
-  .footer-widget {
+  .footer-widget-wrap {
 
     .col-lg-3 {
       -ms-flex: 0 0 20%;

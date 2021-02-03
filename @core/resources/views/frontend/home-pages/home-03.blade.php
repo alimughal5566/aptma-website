@@ -1,99 +1,99 @@
 <div class="header-slider-one">
     @foreach($all_header_slider as $data)
-    <div class="header-area header-bg-02"
-    {!! render_background_image_markup_by_attachment_id($data->image) !!}
-    >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="header-inner padding-top-65">
-                        @if(!empty($data->subtitle))
-                            <p class="subtitle">{{$data->subtitle}}</p>
-                        @endif
-                        @if(!empty($data->title))
-                            <h1 class="title">{{$data->title}}</h1>
-                        @endif
-                        @if(!empty($data->description))
-                            <p class="description">{{$data->description}}</p>
-                        @endif
-                        @if(!empty($data->btn_01_status))
-                            <div class="btn-wrapper  desktop-left padding-top-30">
-                                <a href="{{$data->btn_01_url}}" class="boxed-btn">{{$data->btn_01_text}}</a>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="header-video">
-                        @if(!empty($data->video_btn_status))
-                        <div class="vdo-btn">
-                            <a class="video-play-btn mfp-iframe" href="{{$data->video_btn_url}}">
-                                <i class="fas fa-play"></i></a>
+        <div class="header-area header-bg-02"
+                {!! render_background_image_markup_by_attachment_id($data->image) !!}
+        >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="header-inner padding-top-65">
+                            @if(!empty($data->subtitle))
+                                <p class="subtitle">{{$data->subtitle}}</p>
+                            @endif
+                            @if(!empty($data->title))
+                                <h1 class="title">{{$data->title}}</h1>
+                            @endif
+                            @if(!empty($data->description))
+                                <p class="description">{{$data->description}}</p>
+                            @endif
+                            @if(!empty($data->btn_01_status))
+                                <div class="btn-wrapper  desktop-left padding-top-30">
+                                    <a href="{{$data->btn_01_url}}" class="boxed-btn">{{$data->btn_01_text}}</a>
+                                </div>
+                            @endif
                         </div>
-                        @endif
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="header-video">
+                            @if(!empty($data->video_btn_status))
+                                <div class="vdo-btn">
+                                    <a class="video-play-btn mfp-iframe" href="{{$data->video_btn_url}}">
+                                        <i class="fas fa-play"></i></a>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endforeach
 </div>
 @if(!empty(get_static_option('home_page_about_us_section_status')))
-<section class="top-experience-area padding-top-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="experience-author padding-bottom-100">
-                    <div class="thumb-1">
-                        {!! render_image_markup_by_attachment_id(get_static_option('home_page_03_about_us_image_one')) !!}
-                    </div>
-                    <div class="thumb-2">
-                        {!! render_image_markup_by_attachment_id(get_static_option('home_page_03_about_us_image_two')) !!}
+    <section class="top-experience-area padding-top-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="experience-author padding-bottom-100">
+                        <div class="thumb-1">
+                            {!! render_image_markup_by_attachment_id(get_static_option('home_page_03_about_us_image_one')) !!}
+                        </div>
+                        <div class="thumb-2">
+                            {!! render_image_markup_by_attachment_id(get_static_option('home_page_03_about_us_image_two')) !!}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-5 offset-lg-1 p-0">
-                <div class="experience-content-03">
-                    <div class="content">
-                        <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>
-                        <p>{!! get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_description') !!}</p>
-                        <div class="icon-area">
-                            <div class="icon">
-                                <i class="flaticon-right-quote-1"></i>
+                <div class="col-lg-5 offset-lg-1 p-0">
+                    <div class="experience-content-03">
+                        <div class="content">
+                            <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>
+                            <p>{!! get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_description') !!}</p>
+                            <div class="icon-area">
+                                <div class="icon">
+                                    <i class="flaticon-right-quote-1"></i>
+                                </div>
+                                <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_quote_text')}}</p>
                             </div>
-                            <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_quote_text')}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endif
 @if(!empty(get_static_option('home_page_key_feature_section_status')))
-<div class="header-bottom-area padding-bottom-80 padding-top-80">
-    <div class="container">
-        <div class="row no-gutters">
-            @foreach($all_key_features as $key => $data)
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-header-bottom-item-02 ">
-                        <div class="icon style-0{{$key+1}}">
-                            <i class="{{$data->icon}}"></i>
-                        </div>
-                        <div class="content">
-                            <h4 class="title">{{$data->title}}</h4>
+    <div class="header-bottom-area padding-bottom-80 padding-top-80">
+        <div class="container">
+            <div class="row no-gutters">
+                @foreach($all_key_features as $key => $data)
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-header-bottom-item-02 ">
+                            <div class="icon style-0{{$key+1}}">
+                                <i class="{{$data->icon}}"></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">{{$data->title}}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
 @endif
 
 @if(!empty(get_static_option('home_page_service_section_status')))
     <section class="what-we-cover bg-image padding-top-110 padding-bottom-60"
-             {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_service_area_background_image')) !!}
+            {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_service_area_background_image')) !!}
     >
         <div class="container">
             <div class="row justify-content-center">
@@ -105,8 +105,8 @@
                 </div>
             </div>
             @php $a = 1; @endphp
-                <div class="row">
-                    @if(get_static_option('home_page_01_service_area_item_type') == 'category')
+            <div class="row">
+                @if(get_static_option('home_page_01_service_area_item_type') == 'category')
                     @foreach($all_service_category as $data)
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-what-we-cover-item-03 margin-bottom-30">
@@ -128,49 +128,53 @@
                         </div>
                         @php  if($a == 4){ $a = 1;}else{$a++;}; @endphp
                     @endforeach
-                    @else
-                        @foreach($all_service as $data)
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-what-we-cover-item-03 margin-bottom-30">
-                                    @if($data->icon_type == 'icon' || $data->icon_type == '')
-                                        <div class="icon style-0{{$a }}">
-                                            <i class="{{$data->icon}}"></i>
-                                        </div>
-                                    @else
-                                        <div class="img-icon style-0{{$a}}">
-                                            {!! render_image_markup_by_attachment_id($data->img_icon) !!}
-                                        </div>
-                                    @endif
-                                    <div class="content">
-                                        <h4 class="title"><a href="{{route('frontend.services.single', $data->slug)}}">{{$data->title}}</a></h4>
-                                        <p>{{$data->excerpt}}</p>
+                @else
+                    @foreach($all_service as $data)
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-what-we-cover-item-03 margin-bottom-30">
+                                @if($data->icon_type == 'icon' || $data->icon_type == '')
+                                    <div class="icon style-0{{$a }}">
+                                        <i class="{{$data->icon}}"></i>
                                     </div>
+                                @else
+                                    <div class="img-icon style-0{{$a}}">
+                                        {!! render_image_markup_by_attachment_id($data->img_icon) !!}
+                                    </div>
+                                @endif
+                                <div class="content">
+                                    <h4 class="title"><a
+                                                href="{{route('frontend.services.single', $data->slug)}}">{{$data->title}}</a>
+                                    </h4>
+                                    <p>{{$data->excerpt}}</p>
                                 </div>
                             </div>
-                            @php  if($a == 4){ $a = 1;}else{$a++;}; @endphp
-                        @endforeach
-                    @endif
-                </div>
+                        </div>
+                        @php  if($a == 4){ $a = 1;}else{$a++;}; @endphp
+                    @endforeach
+                @endif
+            </div>
 
         </div>
     </section>
 @endif
 @if(!empty(get_static_option('home_page_call_to_action_section_status')))
-<div class="call-to-action bg-image padding-top-60 padding-bottom-60">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="call-to-action-inner">
-                    <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_title')}}</h2>
-                    <div class="btn-wrapper">
-                        <a href="{{get_static_option('home_page_01_cta_area_button_url')}}" class="boxed-btn">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_button_title')}}</a>
+    <div class="call-to-action bg-image padding-top-60 padding-bottom-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="call-to-action-inner">
+                        <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_title')}}</h2>
+                        <div class="btn-wrapper">
+                            <a href="{{get_static_option('home_page_01_cta_area_button_url')}}"
+                               class="boxed-btn">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_button_title')}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endif
+
 @if(!empty(get_static_option('home_page_case_study_section_status')))
     <div class="case-studies-area-03  padding-bottom-120">
         <div class="container">
@@ -199,7 +203,9 @@
                                             {!! render_image_markup_by_attachment_id($data->image) !!}
                                         </div>
                                         <div class="cart-icon">
-                                            <h4 class="title"><a href="{{route('frontend.work.single',$data->slug)}}"> {{$data->title}}</a></h4>
+                                            <h4 class="title"><a
+                                                        href="{{route('frontend.work.single',$data->slug)}}"> {{$data->title}}</a>
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
@@ -211,6 +217,7 @@
         </div>
     </div>
 @endif
+
 @if(!empty(get_static_option('home_page_testimonial_section_status')))
     <section class="testimonial-area bg-blue-deep padding-top-110 padding-bottom-120">
         <div class="icon-03">
@@ -222,22 +229,22 @@
                     <div class="testimonial-carousel-area margin-top-10">
                         <div class="testimonial-carousel">
                             @foreach($all_testimonial as $data)
-                            <div class="single-testimonial-item-03">
-                                <div class="content">
-                                    <p class="description"> {{$data->description}}</p>
-                                    <div class="author-details">
-                                        <div class="author-meta">
-                                            <h4 class="title">{{$data->name}}</h4>
-                                            <span class="designation">{{$data->designation}}</span>
+                                <div class="single-testimonial-item-03">
+                                    <div class="content">
+                                        <p class="description"> {{$data->description}}</p>
+                                        <div class="author-details">
+                                            <div class="author-meta">
+                                                <h4 class="title">{{$data->name}}</h4>
+                                                <span class="designation">{{$data->designation}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="author-img">
+                                        <div class="thumb">
+                                            {!! render_image_markup_by_attachment_id($data->image) !!}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="author-img">
-                                    <div class="thumb">
-                                        {!! render_image_markup_by_attachment_id($data->image) !!}
-                                    </div>
-                                </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -257,7 +264,8 @@
                                 <i class="{{$data->icon}}" aria-hidden="true"></i>
                             </div>
                             <div class="content">
-                                <div class="count-wrap"><span class="count-num">{{$data->number}}</span>{{$data->extra_text}}</div>
+                                <div class="count-wrap"><span
+                                            class="count-num">{{$data->number}}</span>{{$data->extra_text}}</div>
                                 <h4 class="title">{{$data->title}}</h4>
                             </div>
                         </div>
@@ -269,7 +277,7 @@
 @endif
 @if(!empty(get_static_option('home_page_price_plan_section_status')))
     <section class="pricing-plan-area bg-liteblue price-inner padding-bottom-120  padding-top-110"
-    {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_price_plan_background_image')) !!}
+            {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_price_plan_background_image')) !!}
     >
         <div class="container">
             <div class="row justify-content-center">
@@ -290,7 +298,8 @@
                                         <h4 class="name">{{$data->title}}</h4>
                                     </div>
                                     <div class="price-wrap">
-                                        <span class="price">{{amount_with_currency_symbol($data->price)}}</span><span class="month">{{$data->type}}</span>
+                                        <span class="price">{{amount_with_currency_symbol($data->price)}}</span><span
+                                                class="month">{{$data->type}}</span>
                                     </div>
                                 </div>
                                 <div class="price-body">
@@ -334,20 +343,22 @@
                         <div class="blog-grid-carousel">
                             @foreach($all_blog as $data )
                                 <div class="single-blog-grid-01"
-                                    {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}
+                                        {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}
                                 >
                                     <div class="content">
                                         <ul class="post-meta">
                                             <li>
                                                 <a href="{{route('frontend.blog.single', $data->slug)}}"><i
-                                                        class="far fa-clock"></i> {{date_format($data->created_at,'d M Y')}}
+                                                            class="far fa-clock"></i> {{date_format($data->created_at,'d M Y')}}
                                                 </a></li>
                                             <li>
-                                                <div class="cats"><i class="fas fa-tags"></i>{!! get_blog_category_by_id($data->blog_categories_id,'link') !!}</div>
+                                                <div class="cats"><i
+                                                            class="fas fa-tags"></i>{!! get_blog_category_by_id($data->blog_categories_id,'link') !!}
+                                                </div>
                                             </li>
                                         </ul>
                                         <h4 class="title"><a
-                                                href="{{route('frontend.blog.single',$data->slug)}}">{{$data->title}}</a>
+                                                    href="{{route('frontend.blog.single',$data->slug)}}">{{$data->title}}</a>
                                         </h4>
                                     </div>
                                 </div>

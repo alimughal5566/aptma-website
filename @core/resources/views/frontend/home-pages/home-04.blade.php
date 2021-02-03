@@ -33,6 +33,7 @@
         </div>
     @endforeach
 </div>
+
 @if(!empty(get_static_option('home_page_about_us_section_status')))
 <div class="our-mission-area">
     <div class="container-fulid p-0">
@@ -87,6 +88,7 @@
     </div>
 </div>
 @endif
+
 @if(!empty(get_static_option('home_page_quality_section_status')))
 <section class="top-experience-area padding-top-120 padding-bottom-120">
     <div class="container">
@@ -121,6 +123,7 @@
     </div>
 </section>
 @endif
+
 @if(!empty(get_static_option('home_page_service_section_status')))
     <section class="what-we-cover bg-image padding-top-110 padding-bottom-90"
         {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_service_area_background_image')) !!}
@@ -184,6 +187,7 @@
         </div>
     </section>
 @endif
+
 @if(!empty(get_static_option('home_page_case_study_section_status')))
     <div class="case-studies-area-03  padding-bottom-120">
         <div class="container">

@@ -77,6 +77,10 @@ class FrontendController extends Controller
         $all_key_features = KeyFeatures::where('lang', $lang)->get();
         $all_service = Services::where(['lang' => $lang, 'status' => 'publish'])->orderBy('sr_order', 'ASC')->take(get_static_option('home_page_01_service_area_items'))->get();
         $all_testimonial = Testimonial::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->get();
+
+        $all_events = Events::where(['status' => 'publish', 'lang' => $lang])->orderBy('id', 'desc')->paginate(get_static_option('site_events_post_items'));
+        $all_gallery_images = ImageGallery::where(['lang' => get_user_lang()])->orderBy('id', 'desc')->paginate(get_static_option('site_image_gallery_post_items'));
+
         $all_price_plan = PricePlan::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(get_static_option('home_page_01_price_plan_section_items'))->get();;
         $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'desc')->take(get_static_option('home_page_01_team_member_items'))->get();;
         $all_brand_logo = Brand::all();
@@ -84,13 +88,17 @@ class FrontendController extends Controller
         $all_blog = Blog::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(6)->get();
         $all_service_category = ServiceCategory::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();;
         $all_contain_cat = [];
+
         foreach ($all_work as $work) {
             array_push($all_contain_cat, $work->categories_id);
         }
+
         $all_work_category = WorksCategory::find($all_contain_cat);
 
         return view('frontend.frontend-home')->with([
             'all_header_slider' => $all_header_slider,
+            'all_events' => $all_events,
+            'all_gallery_images' => $all_gallery_images,
             'all_counterup' => $all_counterup,
             'all_key_features' => $all_key_features,
             'all_service' => $all_service,
@@ -313,8 +321,8 @@ class FrontendController extends Controller
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         $service_item = Services::where('slug', $slug)->first();
         $service_category = ServiceCategory::where(['status' => 'publish', 'lang' => $lang])->get();
-        $price_plan =  !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '' ;
-        return view('frontend.pages.service.service-single')->with(['service_item' => $service_item, 'service_category' => $service_category,'price_plan' => $price_plan]);
+        $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
+        return view('frontend.pages.service.service-single')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
     }
 
     public function category_wise_services_page($id, $any)
@@ -751,6 +759,7 @@ class FrontendController extends Controller
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
 
         $all_events = Events::where(['status' => 'publish', 'lang' => $lang])->orderBy('id', 'desc')->paginate(get_static_option('site_events_post_items'));
+
         $all_event_category = EventsCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         return view('frontend.pages.events.event')->with([
             'all_events' => $all_events,
@@ -1006,7 +1015,7 @@ class FrontendController extends Controller
         if (empty($order_details)) {
             return redirect_404_page();
         }
-        $pdf = PDF::loadView('invoice.package-order', ['order_details' => $order_details,'payment_details' => $payment_details]);
+        $pdf = PDF::loadView('invoice.package-order', ['order_details' => $order_details, 'payment_details' => $payment_details]);
         return $pdf->download('package-invoice.pdf');
     }
 
@@ -1039,7 +1048,7 @@ class FrontendController extends Controller
             array_push($all_contain_cat, $work->cat_id);
         }
         $all_category = ImageGalleryCategory::find($all_contain_cat);
-        return view('frontend.pages.image-gallery')->with(['all_gallery_images' => $all_gallery_images,'all_category' => $all_category]);
+        return view('frontend.pages.image-gallery')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category]);
     }
 
     public function donor_list()
@@ -1053,8 +1062,8 @@ class FrontendController extends Controller
         $this->validate($request, [
             'username' => 'required|string',
             'password' => 'required|min:6'
-        ],[
-            'username.required'   => __('username required'),
+        ], [
+            'username.required' => __('username required'),
             'password.required' => __('password required'),
             'password.min' => __('password length must be 6 characters')
         ]);
@@ -1072,22 +1081,25 @@ class FrontendController extends Controller
             'status' => 'invalid'
         ]);
     }
-    public function job_payment_cancel($id){
+
+    public function job_payment_cancel($id)
+    {
         $applicant_details = JobApplicant::find($id);
         $job_details = Jobs::find($applicant_details->jobs_id);
-        if (empty($applicant_details)){
+        if (empty($applicant_details)) {
             return redirect_404_page();
         }
-        return view('frontend.pages.jobs.job-cancel')->with(['applicant_details' => $applicant_details,'job_details' => $job_details]);
+        return view('frontend.pages.jobs.job-cancel')->with(['applicant_details' => $applicant_details, 'job_details' => $job_details]);
     }
 
-    public function job_payment_success($id){
+    public function job_payment_success($id)
+    {
         $applicant_details = JobApplicant::find($id);
         $job_details = Jobs::find($applicant_details->jobs_id);
-        if (empty($applicant_details)){
+        if (empty($applicant_details)) {
             return redirect_404_page();
         }
-        return view('frontend.pages.jobs.job-success')->with(['applicant_details' => $applicant_details,'job_details' => $job_details]);
+        return view('frontend.pages.jobs.job-success')->with(['applicant_details' => $applicant_details, 'job_details' => $job_details]);
     }
 
 }//end class

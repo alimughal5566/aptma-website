@@ -1,39 +1,6 @@
 @use "partials/colorVariable" as colorVar;
 @use "partials/mixin" as mix;
 
-/* HOME */
-
-/*      Banner section      */
-.header-slider-one.owl-carousel, .header-slider-one.owl-carousel .owl-stage-outer {
-  max-height: 600px;
-}
-
-.header-slider-one.owl-carousel .owl-stage-outer .owl-stage {
-  height: 100%;
-}
-
-.header-slider-one.owl-carousel .owl-stage-outer .owl-stage {
-  @include mix.d-flex;
-}
-
-.header-slider-one .header-area:before {
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-/*      /Banner section      */
-
-.adds-wrapper {
-  @include mix.d-flex;
-  @include mix.flex-wrap;
-  @include mix.justify-content-between;
-}
-
 .select2-container {
 
   &.select2-container--open {
@@ -51,8 +18,114 @@
 
 }
 
+/* HOME */
+
+/*      Banner section      */
+.header-slider-one.owl-carousel, .header-slider-one.owl-carousel .owl-stage-outer {
+  max-height: 650px;
+}
+
+//.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item,
+.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage,
+.header-slider-one.owl-carousel .owl-stage-outer .owl-stage {
+  height: 100%;
+}
+
+.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item,
+.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage,
+.header-slider-one.owl-carousel .owl-stage-outer .owl-stage, .service-item-wrapper {
+  @include mix.d-flex;
+}
+
+.service-item-wrapper {
+  @include mix.justify-content-center;
+}
+
+.service-item-wrapper {
+  @include mix.flex-column;
+}
+
+.header-slider-one .header-area:before {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/*      /Banner section      */
+
+.call-to-action.bg-image {
+  background-image: linear-gradient(240deg, colorVar.$primary1, colorVar.$primary2, colorVar.$primary3);
+}
+
+.single-events-list-item .thumb {
+  overflow: hidden;
+}
+
+.single-events-list-item .thumb {
+  border-radius: 0.25rem;
+}
+
+.single-case-studies-item {
+
+  &::before, &::after {
+    background-color: colorVar.$primary2-lighter;
+  }
+
+}
+
+.case-studies-masonry {
+
+  .masonry-item {
+    padding: 0;
+  }
+
+}
+
+.blog-area {
+
+  .single-blog-grid-01 {
+
+    .content {
+      padding: 80px 20px;
+      height: 100%;
+
+      .post-meta {
+
+        li {
+          margin-left: 0;
+        }
+
+      }
+
+      .title {
+        font-size: 22px;
+        line-height: 30px;
+      }
+
+    }
+
+  }
+
+}
+
 .contact-info {
   border-radius: 0.5rem;
+}
+
+.single-contact-item {
+  padding: 20px;
+  height: 100%;
+  @include mix.align-items-center;
+
+  .icon {
+    @include mix.d-flex;
+    @include mix.flex-column;
+  }
+
 }
 
 /* /HOME */

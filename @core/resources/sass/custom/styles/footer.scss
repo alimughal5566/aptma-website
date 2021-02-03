@@ -42,6 +42,38 @@ footer {
 
     }
 
+    .footer-widget {
+
+      ul {
+
+        li {
+
+          a, .icon {
+
+            &, i {
+              color: #fff;
+            }
+
+            &:hover, &:focus, &:active {
+
+              &, i {
+                color: colorVar.$tertiary;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      .details, p  {
+        color: #fff;
+      }
+
+    }
+
   }
 
   .copyright-area {

@@ -47,8 +47,7 @@
                         class="main_dropdown {{active_menu('admin-home/frontend/new-user')}}
                         {{active_menu('admin-home/frontend/all-user')}}
                         {{active_menu('admin-home/frontend/all-user/role')}}
-                            "
-                    >
+                            ">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i>
                             <span>{{__('Users Manage')}}</span></a>
                         <ul class="collapse">
@@ -464,7 +463,8 @@
                             <li class="{{active_menu('admin-home/home-page-01/case-study-area')}}"><a
                                         href="{{route('admin.homeone.case.study.area')}}">{{__('Case Study Area')}}</a>
                             </li>
-                            @if(get_static_option('home_page_variant') == '03')
+{{--                            @if(get_static_option('home_page_variant') == '03')--}}
+                            @if(get_static_option('home_page_variant') == '01' || get_static_option('home_page_variant') == '03')
                             <li class="{{active_menu('admin-home/home-page-01/cta-area')}}"><a
                                     href="{{route('admin.homeone.cta.area')}}">{{__('Call To Action Area')}}</a>
                             </li>
