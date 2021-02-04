@@ -52,6 +52,129 @@
     </div>
 @endif
 
+{{--@if(!empty(get_static_option('home_page_about_us_section_status')))--}}
+{{--    <section class="top-experience-area bg-blue">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12">--}}
+{{--                    <div class="experience-content">--}}
+{{--                        <div class="content">--}}
+{{--                            <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-lg-09 offset-lg-3">--}}
+{{--                            <div class="experience-right">--}}
+{{--                                <div class="experience-img">--}}
+{{--                                    {!! render_image_markup_by_attachment_id(get_static_option('home_page_01_about_us_video_background_image')) !!}--}}
+{{--                                </div>--}}
+{{--                                <div class="vdo-btn">--}}
+{{--                                    <a class="video-play-btn mfp-iframe"--}}
+{{--                                       href="{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_video_url')}}"><i--}}
+{{--                                                class="fas fa-play"></i></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+{{--@endif--}}
+
+<div class="container event-container bg-white padding-top-40 padding-bottom-50">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title desktop-center padding-top-40 padding-bottom-40">
+                <h3 class="title">{{'Latest Events'}}</h3>
+                <p class="desc">{{''}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach($all_events as $data)
+            <div class="col-lg-4 col-md-3 col-12 mb-3">
+                <div class="single-events-list-item flex-column position-relative">
+                    <div class="thumb mr-0">
+                        <div class="thumb-wrap">
+                            {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
+                        </div>
+                    </div>
+                    <div class="content-area">
+                        <div class="top-part mb-0 flex-column">
+                            <div class="detail-wrap w-100">
+                                <div class="date-time-wrap d-flex justify-content-center align-items-center">
+                                    <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
+                                    <span class="time-span">{{$data->time}}</span>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span class="location d-flex align-items-center">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span class="ml-1">{{$data->venue_location}}</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="title-wrap">
+                                <a href="{{route('frontend.events.single',$data->slug)}}">
+                                    <h4 class="title mb-0">{{$data->title}}</h4>
+                                </a>
+                            </div>
+                        </div>
+
+                        {{--                        <p>{{strip_tags(Str::words(str_replace('&nbsp;',' ',$data->content),20))}}</p>--}}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+@if(!empty(get_static_option('home_page_latest_news_section_status')))
+    <section class="blog-area background-gray-light-lightest padding-top-70 padding-bottom-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title desktop-center margin-bottom-55">
+                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>
+                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="blog-grid-carosel-wrapper">
+                        <div class="blog-grid-carousel">
+                            @foreach($all_blog as $data )
+                                <div class="single-blog-grid-01">
+                                    <div class="blog-image w-100 h-100" {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}>
+
+                                    </div>
+                                    <div class="content">
+                                        <ul class="post-meta mb-2 d-flex flex-column">
+                                            <li>
+                                                <a href="{{route('frontend.blog.single', $data->slug)}}">
+                                                    <i class="far fa-clock"></i> {{date_format($data->created_at,'d M Y')}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="cats">
+                                                    <i class="fas fa-tags"></i> {!! get_blog_category_by_id($data->blog_categories_id,'link') !!}
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <h4 class="title mb-0">
+                                            <a href="{{route('frontend.blog.single',$data->slug)}}">{{$data->title}}</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endif
+
 @if(!empty(get_static_option('home_page_about_us_section_status')))
     <div class="our-mission-area">
         <div class="container-fulid p-0">
@@ -105,125 +228,6 @@
             </div>
         </div>
     </div>
-@endif
-
-{{--@if(!empty(get_static_option('home_page_about_us_section_status')))--}}
-{{--    <section class="top-experience-area bg-blue">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12">--}}
-{{--                    <div class="experience-content">--}}
-{{--                        <div class="content">--}}
-{{--                            <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-lg-09 offset-lg-3">--}}
-{{--                            <div class="experience-right">--}}
-{{--                                <div class="experience-img">--}}
-{{--                                    {!! render_image_markup_by_attachment_id(get_static_option('home_page_01_about_us_video_background_image')) !!}--}}
-{{--                                </div>--}}
-{{--                                <div class="vdo-btn">--}}
-{{--                                    <a class="video-play-btn mfp-iframe"--}}
-{{--                                       href="{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_video_url')}}"><i--}}
-{{--                                                class="fas fa-play"></i></a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-{{--@endif--}}
-
-<div class="container event-container bg-white padding-top-50 padding-bottom-50">
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="section-title desktop-center padding-top-50 padding-bottom-50">
-                <h3 class="title">{{'Latest Events'}}</h3>
-                <p class="desc">{{''}}</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        @foreach($all_events as $data)
-            <div class="col-lg-4 col-md-3 col-12 mb-3">
-                <div class="single-events-list-item d-flex flex-column">
-                    <div class="thumb mr-0 mb-2">
-                        {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
-                    </div>
-                    <div class="content-area">
-                        <div class="top-part">
-                            <div class="title-wrap">
-                                <a href="{{route('frontend.events.single',$data->slug)}}">
-                                    <h4 class="title">{{$data->title}}</h4>
-                                </a>
-                                <div class="d-flex">
-                                    <div class="time-wrap d-flex flex-column justify-content-center pt-0 mr-2">
-                                        <span class="date">{{date('d',strtotime($data->date))}}</span>
-                                        <span class="month">{{date('M',strtotime($data->date))}}</span>
-                                    </div>
-                                    <span class="location d-flex align-items-center">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span class="ml-1">{{$data->venue_location}}</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <p>{{strip_tags(Str::words(str_replace('&nbsp;',' ',$data->content),20))}}</p>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
-
-</div>
-
-@if(!empty(get_static_option('home_page_latest_news_section_status')))
-    <section class="blog-area background-gray-light-lightest padding-top-70 padding-bottom-80">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title desktop-center margin-bottom-55">
-                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>
-                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="blog-grid-carosel-wrapper">
-                        <div class="blog-grid-carousel">
-                            @foreach($all_blog as $data )
-                                <div class="single-blog-grid-01"
-                                        {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}
-                                >
-                                    <div class="content">
-                                        <ul class="post-meta mb-2 d-flex flex-column">
-                                            <li>
-                                                <a href="{{route('frontend.blog.single', $data->slug)}}">
-                                                    <i class="far fa-clock"></i> {{date_format($data->created_at,'d M Y')}}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <div class="cats">
-                                                    <i class="fas fa-tags"></i> {!! get_blog_category_by_id($data->blog_categories_id,'link') !!}
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <h4 class="title mb-0">
-                                            <a href="{{route('frontend.blog.single',$data->slug)}}">{{$data->title}}</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 @endif
 
 <div class="contact-section gallery-section padding-top-50 padding-bottom-100">

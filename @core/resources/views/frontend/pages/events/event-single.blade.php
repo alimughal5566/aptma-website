@@ -5,10 +5,10 @@
     $post_img = !empty($blog_image) ? $blog_image['img_url'] : '';
 @endphp
 @section('og-meta')
-    <meta property="og:url"  content="{{route('frontend.events.single',$event->slug)}}" />
-    <meta property="og:type"  content="article" />
-    <meta property="og:title"  content="{{$event->title}}" />
-    <meta property="og:image" content="{{$post_img}}" />
+    <meta property="og:url" content="{{route('frontend.events.single',$event->slug)}}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{$event->title}}"/>
+    <meta property="og:image" content="{{$post_img}}"/>
 @endsection
 @section('site-title')
     {{$event->title}}
@@ -38,28 +38,28 @@
                                 <div class="bottom-content">
                                     <div class="venue-details">
                                         @if(!empty($event->venue))
-                                        <div class="venue-details-block">
-                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_venue_name_title')}}</h4>
-                                            <span class="details">{{$event->venue}}</span>
-                                        </div>
+                                            <div class="venue-details-block">
+                                                <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_venue_name_title')}}</h4>
+                                                <span class="details">{{$event->venue}}</span>
+                                            </div>
                                         @endif
                                         @if(!empty($event->venue_location))
-                                        <div class="venue-details-block">
-                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_venue_location_title')}}</h4>
-                                            <span class="details">{{$event->venue_location}}</span>
-                                        </div>
+                                            <div class="venue-details-block">
+                                                <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_venue_location_title')}}</h4>
+                                                <span class="details">{{$event->venue_location}}</span>
+                                            </div>
                                         @endif
                                         @if(!empty($event->venue_phone))
-                                        <div class="venue-details-block">
-                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_venue_phone_title')}}</h4>
-                                            <span class="details">{{$event->venue_phone}}</span>
-                                        </div>
+                                            <div class="venue-details-block">
+                                                <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_venue_phone_title')}}</h4>
+                                                <span class="details">{{$event->venue_phone}}</span>
+                                            </div>
                                         @endif
                                     </div>
                                     @if(!empty($event->venue_location))
-                                    <div class="map-location">
-                                        {!! render_embed_google_map($event->venue_location) !!}
-                                    </div>
+                                        <div class="map-location">
+                                            {!! render_embed_google_map($event->venue_location) !!}
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -67,7 +67,8 @@
                                 <p class="alert alert-danger  margin-top-30">{{get_static_option('event_single_'.$user_select_lang_slug.'_event_expire_text')}}</p>
                             @else
                                 <div class="reserve-event-seat margin-top-30">
-                                    <a href="{{route('frontend.event.booking',$event->id)}}" class="btn-boxed style-01">{{get_static_option('event_single_'.$user_select_lang_slug.'_reserve_button_title')}}</a>
+                                    <a href="{{route('frontend.event.booking',$event->id)}}"
+                                       class="btn-boxed style-01">{{get_static_option('event_single_'.$user_select_lang_slug.'_reserve_button_title')}}</a>
                                     <p class="info-text padding-top-10">{{get_static_option('event_single_'.$user_select_lang_slug.'_available_ticket_text').' '.$event->available_tickets}}</p>
                                 </div>
                             @endif
@@ -118,40 +119,40 @@
                             <h4 class="widget-title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_title')}}</h4>
                             <ul class="icon-with-title-description">
                                 @if(!empty($event->organizer))
-                                <li>
-                                    <div class="icon"><i class="fas fa-store"></i></div>
-                                    <div class="content">
-                                        <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_name_title')}}</h4>
-                                        <span class="details">{{$event->organizer}}</span>
-                                    </div>
-                                </li>
+                                    <li>
+                                        <div class="icon"><i class="fas fa-store"></i></div>
+                                        <div class="content">
+                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_name_title')}}</h4>
+                                            <span class="details">{{$event->organizer}}</span>
+                                        </div>
+                                    </li>
                                 @endif
-                                 @if(!empty($event->organizer_email))
-                                <li>
-                                    <div class="icon"><i class="fas fa-envelope"></i></div>
-                                    <div class="content">
-                                        <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_email_title')}}</h4>
-                                        <span class="details">{{$event->organizer_email}}</span>
-                                    </div>
-                                </li>
+                                @if(!empty($event->organizer_email))
+                                    <li>
+                                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                                        <div class="content">
+                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_email_title')}}</h4>
+                                            <span class="details">{{$event->organizer_email}}</span>
+                                        </div>
+                                    </li>
                                 @endif
                                 @if(!empty($event->organizer_phone))
-                                <li>
-                                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                                    <div class="content">
-                                        <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_phone_title')}}</h4>
-                                        <span class="details">{{$event->organizer_phone}}</span>
-                                    </div>
-                                </li>
+                                    <li>
+                                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                                        <div class="content">
+                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_phone_title')}}</h4>
+                                            <span class="details">{{$event->organizer_phone}}</span>
+                                        </div>
+                                    </li>
                                 @endif
                                 @if(!empty($event->organizer_website))
-                                <li>
-                                    <div class="icon"><i class="fas fa-globe"></i></div>
-                                    <div class="content">
-                                        <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_website_title')}}</h4>
-                                        <span class="details">{{$event->organizer_website}}</span>
-                                    </div>
-                                </li>
+                                    <li>
+                                        <div class="icon"><i class="fas fa-globe"></i></div>
+                                        <div class="content">
+                                            <h4 class="title">{{get_static_option('event_single_'.$user_select_lang_slug.'_organizer_website_title')}}</h4>
+                                            <span class="details">{{$event->organizer_website}}</span>
+                                        </div>
+                                    </li>
                                 @endif
                             </ul>
                         </div>
@@ -159,7 +160,9 @@
                             <h2 class="widget-title">{{get_static_option('site_events_category_'.$user_select_lang_slug.'_title')}}</h2>
                             <ul>
                                 @foreach($all_event_category as $data)
-                                    <li><a href="{{route('frontend.events.category',['id' => $data->id,'any'=> Str::slug($data->title,'-')])}}">{{ucfirst($data->title)}}</a></li>
+                                    <li>
+                                        <a href="{{route('frontend.events.category',['id' => $data->id,'any'=> Str::slug($data->title,'-')])}}">{{ucfirst($data->title)}}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>

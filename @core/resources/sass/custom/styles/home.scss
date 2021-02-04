@@ -41,6 +41,7 @@
 .single-gallery-image img, .case-studies-masonry .masonry-item,
 .blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage,
 .blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item,
+.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item .single-blog-grid-01,
 .header-slider-one.owl-carousel .owl-stage-outer .owl-stage, .service-item-wrapper {
   @include mix.d-flex;
 }
@@ -49,7 +50,7 @@
   @include mix.justify-content-center;
 }
 
-.service-item-wrapper {
+.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item .single-blog-grid-01, .service-item-wrapper {
   @include mix.flex-column;
 }
 
@@ -68,6 +69,11 @@
   min-height: 230px;
 }
 
+.blog-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item .single-blog-grid-01 .blog-image {
+  min-height: 300px;
+  max-height: 300px;
+}
+
 .header-slider-one.owl-carousel .owl-stage-outer .owl-stage .owl-item {
   margin-right: 0 !important;
 }
@@ -78,12 +84,65 @@
   background-image: linear-gradient(240deg, colorVar.$primary1, colorVar.$primary2, colorVar.$primary3);
 }
 
-.single-events-list-item .thumb {
-  overflow: hidden;
-}
+.single-events-list-item {
 
-.single-events-list-item .thumb {
-  border-radius: 0.25rem;
+  .thumb {
+    overflow: hidden;
+    border-radius: 0.25rem;
+  }
+
+  &:before {
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  &:hover, &:focus, &:active {
+
+    &:before {
+      transition: all 0.5s ease-in-out 0s;
+      background: rgba(0, 0, 0, 0.75);
+      display: block;
+    }
+
+    .content-area {
+
+      .title {
+      }
+
+    }
+
+  }
+
+  .content-area {
+    position: absolute;
+    padding: 0 0.5rem;
+    margin: 0 0.5rem;
+    bottom: 0.75rem;
+
+    .detail-wrap {
+      display: none;
+
+      .date-time-wrap, .location {
+
+        span {
+          color: #fff;
+        }
+
+      }
+
+    }
+
+    .title {
+      color: #fff;
+    }
+
+  }
+
 }
 
 .single-case-studies-item {
@@ -105,22 +164,53 @@
 .blog-area {
 
   .single-blog-grid-01 {
-
+    border-radius: 0.25rem;
+    overflow: hidden;
+    
     .content {
-      padding: 80px 20px;
+      padding: 1rem;
       height: 100%;
 
       .post-meta {
 
         li {
           margin-left: 0;
+
+          a {
+            color: colorVar.$primary2;
+
+            &:hover, &:focus, &:active {
+              color: colorVar.$tertiary;
+            }
+
+          }
+
+          i {
+            color: colorVar.$primary1;
+          }
+
         }
 
       }
 
       .title {
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 20px;
+        line-height: 25px;
+
+        a {
+          color: colorVar.$tertiary;
+
+          &:hover, &:focus, &:active {
+            color: colorVar.$primary2;
+          }
+
+        }
+
+      }
+
+      &::after {
+        background-image: unset;
+        background-color: rgba(0, 0, 0, 0.25);
       }
 
     }
