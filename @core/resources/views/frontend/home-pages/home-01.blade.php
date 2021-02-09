@@ -90,7 +90,7 @@
         </div>
     </div>
     <div class="row">
-        @foreach($all_events as $data)
+        @foreach($all_events->take(3) as $data)
             <div class="col-lg-4 col-md-3 col-12 mb-3">
                 <div class="single-events-list-item flex-column position-relative">
                     <div class="thumb mr-0">
