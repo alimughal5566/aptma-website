@@ -80,62 +80,67 @@
 {{--    </section>--}}
 {{--@endif--}}
 
-<div class="container event-container bg-white padding-top-40 padding-bottom-50">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="section-title desktop-center padding-top-40 padding-bottom-40">
-                <h3 class="title">{{'Latest Events'}}</h3>
-                <p class="desc">{{''}}</p>
+<section class="event-area background-gray-light-lightest padding-top-50 ">
+    <div class="container event-container bg-white rounded padding-bottom-50">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                    <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
+                    {{--                    <p class="desc">{{''}}</p>--}}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        @foreach($all_events->take(3) as $data)
-            <div class="col-lg-4 col-md-3 col-12 mb-3">
-                <div class="single-events-list-item flex-column position-relative">
-                    <div class="thumb mr-0">
-                        <div class="thumb-wrap">
-                            {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
-                        </div>
-                    </div>
-                    <div class="content-area">
-                        <div class="top-part mb-0 flex-column">
-                            <div class="detail-wrap w-100">
-                                <div class="date-time-wrap d-flex justify-content-center align-items-center">
-                                    <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
-                                    <span class="time-span">{{$data->time}}</span>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="events-grid-carosel-wrapper">
+                    <div class="events-grid-carousel">
+                        @foreach($all_events as $data)
+                            <div class="single-events-list-item rounded flex-column position-relative">
+                                <div class="thumb mr-0">
+                                    <div class="thumb-wrap">
+                                        {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="location d-flex align-items-center">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span class="ml-1">{{$data->venue_location}}</span>
-                                    </span>
+                                <div class="content-area">
+                                    <div class="top-part mb-0 py-2 flex-column">
+                                        <div class="detail-wrap w-100">
+                                            <div class="date-time-wrap d-flex flex-column justify-content-center ">
+                                                <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
+                                                <span class="time-span">{{$data->time}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="title-wrap d-flex py-1">
+                                            <a href="{{route('frontend.events.single',$data->slug)}}">
+                                                <h4 class="title mb-0">{{$data->title}}</h4>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <span class="location d-flex align-items-center">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span class="ml-2">{{$data->venue_location}}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    {{--                        <p>{{strip_tags(Str::words(str_replace('&nbsp;',' ',$data->content),20))}}</p>--}}
                                 </div>
                             </div>
-
-                            <div class="title-wrap">
-                                <a href="{{route('frontend.events.single',$data->slug)}}">
-                                    <h4 class="title mb-0">{{$data->title}}</h4>
-                                </a>
-                            </div>
-                        </div>
-
-                        {{--                        <p>{{strip_tags(Str::words(str_replace('&nbsp;',' ',$data->content),20))}}</p>--}}
+                        @endforeach
                     </div>
                 </div>
             </div>
-        @endforeach
+        </div>
     </div>
-</div>
+</section>
 
 @if(!empty(get_static_option('home_page_latest_news_section_status')))
-    <section class="blog-area background-gray-light-lightest padding-top-70 padding-bottom-80">
-        <div class="container">
+    <section class="blog-area background-gray-light-lightest padding-top-50">
+        <div class="container bg-white rounded padding-top-30 padding-bottom-30">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title desktop-center margin-bottom-55">
-                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>
-                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>
+                <div class="col-lg-12">
+                    <div class="section-title desktop-center padding-bottom-20">
+                        <h2 class="font-weight-bold">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h2>
+                        {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
+                        {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
                     </div>
                 </div>
             </div>
@@ -146,7 +151,6 @@
                             @foreach($all_blog as $data )
                                 <div class="single-blog-grid-01">
                                     <div class="blog-image w-100 h-100" {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}>
-
                                     </div>
                                     <div class="content">
                                         <ul class="post-meta mb-2 d-flex flex-column">
@@ -229,54 +233,6 @@
         </div>
     </div>
 @endif
-
-<div class="contact-section gallery-section padding-top-50 padding-bottom-100">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                    <h3 class="title">{{'Image Gallery'}}</h3>
-                    <p class="desc">{{''}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="case-studies-masonry-wrapper">
-                    <ul class="case-studies-menu style-01">
-                        <li class="active" data-filter="*">{{__('All')}}</li>
-                        @foreach($all_img_category as $data)
-                            <li data-filter=".{{Str::slug($data->title)}}">{{$data->title}}</li>
-                        @endforeach
-                    </ul>
-                    <div class="case-studies-masonry">
-                        @foreach($all_gallery_images as $data)
-                            <div class="col-lg-4 col-md-6 masonry-item {{Str::slug(get_image_category_name_by_id($data->cat_id))}}">
-                                <div class="single-gallery-image ">
-                                    @php
-                                        $gallery_img = get_attachment_image_by_id($data->image,'full',false);
-                                        $img_url = !empty($gallery_img) ? $gallery_img['img_url'] : '';
-                                    @endphp
-                                    {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
-                                    <div class="img-hover">
-                                        <a href="{{$img_url}}" title="{{$data->title}}" class="image-popup">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="blog-pagination">
-                    {!! $all_gallery_images->links() !!}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @if(!empty(get_static_option('home_page_service_section_status')))
     <section class="what-we-cover bg-image padding-top-110 padding-bottom-90"
@@ -721,5 +677,71 @@
         </div>
     </div>
 @endif
+
+<section class="social-feeds background-gray-light-lightest padding-top-50  padding-bottom-80">
+    <div class="container bg-white rounded padding-bottom-40">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title desktop-center padding-top-30 padding-bottom-20">
+                    <h2 class="font-weight-bold">{{'Social Feeds'}}</h2>
+                    {{--                    <p class="desc">{{''}}</p>--}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center bg">
+                    <div class="d-flex flex-column">
+                        <span class="social-feed-item d-flex justify-content-center mb-3">
+                            {{--
+                            @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")
+                            {{$data->url}}
+                            {$data->icon}}
+                            --}}
+
+                            <a href="#">
+                                <i class="fab fa-twitter fa-2x"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </span>
+                        <div>
+                            <a class="twitter-timeline" href="https://twitter.com/aptmaofficial">Tweets
+                                by APTMA</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
+                    <div class="d-flex flex-column">
+                        <span class="social-feed-item d-flex justify-content-center mb-3">
+                            <a href="#">
+                                <i class="fab fa-facebook-f fa-2x"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </span>
+                        <div>
+                            <!-- Load Facebook SDK for JavaScript -->
+                            <div id="fb-root"></div>
+                            <script async defer crossorigin="anonymous"
+                                    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
+                                    nonce="z0b43ddy"></script>
+
+                            <!-- Your share button code -->
+                            <div class="fb-page" data-href="https://www.facebook.com/APTMA" data-tabs="timeline"
+                                 data-width="" data-height="" data-small-header="false"
+                                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                                <blockquote cite="https://www.facebook.com/APTMA" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/APTMA">APTMA</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @include('frontend.partials.contact-section')
