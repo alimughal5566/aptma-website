@@ -12,6 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('storage:link');
+    return "Cleared!";
+});
+
 //rss feed route
 Route::feeds();
 
@@ -203,6 +213,14 @@ Route::group(['middleware' => ['setlang','globalVariable']],function (){
     $clients_feedback_page_slug = !empty(get_static_option('clients_feedback_page_slug')) ? get_static_option('clients_feedback_page_slug') : 'clients-feedback';
     $image_gallery_page_slug = !empty(get_static_option('image_gallery_page_slug')) ? get_static_option('image_gallery_page_slug') : 'image-gallery';
     $donor_page_slug = !empty(get_static_option('donor_page_slug')) ? get_static_option('donor_page_slug') : 'donor-list';
+
+//publication
+    Route::get('/publications','FrontendController@publication_page')->name('frontend.publication');
+    Route::get('/publication/{slug}','FrontendController@publication_single_page')->name('frontend.publication.single');
+    Route::get('/gallery-videos','FrontendController@video_page')->name('frontend.gallery.video.index');
+    Route::get('/gallery-videos/show/{slug}','FrontendController@video_single_page')->name('frontend.gallery.video.single');
+    Route::get('/books','FrontendController@book_page')->name('frontend.book.index');
+    Route::get('/books/show/{slug}','FrontendController@book_single_page')->name('frontend.book.single');
 
 
     Route::get('/'.$donor_page_slug,'FrontendController@donor_list')->name('frontend.donor.list');
@@ -636,6 +654,52 @@ Route::prefix('admin-home')->middleware(['gallery_page_check'])->group(function 
     Route::post('gallery-page/category/bulk-action','ImageGalleryPageController@category_bulk_action')->name('admin.gallery.category.bulk.action');
     Route::post('gallery-page/category-by-slug','ImageGalleryPageController@category_by_slug')->name('admin.gallery.category.by.lang');
 
+});
+//publications pages
+Route::prefix('/admin-home/publication-page')->group(function (){
+    Route::get('/','PublicationController@index')->name('admin.publications.all');
+    Route::post('/new','PublicationController@store')->name('admin.publication.new');
+    Route::post('/delete/{id}','PublicationController@delete')->name('admin.publication.delete');
+    Route::post('/update','PublicationController@update')->name('admin.publication.update');
+    Route::post('gallery-page/bulk-action','PublicationController@bulk_action')->name('admin.publication.bulk.action');
+
+
+    Route::get('/category','PublicationController@category_index')->name('admin.publication.category');
+    Route::post('/category/new','PublicationController@category_store')->name('admin.publication.category.new');
+    Route::post('/category/update','PublicationController@category_update')->name('admin.publication.category.update');
+    Route::post('/category/delete/{id}','PublicationController@category_delete')->name('admin.publication.category.delete');
+    Route::post('/category/bulk-action','PublicationController@category_bulk_action')->name('admin.publication.category.bulk.action');
+    Route::post('/category-by-slug','PublicationController@category_by_slug')->name('admin.publication.category.by.lang');
+});
+//Video Gallery pages
+Route::prefix('/admin-home/video-page')->group(function (){
+    Route::get('/','VideoGalleryController@index')->name('admin.gallery.video.all');
+    Route::post('/new','VideoGalleryController@store')->name('admin.gallery.video.new');
+    Route::post('/delete/{id}','VideoGalleryController@delete')->name('admin.gallery.video.delete');
+    Route::post('/update','VideoGalleryController@update')->name('admin.gallery.video.update');
+    Route::post('gallery-page/bulk-action','VideoGalleryController@bulk_action')->name('admin.gallery.video.bulk.action');
+
+    Route::get('/category','VideoGalleryController@category_index')->name('admin.gallery.video.category');
+    Route::post('/category/new','VideoGalleryController@category_store')->name('admin.gallery.video.category.new');
+    Route::post('/category/update','VideoGalleryController@category_update')->name('admin.gallery.video.category.update');
+    Route::post('/category/delete/{id}','VideoGalleryController@category_delete')->name('admin.gallery.video.category.delete');
+    Route::post('/category/bulk-action','VideoGalleryController@category_bulk_action')->name('admin.gallery.video.category.bulk.action');
+    Route::post('/category-by-slug','VideoGalleryController@category_by_slug')->name('admin.gallery.video.category.by.lang');
+});
+//Books pages
+Route::prefix('/admin-home/book/')->group(function (){
+    Route::get('/','BooksController@index')->name('admin.book.all');
+    Route::post('/new','BooksController@store')->name('admin.book.new');
+    Route::post('/delete/{id}','BooksController@delete')->name('admin.book.delete');
+    Route::post('/update','BooksController@update')->name('admin.book.update');
+    Route::post('gallery-page/bulk-action','BooksController@bulk_action')->name('admin.book.bulk.action');
+
+    Route::get('/category','BooksController@category_index')->name('admin.book.category');
+    Route::post('/category/new','BooksController@category_store')->name('admin.book.category.new');
+    Route::post('/category/update','BooksController@category_update')->name('admin.book.category.update');
+    Route::post('/category/delete/{id}','BooksController@category_delete')->name('admin.book.category.delete');
+    Route::post('/category/bulk-action','BooksController@category_bulk_action')->name('admin.book.category.bulk.action');
+    Route::post('/category-by-slug','BooksController@category_by_slug')->name('admin.book.category.by.lang');
 });
 
 //contact page manage

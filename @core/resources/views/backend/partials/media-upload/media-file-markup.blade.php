@@ -1,8 +1,8 @@
-<div class="modal fade" id="media_upload_modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="media_file_modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{__('Media Uploads')}}</h5>
+                <h5 class="modal-title" id="exampleModalLabelFile">{{__('Media Uploads')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -10,16 +10,16 @@
             <div class="modal-body">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="upload_media_image" data-toggle="tab" href="#upload_files" role="tab" aria-selected="true">{{__('Upload Files')}}</a>
+                        <a class="nav-link active" id="upload_media_file" data-toggle="tab" href="#upload_files" role="tab" aria-selected="true">{{__('Upload Files')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  data-toggle="tab" href="#media_library" role="tab" id="load_all_media_images" aria-controls="media_library" aria-selected="false">{{__('Media Library')}}</a>
+                        <a class="nav-link"  data-toggle="tab" href="#media_library" role="tab" id="load_all_media_files" aria-controls="file_media_library" aria-selected="false">{{__('Media Library')}}</a>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="upload_files" role="tabpanel" >
                         <div class="dropzone-form-wrapper">
-                            <form action="{{route('admin.upload.media.file')}}" method="post" id="placeholderfForm" class="dropzone" enctype="multipart/form-data">
+                            <form action="{{route('admin.upload.media.file')}}" method="post" id="placeholderfFormFile" class="dropzone" enctype="multipart/form-data">
                                 @csrf
                             </form>
                         </div>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary media_upload_modal_submit_btn" >{{__('Set Image')}}</button>
+                <button type="button" class="btn btn-primary media_upload_modal_submit_btn" style="display: none">{{__('Set Image')}}</button>
             </div>
         </div>
     </div>

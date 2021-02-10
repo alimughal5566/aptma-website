@@ -16,15 +16,31 @@
                <div class="col-lg-12">
                    <div class="case-studies-masonry-wrapper">
                        <ul class="case-studies-menu style-01">
-                           <li class="active" data-filter="*">{{__('All')}}</li>
-                           @foreach($all_category as $data)
-                               <li data-filter=".{{Str::slug($data->title)}}">{{$data->title}}</li>
-                           @endforeach
+                           <li class="active" data-filter="*">{{__('Categories')}}</li>
+{{--                           @foreach($all_category as $data)--}}
+{{--                               <li data-filter=".{{Str::slug($data->title)}}">{{$data->title}}</li>--}}
+{{--                           @endforeach--}}
                        </ul>
                        <div class="case-studies-masonry">
-                           @foreach($all_gallery_images as $data)
-                               <div class="col-lg-4 col-md-6 masonry-item {{Str::slug(get_image_category_name_by_id($data->cat_id))}}">
-                                   <div class="single-gallery-image ">
+{{--                           @foreach($all_gallery_images as $data)--}}
+{{--                               <div class="col-lg-4 col-md-6 masonry-item {{Str::slug(get_image_category_name_by_id($data->cat_id))}}">--}}
+{{--                                   <div class="single-gallery-image ">--}}
+{{--                                       @php--}}
+{{--                                           $gallery_img = get_attachment_image_by_id($data->image,'full',false);--}}
+{{--                                           $img_url = !empty($gallery_img) ? $gallery_img['img_url'] : '';--}}
+{{--                                       @endphp--}}
+{{--                                       {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}--}}
+{{--                                       <div class="img-hover">--}}
+{{--                                           <a href="{{$img_url}}" title="{{$data->title}}" class="image-popup">--}}
+{{--                                               <i class="fas fa-search"></i>--}}
+{{--                                           </a>--}}
+{{--                                       </div>--}}
+{{--                                   </div>--}}
+{{--                               </div>--}}
+{{--                           @endforeach--}}
+                               @foreach($all_categories as $data)
+                               <div class="col-lg-4 col-md-6 masonry-item">
+                                   <div class="single-gallery-image  ">
                                        @php
                                            $gallery_img = get_attachment_image_by_id($data->image,'full',false);
                                            $img_url = !empty($gallery_img) ? $gallery_img['img_url'] : '';
@@ -33,7 +49,9 @@
                                        <div class="img-hover">
                                            <a href="{{$img_url}}" title="{{$data->title}}" class="image-popup">
                                                <i class="fas fa-search"></i>
+                                               <span>&nbsp{{$data->title}}</span>
                                            </a>
+
                                        </div>
                                    </div>
                                </div>

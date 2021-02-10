@@ -763,6 +763,57 @@
                         </ul>
                     </li>
                     @endif
+
+                    <li class="main_dropdown
+                        {{active_menu('admin-home/publication-page')}}
+                    @if(request()->is('admin-home/publication-page/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('publications')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/publication-page')}}">
+                                <a href="{{route('admin.publications.all')}}" >{{__('Publications')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/publication-page/category')}}">
+                                <a href="{{route('admin.publication.category')}}" >{{__('Category')}}</a>
+                            </li>
+{{--                            <li class="{{active_menu('admin-home/publication-page/page-settings')}}">--}}
+{{--                                <a href="{{route('admin.gallery.page.settings')}}" >{{__('Page Settings')}}</a>--}}
+{{--                            </li>--}}
+                        </ul>
+                    </li>
+                    <li class="main_dropdown
+                        {{active_menu('admin-home/video-page')}}
+                    @if(request()->is('admin-home/video-page/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('Gallery Videos')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/video-page')}}">
+                                <a href="{{route('admin.gallery.video.all')}}" >{{__('Videos')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/video-page/category')}}">
+                                <a href="{{route('admin.gallery.video.category')}}" >{{__('Category')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+       <li class="main_dropdown
+                        {{active_menu('admin-home/book')}}
+                    @if(request()->is('admin-home/book/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('Books')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/book')}}">
+                                <a href="{{route('admin.book.all')}}" >{{__('Books')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/book/category')}}">
+                                <a href="{{route('admin.book.category')}}" >{{__('Books Category')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
                     @if(check_page_permission('languages'))
                     <li class="main_dropdown @if(request()->is('admin-home/languages/*') || request()->is('admin-home/languages') ) active @endif">
                         <a href="{{route('admin.languages')}}" aria-expanded="true"><i class="ti-signal"></i>

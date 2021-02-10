@@ -74,11 +74,13 @@ class ImageGalleryPageController extends Controller
             'title' => 'required|string',
             'status' => 'required|string',
             'lang' => 'required|string',
+            'image' => 'required|string',
         ]);
         ImageGalleryCategory::create([
             'status' => $request->status,
             'lang' => $request->lang,
             'title' => $request->title,
+            'image' => $request->image,
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
@@ -87,11 +89,13 @@ class ImageGalleryPageController extends Controller
             'title' => 'required|string',
             'status' => 'required|string',
             'lang' => 'required|string',
+            'image' => 'required|string',
         ]);
         ImageGalleryCategory::where('id',$request->id)->update([
             'status' => $request->status,
             'lang' => $request->lang,
             'title' => $request->title,
+            'image' => $request->image,
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }
