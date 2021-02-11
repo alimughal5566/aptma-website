@@ -4,7 +4,7 @@
     'name' => 'APTMA',
     'env' => 'production',
     'debug' => true,
-    'url' => 'http://localhost/aptma-website',
+    'url' => 'http://localhost/aptma',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -194,7 +194,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -279,7 +279,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'aptma',
         'username' => 'root',
@@ -299,7 +299,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'aptma',
         'username' => 'root',
@@ -314,7 +314,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'aptma',
         'username' => 'root',
@@ -357,10 +357,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\fonts/',
-      'font_cache' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\aln\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\xampp\\htdocs\\aptma-website\\@core',
+      'font_dir' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\fonts/',
+      'font_cache' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\fonts/',
+      'temp_dir' => 'C:\\Users\\MUAZZAM\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\xampp\\htdocs\\aptma\\@core',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -399,13 +399,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\app/public',
-        'url' => 'http://localhost/aptma-website/storage',
+        'root' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\app/public',
+        'url' => 'http://localhost/aptma/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -421,7 +421,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\aptma-website\\@core\\public\\storage' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\app/public',
+      'C:\\xampp\\htdocs\\aptma\\@core\\public\\storage' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -444,7 +444,7 @@
   ),
   'logging' => 
   array (
-    'default' => 'stack',
+    'default' => 'daily',
     'channels' => 
     array (
       'stack' => 
@@ -459,13 +459,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -515,7 +515,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -571,7 +571,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\aptma-website\\@core\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\aptma\\@core\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -636,7 +636,7 @@
   array (
     'publicKey' => 'FLWPUBK-d981d2a182ba72915b699603c2db82e0-X',
     'secretKey' => 'FLWSECK-e33b022937c2a64446dca55dbb7ceb08-X',
-    'title' => 'Nexelit',
+    'title' => 'APTMA',
     'env' => 'staging',
     'logo' => '',
     'prefix' => 'rave',
@@ -667,7 +667,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -700,9 +700,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\aptma-website\\@core\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\aptma\\@core\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework\\views',
   ),
   'flare' => 
   array (

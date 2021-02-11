@@ -74,5 +74,5 @@
     {!! get_static_option('site_third_party_tracking_code') !!}
 </head>
 {{--<body class="nexelit_version_{{getenv('XGENIOUS_NEXELIT_VERSION')}} {{get_static_option('item_license_status')}} apps_key_{{get_static_option('site_script_unique_key')}} ">--}}
-<body class="background-gray-light-lightest">
+<body class="">
 @include('frontend.partials.navbar')

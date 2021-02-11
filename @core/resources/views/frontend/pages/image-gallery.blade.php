@@ -12,7 +12,7 @@
 @endsection
 @section('content')
     <style>
-        .hover-disable:hover{
+        .hover-disable:hover {
             cursor: default;
         }
 
@@ -46,6 +46,7 @@
                             {{--                                   </div>--}}
                             {{--                               </div>--}}
                             {{--                           @endforeach--}}
+
                             @foreach($all_categories as $data)
                                 <div class="col-lg-4 col-md-6 masonry-item">
                                     <div class="single-gallery-image @if($data->images->count()==0) hover-disable @endif">
@@ -55,8 +56,9 @@
                                         @endphp
                                         {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
                                         <div class="img-hover">
-                                            <div @if($data->images->count()>0) data-toggle="modal" data-target=".modalSlider_{{$data->id}}" @endif>
-                                                <a title="{{$data->title}}"   >
+                                            <div @if($data->images->count()>0) data-toggle="modal"
+                                                 data-target=".modalSlider_{{$data->id}}" @endif>
+                                                <a title="{{$data->title}}">
                                                     <i class="fas fa-eye"></i>
                                                     <span>{{$data->title}}</span>
                                                     <span>{{$data->images->count()}}</span>
@@ -67,40 +69,39 @@
                                 </div>
 
                                 @if($data->images->count()>1)
-                                <div class="modal modalSlider_{{$data->id}}">
-                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-                                        <div class="modal-content">
+                                    <div class="modal modalSlider_{{$data->id}}">
+                                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                                            <div class="modal-content">
 
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
 
-                                                <div class="slider-carousel-wrapper">
-                                                <div class="slider-grid-carousel">
-                                                    @foreach($data->images as $image)
-                                                        <div class="slider-grid">
+                                                    <div class="slider-carousel-wrapper">
+                                                        <div class="slider-grid-carousel">
+                                                            @foreach($data->images as $image)
+                                                                <div class="slider-grid">
+                                                                    <div class="slider-image w-100 h-100">
+                                                                        @php $image_url = asset('assets/uploads/media-uploader/large-'.$image->get_image->path) @endphp
+                                                                        <img alt="{{$image->title}}"
+                                                                             src="{{$image_url}}">
+                                                                    </div>
 
-                                                            <div class="slider-image w-100 h-100">
-                                                                @php $image_url = asset('assets/uploads/media-uploader/large-'.$image->get_image->path) @endphp
-                                                                <img alt="{{$image->title}}" src="{{$image_url}}" >
-                                                            </div>
-
+                                                                </div>
+                                                            @endforeach
                                                         </div>
-                                                    @endforeach
                                                     </div>
+
                                                 </div>
 
                                             </div>
-
                                         </div>
                                     </div>
-                                </div>
 
                             @endif
+
                         @endforeach
 
                         <!-- The Modal -->
-
-
 
                         </div>
                     </div>
@@ -112,17 +113,4 @@
         </div>
     </div>
 
-
-@endsection
-
-@section('script')
-    <script>
-        // $('.image-popup').magnificPopup({
-        //     type: 'image',
-        //     gallery: {
-        //         enabled: true
-        //     },
-        // });
-
-    </script>
 @endsection

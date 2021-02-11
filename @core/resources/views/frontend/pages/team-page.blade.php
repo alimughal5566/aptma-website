@@ -22,13 +22,16 @@
                                 <div class="social-link">
                                     <ul>
                                         @if(!empty($data->icon_one) && !empty($data->icon_one_url))
-                                            <li><a href="{{$data->icon_one_url}}"><i class="{{$data->icon_one}}"></i></a></li>
+                                            <li><a href="{{$data->icon_one_url}}"><i
+                                                            class="{{$data->icon_one}}"></i></a></li>
                                         @endif
                                         @if(!empty($data->icon_two) && !empty($data->icon_two_url))
-                                            <li><a href="{{$data->icon_two_url}}"><i class="{{$data->icon_two}}"></i></a></li>
+                                            <li><a href="{{$data->icon_two_url}}"><i
+                                                            class="{{$data->icon_two}}"></i></a></li>
                                         @endif
                                         @if(!empty($data->icon_three) && !empty($data->icon_three_url))
-                                            <li><a href="{{$data->icon_three_url}}"><i class="{{$data->icon_three}}"></i></a></li>
+                                            <li><a href="{{$data->icon_three_url}}"><i
+                                                            class="{{$data->icon_three}}"></i></a></li>
                                         @endif
                                     </ul>
                                 </div>
@@ -39,39 +42,9 @@
                             </div>
                         </div>
                     </div>
-
-
-
                     <!-- The Modal -->
-                    <div class="modal fade" id="detailModal" style="z-index: 99999">
-                        <div class="modal-dialog modal-xl modal-center">
-                            <div class="modal-content">
-
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title"></h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    <div class="row "><div class="col-6">Designation</div>
-                                     <div class="col-6 designation"></div></div>
-                                    <div class="row "><div class="col-6">About me</div>
-                                     <div class="col-6 about-me"></div></div>
-                                   <div class="row "><div class="col-6">Description</div>
-                                  <div class="col-6 descriptionn"></div></div>
-
-                                </div>
-                                <!-- Modal footer -->
-{{--                                <div class="modal-footer">--}}
-{{--                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">back</button>--}}
-{{--                                </div>--}}
-
-                            </div>
-                        </div>
-                    </div>
                 @endforeach
+
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">
                         {{$all_team_members->links()}}
@@ -79,17 +52,66 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="detailModal" style="z-index: 99999">
+            <div class="modal-dialog modal-xl modal-center">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <div class="team-detail-wrapper d-flex flex-column ">
+                                    <div class="team-detail-item d-flex align-items-start">
+                                        <div class="team-label">
+                                            <strong>Designation: </strong>
+                                        </div>
+                                        <div class="team-detail designation">
+                                        </div>
+                                    </div>
+                                    <div class="team-detail-item d-flex align-items-start">
+                                        <div class="team-label">
+                                            <strong>About me: </strong>
+                                        </div>
+                                        <div class="team-detail about-me">
+                                        </div>
+                                    </div>
+                                    <div class="team-detail-item d-flex align-items-start">
+                                        <div class="team-label">
+                                            <strong> </strong>
+                                        </div>
+                                        <div class="team-detail descriptionn">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Modal footer -->
+                    {{--                                <div class="modal-footer">--}}
+                    {{--                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">back</button>--}}
+                    {{--                                </div>--}}
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        function detail(detail){
+        function detail(detail) {
 // alert(detail.description);
             $('.designation').text(detail.designation);
-            $('.modal-title').text(detail.name+ 'Profile');
+            $('.modal-title').text(detail.name + ' Profile');
             $('.descriptionn').html(detail.description);
             $('.about-me').html(detail.about_me);
             $('#detailModal').modal()
-
         }
     </script>
 @endsection
