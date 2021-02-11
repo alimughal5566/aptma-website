@@ -540,6 +540,7 @@ function copy_dir_with_files($src, $dst)
 
 function get_attachment_image_by_id($id, $size = null, $default = false)
 {
+
     $image_details = MediaUpload::find($id);
     $return_val = [];
     $image_url = '';
@@ -567,6 +568,7 @@ function get_attachment_image_by_id($id, $size = null, $default = false)
                 }
                 break;
         }
+
     }
 
     if (!empty($image_details)) {
@@ -576,7 +578,7 @@ function get_attachment_image_by_id($id, $size = null, $default = false)
     } elseif (empty($image_details) && $default) {
         $return_val['img_url'] = asset('assets/uploads/no-image.png');
     }
-
+//    dd($return_val);
     return $return_val;
 }
 

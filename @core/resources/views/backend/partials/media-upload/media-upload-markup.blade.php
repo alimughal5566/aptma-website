@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary media_upload_modal_submit_btn" style="display: none">{{__('Set Image')}}</button>
+                <button type="button" class="btn btn-primary media_upload_modal_submit_btn" >{{__('Set Image')}}</button>
             </div>
         </div>
     </div>

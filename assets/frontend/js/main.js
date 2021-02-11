@@ -467,6 +467,7 @@
                 }
             });
         }
+
         /*---------------------------
             header carousel
         ---------------------------*/
@@ -508,6 +509,50 @@
                 }
             });
         }
+
+        /*---------------------------
+            slider carousel
+        ---------------------------*/
+
+        var $sliderCarousel = $('.slider-grid-carousel');
+        $sliderCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: false,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                460: {
+                    items: 1,
+                    nav: false
+                },
+                599: {
+                    items: 1,
+                    nav: false
+                },
+                768: {
+                    items: 1,
+                    nav: false
+                },
+                960: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                },
+                1920: {
+                    items: 1
+                }
+            }
+        });
+
 
         /*----------------------
             Search Popup
