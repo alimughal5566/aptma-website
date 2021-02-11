@@ -11,8 +11,8 @@
 @endsection
 @section('content')
     @if(!empty(get_static_option('about_page_about_us_section_status')))
-    <section class="top-experience-area padding-top-120">
-        <div class="container">
+    <section class="top-experience-area padding-top-40 padding-top-40">
+        <div class="container bg-white">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="experience-author padding-bottom-100">
