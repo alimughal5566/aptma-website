@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/jquery.ihavecookies.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/dynamic-style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/dynamic-style.css')}}?{{ time() }}">
 
     @if(request()->path() == '/')
         <meta property="og:title" content="{{get_static_option('site_'.$user_select_lang_slug.'_title')}}"/>
