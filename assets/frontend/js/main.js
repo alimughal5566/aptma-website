@@ -292,9 +292,10 @@
                 }
             });
         }
+
         /*---------------------------
-    BLog Grid carousel
----------------------------*/
+            Blog Grid carousel
+        ---------------------------*/
         var $blogGridCarousel = $('.blog-grid-carousel');
         if ($blogGridCarousel.length > 0) {
             $blogGridCarousel.owlCarousel({
@@ -332,8 +333,9 @@
         }
 
         /*---------------------------
-            BLog Grid carousel
+            Event Grid carousel
         ---------------------------*/
+
         var $eventsGridCarousel = $('.events-grid-carousel');
         if ($eventsGridCarousel.length > 0) {
             $eventsGridCarousel.owlCarousel({
