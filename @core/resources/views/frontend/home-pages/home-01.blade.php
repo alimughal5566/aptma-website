@@ -1,8 +1,6 @@
 <div class="header-slider-one">
     @foreach($all_header_slider as $data)
-        <div class="header-area header-bg"
-                {!! render_background_image_markup_by_attachment_id($data->image) !!}
-        >
+        <div class="header-area header-bg" {!! render_background_image_markup_by_attachment_id($data->image) !!}>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
@@ -236,8 +234,7 @@
 
 @if(!empty(get_static_option('home_page_service_section_status')))
     <section class="what-we-cover bg-image padding-top-110 padding-bottom-90"
-            {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_service_area_background_image')) !!}
-    >
+            {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_service_area_background_image')) !!}>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
