@@ -55,10 +55,11 @@
                                         @endphp
                                         {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
                                         <div class="img-hover">
-                                            <div @if($data->images->count()>0) data-toggle="modal" data-target=".modalSlider" @endif>
+                                            <div @if($data->images->count()>0) data-toggle="modal" data-target=".modalSlider_{{$data->id}}" @endif>
                                                 <a title="{{$data->title}}"   >
                                                     <i class="fas fa-eye"></i>
                                                     <span>{{$data->title}}</span>
+                                                    <span>{{$data->images->count()}}</span>
                                                 </a>
                                             </div>
                                         </div>
@@ -66,7 +67,7 @@
                                 </div>
 
                                 @if($data->images->count()>1)
-                                <div class="modal modalSlider">
+                                <div class="modal modalSlider_{{$data->id}}">
                                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                                         <div class="modal-content">
 
@@ -85,7 +86,6 @@
 
                                                         </div>
                                                     @endforeach
-                                                    
                                                     </div>
                                                 </div>
 
