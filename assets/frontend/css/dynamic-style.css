@@ -1625,6 +1625,73 @@ html {
   max-height: 500px;
 }
 
+.common-area .common-item .common-img {
+  min-height: 150px;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.common-area .common-item .common-img .badge {
+  background: #107c35;
+  border: 1px solid #fff;
+  color: #fff;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+}
+
+.common-area .common-item .common-img img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.common-area .common-item .common-content {
+  padding: 1.25rem;
+}
+
+.common-area .common-item .common-content a .title {
+  margin-bottom: 0.4rem;
+}
+
+.common-area .common-item .common-content a.btn {
+  background: #107c35;
+  color: #fff;
+}
+
+.common-area .common-item:hover .content a.btn,
+.common-area .common-item:focus .content a.btn,
+.common-area .common-item:active .content a.btn {
+  background: #fff;
+  color: #107c35;
+}
+
+.common-single .common-single-item .thumb {
+  overflow: hidden;
+  max-height: 500px;
+  border-radius: 0.5rem;
+}
+
+.common-single .common-single-item .thumb img {
+  width: 100%;
+}
+
+.common-single .common-single-item a.btn {
+  background: #107c35;
+  color: #fff;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.common-single .common-single-item:hover a.btn,
+.common-single .common-single-item:focus a.btn,
+.common-single .common-single-item:active a.btn {
+  background: #fff;
+  color: #107c35;
+  border: 1px solid #107c35;
+}
+
 .grecaptcha {
   display: none !important;
 }

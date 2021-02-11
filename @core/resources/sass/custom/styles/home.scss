@@ -1,4 +1,4 @@
-@use "partials/colorVariable" as colorVar;
+@use "partials/colorVariable" as color;
 @use "partials/mixin" as mix;
 
 .select2-container {
@@ -122,7 +122,7 @@
 /*      /Banner section      */
 
 .call-to-action.bg-image {
-  background-image: linear-gradient(240deg, colorVar.$primary1, colorVar.$primary2, colorVar.$primary3);
+  background-image: linear-gradient(240deg, color.$primary1, color.$primary2, color.$primary3);
 }
 
 .event-area {
@@ -224,13 +224,13 @@
           height: 40px;
           line-height: 40px;
           text-align: center;
-          color: colorVar.$primary2;
+          color: color.$primary2;
           -webkit-transition: all 0.3s ease-in;
           -o-transition: all 0.3s ease-in;
           transition: all 0.3s ease-in;
 
           &:hover, &:focus, &:active {
-            background-color: colorVar.$primary2;
+            background-color: color.$primary2;
             color: #fff;
           }
 
@@ -255,7 +255,7 @@
 .single-case-studies-item {
 
   &::before, &::after {
-    background-color: colorVar.$primary2-lighter;
+    background-color: color.$primary2-lighter;
   }
 
 }
@@ -271,7 +271,7 @@
 .blog-area {
 
   .single-blog-grid-01 {
-    //border: 1px solid colorVar.$gray;
+    //border: 1px solid color.$gray;
     border-radius: 0.25rem;
     overflow: hidden;
 
@@ -285,16 +285,16 @@
           margin-left: 0;
 
           a {
-            color: colorVar.$primary2;
+            color: color.$primary2;
 
             &:hover, &:focus, &:active {
-              color: colorVar.$tertiary;
+              color: color.$tertiary;
             }
 
           }
 
           i {
-            color: colorVar.$primary1;
+            color: color.$primary1;
           }
 
         }
@@ -306,10 +306,10 @@
         line-height: 25px;
 
         a {
-          color: colorVar.$primary2;
+          color: color.$primary2;
 
           &:hover, &:focus, &:active {
-            color: colorVar.$tertiary;
+            color: color.$tertiary;
           }
 
         }
@@ -390,10 +390,10 @@
 
       a {
 
-        color: colorVar.$primary2;
+        color: color.$primary2;
 
         &:hover, &:focus, &:active {
-          color: colorVar.$primary1;
+          color: color.$primary1;
         }
 
       }
@@ -404,6 +404,115 @@
       max-height: 500px;
     }
 
+  }
+
+}
+
+.common-area {
+
+  .common-item {
+
+    .common-img {
+      min-height: 150px;
+      max-height: 150px;
+      overflow: hidden;
+
+      .badge {
+        background: color.$primary2;
+        border: 1px solid #fff;
+        color: #fff;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+      }
+
+      img {
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+      }
+
+    }
+
+    .common-content {
+      padding: 1.25rem;
+
+      a {
+
+        .title {
+          margin-bottom: 0.4rem;
+        }
+
+        &.btn {
+          background: color.$primary2;
+          color: #fff;
+        }
+
+      }
+
+    }
+
+    &:hover, &:focus, &:active {
+
+      .content {
+
+        a {
+
+          &.btn {
+            background: #fff;
+            color: color.$primary2;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.common-single {
+
+  .common-single-item {
+
+    .thumb {
+      overflow: hidden;
+      max-height: 500px;
+      border-radius: 0.5rem;
+
+      img {
+        width: 100%;
+      }
+
+    }
+
+    a {
+
+      &.btn {
+        background: color.$primary2;
+        color: #fff;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+    }
+
+    &:hover, &:focus, &:active {
+
+      a {
+
+        &.btn {
+          background: #fff;
+          color: color.$primary2;
+          border: 1px solid color.$primary2;
+        }
+
+      }
+
+    }
   }
 
 }
