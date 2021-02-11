@@ -51,7 +51,7 @@
 @endif
 
 {{--@if(!empty(get_static_option('home_page_about_us_section_status')))--}}
-{{--    <section class="top-experience-area bg-blue">--}}
+{{--    <section class="top-experience-area">--}}
 {{--        <div class="container">--}}
 {{--            <div class="row">--}}
 {{--                <div class="col-md-12">--}}
@@ -78,7 +78,7 @@
 {{--    </section>--}}
 {{--@endif--}}
 
-<section class="event-area background-gray-light-lightest padding-top-50 ">
+<section class="event-area  padding-top-50 ">
     <div class="container event-container bg-white rounded padding-bottom-50">
         <div class="row">
             <div class="col-lg-12">
@@ -131,7 +131,7 @@
 </section>
 
 @if(!empty(get_static_option('home_page_latest_news_section_status')))
-    <section class="blog-area background-gray-light-lightest padding-top-50">
+    <section class="blog-area  padding-top-50">
         <div class="container bg-white rounded padding-top-30 padding-bottom-30">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -675,7 +675,7 @@
     </div>
 @endif
 
-<section class="social-feeds background-gray-light-lightest padding-top-50  padding-bottom-80">
+<section class="social-feeds  padding-top-50  padding-bottom-80">
     <div class="container bg-white rounded padding-bottom-40">
         <div class="row">
             <div class="col-lg-12">
