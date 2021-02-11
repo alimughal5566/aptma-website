@@ -214,13 +214,15 @@ Route::group(['middleware' => ['setlang','globalVariable']],function (){
     $image_gallery_page_slug = !empty(get_static_option('image_gallery_page_slug')) ? get_static_option('image_gallery_page_slug') : 'image-gallery';
     $donor_page_slug = !empty(get_static_option('donor_page_slug')) ? get_static_option('donor_page_slug') : 'donor-list';
 
-//publication
+// forntend wasim pages
     Route::get('/publications','FrontendController@publication_page')->name('frontend.publication');
     Route::get('/publication/{slug}','FrontendController@publication_single_page')->name('frontend.publication.single');
     Route::get('/gallery-videos','FrontendController@video_page')->name('frontend.gallery.video.index');
     Route::get('/gallery-videos/show/{slug}','FrontendController@video_single_page')->name('frontend.gallery.video.single');
     Route::get('/books','FrontendController@book_page')->name('frontend.book.index');
     Route::get('/books/show/{slug}','FrontendController@book_single_page')->name('frontend.book.single');
+    Route::get('/circulars','FrontendController@circular_page')->name('frontend.circular.index');
+    Route::get('/circular/show/{slug}','FrontendController@circular_single_page')->name('frontend.circular.single');
 
 
     Route::get('/'.$donor_page_slug,'FrontendController@donor_list')->name('frontend.donor.list');
@@ -686,8 +688,8 @@ Route::prefix('/admin-home/video-page')->group(function (){
     Route::post('/category/bulk-action','VideoGalleryController@category_bulk_action')->name('admin.gallery.video.category.bulk.action');
     Route::post('/category-by-slug','VideoGalleryController@category_by_slug')->name('admin.gallery.video.category.by.lang');
 });
-//Books pages
-Route::prefix('/admin-home/book/')->group(function (){
+//Books admin pages
+Route::prefix('/admin-home/book')->group(function (){
     Route::get('/','BooksController@index')->name('admin.book.all');
     Route::post('/new','BooksController@store')->name('admin.book.new');
     Route::post('/delete/{id}','BooksController@delete')->name('admin.book.delete');
@@ -700,6 +702,21 @@ Route::prefix('/admin-home/book/')->group(function (){
     Route::post('/category/delete/{id}','BooksController@category_delete')->name('admin.book.category.delete');
     Route::post('/category/bulk-action','BooksController@category_bulk_action')->name('admin.book.category.bulk.action');
     Route::post('/category-by-slug','BooksController@category_by_slug')->name('admin.book.category.by.lang');
+});
+//Circular admin pages
+Route::prefix('/admin-home/circular')->group(function (){
+    Route::get('/','CircularController@index')->name('admin.circular.all');
+    Route::post('/new','CircularController@store')->name('admin.circular.new');
+    Route::post('/delete/{id}','CircularController@delete')->name('admin.circular.delete');
+    Route::post('/update','CircularController@update')->name('admin.circular.update');
+    Route::post('/circular/bulk-action','CircularController@bulk_action')->name('admin.circular.bulk.action');
+
+    Route::get('/category','CircularController@category_index')->name('admin.circular.category');
+    Route::post('/category/new','CircularController@category_store')->name('admin.circular.category.new');
+    Route::post('/category/update','CircularController@category_update')->name('admin.circular.category.update');
+    Route::post('/category/delete/{id}','CircularController@category_delete')->name('admin.circular.category.delete');
+    Route::post('/category/bulk-action','CircularController@category_bulk_action')->name('admin.circular.category.bulk.action');
+    Route::post('/category-by-slug','CircularController@category_by_slug')->name('admin.circular.category.by.lang');
 });
 
 //contact page manage
@@ -726,6 +743,21 @@ Route::prefix('admin-home')->middleware(['contact_page_manage_check'])->group(fu
 Route::prefix('admin-home')->middleware(['team_member_manage_check'])->group(function (){
     //team member
     Route::get('/team-member','TeamMemberController@index')->name('admin.team.member');
+
+    //team member Category
+    Route::get('team-member/category','TeamMemberController@category_index')->name('admin.team.category');
+    Route::post('/category/new','TeamMemberController@category_store')->name('admin.team.category.new');
+    Route::post('/category/update','TeamMemberController@category_update')->name('admin.team.category.update');
+    Route::post('/category/delete/{id}','TeamMemberController@category_delete')->name('admin.team.category.delete');
+    Route::post('/category/bulk-action','TeamMemberController@category_bulk_action')->name('admin.team.category.bulk.action');
+    Route::post('/category-by-slug','TeamMemberController@category_by_slug')->name('admin.team.category.by.lang');
+
+
+
+
+
+
+
     Route::post('/team-member','TeamMemberController@store');
     Route::post('/update-team-member','TeamMemberController@update')->name('admin.team.member.update');
     Route::post('/delete-team-member/{id}','TeamMemberController@delete')->name('admin.team.member.delete');

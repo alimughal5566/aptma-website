@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+    <link rel="stylesheet" href="{{asset('assets/backend/css/summernote-bs4.css')}}">
     <style>
         .dataTables_wrapper .dataTables_paginate .paginate_button{
             padding: 0 !important;
@@ -75,6 +76,7 @@
                                         <th>{{__('Image')}}</th>
                                         <th>{{__('Name')}}</th>
                                         <th>{{__('Designation')}}</th>
+                                        <th>{{__('Branch')}}</th>
                                         <th>{{__('Action')}}</th>
                                         </thead>
                                         <tbody>
@@ -104,6 +106,7 @@
                                                 </td>
                                                 <td>{{$data->name}}</td>
                                                 <td>{{$data->designation}}</td>
+                                                <td>{{$data->category->name}}</td>
                                                 <td>
                                                     <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
                                                        role="button"
@@ -131,6 +134,8 @@
                                                        data-imageid="{{$data->image}}"
                                                        data-image="{{$img_url}}"
                                                        data-designation="{{$data->designation}}"
+                                                       data-description="{{$data->description}}"
+                                                       data-aboutme="{{$data->about_me}}"
                                                        data-lang="{{$data->lang}}"
                                                        data-iconOne="{{$data->icon_one}}"
                                                        data-iconTwo="{{$data->icon_two}}"
@@ -138,6 +143,7 @@
                                                        data-iconOneUrl="{{$data->icon_one_url}}"
                                                        data-iconTwoUrl="{{$data->icon_two_url}}"
                                                        data-iconThreeUrl="{{$data->icon_three_url}}"
+                                                       data-category="{{$data->cat_id}}"
                                                     >
                                                         <i class="ti-pencil"></i>
                                                     </a>
@@ -159,7 +165,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">{{__('New Team Member')}}</h4>
-                        <form action="{{route('admin.team.member')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('admin.team.member')}}" method="post" enctype="multipart/form-data" id="newForm">
                             @csrf
                             <div class="form-group">
                                 <label for="languages">{{__('Languages')}}</label>
@@ -170,13 +176,32 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="languages">{{__('Branch')}}</label>
+                                <select name="cat_id" class="form-control" id="languages">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id}}" {{($category->id==old('cat_id'))?'selected':''}}>{{ $category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="name">{{__('Name')}}</label>
-                                <input type="text" class="form-control"  id="name"  name="name" placeholder="{{__('Name')}}">
+                                <input type="text" class="form-control" required id="name"  name="name" placeholder="{{__('Name')}}" value="{{old('name')}}">
                             </div>
                             <div class="form-group">
                                 <label for="designation">{{__('Designation')}}</label>
-                                <input type="text" class="form-control"  id="designation"  name="designation" placeholder="{{__('Designation')}}">
+                                <input type="text" class="form-control"  id="designation" required  name="designation" placeholder="{{__('Designation')}}" value="{{old('designation')}}">
                             </div>
+                            <div class="form-group">
+                                <label>{{__('About me')}}</label>
+                                <textarea name="about_me"  class="form-control" required>{{old('about_me')}}</textarea>
+
+                            </div>
+                            <div class="form-group">
+                                <label>{{__('Description')}}</label>
+                                <input type="hidden" name="description" value="{{old('description')}}">
+                                <div class="summernote" ></div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="icon_one" class="d-block">{{__('Social Profile One')}}</label>
                                 <div class="btn-group ">
@@ -235,7 +260,7 @@
                                 <input type="text" class="form-control"  id="icon_three_url"  name="icon_three_url" placeholder="{{__('Social Profile Three URL')}}">
                             </div>
                             <div class="form-group">
-                                <label for="image">{{__('Image')}}</label>
+                                <label for="image">{{__('Image*')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
                                     <input type="hidden" name="image">
@@ -254,7 +279,7 @@
     </div>
 
     <div class="modal fade" id="team_member_item_edit_modal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('Edit Team Member Item')}}</h5>
@@ -274,11 +299,29 @@
                         </div>
                         <div class="form-group">
                             <label for="edit_name">{{__('Name')}}</label>
-                            <input type="text" class="form-control"  id="edit_name"  name="name" placeholder="{{__('Name')}}">
+                            <input type="text" class="form-control"  id="edit_name"  name="name" placeholder="{{__('Name')}}" value="{{old('name')}}">
                         </div>
                         <div class="form-group">
                             <label for="edit_designation">{{__('Designation')}}</label>
-                            <input type="text" class="form-control"  id="edit_designation"  name="designation" placeholder="{{__('Designation')}}">
+                            <input type="text" class="form-control"  id="edit_designation"  name="designation" placeholder="{{__('Designation')}}" value="{{old('designation')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="languages">{{__('Branch')}}</label>
+                            <select name="cat_id" class="form-control" id="cat">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id}}" {{($category->id==old('cat_id'))?'selected':''}}>{{ $category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>{{__('About me')}}</label>
+                            <textarea name="about_me"  class="form-control" id='aboutme'required value="{{old('about_me')}}"></textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label>{{__('Description')}}</label>
+                            <input type="hidden" name="description" class="description" value="{{old('description')}}">
+                            <div class="summernote"></div>
                         </div>
                         <div class="form-group">
                             <label for="edit_icon_one" class="d-block">{{__('Social Profile One')}}</label>
@@ -410,7 +453,12 @@
                 var action = el.data('action');
                 var image = el.data('image');
                 var imageid = el.data('imageid');
+                var aboutme = el.data('aboutme');
+                var description = el.data('description');
+                var category = el.data('category');
                 var form = $('#team_member_edit_modal_form');
+
+
 
                 form.attr('action',action);
                 form.find('#team_member_id').val(id);
@@ -423,8 +471,14 @@
                 form.find('#edit_icon_one_url').val(el.data('icononeurl'));
                 form.find('#edit_icon_two_url').val(el.data('icontwourl'));
                 form.find('#edit_icon_three_url').val(el.data('iconthreeurl'));
+                form.find('#aboutme').val(aboutme);
+                form.find('.description').val(description);
+                form.find('.note-editable').html(description);
+
                 form.find('#preview_image').attr('src',image);
                 form.find('#edit_languages option[value="'+el.data('lang')+'"]').attr('selected',true);
+
+                form.find('select[name="cat_id"] option[value="'+category+'"]').attr('selected',true);
 
                 form.find('.edit_icon_three .icp-dd').attr('data-selected',el.data('iconthree'));
                 form.find('.edit_icon_three .iconpicker-component i').attr('class',el.data('iconthree'));
@@ -455,6 +509,7 @@
     <script src="//cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="//cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+    <script src="{{asset('assets/backend/js/summernote-bs4.js')}}"></script>
     <script>
         $(document).ready(function() {
 
@@ -466,6 +521,25 @@
                 }]
             } );
         } );
+
+        $('.summernote').summernote({
+            height: 200,   //set editable area's height
+            codemirror: { // codemirror options
+                theme: 'monokai'
+            },
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    $(this).prev('input').val(contents);
+                }
+            }
+        } );
+
+
+
+         @if(old('description'))
+                var val='{{old('description')}}';
+                $('.note-editable').html(val);
+            @endif
     </script>
     <script src="{{asset('assets/backend/js/dropzone.js')}}"></script>
     @include('backend.partials.media-upload.media-js')

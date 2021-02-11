@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Admin;
 use App\Book;
 use App\BookCategory;
+use App\Circular;
+use App\CircularCategory;
 use App\ContactInfoItem;
 use App\Donation;
 use App\DonationLogs;
@@ -354,6 +356,15 @@ class FrontendController extends Controller
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.video-gallery.video-gallery-single')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
     }
+    public function circular_single_page($slug)
+    {
+        $default_lang = Language::where('default', 1)->first();
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        $service_item = Circular::where('id', $slug)->with('category')->first();
+        $service_category = CircularCategory::where(['status' => 'publish', 'lang' => $lang])->get();
+        $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
+        return view('frontend.pages.circular.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
+    }
     public function book_single_page($slug)
     {
         $default_lang = Language::where('default', 1)->first();
@@ -416,7 +427,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $all_services = Publication::where('status','1')->orderBy('is_featured', 'desc')->paginate(get_static_option('service_page_service_items'));
+        $all_services = Publication::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
 //        dd($all_services);
         return view('frontend.pages.publication.index')->with(['all_services' => $all_services]);
     }
@@ -435,6 +446,13 @@ class FrontendController extends Controller
         $all_services = Book::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
 //        dd($all_services);
         return view('frontend.pages.books.index')->with(['all_services' => $all_services]);
+    }
+    public function circular_page()
+    {
+        $default_lang = Language::where('default', 1)->first();
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
+        return view('frontend.pages.circular.index')->with(['all_services' => $all_services]);
     }
 
     public function work_page()
@@ -1108,10 +1126,11 @@ class FrontendController extends Controller
         $order_by = !empty(get_static_option('site_image_gallery_order_by')) ? get_static_option('site_image_gallery_order_by') : 'id';
         $all_gallery_images = ImageGallery::where(['lang' => get_user_lang()])->orderBy($order_by, $order)->paginate(get_static_option('site_image_gallery_post_items'));
         $all_contain_cat = [];
-        foreach ($all_gallery_images as $work) {
+        foreach ($all_gallery_images as $work){
             array_push($all_contain_cat, $work->cat_id);
         }
-        $all_categories = ImageGalleryCategory::where(['lang' => get_user_lang()])->get();
+        $all_categories = ImageGalleryCategory::with('images.get_image')->where(['lang' => get_user_lang()])->where('status','publish')->orderBy($order_by, $order)->get();
+//        dd($all_categories);
         $all_category = ImageGalleryCategory::find($all_contain_cat);
         return view('frontend.pages.image-gallery')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category,'all_categories' => $all_categories]);
     }

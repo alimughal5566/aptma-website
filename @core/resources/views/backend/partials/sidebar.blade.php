@@ -665,12 +665,7 @@
                             </ul>
                         </li>
                     @endif
-                    @if(check_page_permission_by_string('Team Members'))
-                    <li class="main_dropdown {{active_menu('admin-home/team-member')}}">
-                        <a href="{{route('admin.team.member')}}" aria-expanded="true"><i class="ti-control-forward"></i>
-                            <span>{{__('Team Members')}}</span></a>
-                    </li>
-                    @endif
+
                     @if(check_page_permission_by_string('Testimonial'))
                     <li class="main_dropdown {{active_menu('admin-home/testimonial')}}">
                         <a href="{{route('admin.testimonial')}}" aria-expanded="true"><i class="ti-control-forward"></i>
@@ -763,7 +758,28 @@
                         </ul>
                     </li>
                     @endif
+                    @if(check_page_permission_by_string('Team Members'))
+{{--                        <li class="main_dropdown {{active_menu('admin-home/team-member')}}">--}}
+{{--                            <a href="{{route('admin.team.member')}}" aria-expanded="true"><i class="ti-control-forward"></i>--}}
+{{--                                <span>{{__('Team Members')}}</span></a>--}}
+{{--                        </li>--}}
 
+                    <li class="main_dropdown
+                        {{active_menu('admin-home/team-member')}}
+                    @if(request()->is('admin-home/team-member/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('Team')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/team-member')}}">
+                                <a href="{{route('admin.team.member')}}" >{{__('Team Members')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/team-member/category')}}">
+                                <a href="{{route('admin.team.category')}}" >{{__('Category')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                     <li class="main_dropdown
                         {{active_menu('admin-home/publication-page')}}
                     @if(request()->is('admin-home/publication-page/*')) active @endif
@@ -797,7 +813,8 @@
                             </li>
                         </ul>
                     </li>
-       <li class="main_dropdown
+
+                    <li class="main_dropdown
                         {{active_menu('admin-home/book')}}
                     @if(request()->is('admin-home/book/*')) active @endif
                             ">
@@ -809,6 +826,21 @@
                             </li>
                             <li class="{{active_menu('admin-home/book/category')}}">
                                 <a href="{{route('admin.book.category')}}" >{{__('Books Category')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="main_dropdown
+                        {{active_menu('admin-home/circular')}}
+                    @if(request()->is('admin-home/circular/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('Circular')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/circular')}}">
+                                <a href="{{route('admin.circular.all')}}" >{{__('Circulars')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/circular/category')}}">
+                                <a href="{{route('admin.circular.category')}}" >{{__('Circular Category')}}</a>
                             </li>
                         </ul>
                     </li>

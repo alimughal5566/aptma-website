@@ -155,7 +155,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" class="form-control" required>
+                                <input type="text" name="title" class="form-control" value="{{old('title')}}" required>
                             </div>
                             <div class="form-group">
                                 <label for="image">{{__('Image')}}</label>
@@ -171,8 +171,8 @@
                             <div class="form-group">
                                 <label for="status">{{__('Status')}}</label>
                                 <select name="status" class="form-control">
-                                    <option value="publish">{{__('Publish')}}</option>
-                                    <option value="draft">{{__('Draft')}}</option>
+                                    <option value="publish" {{(old('status')=='publish')?'selected':''}}>{{__('Publish')}}</option>
+                                    <option value="draft" {{(old('status')=='draft')?'selected':''}}>{{__('Draft')}}</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New Image')}}</button>

@@ -18,7 +18,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-what-we-cover-item-02 margin-bottom-30">
                             <div class="single-what-img "  style="max-height: 50%;">
-                                <a href="{{$data->url}}" target="_blank">
+                                <a>
                                 {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                             </div>
                             <div class="content">

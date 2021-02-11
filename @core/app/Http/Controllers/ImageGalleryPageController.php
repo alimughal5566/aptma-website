@@ -71,7 +71,7 @@ class ImageGalleryPageController extends Controller
     }
     public function category_store(Request $request){
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:image_gallery_categories',
             'status' => 'required|string',
             'lang' => 'required|string',
             'image' => 'required|string',

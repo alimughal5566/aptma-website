@@ -65,15 +65,12 @@ class PublicationController extends Controller
 
 
         $name=time();
-
         $data=Publication::find($request->id);
              if ($request->pdf_file) {
                  $profile_pic =  $name. '.' . $request->pdf_file->extension();
                  $request->pdf_file->move('assets/uploads/publications/pdf', $profile_pic);
                  $data->pdf_url=$profile_pic;
              }
-
-
           $data->status= $request->status;
           $data->is_featured=$request->is_featured;
           $data->description=$request->description;
@@ -104,7 +101,6 @@ class PublicationController extends Controller
         return view('backend.publication.publication-category')->with(['all_category' => $all_gallery_images,'all_languages' => $all_languages ]);
     }
     public function category_store(Request $request){
-//        dd();
         $this->validate($request,[
             'title' => 'required|string',
             'status' => 'required|string',

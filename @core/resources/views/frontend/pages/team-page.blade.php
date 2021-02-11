@@ -17,7 +17,7 @@
                 @foreach($all_team_members as $data)
                     <div class="col-lg-3  col-sm-6 padding-bottom-60">
                         <div class="team-section">
-                            <div class="team-img-cont">
+                            <div class="team-img-cont" onclick="detail({{$data}});">
                                 {!! render_image_markup_by_attachment_id($data->image) !!}
                                 <div class="social-link">
                                     <ul>
@@ -39,6 +39,38 @@
                             </div>
                         </div>
                     </div>
+
+
+
+                    <!-- The Modal -->
+                    <div class="modal fade" id="detailModal" style="z-index: 99999">
+                        <div class="modal-dialog modal-xl modal-center">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title"></h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="row "><div class="col-6">Designation</div>
+                                     <div class="col-6 designation"></div></div>
+                                    <div class="row "><div class="col-6">About me</div>
+                                     <div class="col-6 about-me"></div></div>
+                                   <div class="row "><div class="col-6">Description</div>
+                                  <div class="col-6 descriptionn"></div></div>
+
+                                </div>
+                                <!-- Modal footer -->
+{{--                                <div class="modal-footer">--}}
+{{--                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">back</button>--}}
+{{--                                </div>--}}
+
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">
@@ -48,4 +80,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function detail(detail){
+// alert(detail.description);
+            $('.designation').text(detail.designation);
+            $('.modal-title').text(detail.name+ 'Profile');
+            $('.descriptionn').html(detail.description);
+            $('.about-me').html(detail.about_me);
+            $('#detailModal').modal()
+
+        }
+    </script>
 @endsection

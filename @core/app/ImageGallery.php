@@ -8,4 +8,16 @@ class ImageGallery extends Model
 {
     protected $table = 'image_galleries';
     protected $fillable = ['image','title','lang','cat_id'];
+    public function get_image(){
+        return $this->belongsTo('App\MediaUpload','image');
+    }
+
+
+
+
+
+
+
+
+
 }

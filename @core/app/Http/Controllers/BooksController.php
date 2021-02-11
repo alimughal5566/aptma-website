@@ -35,8 +35,8 @@ class BooksController extends Controller
         ]);
         $name=time();
         if ($request->pdf_file) {
-            $profile_pic =  $name. '.' . $request->pdf_file->extension();
-            $request->pdf_file->move('assets/uploads/books/', $profile_pic);
+            $url =  $name. '.' . $request->pdf_file->extension();
+            $request->pdf_file->move('assets/uploads/books/', $url);
         }
 
         Book::create([
@@ -45,7 +45,7 @@ class BooksController extends Controller
             'description' => $request->description,
             'thumbnail' => $request->thumbnail,
             'title' => $request->title,
-            'url' => $name,
+            'url' => $url,
             'cat_id' => $request->category,
         ]);
         return redirect()->back()->with(['msg' => __('New book added...'),'type' => 'success']);
@@ -100,7 +100,7 @@ class BooksController extends Controller
     public function category_store(Request $request){
 //        dd();
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:book_categories',
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
