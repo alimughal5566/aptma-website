@@ -215,13 +215,13 @@ Route::group(['middleware' => ['setlang','globalVariable']],function (){
     $donor_page_slug = !empty(get_static_option('donor_page_slug')) ? get_static_option('donor_page_slug') : 'donor-list';
 
 // forntend wasim pages
-    Route::get('/publications','FrontendController@publication_page')->name('frontend.publication');
+    Route::get('/publications/{cat?}','FrontendController@publication_page')->name('frontend.publication');
     Route::get('/publication/{slug}','FrontendController@publication_single_page')->name('frontend.publication.single');
-    Route::get('/gallery-videos','FrontendController@video_page')->name('frontend.gallery.video.index');
+    Route::get('/gallery-videos/{cat?}','FrontendController@video_page')->name('frontend.gallery.video.index');
     Route::get('/gallery-videos/show/{slug}','FrontendController@video_single_page')->name('frontend.gallery.video.single');
     Route::get('/books','FrontendController@book_page')->name('frontend.book.index');
     Route::get('/books/show/{slug}','FrontendController@book_single_page')->name('frontend.book.single');
-    Route::get('/circulars','FrontendController@circular_page')->name('frontend.circular.index');
+    Route::get('/circulars/{cat?}','FrontendController@circular_page')->name('frontend.circular.index');
     Route::get('/circular/show/{slug}','FrontendController@circular_single_page')->name('frontend.circular.single');
 
 
@@ -234,7 +234,7 @@ Route::group(['middleware' => ['setlang','globalVariable']],function (){
     Route::get('/'.$service_page_slug.'/{slug}','FrontendController@services_single_page')->name('frontend.services.single');
     Route::get('/'.$work_page_slug.'/{slug}','FrontendController@work_single_page')->name('frontend.work.single');
     Route::get('/'.$work_page_slug.'/category/{id}/{any}','FrontendController@category_wise_works_page')->name('frontend.works.category');
-    Route::get('/'.$team_page_slug,'FrontendController@team_page')->name('frontend.team');
+    Route::get('/'.$team_page_slug.'/{cat?}','FrontendController@team_page')->name('frontend.team');
     Route::get('/'.$price_plan_page_slug,'FrontendController@price_plan_page')->name('frontend.price.plan');
     Route::get('/'.$contact_page_slug,'FrontendController@contact_page')->name('frontend.contact');
 

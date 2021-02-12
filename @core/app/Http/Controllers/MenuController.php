@@ -90,7 +90,6 @@ class MenuController extends Controller
             'lang' => $request->lang,
             'title' => $request->title,
         ]);
-
         return redirect()->back()->with([
             'msg' => __('Menu updated...'),
             'type' => 'success'

@@ -31,11 +31,11 @@
                             @csrf
                             @php
                                 $menu_content = '';
-if (!empty($page_post->content)){
-    $menu_content = $page_post->content;
-}else{
-    $menu_content = '[{"ptype":"custom","pname":"Home","purl":"@url","id":1}]';
-}
+                            if (!empty($page_post->content)){
+                                $menu_content = $page_post->content;
+                            }else{
+                                $menu_content = '[{"ptype":"custom","pname":"Home","purl":"@url","id":1}]';
+                            }
                             @endphp
                             <textarea  id="menu_content" name="menu_content" style="display: none;" class="form-control" >{{$menu_content}}</textarea>
                             <div class="row">

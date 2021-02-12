@@ -75,4 +75,4 @@
 </head>
 {{--<body class="nexelit_version_{{getenv('XGENIOUS_NEXELIT_VERSION')}} {{get_static_option('item_license_status')}} apps_key_{{get_static_option('site_script_unique_key')}} ">--}}
 <body>
-@include('frontend.partials.navbar')
+@include('frontend.partials.navbar1')
