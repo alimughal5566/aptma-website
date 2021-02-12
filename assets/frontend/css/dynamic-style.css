@@ -1519,6 +1519,10 @@ html {
   max-height: 90px;
 }
 
+.common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
+  line-height: 25px;
+}
+
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .location span {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -231,6 +231,11 @@
         .title-wrap {
           min-height: 90px;
           max-height: 90px;
+
+          .title {
+            line-height: 25px;
+          }
+
         }
 
         .location {
