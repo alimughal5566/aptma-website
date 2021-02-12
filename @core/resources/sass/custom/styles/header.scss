@@ -67,7 +67,7 @@
               color: colorVar.$primary1;
             }
 
-            }
+          }
 
         }
 
@@ -95,6 +95,7 @@
             &.navbar-nav {
 
               li {
+                font-size: 15px;
 
                 a {
                   color: colorVar.$primary2;

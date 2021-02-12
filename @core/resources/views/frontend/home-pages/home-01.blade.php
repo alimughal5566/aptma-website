@@ -27,6 +27,376 @@
     @endforeach
 </div>
 
+<section class="common-area publication-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container publication-container">
+        <div class="row">
+            <div class="col-12 col-lg-1"></div>
+            <div class="col-12 col-lg-10">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="w-100 h-100 bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Publications'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper ">
+                                <div class="common-grid-carousel publication-grid-carousel">
+                                    @foreach($publications as $data)
+                                        <div class="common-grid-carousel-item">
+                                            <div class="common-item publication-item single-what-we-cover-item-02 ">
+                                                <div class="common-img publication-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now);
+                                                    @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge">New</small>
+                                                    @endif
+
+                                                    <a href="{{route('frontend.publication.single',$data->id)}}">
+                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                                </div>
+                                                <div class="common-content content">
+                                                    <a href="{{route('frontend.publication.single',$data->id)}}">
+                                                        <h4 class="title">{{$data->title}}</h4>
+                                                    </a>
+                                                    <p>{{@$data->category->name}}</p>
+                                                    <a href="{{asset('assets/uploads/publications/'.$data->url)}}"
+                                                       class="btn">Download</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-20">
+                                <h2 class="font-weight-bold">{{'Social Feeds'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center bg">
+                                        <div class="d-flex flex-column">
+                        <span class="social-feed-item d-flex justify-content-center mb-3">
+                            {{--
+                            @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")
+                            {{$data->url}}
+                            {$data->icon}}
+                            --}}
+                            <a href="#">
+                                <i class="fab fa-twitter fa-2x"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </span>
+                                            <div>
+                                                <a class="twitter-timeline" href="https://twitter.com/aptmaofficial">Tweets
+                                                    by APTMA</a>
+                                                <script async src="https://platform.twitter.com/widgets.js"
+                                                        charset="utf-8"></script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
+                                        <div class="d-flex flex-column">
+                        <span class="social-feed-item d-flex justify-content-center mb-3">
+                            <a href="#">
+                                <i class="fab fa-facebook-f fa-2x"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </span>
+                                            <div>
+                                                <!-- Load Facebook SDK for JavaScript -->
+                                                <div id="fb-root"></div>
+                                                <script async defer crossorigin="anonymous"
+                                                        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
+                                                        nonce="z0b43ddy"></script>
+                                                <!-- Your share button code -->
+                                                <div class="fb-page" data-href="https://www.facebook.com/APTMA"
+                                                     data-tabs="timeline"
+                                                     data-width="" data-height="" data-small-header="false"
+                                                     data-adapt-container-width="true" data-hide-cover="false"
+                                                     data-show-facepile="true">
+                                                    <blockquote cite="https://www.facebook.com/APTMA"
+                                                                class="fb-xfbml-parse-ignore">
+                                                        <a href="https://www.facebook.com/APTMA">APTMA</a>
+                                                    </blockquote>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-1"></div>
+        </div>
+    </div>
+</section>
+
+<section class="common-area event-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container event-container">
+        <div class="row">
+            <div class="col-12 col-lg-1"></div>
+            <div class="col-12 col-lg-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper events-grid-carosel-wrapper">
+                                <div class="common-grid-carousel events-grid-carousel">
+                                    @foreach($all_events as $data)
+                                        <div class="common-grid-carousel-item single-events-list-item rounded flex-column position-relative">
+                                            <div class="common-img thumb mr-0">
+                                                <div class="thumb-wrap">
+                                                    {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
+                                                </div>
+                                            </div>
+                                            <div class="common-content content-area">
+                                                <div class="top-part mb-0 py-2 flex-column">
+                                                    <div class="detail-wrap w-100">
+                                                        <div class="date-time-wrap d-flex flex-column justify-content-center ">
+                                                            <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
+                                                            <span class="time-span">{{$data->time}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="title-wrap d-flex py-1">
+                                                        <a href="{{route('frontend.events.single',$data->slug)}}">
+                                                            <h4 class="title mb-0">{{$data->title}}</h4>
+                                                        </a>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <span class="location d-flex align-items-center">
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                            <span class="ml-2">{{$data->venue_location}}</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-1"></div>
+        </div>
+    </div>
+</section>
+
+<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container book-container">
+        <div class="row">
+            <div class="col-12 col-lg-1"></div>
+            <div class="col-12 col-lg-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper">
+                                <div class="common-grid-carousel books-grid-carousel">
+                                    @foreach($books as $data)
+                                        <div class="common-grid-carousel-item">
+                                            <div class="common-item book-item single-what-we-cover-item-02 ">
+                                                <div class="common-img book-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now);
+                                                    @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge">New</small>
+                                                    @endif
+
+                                                    <a href="{{route('frontend.book.single',$data->id)}}">
+                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                                </div>
+                                                <div class="common-content content">
+                                                    <a href="{{route('frontend.book.single',$data->id)}}">
+                                                        <h4 class="title">{{$data->title}}</h4>
+                                                    </a>
+                                                    <p>{{@$data->category->name}}</p>
+                                                    <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn">Download</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-1"></div>
+        </div>
+    </div>
+</section>
+
+<section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container advertise-container">
+        <div class="row">
+            <div class="col-12 col-lg-1"></div>
+            <div class="col-12 col-lg-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper">
+                                <div class="common-grid-carousel advertise-grid-carousel">
+                                    @foreach($advertisements as $data)
+                                        <div class="common-grid-carousel-item">
+                                            <div class="common-item advertise-item single-what-we-cover-item-02 ">
+                                                <div class="common-img advertise-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now);
+                                                    @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge">New</small>
+                                                    @endif
+                                                    <a href="javascript:void(0);">
+                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-1"></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="common-area video-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container video-container">
+        <div class="row">
+            <div class="col-12 col-lg-1"></div>
+            <div class="col-12 col-lg-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper">
+                                <div class="common-grid-carousel video-grid-carousel">
+                                    @foreach($videos as $data)
+                                        <div class="common-grid-carousel-item">
+                                            <div class="common-item video-item single-what-we-cover-item-02 ">
+                                                <div class="common-img video-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now); @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge ">New</small>
+                                                    @endif
+
+                                                    <a href="{{route('frontend.gallery.video.single', $data->id)}}"
+                                                       target="_blank">
+                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
+                                                    </a>
+                                                </div>
+                                                <div class="common-content content">
+                                                    <a href="{{route('frontend.gallery.video.single', $data->id)}}">
+                                                        <h4 class="title">{{$data->title}}</h4>
+                                                    </a>
+                                                    <a href="{{$data->url}}" target="_blank" class="btn">View</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-1"></div>
+        </div>
+    </div>
+</section>
+
+@if(!empty(get_static_option('home_page_latest_news_section_status')))
+    <section class="common-area blog-area background-gray-light-lightest padding-top-50   padding-bottom-80">
+        <div class="container-fluid common-container">
+            <div class="row">
+                <div class="col-12 col-lg-1"></div>
+                <div class="col-12 col-lg-10">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class=" bg-white rounded px-2 px-lg-3 padding-top-50 padding-bottom-30">
+                                <div class="section-title desktop-center padding-bottom-20">
+                                    <h2 class="font-weight-bold">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h2>
+                                    {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
+                                    {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
+                                </div>
+                                <div class="common-grid-carousel-wrapper blog-grid-carosel-wrapper">
+                                    <div class="common-grid-carousel blog-grid-carousel">
+                                        @foreach($all_blog as $data )
+                                            <div class="common-grid-carousel-item single-blog-grid-01">
+                                                <div class="common-img blog-image w-100 h-100" {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}>
+                                                </div>
+                                                <div class="common-content content">
+                                                    <ul class="post-meta mb-2 d-flex flex-column">
+                                                        <li>
+                                                            <a href="{{route('frontend.blog.single', $data->slug)}}">
+                                                                <i class="far fa-clock"></i> {{date_format($data->created_at,'d M Y')}}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <div class="cats">
+                                                                <i class="fas fa-tags"></i> {!! get_blog_category_by_id($data->blog_categories_id,'link') !!}
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <h4 class="title mb-0">
+                                                        <a href="{{route('frontend.blog.single',$data->slug)}}">{{$data->title}}</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-12 col-lg-1"></div>
+            </div>
+        </div>
+    </section>
+@endif
+
 @if(!empty(get_static_option('home_page_key_feature_section_status')))
     <div class="header-bottom-area key-feature background-primary3-lightest padding-bottom-70">
         <div class="header-bottom-inner">
@@ -78,303 +448,9 @@
 {{--    </section>--}}
 {{--@endif--}}
 
-<section class="common-area publication-area background-gray-light-lightest padding-top-50 ">
-    <div class="container common-container publication-container bg-white rounded padding-bottom-30">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                    <h2 class="font-weight-bold margin-bottom-0">{{'Latest Publications'}}</h2>
-                    {{--                    <p class="desc">{{''}}</p>--}}
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="common-grid-carousel-wrapper">
-                    <div class="common-grid-carousel publication-grid-carousel">
-                        @foreach($publications as $data)
-                            <div class="common-grid-carousel-item">
-                                <div class="common-item publication-item single-what-we-cover-item-02 ">
-                                    <div class="common-img publication-img single-what-img position-relative">
-                                        @php
-                                            $now = Carbon\Carbon::now();
-                                            $datework = Carbon\Carbon::parse($data->created_at);
-                                            $diff = $datework->diffInDays($now);
-                                        @endphp
-                                        @if($diff<15)
-                                            <small class=" font-italic badge">New</small>
-                                        @endif
-
-                                        <a href="{{route('frontend.publication.single',$data->id)}}">
-                                            {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
-                                    </div>
-                                    <div class="common-content content">
-                                        <a href="{{route('frontend.publication.single',$data->id)}}">
-                                            <h4 class="title">{{$data->title}}</h4>
-                                        </a>
-                                        <p><strong>Category:</strong> {{@$data->category->name}}</p>
-                                        <a href="{{asset('assets/uploads/publications/'.$data->url)}}" class="btn">Download</a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="common-area event-area  background-gray-light-lightest padding-top-50 ">
-    <div class="container common-container event-container bg-white rounded padding-bottom-50">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                    <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
-                    {{--                    <p class="desc">{{''}}</p>--}}
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="common-grid-carousel-wrapper events-grid-carosel-wrapper">
-                    <div class="common-grid-carousel events-grid-carousel">
-                        @foreach($all_events as $data)
-                            <div class="common-grid-carousel-item single-events-list-item rounded flex-column position-relative">
-                                <div class="common-img thumb mr-0">
-                                    <div class="thumb-wrap">
-                                        {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
-                                    </div>
-                                </div>
-                                <div class="common-content content-area">
-                                    <div class="top-part mb-0 py-2 flex-column">
-                                        <div class="detail-wrap w-100">
-                                            <div class="date-time-wrap d-flex flex-column justify-content-center ">
-                                                <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
-                                                <span class="time-span">{{$data->time}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="title-wrap d-flex py-1">
-                                            <a href="{{route('frontend.events.single',$data->slug)}}">
-                                                <h4 class="title mb-0">{{$data->title}}</h4>
-                                            </a>
-                                        </div>
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <span class="location d-flex align-items-center">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span class="ml-2">{{$data->venue_location}}</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    {{--                        <p>{{strip_tags(Str::words(str_replace('&nbsp;',' ',$data->content),20))}}</p>--}}
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
-    <div class="container common-container book-container bg-white rounded padding-bottom-30">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                    <h2 class="font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>
-                    {{--                    <p class="desc">{{''}}</p>--}}
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="common-grid-carousel-wrapper">
-                    <div class="common-grid-carousel books-grid-carousel">
-                        @foreach($books as $data)
-                            <div class="common-grid-carousel-item">
-                                <div class="common-item book-item single-what-we-cover-item-02 ">
-                                    <div class="common-img book-img single-what-img position-relative">
-                                        @php
-                                            $now = Carbon\Carbon::now();
-                                            $datework = Carbon\Carbon::parse($data->created_at);
-                                            $diff = $datework->diffInDays($now);
-                                        @endphp
-                                        @if($diff<15)
-                                            <small class=" font-italic badge">New</small>
-                                        @endif
-
-                                        <a href="{{route('frontend.book.single',$data->id)}}">
-                                            {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
-                                    </div>
-                                    <div class="common-content content">
-                                        <a href="{{route('frontend.book.single',$data->id)}}">
-                                            <h4 class="title">{{$data->title}}</h4>
-                                        </a>
-                                        <p><strong>Category:</strong> {{@$data->category->name}}</p>
-                                        <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn" download>Download</a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
-    <div class="container common-container book-container bg-white rounded padding-bottom-30">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                    <h2 class="font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h2>
-                    {{--                    <p class="desc">{{''}}</p>--}}
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="common-grid-carousel-wrapper">
-                    <div class="common-grid-carousel books-grid-carousel">
-                        @foreach($advertisements as $data)
-                            <div class="common-grid-carousel-item">
-                                <div class="common-item book-item single-what-we-cover-item-02 ">
-                                    <div class="common-img book-img single-what-img position-relative">
-                                        @php
-                                            $now = Carbon\Carbon::now();
-                                            $datework = Carbon\Carbon::parse($data->created_at);
-                                            $diff = $datework->diffInDays($now);
-                                        @endphp
-                                        @if($diff<15)
-                                            <small class=" font-italic badge">New</small>
-                                        @endif
-
-                                        <a href="{{route('frontend.advertisement.single',$data->id)}}">
-                                            {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
-                                    </div>
-                                    <div class="common-content content">
-                                        <a href="{{route('frontend.advertisement.single',$data->id)}}">
-                                            <h4 class="title">{{$data->title}}</h4>
-                                        </a>
-                                        <p><strong>Category:</strong> {{$data->category->name}}</p>
-{{--                                        <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn" download>Download</a>--}}
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="common-area video-area background-gray-light-lightest padding-top-50 ">
-    <div class="container common-container video-container bg-white rounded padding-bottom-30">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                    <h2 class="font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h2>
-                    {{--                    <p class="desc">{{''}}</p>--}}
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="common-grid-carousel-wrapper">
-                    <div class="common-grid-carousel video-grid-carousel">
-                        @foreach($videos as $data)
-                            <div class="common-grid-carousel-item">
-                                <div class="common-item video-item single-what-we-cover-item-02 ">
-                                    <div class="common-img video-img single-what-img position-relative">
-                                        @php
-                                            $now = Carbon\Carbon::now();
-                                            $datework = Carbon\Carbon::parse($data->created_at);
-                                            $diff = $datework->diffInDays($now); @endphp
-                                        @if($diff<15)
-                                            <small class=" font-italic badge ">New</small>
-                                        @endif
-
-                                        <a href="{{route('frontend.gallery.video.single', $data->id)}}" target="_blank">
-                                            {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
-                                        </a>
-                                    </div>
-                                    <div class="common-content content">
-                                        <a href="{{route('frontend.gallery.video.single', $data->id)}}">
-                                            <h4 class="title">{{$data->title}}</h4>
-                                        </a>
-                                        <a href="{{$data->url}}" target="_blank" class="btn">View</a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-@if(!empty(get_static_option('home_page_latest_news_section_status')))
-    <section class="common-area blog-area background-gray-light-lightest padding-top-50">
-        <div class="container common-container bg-white rounded padding-top-30 padding-bottom-30">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section-title desktop-center padding-bottom-20">
-                        <h2 class="font-weight-bold">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h2>
-                        {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
-                        {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="common-grid-carousel-wrapper blog-grid-carosel-wrapper">
-                        <div class="common-grid-carousel blog-grid-carousel">
-                            @foreach($all_blog as $data )
-                                <div class="common-grid-carousel-item single-blog-grid-01">
-                                    <div class="common-img blog-image w-100 h-100" {!! render_background_image_markup_by_attachment_id($data->image,'large') !!}>
-                                    </div>
-                                    <div class="common-content content">
-                                        <ul class="post-meta mb-2 d-flex flex-column">
-                                            <li>
-                                                <a href="{{route('frontend.blog.single', $data->slug)}}">
-                                                    <i class="far fa-clock"></i> {{date_format($data->created_at,'d M Y')}}
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <div class="cats">
-                                                    <i class="fas fa-tags"></i> {!! get_blog_category_by_id($data->blog_categories_id,'link') !!}
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <h4 class="title mb-0">
-                                            <a href="{{route('frontend.blog.single',$data->slug)}}">{{$data->title}}</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-@endif
-
 @if(!empty(get_static_option('home_page_about_us_section_status')))
     <div class="our-mission-area">
-        <div class="container-fulid p-0">
+        <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-lg-6">
                     <div class="our-service-wrappper bg-main padding-top-100 padding-bottom-15">
@@ -430,7 +506,7 @@
 @if(!empty(get_static_option('home_page_service_section_status')))
     <section class="what-we-cover bg-image padding-top-110 padding-bottom-90"
             {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_service_area_background_image')) !!}>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title white desktop-center margin-bottom-55">
@@ -588,7 +664,7 @@
 
 @if(!empty(get_static_option('home_page_case_study_section_status')))
     <div class="case-studies-area-03 background-primary2-lightest padding-bottom-120">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title desktop-center padding-top-110 padding-bottom-50">
@@ -694,7 +770,7 @@
 
 @if(!empty(get_static_option('home_page_call_to_action_section_status')))
     <div class="call-to-action bg-image padding-top-50 padding-bottom-50">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="call-to-action-inner d-flex align-items-center">
@@ -712,7 +788,7 @@
 
 @if(!empty(get_static_option('home_page_testimonial_section_status')))
     <section class="testimonial-area bg-image padding-top-110">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title desktop-center padding-bottom-20">
@@ -797,7 +873,7 @@
 @if(!empty(get_static_option('home_page_price_plan_section_status')))
     <section class="pricing-plan-area bg-image price-inner padding-bottom-100 margin-top-70 padding-top-100"
             {!! render_background_image_markup_by_attachment_id(get_static_option('home_page_01_price_plan_background_image')) !!}>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title white desktop-center padding-bottom-55">
@@ -847,7 +923,7 @@
 
 @if(!empty(get_static_option('home_page_brand_logo_section_status')))
     <div class="client-section  background-gray-light-lightest padding-bottom-70 padding-top-70">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="client-area">
@@ -868,71 +944,5 @@
         </div>
     </div>
 @endif
-
-<section class="social-feeds  background-gray-light-lightest padding-top-50  padding-bottom-80">
-    <div class="container bg-white rounded padding-bottom-40">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title desktop-center padding-top-30 padding-bottom-20">
-                    <h2 class="font-weight-bold">{{'Social Feeds'}}</h2>
-                    {{--                    <p class="desc">{{''}}</p>--}}
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center bg">
-                    <div class="d-flex flex-column">
-                        <span class="social-feed-item d-flex justify-content-center mb-3">
-                            {{--
-                            @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")
-                            {{$data->url}}
-                            {$data->icon}}
-                            --}}
-
-                            <a href="#">
-                                <i class="fab fa-twitter fa-2x"></i>
-                                <span>Twitter</span>
-                            </a>
-                        </span>
-                        <div>
-                            <a class="twitter-timeline" href="https://twitter.com/aptmaofficial">Tweets
-                                by APTMA</a>
-                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
-                    <div class="d-flex flex-column">
-                        <span class="social-feed-item d-flex justify-content-center mb-3">
-                            <a href="#">
-                                <i class="fab fa-facebook-f fa-2x"></i>
-                                <span>Facebook</span>
-                            </a>
-                        </span>
-                        <div>
-                            <!-- Load Facebook SDK for JavaScript -->
-                            <div id="fb-root"></div>
-                            <script async defer crossorigin="anonymous"
-                                    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
-                                    nonce="z0b43ddy"></script>
-
-                            <!-- Your share button code -->
-                            <div class="fb-page" data-href="https://www.facebook.com/APTMA" data-tabs="timeline"
-                                 data-width="" data-height="" data-small-header="false"
-                                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                                <blockquote cite="https://www.facebook.com/APTMA" class="fb-xfbml-parse-ignore">
-                                    <a href="https://www.facebook.com/APTMA">APTMA</a>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 @include('frontend.partials.contact-section')

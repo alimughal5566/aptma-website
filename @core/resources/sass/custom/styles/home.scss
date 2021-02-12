@@ -278,11 +278,11 @@
         }
 
         .owl-prev {
-          left: -60px;
+          left: -1.5rem;
         }
 
         .owl-next {
-          right: -60px;
+          right: -1.5rem;
         }
 
       }
@@ -445,7 +445,10 @@
 
         &.btn {
           background: color.$primary2;
+          display: inline-block;
           color: #fff;
+          margin: auto;
+          width: auto;
         }
 
       }

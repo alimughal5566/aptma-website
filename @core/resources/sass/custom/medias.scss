@@ -386,7 +386,7 @@
                 }
 
                 & > li {
-                  line-height: 3.5;
+                  line-height: 3.25;
                 }
 
               }
@@ -426,6 +426,31 @@
             }
 
           }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .common-area {
+
+    .common-grid-carousel {
+
+      .owl-controls {
+
+        .owl-nav {
+
+          .owl-prev {
+            left: -3rem;
+          }
+
+          .owl-next {
+            right: -3rem;
+          }
+
 
         }
 

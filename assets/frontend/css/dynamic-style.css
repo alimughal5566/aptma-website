@@ -1200,6 +1200,10 @@ html {
   padding: 0.5rem 1rem;
 }
 
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li {
+  font-size: 15px;
+}
+
 .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li a {
   color: #107c35;
 }
@@ -1557,11 +1561,11 @@ html {
 }
 
 .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
-  left: -60px;
+  left: -1.5rem;
 }
 
 .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
-  right: -60px;
+  right: -1.5rem;
 }
 
 .single-case-studies-item::before,
@@ -1687,7 +1691,10 @@ html {
 
 .common-area .common-item .common-content a.btn {
   background: #107c35;
+  display: inline-block;
   color: #fff;
+  margin: auto;
+  width: auto;
 }
 
 .common-area .common-item:hover .content a.btn,
@@ -2044,11 +2051,19 @@ footer .copyright-area {
   }
 
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav > li {
-    line-height: 3.5;
+    line-height: 3.25;
   }
 
   .navigation-wrap .header .navbar-area.nav-fixed .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-mega-menu .xg_mega_menu_wrapper {
     top: 105px;
+  }
+
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
+    left: -3rem;
+  }
+
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
+    right: -3rem;
   }
 
   .footer-widget-wrap .col-lg-3 {

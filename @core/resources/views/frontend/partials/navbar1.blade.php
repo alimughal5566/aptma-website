@@ -87,7 +87,7 @@
     @endif
     <div class="header header-style-01  header-variant-{{get_static_option('home_page_variant')}}">
         <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
-            <div class="container nav-container">
+            <div class="container-fluid nav-container">
                 {{--                <div class="container-wrap">--}}
                 <div class="responsive-mobile-menu">
                     <div class="logo-wrapper">
@@ -255,7 +255,7 @@
                         </li>
                         <li class=" menu-item-has-children ">
                             <a href="#">Aptma Events</a>
-                                <ul class="sub-menu">
+                            <ul class="sub-menu">
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
                                     <ul class="sub-menu">
@@ -294,29 +294,30 @@
                 <div class="nav-right-content">
                     <div class="icon-part">
                         <ul>
-{{--                            @if(!empty(get_static_option('navbar_button')))--}}
-{{--                                <li>--}}
-{{--                                    @php--}}
-{{--                                        $custom_url = !empty(get_static_option('navbar_button_custom_url_status')) ? get_static_option('navbar_button_custom_url') : route('frontend.request.quote');--}}
-{{--                                    @endphp--}}
-{{--                                    <div class="btn-wrapper">--}}
-{{--                                        <a href="{{$custom_url}}"--}}
-{{--                                           @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"--}}
-{{--                                           @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>--}}
-{{--                                    </div>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
+                            {{--                            @if(!empty(get_static_option('navbar_button')))--}}
+                            {{--                                <li>--}}
+                            {{--                                    @php--}}
+                            {{--                                        $custom_url = !empty(get_static_option('navbar_button_custom_url_status')) ? get_static_option('navbar_button_custom_url') : route('frontend.request.quote');--}}
+                            {{--                                    @endphp--}}
+                            {{--                                    <div class="btn-wrapper">--}}
+                            {{--                                        <a href="{{$custom_url}}"--}}
+                            {{--                                           @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"--}}
+                            {{--                                           @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </li>--}}
+                            {{--                            @endif--}}
 
                             <li id="search"><a href="#"><i class="flaticon-search-1"></i></a></li>
                             @if(!empty(get_static_option('product_module_status')))
                                 <li class="cart"><a href="{{route('frontend.products.cart')}}"><i
-                                                class="flaticon-shopping-cart"></i> <span  class="pcount">{{cart_total_items()}}</span></a></li>
+                                                class="flaticon-shopping-cart"></i> <span
+                                                class="pcount">{{cart_total_items()}}</span></a></li>
                             @endif
                         </ul>
                     </div>
                 </div>
-                                </div>
             </div>
-        </nav>
     </div>
+    </nav>
+</div>
 </div>

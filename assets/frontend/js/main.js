@@ -380,7 +380,7 @@
         if ($publicationGridCarousel.length > 0) {
             $publicationGridCarousel.owlCarousel({
                 loop: true,
-                // autoplay: true, //true if you want enable autoplay
+                autoplay: true, //true if you want enable autoplay
                 autoPlayTimeout: 1000,
                 margin: 30,
                 dots: true,
@@ -397,16 +397,16 @@
                         items: 1
                     },
                     575: {
-                        items: 2
+                        items: 1
                     },
                     768: {
-                        items: 3
+                        items: 2
                     },
                     960: {
-                        items: 4
+                        items: 2
                     },
                     1200: {
-                        items: 4
+                        items: 3
                     },
                 }
             });
@@ -459,6 +459,46 @@
         var $videosGridCarousel = $('.video-grid-carousel');
         if ($videosGridCarousel.length > 0) {
             $videosGridCarousel.owlCarousel({
+                loop: true,
+                autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    575: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    960: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+        /*---------------------------
+             advertise carousel
+        ---------------------------*/
+
+        var $advertiseGridCarousel = $('.advertise-grid-carousel');
+        if ($advertiseGridCarousel.length > 0) {
+            $advertiseGridCarousel.owlCarousel({
                 loop: true,
                 autoplay: true, //true if you want enable autoplay
                 autoPlayTimeout: 1000,
