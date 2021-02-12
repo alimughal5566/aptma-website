@@ -423,20 +423,22 @@ if (!empty($page_post->content)){
                                                 <div id="megamenu-page-list-items-content" class="collapse"
                                                      aria-labelledby="page-list-items"
                                                      data-parent="#add_menu_item_accordion">
-                                                    <div class="card-body">
-@php $all_mega_menus = [
-    'service_mega_menu' => get_static_option('service_page_'.$default_lang.'_name'),
-    'work_mega_menu' => get_static_option('work_page_'.$default_lang.'_name'),
-    'event_mega_menu' => get_static_option('events_page_'.$default_lang.'_name'),
-    'product_mega_menu' => get_static_option('product_page_'.$default_lang.'_name'),
-    'donation_mega_menu' => get_static_option('donation_page_'.$default_lang.'_name'),
-    'blog_mega_menu' => get_static_option('blog_page_'.$default_lang.'_name'),
-    'job_mega_menu' => get_static_option('career_with_us_page_'.$default_lang.'_name'),
-    ];
-@endphp
+                                                <div class="card-body">
+                                            @php $all_mega_menus = [
+                                            'service_mega_menu' => get_static_option('service_page_'.$default_lang.'_name'),
+                                            'work_mega_menu' => get_static_option('work_page_'.$default_lang.'_name'),
+                                            'event_mega_menu' => get_static_option('events_page_'.$default_lang.'_name'),
+                                            'product_mega_menu' => get_static_option('product_page_'.$default_lang.'_name'),
+                                            'donation_mega_menu' => get_static_option('donation_page_'.$default_lang.'_name'),
+                                            'blog_mega_menu' => get_static_option('blog_page_'.$default_lang.'_name'),
+                                            'job_mega_menu' => get_static_option('career_with_us_page_'.$default_lang.'_name'),
+                                            'publications' => 'Publications',
+                                            ];
+                                            @endphp
                                                         <ul class="page-list-ul">
                                                             @foreach($all_mega_menus as $key => $mega_m)
-                                                                <li data-ptype="{{$key}}">
+{{--                                                                @php dd($mega_m) @endphp--}}
+                                                                 <li data-ptype="{{$key}}">
                                                                     <label class="menu-item-title">
                                                                         <input type="checkbox" class="menu-item-checkbox">
                                                                         {{$mega_m.__(' Mega Menu')}}
@@ -486,6 +488,42 @@ if (!empty($page_post->content)){
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="card">
+                                                <div class="card-header" id="custom-links">
+                                                    <h2 class="mb-0">
+                                                        <button class="btn btn-link collapsed" type="button"
+                                                                data-toggle="collapse"
+                                                                data-target="#custom-links-content"
+                                                                aria-expanded="false"
+                                                                aria-controls="custom-links-content">
+                                                            {{__('Custom Links')}}
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <div id="custom-links-content" class="collapse"
+                                                     aria-labelledby="custom-links"
+                                                     data-parent="#add_menu_item_accordion">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <label for="custom_url"><strong>{{__("URL")}}</strong></label>
+                                                            <input type="text" name="custom_url" id="custom_url"
+                                                                   class="form-control"
+                                                                   placeholder="{{__('https://')}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="custom_label_text"><strong>{{__("Link Text")}}</strong></label>
+                                                            <input type="text" name="custom_label_text"
+                                                                   id="custom_label_text" class="form-control"
+                                                                   placeholder="{{__('label text')}}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="button" id="add_custom_links"
+                                                                    class="btn btn-primary btn-xs mt-4 pr-4 pl-4">{{__('Add To Menu')}}</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

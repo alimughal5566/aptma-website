@@ -49,6 +49,9 @@ class MenuController extends Controller
         ]);
     }
     public function edit_menu($id){
+//        $routeList = \Route::getRoutes();
+
+//        dd($routeList->get());
         $page_post = Menu::find($id);
         $all_page = Page::where(['status'=>'publish','lang' => $page_post->lang])->get();
         $all_language = Language::all();
