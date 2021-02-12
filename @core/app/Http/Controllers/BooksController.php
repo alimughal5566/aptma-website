@@ -25,6 +25,7 @@ class BooksController extends Controller
         }
 
     public function store(Request $request){
+//        dd();
         $this->validate($request,[
             'title' => 'required|string',
             'thumbnail' => 'required',
@@ -100,7 +101,7 @@ class BooksController extends Controller
     public function category_store(Request $request){
 //        dd();
         $this->validate($request,[
-            'title' => 'required|string|unique:book_categories',
+            'name' => 'required|string|unique:book_categories',
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -108,20 +109,20 @@ class BooksController extends Controller
         BookCategory::create([
             'status' => $request->status,
             'lang' => $request->lang,
-            'name' => $request->title,
+            'name' => $request->name,
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
     public function category_update(Request $request){
         $this->validate($request,[
-            'title' => 'required|string',
+            'name' => 'required|string',
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
         BookCategory::where('id',$request->id)->update([
             'status' => $request->status,
             'lang' => $request->lang,
-            'name' => $request->title,
+            'name' => $request->name,
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }

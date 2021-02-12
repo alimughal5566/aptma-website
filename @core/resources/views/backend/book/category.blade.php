@@ -152,7 +152,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" class="form-control">
+                                <input type="text" name="name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="status">{{__('Status')}}</label>
@@ -190,7 +190,7 @@
                         </div>
                         <div class="form-group">
                             <label for="title">{{__('Title')}}</label>
-                            <input type="text" name="title" class="form-control">
+                            <input type="text" name="name" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="status">{{__('Status')}}</label>
@@ -271,7 +271,7 @@
                 var lang = el.data('lang');
                 var modalContainerId = $('#image_category_item_edit_modal');
                 modalContainerId.find('input[name="id"]').val(id);
-                modalContainerId.find('input[name="title"]').val(title);
+                modalContainerId.find('input[name="name"]').val(title);
                 modalContainerId.find('select[name="status"] option[value="'+status+'"]').attr('selected',true);
                 modalContainerId.find('select[name="lang"] option[value="'+lang+'"]').attr('selected',true);
             });

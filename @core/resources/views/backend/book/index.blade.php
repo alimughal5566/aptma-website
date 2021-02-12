@@ -74,8 +74,8 @@
                                             </th>
                                             <th>{{__('ID')}}</th>
                                             <th>{{__('Title')}}</th>
-<th>{{__('Category')}}</th>
-<th>{{__('Image')}}</th>
+                            <th>{{__('Category')}}</th>
+                            <th>{{__('Image')}}</th>
 
                                             <th>{{__('Status')}}</th>
                                             <th>{{__('Is featured')}}</th>

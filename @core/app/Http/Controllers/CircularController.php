@@ -97,8 +97,9 @@ class CircularController extends Controller
         return view('backend.circular.category')->with(['all_category' => $all_gallery_images,'all_languages' => $all_languages ]);
     }
     public function category_store(Request $request){
+//        dd();
         $this->validate($request,[
-            'title' => 'required|string|unique:circular_categories',
+            'name' => 'required|string|unique:circular_categories',
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -106,20 +107,22 @@ class CircularController extends Controller
         CircularCategory::create([
             'status' => $request->status,
             'lang' => $request->lang,
-            'name' => $request->title,
+            'name' => $request->name,
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
     public function category_update(Request $request){
+//        dd();
         $this->validate($request,[
-            'title' => 'required|string',
+            'name' => 'required|string',
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
+//        dd();
         CircularCategory::where('id',$request->id)->update([
             'status' => $request->status,
             'lang' => $request->lang,
-            'name' => $request->title,
+            'name' => $request->name,
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }

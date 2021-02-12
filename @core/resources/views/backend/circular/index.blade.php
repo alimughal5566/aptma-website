@@ -113,7 +113,7 @@
 
                                                     <td>{{($data->status=='1')?'Active':'Not active'}}</td>
                                                     <td>{{($data->is_featured=='1')?'Yes':'No'}}</td>
-                                                    <td>{{@$data->category->updated_at->format('d-M-Y')}}</td>
+                                                    <td>{{@$data->updated_at->format('d-M-Y')}}</td>
 
                                                     <td>
                                                         <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
@@ -123,7 +123,7 @@
                                                            data-html="true"
                                                            title=""
                                                            data-content="
-                                                           <h6>{{__('Are you sure to delete this video ?')}}</h6>
+                                                           <h6>{{__('Are you sure to delete this Circular ?')}}</h6>
                                                            <form method='post' action='{{route('admin.circular.delete',$data->id)}}'>
                                                            <input type='hidden' name='_token' value='{{csrf_token()}}'>
                                                            <br>
