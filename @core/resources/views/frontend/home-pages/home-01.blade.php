@@ -214,7 +214,58 @@
                                             <h4 class="title">{{$data->title}}</h4>
                                         </a>
                                         <p><strong>Category:</strong> {{@$data->category->name}}</p>
-                                        <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn">Download</a>
+                                        <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn" download>Download</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
+    <div class="container common-container book-container bg-white rounded padding-bottom-30">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                    <h2 class="font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h2>
+                    {{--                    <p class="desc">{{''}}</p>--}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="common-grid-carousel-wrapper">
+                    <div class="common-grid-carousel books-grid-carousel">
+                        @foreach($advertisements as $data)
+                            <div class="common-grid-carousel-item">
+                                <div class="common-item book-item single-what-we-cover-item-02 ">
+                                    <div class="common-img book-img single-what-img position-relative">
+                                        @php
+                                            $now = Carbon\Carbon::now();
+                                            $datework = Carbon\Carbon::parse($data->created_at);
+                                            $diff = $datework->diffInDays($now);
+                                        @endphp
+                                        @if($diff<15)
+                                            <small class=" font-italic badge">New</small>
+                                        @endif
+
+                                        <a href="{{route('frontend.advertisement.single',$data->id)}}">
+                                            {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                    </div>
+                                    <div class="common-content content">
+                                        <a href="{{route('frontend.advertisement.single',$data->id)}}">
+                                            <h4 class="title">{{$data->title}}</h4>
+                                        </a>
+                                        <p><strong>Category:</strong> {{$data->category->name}}</p>
+{{--                                        <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn" download>Download</a>--}}
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +312,7 @@
                                         <a href="{{route('frontend.gallery.video.single', $data->id)}}">
                                             <h4 class="title">{{$data->title}}</h4>
                                         </a>
-                                        <a href="{{$data->url}}" class="btn">Download</a>
+                                        <a href="{{$data->url}}" target="_blank" class="btn">View</a>
 
                                     </div>
                                 </div>

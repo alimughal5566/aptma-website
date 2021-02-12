@@ -13,9 +13,11 @@
 @section('content')
     <section class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
+            <h2 class="font-weight-bold mb-3 text-center">Publications<?php echo ($category)? "<small>($category)<small>":"" ?></h2>
+
             <div class="row">
                 @php $a = 1; @endphp
-                @foreach($all_services as $data)
+                @forelse($all_services as $data)
                     <div class="col-lg-4 col-md-6">
                         <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
                             <div class="common-img publication-img single-what-img position-relative">
@@ -47,7 +49,13 @@
                     </div>
                     @php
                         if($a == 4){ $a = 1;}else{$a++;}; @endphp
-                @endforeach
+                    @empty
+                        <div class="col-md-12 card border-0 thumb margin-bottom-40">
+                            <div class="text center px-5 card-body ">
+                                <h1 class="text-muted">Sorry,No data found</h1>
+                            </div>
+                        </div>
+                    @endforelse
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">
                         {{$all_services->links()}}

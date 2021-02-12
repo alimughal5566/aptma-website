@@ -18,32 +18,33 @@
 @endsection
 @section('content')
 
-    <div class="page-content service-details common-single publication-single padding-top-50 padding-bottom-100">
+    <div class="page-content service-details common-single circular-single padding-top-50 padding-bottom-100">
         <div class="container">
-{{--            <h2 class="font-weight-bold mb-3 text-center">Books<?php echo ($category)? "<small>($category)<small>":"" ?></h2>--}}
-
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="common-single-title publication-single-title margin-bottom-15">{{$service_item->title}}</h3>
+                    <h3 class="common-single-title circular-single-title margin-bottom-15">{{$service_item->title}}</h3>
                 </div>
+
                 <div class="col-lg-6">
-                    <div class="service-details-item common-single-item publication-single-item position-relative">
-                        <a href="{{$service_item->url}}" target="_blank" class="btn">View video</a>
-                        <div class="thumb margin-bottom-40">
+                    <div class="service-details-item common-single-item circular-single-item position-relative">
+{{--                        <a href="{{asset('assets/uploads/circular/'.$service_item->url)}}"--}}
+{{--                           class="btn">Download</a>--}}
+                        <div class="thumb">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="service-details-item common-single-item publication-single-item position-relative">
-                        <div class="service-description">
-                            <h6>Published On: <span class="text-muted">{{$service_item->created_at->format('d M Y')}}</span></h6>
-                            <div>
-                                {!! $service_item->description !!}
-                            </div>
+                    <div class="service-details-item common-single-item circular-single-item position-relative">
+                        <div class="service-description common-single-description circular-description">
+                            <div class="margin-bottom-15">
+                                <strong>Category:</strong> {{$service_item->category->name}}</div>
+                            <p>Last updated: {{$service_item->updated_at->format('d M Y')}}</p>
+                            <div>{!! $service_item->description !!}</div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

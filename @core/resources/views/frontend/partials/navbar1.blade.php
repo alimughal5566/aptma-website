@@ -167,13 +167,27 @@
                                 </li>
                                 @php $categories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($categories->count()>0)
-                                    {{--                                    @php dd($teams) @endphp--}}
                                     <li class="menu-item-has-children ">
                                         <a href="{{route('frontend.publication')}}">Publications</a>
                                         <ul class="sub-menu">
                                             @foreach($categories as $category)
                                                 <li>
                                                     <a href="{{route('frontend.publication',[$category->id])}}">{{$category->name}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+
+                                    </li>
+                                @endif
+                                @php $categories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
+                                @if($categories->count()>0)
+                                    {{--                                    @php dd($teams) @endphp--}}
+                                    <li class="menu-item-has-children ">
+                                        <a href="{{route('frontend.book.index')}}">Books</a>
+                                        <ul class="sub-menu">
+                                            @foreach($categories as $category)
+                                                <li>
+                                                    <a href="{{route('frontend.book.index',[$category->id])}}">{{$category->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -216,13 +230,14 @@
 
                             </ul>
                         </li>
-                        <li class=" menu-item-has-children ">
+                        <li class=" menu-item-has-children">
                             <a href="#">Members Directory</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="#">Executive Commitee</a>
                                     <a href="#">Admin and Finance</a>
                                     <a href="#">Members Pages</a>
+                                </li>
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.publication')}}">Standing Committee</a>
                                     <ul class="sub-menu">
@@ -234,19 +249,26 @@
                                             <a href="">Polyester, Fiber and Synthetic fiber</a>
                                             <a href="">others</a>
                                         </li>
-
                                     </ul>
-
                                 </li>
-                                </li>
-
                             </ul>
                         </li>
                         <li class=" menu-item-has-children ">
                             <a href="#">Aptma Events</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">Pictures Gallery</a>
+                                <ul class="sub-menu">
+                                <li class="menu-item-has-children ">
+                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
+                                    <ul class="sub-menu">
+                                        @php $categories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
+                                        @if($categories->count()>0)
+                                            @foreach($categories as $category)
+                                                <li>
+                                                    <a href="{{route('frontend.image.gallery',[$category->id])}}">{{$category->title}}</a>
+                                                </li>
+                                            @endforeach()
+                                        @endif
+                                    </ul>
+                                </li>
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>
                                     <ul class="sub-menu">
@@ -257,50 +279,43 @@
                                                     <a href="{{route('frontend.gallery.video.index',[$category->id])}}">{{$category->name}}</a>
                                                 </li>
                                             @endforeach()
-
                                         @endif
 
                                     </ul>
-
                                 </li>
-                                </li>
-
                             </ul>
                         </li>
-
-
-                        {{--                        {!! render_menu_by_id($primary_menu) !!}--}}
-
-
+                        <li>
+                            <a href="{{route('frontend.contact')}}">Contact</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="nav-right-content">
                     <div class="icon-part">
                         <ul>
-                            @if(!empty(get_static_option('navbar_button')))
-                                <li>
-                                    @php
-                                        $custom_url = !empty(get_static_option('navbar_button_custom_url_status')) ? get_static_option('navbar_button_custom_url') : route('frontend.request.quote');
-                                    @endphp
-                                    <div class="btn-wrapper">
-                                        <a href="{{$custom_url}}"
-                                           @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"
-                                           @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>
-                                    </div>
-                                </li>
-                            @endif
+{{--                            @if(!empty(get_static_option('navbar_button')))--}}
+{{--                                <li>--}}
+{{--                                    @php--}}
+{{--                                        $custom_url = !empty(get_static_option('navbar_button_custom_url_status')) ? get_static_option('navbar_button_custom_url') : route('frontend.request.quote');--}}
+{{--                                    @endphp--}}
+{{--                                    <div class="btn-wrapper">--}}
+{{--                                        <a href="{{$custom_url}}"--}}
+{{--                                           @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"--}}
+{{--                                           @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>--}}
+{{--                                    </div>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
 
                             <li id="search"><a href="#"><i class="flaticon-search-1"></i></a></li>
                             @if(!empty(get_static_option('product_module_status')))
                                 <li class="cart"><a href="{{route('frontend.products.cart')}}"><i
-                                                class="flaticon-shopping-cart"></i> <span
-                                                class="pcount">{{cart_total_items()}}</span></a></li>
+                                                class="flaticon-shopping-cart"></i> <span  class="pcount">{{cart_total_items()}}</span></a></li>
                             @endif
                         </ul>
                     </div>
                 </div>
-                {{--                </div>--}}
+                                </div>
             </div>
         </nav>
     </div>

@@ -218,14 +218,17 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
 
 
     // Frontend Wasim
-    Route::get('/publications', 'FrontendController@publication_page')->name('frontend.publication');
+    Route::get('/publications/{cat?}', 'FrontendController@publication_page')->name('frontend.publication');
     Route::get('/publication/{slug}', 'FrontendController@publication_single_page')->name('frontend.publication.single');
     Route::get('/gallery-videos/{cat?}','FrontendController@video_page')->name('frontend.gallery.video.index');
     Route::get('/gallery-videos/show/{slug}', 'FrontendController@video_single_page')->name('frontend.gallery.video.single');
-    Route::get('/books', 'FrontendController@book_page')->name('frontend.book.index');
+    Route::get('/books/{cat?}', 'FrontendController@book_page')->name('frontend.book.index');
     Route::get('/books/show/{slug}', 'FrontendController@book_single_page')->name('frontend.book.single');
     Route::get('/circulars/{cat?}','FrontendController@circular_page')->name('frontend.circular.index');
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
+
+    Route::get('/advertisement/{cat?}','FrontendController@advertisement_page')->name('frontend.advertisement.index');
+    Route::get('/advertisement/show/{slug}', 'FrontendController@advertisement_single_page')->name('frontend.advertisement.single');
 
 
     Route::get('/' . $donor_page_slug, 'FrontendController@donor_list')->name('frontend.donor.list');
@@ -259,6 +262,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::post('/' . $clients_feedback_page_slug . '/submit', 'FrontendFormController@clients_feedback_store')->name('frontend.clients.feedback.store');
     //image gallery
     Route::get('/' . $image_gallery_page_slug . '', 'FrontendController@image_gallery_page')->name('frontend.image.gallery');
+    Route::get('/' . $image_gallery_page_slug . '/{cat?}', 'FrontendController@image_gallery_page1')->name('frontend.image.gallery');
 
     Route::get('/' . $price_plan_page_slug . '/{id}', 'FrontendController@plan_order')->name('frontend.plan.order');
 
@@ -721,6 +725,24 @@ Route::prefix('/admin-home/circular')->group(function () {
     Route::post('/category-by-slug', 'CircularController@category_by_slug')->name('admin.circular.category.by.lang');
 });
 
+
+//Advertisement admin pages
+Route::prefix('/admin-home/advertisement')->group(function () {
+    Route::get('/', 'AdvertisementController@index')->name('admin.advertisement.all');
+    Route::post('/new', 'AdvertisementController@store')->name('admin.advertisement.new');
+    Route::post('/delete/{id}', 'AdvertisementController@delete')->name('admin.advertisement.delete');
+    Route::post('/update', 'AdvertisementController@update')->name('admin.advertisement.update');
+    Route::post('/circular/bulk-action', 'AdvertisementController@bulk_action')->name('admin.advertisement.bulk.action');
+
+    Route::get('/category', 'AdvertisementController@category_index')->name('admin.advertisement.category');
+    Route::post('/category/new', 'AdvertisementController@category_store')->name('admin.advertisement.category.new');
+    Route::post('/category/update', 'AdvertisementController@category_update')->name('admin.advertisement.category.update');
+    Route::post('/category/delete/{id}', 'AdvertisementController@category_delete')->name('admin.advertisement.category.delete');
+    Route::post('/category/bulk-action', 'AdvertisementController@category_bulk_action')->name('admin.advertisement.category.bulk.action');
+    Route::post('/category-by-slug', 'AdvertisementController@category_by_slug')->name('admin.advertisement.category.by.lang');
+});
+
+
 //contact page manage
 Route::prefix('admin-home')->middleware(['contact_page_manage_check'])->group(function () {
     //contact page
@@ -728,7 +750,6 @@ Route::prefix('admin-home')->middleware(['contact_page_manage_check'])->group(fu
     Route::post('/contact-page/form-area', 'ContactPageController@contact_page_update_form_area');
     Route::get('/contact-page/map', 'ContactPageController@contact_page_map_area')->name('admin.contact.page.map');
     Route::post('/contact-page/map', 'ContactPageController@contact_page_update_map_area');
-
     Route::get('/contact-page/section-manage', 'ContactPageController@contact_page_section_manage')->name('admin.contact.page.section.manage');
     Route::post('/contact-page/section-manage', 'ContactPageController@contact_page_update_section_manage');
 

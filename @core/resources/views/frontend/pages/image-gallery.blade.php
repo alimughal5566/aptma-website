@@ -24,7 +24,7 @@
                 <div class="col-lg-12">
                     <div class="case-studies-masonry-wrapper">
                         <ul class="case-studies-menu style-01">
-                            <li class="active" data-filter="*">{{__('Categories')}}</li>
+                            <li class="active" data-filter="*">{{__('Gallery')}} <?php echo ($category)?"($category)":"" ?></li>
                             {{--                           @foreach($all_category as $data)--}}
                             {{--                               <li data-filter=".{{Str::slug($data->title)}}">{{$data->title}}</li>--}}
                             {{--                           @endforeach--}}
