@@ -4,7 +4,7 @@
         <div class="footer-top padding-top-0 padding-bottom-30">
 
             @if(!empty(get_static_option('home_page_counterup_section_status')))
-{{--                <div class="counterup-area counterup-bg padding-top-30 padding-bottom-30">--}}
+                {{--                <div class="counterup-area counterup-bg padding-top-30 padding-bottom-30">--}}
                 <div class="counterup-area counterup-bg ">
                     <div class="container counter-container bg-white padding-top-20 padding-bottom-20">
                         <div class="row">
@@ -94,7 +94,7 @@
 <script src="{{asset('assets/frontend/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/frontend/js/wow.min.js')}}"></script>
 <script src="{{asset('assets/frontend/js/jquery.ihavecookies.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/main.js')}}"></script>
+<script src="{{asset('assets/frontend/js/main.js')}}??{{ time() }}"></script>
 @php $site_google_captcha_v3_site_key = get_static_option('site_google_captcha_v3_site_key'); @endphp
 @if(!empty($site_google_captcha_v3_site_key) && request()->path() == 'home/01' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/02' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/03' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/04' || !empty($site_google_captcha_v3_site_key) && request()->path() == '/')
     <script
@@ -291,7 +291,5 @@
         })();
     </script>
     @endif
-
     </body>
-
     </html>

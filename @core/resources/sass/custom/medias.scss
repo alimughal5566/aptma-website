@@ -327,7 +327,13 @@
                   &.menu-item-has-children {
 
                     & > .sub-menu {
-                      top: 130%;
+                      top: 120%;
+
+                      .sub-menu {
+                        top: 0;
+                        left: 101%;
+                      }
+
                     }
 
                     .sub-menu {

@@ -126,7 +126,7 @@
             <p>
                 {!! get_footer_copyright_text() !!}
             </p>
-            <p>{!! __('Powered By ').'<a href="https://codecanyon.net/item/nexelit-multipurpose-website-business-management-system-cms/27936384">Nexeit '.get_static_option('site_script_version').'</a>' !!}</p>
+            <p>{!! __('Powered By ').'<a href="https://ivylabtech.com" target="_blank">IvyLabtech</a>' !!}</p>
         </div>
     </footer>
 

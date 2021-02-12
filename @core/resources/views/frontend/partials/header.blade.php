@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/jquery.ihavecookies.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/dynamic-style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/frontend/css/dynamic-style.css')}}?{{ time() }}">
 
     @if(request()->path() == '/')
         <meta property="og:title" content="{{get_static_option('site_'.$user_select_lang_slug.'_title')}}"/>
@@ -50,7 +50,7 @@
             --heading-color: {{get_static_option('site_heading_color')}};
             --paragraph-color: {{get_static_option('site_paragraph_color')}};
             @php $heading_font_family = !empty(get_static_option('heading_font')) ? get_static_option('heading_font_family') :  get_static_option('body_font_family') @endphp
-              --heading-font: "{{$heading_font_family}}", sans-serif;
+               --heading-font: "{{$heading_font_family}}", sans-serif;
             --body-font: "{{get_static_option('body_font_family')}}", sans-serif;
         }
     </style>

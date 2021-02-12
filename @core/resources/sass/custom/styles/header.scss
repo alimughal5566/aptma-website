@@ -47,24 +47,46 @@
 }
 
 .navigation-wrap {
-  background-image: linear-gradient(0deg, colorVar.$primary2, colorVar.$primary1);
+  //background-image: linear-gradient(0deg, colorVar.$primary2, colorVar.$primary1);
 
   .top-bar-area {
     background-color: transparent !important;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    .top-bar-inner {
+
+      ul {
+
+        li {
+
+          a {
+            color: colorVar.$primary2;
+
+            &:hover, &:focus, &:active {
+              color: colorVar.$primary1;
+            }
+
+            }
+
+        }
+
+      }
+
+    }
+
   }
 
   .header {
+    box-shadow: 0 0.05rem 0.3rem 0.02rem rgb(0 0 0 / 17.5%);
 
     .navbar-area {
 
       .nav-container {
-        box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
-        background-color: #fff;
+        //box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
+        //background-color: #fff;
         border-radius: 0.25rem;
-        padding: 10px 15px;
-        position: relative;
-        top: 1.5rem;
+        padding: 0.5rem 1rem;
 
         .navbar-collapse {
 
@@ -200,7 +222,8 @@
       }
 
       &.nav-fixed {
-        background-image: linear-gradient(0deg, colorVar.$primary2, colorVar.$primary1);
+        //background-image: linear-gradient(0deg, colorVar.$primary2, colorVar.$primary1);
+        background-color: #fff;
       }
 
     }
