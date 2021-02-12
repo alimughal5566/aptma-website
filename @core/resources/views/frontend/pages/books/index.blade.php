@@ -14,8 +14,10 @@
     <section class="service-area service-page common-area book-area book-page padding-top-40 padding-bottom-60">
         <div class="container">
             <div class="row">
-                @php $a = 1; @endphp
-                @foreach($all_services as$data)
+                @php
+                    $a = 1;
+                @endphp
+                @foreach($all_services as $data)
                     <div class="col-lg-4 col-md-6">
                         <div class="common-item book-item single-what-we-cover-item-02 margin-bottom-30">
                             <div class="common-img book-img single-what-img position-relative">
@@ -36,12 +38,14 @@
                                 </a>
                                 <p><strong>Category:</strong> {{@$data->category->name}}</p>
                                 <a href="{{asset('assets/uploads/books/'.$data->url)}}"
-                                   class="btn">download</a>
+                                   class="btn">Download</a>
                             </div>
                         </div>
                     </div>
                     @php
-                        if($a == 4){ $a = 1;}else{$a++;}; @endphp
+                        if($a == 4){ $a = 1;}
+                        else{$a++;};
+                    @endphp
                 @endforeach
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">

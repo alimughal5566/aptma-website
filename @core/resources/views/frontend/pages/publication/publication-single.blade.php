@@ -27,7 +27,7 @@
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
                         <a href="{{asset('assets/uploads/publications/pdf/'.$service_item->pdf_url)}}"
-                           class="btn">Download</a>
+                           class="btn" target="_blank">Download</a>
                         <div class="thumb">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>

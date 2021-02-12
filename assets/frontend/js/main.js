@@ -371,6 +371,128 @@
                 }
             });
         }
+
+        /*---------------------------
+            Publications Grid carousel
+        ---------------------------*/
+
+        var $publicationGridCarousel = $('.publication-grid-carousel');
+        if ($publicationGridCarousel.length > 0) {
+            $publicationGridCarousel.owlCarousel({
+                loop: true,
+                // autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    575: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    960: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+        /*---------------------------
+            Books Grid carousel
+        ---------------------------*/
+
+        var $booksGridCarousel = $('.books-grid-carousel');
+        if ($booksGridCarousel.length > 0) {
+            $booksGridCarousel.owlCarousel({
+                loop: true,
+                autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    575: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    960: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+        /*---------------------------
+            Videos Grid carousel
+        ---------------------------*/
+
+        var $videosGridCarousel = $('.video-grid-carousel');
+        if ($videosGridCarousel.length > 0) {
+            $videosGridCarousel.owlCarousel({
+                loop: true,
+                autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    575: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    960: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+
         /*---------------------------
              case studies carousel
         ---------------------------*/
