@@ -226,8 +226,9 @@
                                                     @if($diff<15)
                                                         <small class=" font-italic badge">New</small>
                                                     @endif
-                                                    <a href="javascript:void(0);">
-                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+
+                                                    {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
+
                                                 </div>
                                             </div>
                                         </div>
@@ -357,7 +358,7 @@
                         <div class="col-12">
                             <div class=" bg-white rounded px-2 px-lg-3 padding-top-50 padding-bottom-30">
                                 <div class="section-title desktop-center padding-bottom-20">
-                                    <h2 class="font-weight-bold">{{'Latest News &amp; Articles'}}</h2>
+                                    <h2 class="font-weight-bold">{{'Latest News & Articles'}}</h2>
                                     {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
                                     {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
                                 </div>

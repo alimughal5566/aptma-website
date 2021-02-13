@@ -1484,8 +1484,12 @@ html {
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
-  font-size: 20px;
+  display: inline-block;
+  max-height: 75px;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   line-height: 25px;
+  font-size: 20px;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title a {
@@ -1609,9 +1613,14 @@ html {
   width: 100%;
 }
 
+.common-area .common-item .common-img.video-img {
+  min-height: 200px;
+  max-height: 200px;
+}
+
 .common-area .common-item .common-img.advertise-img {
-  min-height: 350px;
-  max-height: 350px;
+  min-height: 400px;
+  max-height: 400px;
 }
 
 .common-area .common-item .common-content {
@@ -1625,12 +1634,6 @@ html {
   height: 100%;
   width: 100%;
   z-index: 999;
-}
-
-.common-area .common-item .common-content a .title {
-  margin-bottom: 0.4rem;
-  font-size: 20px;
-  line-height: 30px;
 }
 
 .common-area .common-item .common-content a.btn {

@@ -13,7 +13,8 @@
 @section('content')
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Advertisements<?php echo ($category)? "<small>($category)<small>":"" ?></h2>
+            <h2 class="font-weight-bold mb-3 text-center">
+                Advertisements <?php echo ($category) ? "<small>($category)<small>" : "" ?></h2>
 
             <div class="row">
                 @forelse($all_services as $data)
@@ -28,7 +29,6 @@
                                 @if($diff<15)
                                     <small class="font-italic badge">New</small>
                                 @endif
-
                                 <a href="{{route('frontend.advertisement.single',$data->id)}}">{!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                             </div>
                             <div class="common-content content">
@@ -37,8 +37,6 @@
                                 </a>
                                 <p>Category: {{@$data->category->name}}</p>
                                 <p>Last updated: {{@$data->updated_at->format('d M Y')}}</p>
-{{--                                <a href="{{asset('assets/uploads/circular/'.$data->url)}}" target="_blank"--}}
-{{--                                   class="btn text-center">Download</a>--}}
                             </div>
                         </div>
                     </div>

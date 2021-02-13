@@ -18,25 +18,25 @@
 @endsection
 @section('content')
 
-    <div class="page-content service-details common-single circular-single padding-top-50 padding-bottom-100">
+    <div class="page-content service-details common-single advertise-single padding-top-50 padding-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="common-single-title circular-single-title margin-bottom-15">{{$service_item->title}}</h3>
+                    <h3 class="common-single-title advertise-single-title margin-bottom-15">{{$service_item->title}}</h3>
                 </div>
 
                 <div class="col-lg-6">
-                    <div class="service-details-item common-single-item circular-single-item position-relative">
-{{--                        <a href="{{asset('assets/uploads/circular/'.$service_item->url)}}"--}}
-{{--                           class="btn">Download</a>--}}
+                    <div class="service-details-item common-single-item advertise-single-item position-relative">
+                        {{--                        <a href="{{asset('assets/uploads/advertise/'.$service_item->url)}}"--}}
+                        {{--                           class="btn">Download</a>--}}
                         <div class="thumb">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="service-details-item common-single-item circular-single-item position-relative">
-                        <div class="service-description common-single-description circular-description">
+                    <div class="service-details-item common-single-item advertise-single-item position-relative">
+                        <div class="service-description common-single-description advertise-description">
                             <div class="margin-bottom-15">
                                 <strong>Category:</strong> {{$service_item->category->name}}</div>
                             <p>Last updated: {{$service_item->updated_at->format('d M Y')}}</p>

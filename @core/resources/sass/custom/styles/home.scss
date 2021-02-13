@@ -199,8 +199,11 @@
         }
 
         .title {
-          font-size: 20px;
+          display: inline-block;
+          max-height: 75px;
+          text-overflow: ellipsis;
           line-height: 25px;
+          font-size: 20px;
 
           a {
             color: color.$primary2;
@@ -331,9 +334,14 @@
 
       }
 
+      &.video-img {
+        min-height: 200px;
+        max-height: 200px;
+      }
+
       &.advertise-img {
-        min-height: 350px;
-        max-height: 350px;
+        min-height: 400px;
+        max-height: 400px;
       }
 
     }
@@ -348,12 +356,6 @@
         height: 100%;
         width: 100%;
         z-index: 999;
-
-        .title {
-          margin-bottom: 0.4rem;
-          font-size: 20px;
-          line-height: 30px;
-        }
 
         &.btn {
           background: color.$primary2;
