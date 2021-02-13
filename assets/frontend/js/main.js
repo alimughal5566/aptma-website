@@ -480,13 +480,13 @@
                         items: 2
                     },
                     768: {
-                        items: 3
+                        items: 2
                     },
                     960: {
-                        items: 4
+                        items: 3
                     },
                     1200: {
-                        items: 4
+                        items: 3
                     },
                 }
             });
@@ -517,16 +517,16 @@
                         items: 1
                     },
                     575: {
-                        items: 2
+                        items: 1
                     },
                     768: {
-                        items: 3
+                        items: 2
                     },
                     960: {
-                        items: 4
+                        items: 2
                     },
                     1200: {
-                        items: 4
+                        items: 2
                     },
                 }
             });

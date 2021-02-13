@@ -27,14 +27,15 @@
     @endforeach
 </div>
 
-<section class="common-area publication-area background-gray-light-lightest padding-top-50 ">
-    <div class="container-fluid common-container publication-container">
+<section class="common-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container">
         <div class="row">
             <div class="col-12 col-lg-1"></div>
             <div class="col-12 col-lg-10">
                 <div class="row">
                     <div class="col-12 col-lg-8">
-                        <div class="w-100 h-100 bg-white rounded px-2 px-lg-3 padding-bottom-30">
+
+                        <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30 margin-bottom-50">
                             <div class="section-title desktop-center padding-top-30 padding-bottom-30">
                                 <h2 class="font-weight-bold margin-bottom-0">{{'Latest Publications'}}</h2>
                                 {{--                    <p class="desc">{{''}}</p>--}}
@@ -71,6 +72,48 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper events-grid-carosel-wrapper">
+                                <div class="common-grid-carousel events-grid-carousel">
+                                    @foreach($all_events as $data)
+                                        <div class="common-grid-carousel-item single-events-list-item rounded flex-column position-relative">
+                                            <div class="common-img thumb mr-0">
+                                                <div class="thumb-wrap">
+                                                    {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
+                                                </div>
+                                            </div>
+                                            <div class="common-content content-area">
+                                                <div class="top-part mb-0 py-2 flex-column">
+                                                    <div class="detail-wrap w-100">
+                                                        <div class="date-time-wrap d-flex flex-column justify-content-center ">
+                                                            <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
+                                                            <span class="time-span">{{$data->time}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="title-wrap d-flex py-1">
+                                                        <a href="{{route('frontend.events.single',$data->slug)}}">
+                                                            <h4 class="title mb-0">{{$data->title}}</h4>
+                                                        </a>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <span class="location d-flex align-items-center">
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                            <span class="ml-2">{{$data->venue_location}}</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
@@ -142,111 +185,20 @@
     </div>
 </section>
 
-<section class="common-area event-area background-gray-light-lightest padding-top-50 ">
-    <div class="container-fluid common-container event-container">
-        <div class="row">
-            <div class="col-12 col-lg-1"></div>
-            <div class="col-12 col-lg-10">
-                <div class="row">
-                    <div class="col-12">
-                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                                <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
-                                {{--                    <p class="desc">{{''}}</p>--}}
-                            </div>
-                            <div class="common-grid-carousel-wrapper events-grid-carosel-wrapper">
-                                <div class="common-grid-carousel events-grid-carousel">
-                                    @foreach($all_events as $data)
-                                        <div class="common-grid-carousel-item single-events-list-item rounded flex-column position-relative">
-                                            <div class="common-img thumb mr-0">
-                                                <div class="thumb-wrap">
-                                                    {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
-                                                </div>
-                                            </div>
-                                            <div class="common-content content-area">
-                                                <div class="top-part mb-0 py-2 flex-column">
-                                                    <div class="detail-wrap w-100">
-                                                        <div class="date-time-wrap d-flex flex-column justify-content-center ">
-                                                            <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
-                                                            <span class="time-span">{{$data->time}}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="title-wrap d-flex py-1">
-                                                        <a href="{{route('frontend.events.single',$data->slug)}}">
-                                                            <h4 class="title mb-0">{{$data->title}}</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <span class="location d-flex align-items-center">
-                                                            <i class="fas fa-map-marker-alt"></i>
-                                                            <span class="ml-2">{{$data->venue_location}}</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-1"></div>
-        </div>
-    </div>
-</section>
-
-<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
-    <div class="container-fluid common-container book-container">
-        <div class="row">
-            <div class="col-12 col-lg-1"></div>
-            <div class="col-12 col-lg-10">
-                <div class="row">
-                    <div class="col-12">
-                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>
-                                {{--                    <p class="desc">{{''}}</p>--}}
-                            </div>
-                            <div class="common-grid-carousel-wrapper">
-                                <div class="common-grid-carousel books-grid-carousel">
-                                    @foreach($books as $data)
-                                        <div class="common-grid-carousel-item">
-                                            <div class="common-item book-item single-what-we-cover-item-02 ">
-                                                <div class="common-img book-img single-what-img position-relative">
-                                                    @php
-                                                        $now = Carbon\Carbon::now();
-                                                        $datework = Carbon\Carbon::parse($data->created_at);
-                                                        $diff = $datework->diffInDays($now);
-                                                    @endphp
-                                                    @if($diff<15)
-                                                        <small class=" font-italic badge">New</small>
-                                                    @endif
-
-                                                    <a href="{{route('frontend.book.single',$data->id)}}">
-                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
-                                                </div>
-                                                <div class="common-content content">
-                                                    <a href="{{route('frontend.book.single',$data->id)}}">
-                                                        <h4 class="title">{{$data->title}}</h4>
-                                                    </a>
-                                                    <p>{{@$data->category->name}}</p>
-                                                    <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn">Download</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-1"></div>
-        </div>
-    </div>
-</section>
+{{--<section class="common-area event-area background-gray-light-lightest padding-top-50 ">--}}
+{{--    <div class="container-fluid common-container event-container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12 col-lg-1"></div>--}}
+{{--            <div class="col-12 col-lg-10">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-12">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-12 col-lg-1"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 
 <section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container advertise-container">
@@ -344,8 +296,59 @@
     </div>
 </section>
 
+<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
+    <div class="container-fluid common-container book-container">
+        <div class="row">
+            <div class="col-12 col-lg-1"></div>
+            <div class="col-12 col-lg-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
+                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                            </div>
+                            <div class="common-grid-carousel-wrapper">
+                                <div class="common-grid-carousel books-grid-carousel">
+                                    @foreach($books as $data)
+                                        <div class="common-grid-carousel-item">
+                                            <div class="common-item book-item single-what-we-cover-item-02 ">
+                                                <div class="common-img book-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now);
+                                                    @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge">New</small>
+                                                    @endif
+
+                                                    <a href="{{route('frontend.book.single',$data->id)}}">
+                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                                </div>
+                                                <div class="common-content content">
+                                                    <a href="{{route('frontend.book.single',$data->id)}}">
+                                                        <h4 class="title">{{$data->title}}</h4>
+                                                    </a>
+                                                    <p>{{@$data->category->name}}</p>
+                                                    <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn">Download</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-1"></div>
+        </div>
+    </div>
+</section>
+
 @if(!empty(get_static_option('home_page_latest_news_section_status')))
-    <section class="common-area blog-area background-gray-light-lightest padding-top-50   padding-bottom-80">
+    <section class="common-area blog-area background-gray-light-lightest padding-top-50 padding-bottom-50">
         <div class="container-fluid common-container">
             <div class="row">
                 <div class="col-12 col-lg-1"></div>
@@ -354,7 +357,7 @@
                         <div class="col-12">
                             <div class=" bg-white rounded px-2 px-lg-3 padding-top-50 padding-bottom-30">
                                 <div class="section-title desktop-center padding-bottom-20">
-                                    <h2 class="font-weight-bold">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h2>
+                                    <h2 class="font-weight-bold">{{'Latest News &amp; Articles'}}</h2>
                                     {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
                                     {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
                                 </div>

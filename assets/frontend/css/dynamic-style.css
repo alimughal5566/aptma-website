@@ -1572,6 +1572,108 @@ html {
   right: -1.5rem;
 }
 
+.common-area .common-item .common-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  min-height: 150px;
+  max-height: 150px;
+  height: 100%;
+  width: 100%;
+}
+
+.common-area .common-item .common-img .badge {
+  background: #107c35;
+  border: 1px solid #fff;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+  color: #fff;
+  z-index: 10;
+}
+
+.common-area .common-item .common-img a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  z-index: 9;
+}
+
+.common-area .common-item .common-img a img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.common-area .common-item .common-img.advertise-img {
+  min-height: 350px;
+  max-height: 350px;
+}
+
+.common-area .common-item .common-content {
+  padding: 1.25rem 1rem;
+  z-index: 999;
+}
+
+.common-area .common-item .common-content a {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.common-area .common-item .common-content a .title {
+  margin-bottom: 0.4rem;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.common-area .common-item .common-content a.btn {
+  background: #107c35;
+  display: inline-block;
+  color: #fff;
+  margin: auto;
+  width: auto;
+}
+
+.common-area .common-item:hover .content a.btn,
+.common-area .common-item:focus .content a.btn,
+.common-area .common-item:active .content a.btn {
+  background: #fff;
+  color: #107c35;
+}
+
+.common-single .common-single-item .thumb {
+  overflow: hidden;
+  max-height: 500px;
+  border-radius: 0.5rem;
+}
+
+.common-single .common-single-item .thumb img {
+  width: 100%;
+}
+
+.common-single .common-single-item a.btn {
+  background: #107c35;
+  color: #fff;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.common-single .common-single-item:hover a.btn,
+.common-single .common-single-item:focus a.btn,
+.common-single .common-single-item:active a.btn {
+  background: #fff;
+  color: #107c35;
+  border: 1px solid #107c35;
+}
+
 .single-case-studies-item::before,
 .single-case-studies-item::after {
   background-color: rgba(16, 124, 53, 0.5);
@@ -1635,103 +1737,6 @@ html {
 
 .social-feeds .social-feeds-block .twitter-timeline {
   max-height: 500px;
-}
-
-.common-area .common-item .common-img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  min-height: 150px;
-  max-height: 150px;
-  height: 100%;
-  width: 100%;
-}
-
-.common-area .common-item .common-img .badge {
-  background: #107c35;
-  border: 1px solid #fff;
-  position: absolute;
-  right: 0.75rem;
-  top: 0.5rem;
-  color: #fff;
-  z-index: 10;
-}
-
-.common-area .common-item .common-img a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  z-index: 9;
-}
-
-.common-area .common-item .common-img a img {
-  height: auto;
-  max-width: 100%;
-  width: 100%;
-}
-
-.common-area .common-item .common-content {
-  padding: 1.25rem 1rem;
-  z-index: 999;
-}
-
-.common-area .common-item .common-content a {
-  position: relative;
-  display: block;
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-}
-
-.common-area .common-item .common-content a .title {
-  margin-bottom: 0.4rem;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.common-area .common-item .common-content a.btn {
-  background: #107c35;
-  display: inline-block;
-  color: #fff;
-  margin: auto;
-  width: auto;
-}
-
-.common-area .common-item:hover .content a.btn,
-.common-area .common-item:focus .content a.btn,
-.common-area .common-item:active .content a.btn {
-  background: #fff;
-  color: #107c35;
-}
-
-.common-single .common-single-item .thumb {
-  overflow: hidden;
-  max-height: 500px;
-  border-radius: 0.5rem;
-}
-
-.common-single .common-single-item .thumb img {
-  width: 100%;
-}
-
-.common-single .common-single-item a.btn {
-  background: #107c35;
-  color: #fff;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-.common-single .common-single-item:hover a.btn,
-.common-single .common-single-item:focus a.btn,
-.common-single .common-single-item:active a.btn {
-  background: #fff;
-  color: #107c35;
-  border: 1px solid #107c35;
 }
 
 .grecaptcha {

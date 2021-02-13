@@ -1,7 +1,7 @@
 <footer class="footer-area">
 
     @if(count($footer_widgets) > 0)
-        <div class="footer-top padding-top-0 padding-bottom-30">
+        <div class="footer-top padding-top-60 padding-bottom-30">
 
             @if(!empty(get_static_option('home_page_counterup_section_status')))
                 {{--                <div class="counterup-area counterup-bg padding-top-30 padding-bottom-30">--}}
