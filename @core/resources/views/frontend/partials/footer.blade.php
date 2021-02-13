@@ -2,33 +2,6 @@
 
     @if(count($footer_widgets) > 0)
         <div class="footer-top padding-top-60 padding-bottom-30">
-
-            @if(!empty(get_static_option('home_page_counterup_section_status')))
-                {{--                <div class="counterup-area counterup-bg padding-top-30 padding-bottom-30">--}}
-                <div class="counterup-area counterup-bg ">
-                    <div class="container counter-container bg-white padding-top-20 padding-bottom-20">
-                        <div class="row">
-                            @foreach($all_counterup as $data)
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="singler-counterup-item singler-counterup-item-01">
-                                        <div class="icon">
-                                            <i class="{{$data->icon}}" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="content">
-                                            <div class="count-wrap">
-                                                <span class="count-num">{{$data->number}}</span>
-                                                <span class="count-text">{{$data->extra_text}}</span>
-                                            </div>
-                                            <h4 class="title">{{$data->title}}</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            @endif
-
             <div class="container">
                 <div class="row {{ count($footer_widgets) > 4 ? 'flex-wrap flex-lg-nowrap footer-widget-wrap' : '' }}">
                     @foreach($footer_widgets as $data)

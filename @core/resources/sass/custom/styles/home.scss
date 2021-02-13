@@ -200,10 +200,14 @@
 
         .title {
           display: inline-block;
-          max-height: 75px;
           text-overflow: ellipsis;
+          //white-space: nowrap;
+          overflow: hidden;
+          max-height: 75px;
+          height: 75px;
           line-height: 25px;
           font-size: 20px;
+          font-weight: 600;
 
           a {
             color: color.$primary2;
@@ -237,6 +241,12 @@
 
           .title {
             line-height: 25px;
+            font-weight: 600;
+            display: inline-block;
+            text-overflow: ellipsis;
+            //white-space: nowrap;
+            overflow: hidden;
+            height: 75px;
           }
 
         }

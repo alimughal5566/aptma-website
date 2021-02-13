@@ -1485,11 +1485,14 @@ html {
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
   display: inline-block;
-  max-height: 75px;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 75px;
+  height: 75px;
   line-height: 25px;
   font-size: 20px;
+  font-weight: 600;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title a {
@@ -1525,6 +1528,12 @@ html {
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
   line-height: 25px;
+  font-weight: 600;
+  display: inline-block;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  height: 75px;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .location span {

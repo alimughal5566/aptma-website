@@ -119,12 +119,6 @@
                             <a href="{{route('frontend.about')}}">About Us</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Vision</a>
-                                </li>
-                                <li>
-                                    <a href="#">Mission</a>
-                                </li>
-                                <li>
                                     <a href="#">Patron in Chief message</a>
                                 </li>
                                 <li>
@@ -133,14 +127,45 @@
                                 <li>
                                     <a href="#">Executive Director</a>
                                 </li>
-                                <li>
-                                    <a href="#">Members of Executive commitee</a>
+                                <li class="menu-item-has-children ">
+                                    <a href="#">Members of Executive Committees</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">Executive Commitee</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Admin and Finance</a>
+                                        </li>
+                                        <li class="menu-item-has-children ">
+                                            <a href="#">Standing Committee</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Cotton & Raw Material</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">FBR</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Re-structure</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Energy</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Polyester, Fiber and Synthetic fiber</a>
+                                                <li>
+                                                <li>
+                                                    <a href="#">Others</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
                                 @php $teams=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($teams->count()>0)
                                     {{----}}{{----}}{{--                                    @php dd($teams) @endphp--}}{{----}}{{----}}
                                     <li class="menu-item-has-children ">
-                                        <a href="{{route('frontend.team')}}">Team Aptma</a>
+                                        <a href="{{route('frontend.team')}}">Team</a>
                                         <ul class="sub-menu">
                                             @foreach($teams as $team)
                                                 <li>
@@ -148,22 +173,21 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-
                                     </li>
                                 @endif
                             </ul>
                         </li>
                         <li class=" menu-item-has-children ">
-                            <a href="{{route('frontend.about')}}">Research & publications</a>
+                            <a href="#">Research & Publications</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Research team</a>
+                                    <a href="#">Research Team</a>
                                 </li>
                                 <li>
-                                    <a href="#">Blogs and articles</a>
+                                    <a href="#">Blogs & Articles</a>
                                 </li>
                                 <li>
-                                    <a href="#">Policy document</a>
+                                    <a href="#">Policy Document</a>
                                 </li>
                                 @php $categories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($categories->count()>0)
@@ -176,7 +200,6 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-
                                     </li>
                                 @endif
                                 @php $categories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
@@ -191,22 +214,15 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-
                                     </li>
                                 @endif
                             </ul>
                         </li>
                         <li class=" menu-item-has-children ">
-                            <a href="#">Circulars</a>
+                            <a href="{{route('frontend.circular.index')}}">Circulars</a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href="{{route('frontend.circular.index')}}">General</a>
-                                </li>
-
-
                                 @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($categories->count()>0)
-                                    {{--                                    @php dd($teams) @endphp--}}
 
                                     @foreach($categories as $category)
                                         <li>
@@ -218,43 +234,32 @@
                             </ul>
                         </li>
                         <li class=" menu-item-has-children ">
-                            <a href="#"> Statistics</a>
+                            <a href="#">Statistics</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="#">Cotton</a>
+                                </li>
+                                <li>
                                     <a href="#">Production</a>
+                                </li>
+                                <li>
                                     <a href="#">Exports</a>
+                                </li>
+                                <li>
                                     <a href="#">Category1</a>
                                 </li>
-
-
                             </ul>
                         </li>
                         <li class=" menu-item-has-children">
                             <a href="#">Members Directory</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Executive Commitee</a>
-                                    <a href="#">Admin and Finance</a>
                                     <a href="#">Members Pages</a>
-                                </li>
-                                <li class="menu-item-has-children ">
-                                    <a href="{{route('frontend.publication')}}">Standing Committee</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="">Cotton & Raw Material</a>
-                                            <a href="">FBR</a>
-                                            <a href="">Re-structure</a>
-                                            <a href="">REnergy</a>
-                                            <a href="">Polyester, Fiber and Synthetic fiber</a>
-                                            <a href="">others</a>
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </li>
                         <li class=" menu-item-has-children ">
-                            <a href="#">Aptma Events</a>
+                            <a href="#">Events</a>
                             <ul class="sub-menu">
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
@@ -280,7 +285,6 @@
                                                 </li>
                                             @endforeach()
                                         @endif
-
                                     </ul>
                                 </li>
                             </ul>
@@ -307,11 +311,18 @@
                             {{--                                </li>--}}
                             {{--                            @endif--}}
 
-                            <li id="search"><a href="#"><i class="flaticon-search-1"></i></a></li>
+                            <li id="search">
+                                <a href="#">
+                                    <i class="flaticon-search-1"></i>
+                                </a>
+                            </li>
                             @if(!empty(get_static_option('product_module_status')))
-                                <li class="cart"><a href="{{route('frontend.products.cart')}}"><i
-                                                class="flaticon-shopping-cart"></i> <span
-                                                class="pcount">{{cart_total_items()}}</span></a></li>
+                                <li class="cart">
+                                    <a href="{{route('frontend.products.cart')}}">
+                                        <i class="flaticon-shopping-cart"></i>
+                                        <span class="pcount">{{cart_total_items()}}</span>
+                                    </a>
+                                </li>
                             @endif
                         </ul>
                     </div>
