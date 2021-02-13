@@ -15,8 +15,6 @@
         .hover-disable:hover {
             cursor: default;
         }
-
-
     </style>
     <div class="contact-section padding-bottom-120 padding-top-120">
         <div class="container">
