@@ -152,7 +152,7 @@
                                                     <a href="#">Energy</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Polyester, Fiber and Synthetic fiber</a>
+                                                    <a href="#">Polyester, Fiber &amp; Synthetic fiber</a>
                                                 <li>
                                                 <li>
                                                     <a href="#">Others</a>
@@ -186,7 +186,6 @@
                                 @php $categories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($categories->count()>0)
                                     <li class="menu-item-has-children ">
-                                        {{--                                        <a href="{{route('frontend.pages.blog')}}">Publications</a>--}}
                                         <a href="#">Blogs & Articles</a>
                                         <ul class="sub-menu">
                                             @foreach($categories as $category)
@@ -256,9 +255,6 @@
                                 </li>
                                 <li>
                                     <a href="#">Exports</a>
-                                </li>
-                                <li>
-                                    <a href="#">Category1</a>
                                 </li>
                             </ul>
                         </li>
