@@ -65,18 +65,18 @@
                                             </select>
                                         </li>
                                     @endif
-{{--                                    @if(!empty(get_static_option('navbar_button')))--}}
-{{--                                        <li>--}}
-{{--                                            @php--}}
-{{--                                                $custom_url = !empty(get_static_option('navbar_button_custom_url_status')) ? get_static_option('navbar_button_custom_url') : route('frontend.request.quote');--}}
-{{--                                            @endphp--}}
-{{--                                            <div class="btn-wrapper">--}}
-{{--                                                <a href="{{$custom_url}}"--}}
-{{--                                                   @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"--}}
-{{--                                                   @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    @endif--}}
+                                    @if(!empty(get_static_option('navbar_button')))
+                                        <li>
+                                            @php
+                                                $custom_url = !empty(get_static_option('navbar_button_custom_url_status')) ? get_static_option('navbar_button_custom_url') : route('frontend.request.quote');
+                                            @endphp
+                                            <div class="btn-wrapper">
+                                                <a href="{{$custom_url}}"
+                                                   @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"
+                                                   @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>
+                                            </div>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -100,13 +100,15 @@
                         </a>
                     </div>
                     @if(!empty(get_static_option('product_module_status')))
-                        <div class="mobile-cart"><a href="{{route('frontend.products.cart')}}"><i
-                                        class="flaticon-shopping-cart"></i> <span
-                                        class="pcount">{{cart_total_items()}}</span></a></div>
+                        <div class="mobile-cart">
+                            <a href="{{route('frontend.products.cart')}}">
+                                <i class="flaticon-shopping-cart"></i>
+                                <span class="pcount">{{cart_total_items()}}</span>
+                            </a>
+                        </div>
                     @endif
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#bizcoxx_main_menu"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                            data-target="#bizcoxx_main_menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
@@ -126,16 +128,25 @@
                                     <div class="btn-wrapper">
                                         <a href="{{$custom_url}}"
                                            @if(!empty(get_static_option('navbar_button_custom_url_status'))) target="_blank"
-                                           @endif class="boxed-btn reverse-color">{{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}</a>
+                                           @endif class="boxed-btn reverse-color">
+                                            {{get_static_option('navbar_'.$user_select_lang_slug.'_button_text')}}
+                                        </a>
                                     </div>
                                 </li>
                             @endif
 
-                            <li id="search"><a href="#"><i class="flaticon-search-1"></i></a></li>
+                            <li id="search">
+                                <a href="#">
+                                    <i class="flaticon-search-1"></i>
+                                </a>
+                            </li>
                             @if(!empty(get_static_option('product_module_status')))
-                                <li class="cart"><a href="{{route('frontend.products.cart')}}"><i
-                                                class="flaticon-shopping-cart"></i> <span
-                                                class="pcount">{{cart_total_items()}}</span></a></li>
+                                <li class="cart">
+                                    <a href="{{route('frontend.products.cart')}}">
+                                        <i class="flaticon-shopping-cart"></i>
+                                        <span class="pcount">{{cart_total_items()}}</span>
+                                    </a>
+                                </li>
                             @endif
                         </ul>
                     </div>

@@ -11,15 +11,13 @@
     <meta name="tags" content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
 @section('content')
-
-
-
+    
     <section
             class="service-area service-page common-area video-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Videos <?php echo ($category)? "<small>($category)<small>":"" ?></h2>
+            <h2 class="font-weight-bold mb-3 text-center">
+                Videos <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
             <div class="row">
-
 
                 @forelse($all_services as $data)
                     <div class="col-lg-4 col-md-6">
@@ -37,7 +35,7 @@
                                 </a>
                             </div>
                             <div class="common-content content">
-                                <a href="{{route('frontend.gallery.video.single', $data->id)}}" >
+                                <a href="{{route('frontend.gallery.video.single', $data->id)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                             </div>
@@ -45,9 +43,9 @@
                     </div>
                 @empty
                     <div class="col-md-12 card border-0 thumb margin-bottom-40">
-                         <div class="text center px-5 card-body ">
+                        <div class="text center px-5 card-body ">
                             <h1 class="text-muted">Sorry,No data found</h1>
-                         </div>
+                        </div>
                     </div>
                 @endforelse
                 <div class="col-lg-12">

@@ -183,9 +183,21 @@
                                 <li>
                                     <a href="#">Research Team</a>
                                 </li>
-                                <li>
-                                    <a href="#">Blogs & Articles</a>
-                                </li>
+                                @php $categories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
+                                @if($categories->count()>0)
+                                    <li class="menu-item-has-children ">
+                                        {{--                                        <a href="{{route('frontend.pages.blog')}}">Publications</a>--}}
+                                        <a href="#">Blogs & Articles</a>
+                                        <ul class="sub-menu">
+                                            @foreach($categories as $category)
+                                                <li>
+                                                    <a href="{{route('frontend.blog',[$category->id])}}">{{$category->name}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endif
+
                                 <li>
                                     <a href="#">Policy Document</a>
                                 </li>

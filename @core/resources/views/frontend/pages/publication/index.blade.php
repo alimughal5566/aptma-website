@@ -13,7 +13,7 @@
 @section('content')
     <section class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Publications<?php echo ($category)? "<small>($category)<small>":"" ?></h2>
+            <h2 class="font-weight-bold mb-3 text-center">Publications<?php echo ($category)? "<small>($category)</small>":"" ?></h2>
 
             <div class="row">
                 @php $a = 1; @endphp

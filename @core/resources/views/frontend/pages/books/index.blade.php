@@ -12,7 +12,8 @@
 @endsection
 @section('content')
     <section class="service-area service-page common-area book-area book-page padding-top-40 padding-bottom-60">
-        <h2 class="font-weight-bold mb-3 text-center">Books<?php echo ($category)? "<small>($category)<small>":"" ?></h2>
+        <h2 class="font-weight-bold mb-3 text-center">
+            Books <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
 
         <div class="container">
             <div class="row">

@@ -107,7 +107,7 @@ function get_static_option($key)
 {
     global $option_name;
     $option_name = $key;
-    $value = \Illuminate\Support\Facades\Cache::remember($option_name,86400, function () {
+    $value = \Illuminate\Support\Facades\Cache::remember($option_name, 86400, function () {
         global $option_name;
         return StaticOption::where('option_name', $option_name)->first();
     });
@@ -215,14 +215,13 @@ function get_work_category_by_id($id, $output = 'array')
     foreach ($category_id as $key => $data) {
         $separator = $key != 0 ? ', ' : '';
         $cat_item = WorksCategory::find($data);
-        if (!empty($cat_item)){
+        if (!empty($cat_item)) {
             $cat_list[$cat_item->id] = $cat_item->name;
             $cat_list_string .= $separator . $cat_item->name;
             $cat_list_slug .= Str::slug($cat_item->name) . ' ';
         }
 
     }
-
 
 
     switch ($output) {
@@ -424,9 +423,10 @@ function check_page_permission($page)
     }
     return false;
 }
+
 function check_page_permission_by_string($page)
 {
-    $page = strtolower(str_replace(' ','_',$page));
+    $page = strtolower(str_replace(' ', '_', $page));
     if (Auth::check()) {
         $id = auth()->user()->id;
         $role_id = \App\Admin::where('id', $id)->first();
@@ -642,13 +642,15 @@ function setEnvValue(array $values)
     return true;
 
 }
-function nexelit_general_info(){
-    update_static_option('site_install_path',url('/'));
-    update_static_option('site_admin_path',route('admin.home'));
-    update_static_option('site_frontend_path',route('homepage'));
-    $nexelit_version = version_compare(get_static_option('site_script_version'),'>=',getenv('XGENIOUS_NEXELIT_VERSION')) ? get_static_option('site_script_version') : getenv('XGENIOUS_NEXELIT_VERSION');
-    update_static_option('site_script_version',$nexelit_version);
-    update_static_option('site_script_unique_key',getenv('XGENIOUS_API_KEY'));
+
+function nexelit_general_info()
+{
+    update_static_option('site_install_path', url('/'));
+    update_static_option('site_admin_path', route('admin.home'));
+    update_static_option('site_frontend_path', route('homepage'));
+    $nexelit_version = version_compare(get_static_option('site_script_version'), '>=', getenv('XGENIOUS_NEXELIT_VERSION')) ? get_static_option('site_script_version') : getenv('XGENIOUS_NEXELIT_VERSION');
+    update_static_option('site_script_version', $nexelit_version);
+    update_static_option('site_script_unique_key', getenv('XGENIOUS_API_KEY'));
 }
 
 
@@ -710,14 +712,14 @@ function render_menu_by_id($id)
 
 
         if ($menu_item->ptype == 'static') {
-            $menu_title =  get_static_option($menu_item->pname);
+            $menu_title = get_static_option($menu_item->pname);
             $menu_slug = url('/') . '/' . get_static_option($menu_item->pslug);
             $li_class .= (request()->path() == get_static_option($menu_item->pslug)) ? ' current-menu-item ' : '';
         } elseif ($menu_item->ptype == 'dynamic') {
             $menu_title = '';
             $menu_slug = '';
             $page_details = Page::find($menu_item->pid);
-            if (!empty($page_details)){
+            if (!empty($page_details)) {
                 $menu_title = $page_details->title;
                 $menu_slug = route('frontend.dynamic.page', $page_details->slug);
                 $li_class .= (request()->is(route('frontend.dynamic.page', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -734,7 +736,7 @@ function render_menu_by_id($id)
                 $menu_slug = '';
 
                 $page_details = \App\Services::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.services.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.services.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -746,7 +748,7 @@ function render_menu_by_id($id)
                 $menu_slug = '';
 
                 $page_details = \App\Events::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.events.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.events.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -757,7 +759,7 @@ function render_menu_by_id($id)
                 $menu_title = '';
                 $menu_slug = '';
                 $page_details = Works::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.work.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.work.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -768,7 +770,7 @@ function render_menu_by_id($id)
                 $menu_title = '';
                 $menu_slug = '';
                 $page_details = \App\Blog::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.blog.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.blog.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -779,7 +781,7 @@ function render_menu_by_id($id)
                 $menu_title = '';
                 $menu_slug = '';
                 $page_details = \App\Jobs::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.jobs.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.jobs.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -790,7 +792,7 @@ function render_menu_by_id($id)
                 $menu_title = '';
                 $menu_slug = '';
                 $page_details = \App\Knowledgebase::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.knowledgebase.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.knowledgebase.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -801,7 +803,7 @@ function render_menu_by_id($id)
                 $menu_title = '';
                 $menu_slug = '';
                 $page_details = \App\Products::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.products.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.products.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -812,7 +814,7 @@ function render_menu_by_id($id)
                 $menu_title = '';
                 $menu_slug = '';
                 $page_details = \App\Donation::find($menu_item->pid);
-                if (!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.donations.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.donations.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -882,52 +884,52 @@ function render_menu_by_id($id)
         $icon_value = property_exists($menu_item, 'icon') ? '<i class="' . $menu_item->icon . '"></i>' : '';
         $link_target = property_exists($menu_item, 'antarget') ? 'target="' . $menu_item->antarget . '"' : '';
 
-        if (!empty($menu_slug) && !empty($menu_title)){//start condition
+        if (!empty($menu_slug) && !empty($menu_title)) {//start condition
 
-        $output .= $indent_tab . '<li ' . $li_class_markup . '>' . $indent_line;
-        $output .= $indent_tab . '<a href="' . $menu_slug . '" '.$link_target.'>' . $icon_value . $menu_title . '</a>' . $indent_line;
-        $user_select_lang_slug = get_user_lang();
+            $output .= $indent_tab . '<li ' . $li_class_markup . '>' . $indent_line;
+            $output .= $indent_tab . '<a href="' . $menu_slug . '" ' . $link_target . '>' . $icon_value . $menu_title . '</a>' . $indent_line;
+            $user_select_lang_slug = get_user_lang();
 
-        //check for megamenu
-        if (!empty($mega_menu_enable)) {
-            $output .= '<div class="xg_mega_menu_wrapper ' . $menu_item->ptype . '">';
-            $output .= '<div class="xg-mega-menu-container"><div class="row">';
-                if ($menu_item->ptype == 'donation_mega_menu'){
+            //check for megamenu
+            if (!empty($mega_menu_enable)) {
+                $output .= '<div class="xg_mega_menu_wrapper ' . $menu_item->ptype . '">';
+                $output .= '<div class="xg-mega-menu-container"><div class="row">';
+                if ($menu_item->ptype == 'donation_mega_menu') {
                     foreach ($mega_menu_items as $post) {
                         $output .= '<div class="col-lg-4 col-md-6">';
-                        $mega_menu_item_slug = get_mege_menu_item_url($menu_item->ptype,$post->slug);
+                        $mega_menu_item_slug = get_mege_menu_item_url($menu_item->ptype, $post->slug);
                         $output .= '<div class="single-donation-mega-menu-item">';
-                        $output .= '<div class="thumbnail"><a href="'.$mega_menu_item_slug.'">'.render_image_markup_by_attachment_id($post->image,'','thumb').'</a></div>';
+                        $output .= '<div class="thumbnail"><a href="' . $mega_menu_item_slug . '">' . render_image_markup_by_attachment_id($post->image, '', 'thumb') . '</a></div>';
                         $output .= '<div class="content">';
-                        $output .= '<a href="'.$mega_menu_item_slug.'"><h4 class="title">'.$post->title.'</h4></a>';
+                        $output .= '<a href="' . $mega_menu_item_slug . '"><h4 class="title">' . $post->title . '</h4></a>';
 
                         $output .= '<div class="goal">';
-                        $output .=  '<h4 class="raised">'.get_static_option('donation_raised_'.$user_select_lang_slug.'_text');
-                        if(!empty($post->raised)){
+                        $output .= '<h4 class="raised">' . get_static_option('donation_raised_' . $user_select_lang_slug . '_text');
+                        if (!empty($post->raised)) {
                             $output .= amount_with_currency_symbol($post->raised);
-                        }else{
+                        } else {
                             $output .= amount_with_currency_symbol(0);
                         }
-                        $output .='</h4>';
-                        $output .= '<h4 class="raised">'.get_static_option('donation_goal_'.$user_select_lang_slug.'_text').''.amount_with_currency_symbol($post->amount).'</h4>';
+                        $output .= '</h4>';
+                        $output .= '<h4 class="raised">' . get_static_option('donation_goal_' . $user_select_lang_slug . '_text') . '' . amount_with_currency_symbol($post->amount) . '</h4>';
                         $output .= '</div>';
-                        $output .= ' <a href="'.route('frontend.donations.single',$post->slug).'" class="boxed-btn">'.get_static_option('donation_button_'.$user_select_lang_slug.'_text').'</a>';
+                        $output .= ' <a href="' . route('frontend.donations.single', $post->slug) . '" class="boxed-btn">' . get_static_option('donation_button_' . $user_select_lang_slug . '_text') . '</a>';
                         $output .= '</div></div></div>';
                     }
-                }elseif($menu_item->ptype == 'product_mega_menu'){
+                } elseif ($menu_item->ptype == 'product_mega_menu') {
                     foreach ($mega_menu_items as $cat => $posts) {
                         $output .= '<div class="col-lg-3 col-md-6"><div class="xg-mega-menu-single-column-wrap">';
                         $output .= '<h4 class="mega-menu-title">' . get_mega_menu_cat_name_by_id($menu_item->ptype, $cat) . '</h4>';
                         $output .= '<ul>';
                         foreach ($posts as $post) {
-                            $mega_menu_item_slug = get_mege_menu_item_url($menu_item->ptype,$post->slug);
+                            $mega_menu_item_slug = get_mege_menu_item_url($menu_item->ptype, $post->slug);
                             $output .= '<li class="single-mega-menu-product-item">';
-                            $output .= '<div class="thumbnail"><a href="'.$mega_menu_item_slug.'">'.render_image_markup_by_attachment_id($post->image,'','thumb').'</a></div>';
+                            $output .= '<div class="thumbnail"><a href="' . $mega_menu_item_slug . '">' . render_image_markup_by_attachment_id($post->image, '', 'thumb') . '</a></div>';
                             $output .= '<div class="content">';
-                            $output .= '<a href="'.$mega_menu_item_slug.'"><h4 class="title">'.$post->title.'</h4></a>';
-                            $output .= '<div class="price-wrap"><span class="price">'.amount_with_currency_symbol($post->sale_price).'</span>';
-                            if(!empty($post->regular_price)){
-                                $output .= '<del class="del-price">'.amount_with_currency_symbol($post->regular_price).'</del>';
+                            $output .= '<a href="' . $mega_menu_item_slug . '"><h4 class="title">' . $post->title . '</h4></a>';
+                            $output .= '<div class="price-wrap"><span class="price">' . amount_with_currency_symbol($post->sale_price) . '</span>';
+                            if (!empty($post->regular_price)) {
+                                $output .= '<del class="del-price">' . amount_with_currency_symbol($post->regular_price) . '</del>';
                             }
                             $output .= '</div></div>';
                             $output .= '</li>';
@@ -935,28 +937,28 @@ function render_menu_by_id($id)
                         $output .= '</ul>';
                         $output .= '</div></div>';
                     }
-                }else{
+                } else {
                     foreach ($mega_menu_items as $cat => $posts) {
                         $output .= '<div class="col-lg-3 col-md-6"><div class="xg-mega-menu-single-column-wrap">';
                         $output .= '<h4 class="mega-menu-title">' . get_mega_menu_cat_name_by_id($menu_item->ptype, $cat) . '</h4>';
                         $output .= '<ul>';
                         foreach ($posts as $post) {
-                            $mega_menu_item_slug = get_mege_menu_item_url($menu_item->ptype,$post->slug);
-                            $output .= '<li><a href="'.$mega_menu_item_slug.'">' . $post->title . '</a></li>';
+                            $mega_menu_item_slug = get_mege_menu_item_url($menu_item->ptype, $post->slug);
+                            $output .= '<li><a href="' . $mega_menu_item_slug . '">' . $post->title . '</a></li>';
                         }
                         $output .= '</ul>';
                         $output .= '</div></div>';
                     }
                 }
-            $output .= '</div></div></div>';
-            $mega_menu_enable = '';
-        }
-        //check it has submenu
-        if (property_exists($menu_item, 'children')) {
-            $output .= render_submenu_children($menu_item->children);
-        }
-        //load li end tag
-        $output .= $indent_tab . '</li>' . $indent_line;
+                $output .= '</div></div></div>';
+                $mega_menu_enable = '';
+            }
+            //check it has submenu
+            if (property_exists($menu_item, 'children')) {
+                $output .= render_submenu_children($menu_item->children);
+            }
+            //load li end tag
+            $output .= $indent_tab . '</li>' . $indent_line;
         }// end condition
     }
 
@@ -983,10 +985,10 @@ function render_submenu_children($menu_children)
             $li_class .= (request()->path() == get_static_option($menu_item->pslug)) ? ' current-menu-item ' : '';
         } elseif ($menu_item->ptype == 'dynamic') {
             $page_details = Page::find($menu_item->pid);
-            $menu_title = !empty($page_details) ? $page_details->title: '';
+            $menu_title = !empty($page_details) ? $page_details->title : '';
             $menu_slug = !empty($page_details) ? route('frontend.dynamic.page', $page_details->slug) : '';
-            if (!empty($page_details)){
-                $li_class .= (request()->is(route('frontend.dynamic.page', $page_details->slug)))   ? ' current-menu-item ' : '';
+            if (!empty($page_details)) {
+                $li_class .= (request()->is(route('frontend.dynamic.page', $page_details->slug))) ? ' current-menu-item ' : '';
             }
         } elseif ($menu_item->ptype == 'custom') {
             $menu_title = __($menu_item->pname);
@@ -998,7 +1000,7 @@ function render_submenu_children($menu_children)
             if ($menu_item->ptype == 'service') {
 
                 $page_details = \App\Services::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.services.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.services.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1007,16 +1009,16 @@ function render_submenu_children($menu_children)
             } elseif ($menu_item->ptype == 'event') {
 
                 $page_details = \App\Events::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.events.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.events.single', $page_details->slug))) ? ' current-menu-item ' : '';
-                 }
+                }
 
             } elseif ($menu_item->ptype == 'work') {
 
                 $page_details = Works::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.work.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.work.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1025,7 +1027,7 @@ function render_submenu_children($menu_children)
             } elseif ($menu_item->ptype == 'blog') {
 
                 $page_details = \App\Blog::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.blog.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.blog.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1034,7 +1036,7 @@ function render_submenu_children($menu_children)
             } elseif ($menu_item->ptype == 'job') {
 
                 $page_details = \App\Jobs::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.jobs.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.jobs.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1043,7 +1045,7 @@ function render_submenu_children($menu_children)
             } elseif ($menu_item->ptype == 'knowledgebase') {
 
                 $page_details = \App\Knowledgebase::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = !empty($page_details) ? $page_details->title : '';
                     $menu_slug = route('frontend.knowledgebase.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.knowledgebase.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1052,7 +1054,7 @@ function render_submenu_children($menu_children)
             } elseif ($menu_item->ptype == 'product') {
 
                 $page_details = \App\Products::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = !empty($page_details) ? $page_details->title : '';
                     $menu_slug = route('frontend.products.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.products.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1060,7 +1062,7 @@ function render_submenu_children($menu_children)
 
             } elseif ($menu_item->ptype == 'donation') {
                 $page_details = \App\Donation::find($menu_item->pid);
-                if(!empty($page_details)){
+                if (!empty($page_details)) {
                     $menu_title = $page_details->title;
                     $menu_slug = route('frontend.donations.single', $page_details->slug);
                     $li_class .= (request()->is(route('frontend.donations.single', $page_details->slug))) ? ' current-menu-item ' : '';
@@ -1080,9 +1082,9 @@ function render_submenu_children($menu_children)
         $icon_value = property_exists($menu_item, 'icon') ? '<i class="' . $menu_item->icon . '"></i>' : '';
         $link_target = property_exists($menu_item, 'antarget') ? 'target="' . $menu_item->antarget . '"' : '';
 
-        if (!empty($menu_slug) && !empty($menu_title)){
+        if (!empty($menu_slug) && !empty($menu_title)) {
             $output .= $indent_tab . '<li ' . $li_class_markup . '>' . $indent_line;
-            $output .= $indent_tab . '<a href="' . $menu_slug . '" '.$link_target.'>' . $icon_value . $menu_title . '</a>' . $indent_line;
+            $output .= $indent_tab . '<a href="' . $menu_slug . '" ' . $link_target . '>' . $icon_value . $menu_title . '</a>' . $indent_line;
         }
         //check it has submenu
         if (property_exists($menu_item, 'children')) {
@@ -1094,7 +1096,6 @@ function render_submenu_children($menu_children)
     $output .= $indent_tab . '</ul>' . $indent_line;
     return $output;
 }
-
 
 
 /* render menu for drag & drop menu in admin panel */
@@ -1127,7 +1128,7 @@ function render_draggable_menu_by_id($id)
 
             $menu_attr .= ' data-pid="' . $menu->pid . '"';
             $menu_details = Page::find($menu->pid);
-            $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+            $menu_title = !empty($menu_details) ? $menu_details->title : '';
 
         } elseif ($menu->ptype == 'custom') {
             $menu_attr .= ' data-purl="' . $menu->purl . '"';
@@ -1138,28 +1139,28 @@ function render_draggable_menu_by_id($id)
 
             if ($menu->ptype == 'service') {
                 $menu_details = \App\Services::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'event') {
                 $menu_details = \App\Events::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'work') {
                 $menu_details = \App\Works::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title :'' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'blog') {
                 $menu_details = \App\Blog::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'job') {
                 $menu_details = \App\Jobs::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'knowledgebase') {
                 $menu_details = \App\Knowledgebase::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'product') {
                 $menu_details = \App\Products::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             } elseif ($menu->ptype == 'donation') {
                 $menu_details = \App\Donation::find($menu->pid);
-                $menu_title = !empty($menu_details) ? $menu_details->title : '' ;
+                $menu_title = !empty($menu_details) ? $menu_details->title : '';
             }
 
         } elseif ($menu->ptype == 'service_mega_menu') {
@@ -1206,7 +1207,7 @@ function render_draggable_menu_by_id($id)
         $indent_line = "\n";
         $indent_tab = "\t";
 
-        if (!empty($menu_title)){
+        if (!empty($menu_title)) {
             $output .= '<li class="dd-item" data-id="' . $page_id . '" ' . $menu_attr . ' ' . $icon_data . '>' . $indent_line;
             $output .= $indent_tab . '<div class="dd-handle">' . $menu_title . '</div>' . $indent_line;
             $output .= $indent_tab . '<span class="remove_item">x</span>' . $indent_line;
@@ -1225,7 +1226,7 @@ function render_draggable_menu_by_id($id)
             $output .= '</select>';
             $mega_menu_enable = '';
         } else {
-            if (!empty($menu_title)){
+            if (!empty($menu_title)) {
                 $output .= '<input type="text" class="anchor_target" placeholder="eg: _target" ' . $link_target . '/>';
                 $output .= '<input type="text" class="icon_picker" placeholder="eg: fas-fa-facebook" ' . $icon_value . '/>';
             }
@@ -1305,7 +1306,7 @@ function render_draggable_menu_children($children, $page_id)
         $icon_data = property_exists($item, 'icon') ? 'data-icon="' . $item->icon . '"' : '';
         $link_target = property_exists($item, 'antarget') ? 'value="' . $item->antarget . '"' : '';
 
-        if (!empty($menu_title)){
+        if (!empty($menu_title)) {
             $output .= $indent_tab . $indent_tab . '<li class="dd-item" data-id="' . $page_id . '" ' . $menu_attr . ' ' . $icon_data . '>' . $indent_line;
             $output .= $indent_tab . $indent_tab . $indent_tab . '<div class="dd-handle">' . $menu_title . '</div>' . $indent_line;
             $output .= $indent_tab . $indent_tab . $indent_tab . '<span class="remove_item">x</span>' . $indent_line;
@@ -1328,7 +1329,7 @@ function render_draggable_menu_children($children, $page_id)
     return $output;
 }
 
-function render_mega_menu_item_select_markup($type = '',$menu_id = null)
+function render_mega_menu_item_select_markup($type = '', $menu_id = null)
 {
     $output = '';
     $default_lang = get_default_language();
@@ -1676,16 +1677,19 @@ function cart_total_items()
     $return_val = session()->get('cart_item');
     return !empty($return_val) ? array_sum(array_column($return_val, 'quantity')) : 0;
 }
-function is_shipping_available(){
+
+function is_shipping_available()
+{
     $all_cart_item = session()->get('cart_item');
     $return_val = true;
-    $cart_item_type = !empty($all_cart_item) ? array_unique(array_column($all_cart_item,'type')) : [];
-    if (count($cart_item_type)  == 1 && in_array('digital',$cart_item_type)){
+    $cart_item_type = !empty($all_cart_item) ? array_unique(array_column($all_cart_item, 'type')) : [];
+    if (count($cart_item_type) == 1 && in_array('digital', $cart_item_type)) {
         $return_val = false;
     }
 
     return $return_val;
 }
+
 function get_cart_tax()
 {
     $tax_percentage = get_static_option('product_tax_percentage') ? get_static_option('product_tax_percentage') : 0;
@@ -1751,10 +1755,12 @@ function render_cart_total_table()
 
     return $output;
 }
+
 function is_tax_enable()
 {
-    return get_static_option('product_tax') && get_static_option('product_tax_system') == 'exclusive'  ? true : false;
+    return get_static_option('product_tax') && get_static_option('product_tax_system') == 'exclusive' ? true : false;
 }
+
 function get_cart_subtotal($currency_symbol = true)
 {
     $total_cart_items = session()->get('cart_item');
@@ -1937,25 +1943,25 @@ function get_mege_menu_item_url($type, $slug)
 
     switch ($type) {
         case('service_mega_menu'):
-            $return_val = route('frontend.services.single',$slug);
+            $return_val = route('frontend.services.single', $slug);
             break;
         case('work_mega_menu'):
-            $return_val = route('frontend.work.single',$slug);
+            $return_val = route('frontend.work.single', $slug);
             break;
         case('event_mega_menu'):
-            $return_val =  route('frontend.events.single',$slug);
+            $return_val = route('frontend.events.single', $slug);
             break;
         case('product_mega_menu'):
-            $return_val =  route('frontend.products.single',$slug);
+            $return_val = route('frontend.products.single', $slug);
             break;
         case('donation_mega_menu'):
-            $return_val = route('frontend.donations.single',$slug);
+            $return_val = route('frontend.donations.single', $slug);
             break;
         case('blog_mega_menu'):
-            $return_val =  route('frontend.blog.single',$slug);
+            $return_val = route('frontend.blog.single', $slug);
             break;
         case('job_mega_menu'):
-            $return_val =  route('frontend.jobs.single',$slug);
+            $return_val = route('frontend.jobs.single', $slug);
             break;
         default:
             break;
@@ -1965,105 +1971,114 @@ function get_mege_menu_item_url($type, $slug)
 }
 
 
-function getVisIpAddr() {
+function getVisIpAddr()
+{
 
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         return $_SERVER['HTTP_CLIENT_IP'];
-    }
-    else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }
-    else {
+    } else {
         return $_SERVER['REMOTE_ADDR'];
     }
 }
 
-function get_visitor_country(){
+function get_visitor_country()
+{
     $return_val = 'NG';
     $ip = getVisIpAddr();
     $ipdat = @json_decode(file_get_contents(
         "http://www.geoplugin.net/json.gp?ip=" . $ip));
-       
-    $ipdat = (array) $ipdat;
+
+    $ipdat = (array)$ipdat;
     $return_val = isset($ipdat['geoplugin_countryCode']) ? $ipdat['geoplugin_countryCode'] : $return_val;
 
     return $return_val;
 }
 
-function get_blog_category_by_id($id,$type = ''){
+function get_blog_category_by_id($id, $type = '')
+{
     $return_val = __('uncategorized');
     $blog_cat = \App\BlogCategory::find($id);
-    if (!empty($blog_cat)){
+    if (!empty($blog_cat)) {
         $return_val = $blog_cat->name;
-        if ($type == 'link' ){
-            $return_val = '<a href="'.route('frontend.blog.category',['id' => $blog_cat->id,'any' => Str::slug($blog_cat->name) ]).'">'.$blog_cat->name.'</a>';
+        if ($type == 'link') {
+            $return_val = '<a href="' . route('frontend.blog.category', ['id' => $blog_cat->id, 'any' => Str::slug($blog_cat->name)]) . '">' . $blog_cat->name . '</a>';
         }
     }
 
     return $return_val;
 }
-function get_jobs_category_by_id($id,$type = ''){
+
+function get_jobs_category_by_id($id, $type = '')
+{
     $return_val = __('uncategorized');
     $blog_cat = \App\JobsCategory::find($id);
-    if (!empty($blog_cat)){
+    if (!empty($blog_cat)) {
         $return_val = $blog_cat->title;
-        if ($type == 'link' ){
-            $return_val = '<a href="'.route('frontend.jobs.category',['id' => $blog_cat->id,'any' => Str::slug($blog_cat->title) ]).'">'.$blog_cat->title.'</a>';
+        if ($type == 'link') {
+            $return_val = '<a href="' . route('frontend.jobs.category', ['id' => $blog_cat->id, 'any' => Str::slug($blog_cat->title)]) . '">' . $blog_cat->title . '</a>';
         }
     }
 
     return $return_val;
 }
 
-function get_events_category_by_id($id,$type = ''){
+function get_events_category_by_id($id, $type = '')
+{
     $return_val = __('uncategorized');
     $blog_cat = \App\EventsCategory::find($id);
-    if (!empty($blog_cat)){
+    if (!empty($blog_cat)) {
         $return_val = $blog_cat->title;
-        if ($type == 'link' ){
-            $return_val = '<a href="'.route('frontend.events.category',['id' => $blog_cat->id,'any' => Str::slug($blog_cat->title) ]).'">'.$blog_cat->title.'</a>';
+        if ($type == 'link') {
+            $return_val = '<a href="' . route('frontend.events.category', ['id' => $blog_cat->id, 'any' => Str::slug($blog_cat->title)]) . '">' . $blog_cat->title . '</a>';
         }
     }
 
     return $return_val;
 }
-function get_product_category_by_id($id,$type = ''){
+
+function get_product_category_by_id($id, $type = '')
+{
     $return_val = __('uncategorized');
     $blog_cat = \App\ProductCategory::find($id);
-    if (!empty($blog_cat)){
+    if (!empty($blog_cat)) {
         $return_val = $blog_cat->title;
-        if ($type == 'link' ){
-            $return_val = '<a href="'.route('frontend.products.category',['id' => $blog_cat->id,'any' => Str::slug($blog_cat->title) ]).'">'.$blog_cat->title.'</a>';
+        if ($type == 'link') {
+            $return_val = '<a href="' . route('frontend.products.category', ['id' => $blog_cat->id, 'any' => Str::slug($blog_cat->title)]) . '">' . $blog_cat->title . '</a>';
         }
     }
 
     return $return_val;
 }
 
-function get_service_category_by_id($id,$type = ''){
+function get_service_category_by_id($id, $type = '')
+{
     $return_val = __('uncategorized');
     $blog_cat = \App\ServiceCategory::find($id);
-    if (!empty($blog_cat)){
+    if (!empty($blog_cat)) {
         $return_val = $blog_cat->name;
-        if ($type == 'link' ){
-            $return_val = '<a href="'.route('frontend.services.category',['id' => $blog_cat->id,'any' => Str::slug($blog_cat->name) ]).'">'.$blog_cat->name.'</a>';
+        if ($type == 'link') {
+            $return_val = '<a href="' . route('frontend.services.category', ['id' => $blog_cat->id, 'any' => Str::slug($blog_cat->name)]) . '">' . $blog_cat->name . '</a>';
         }
     }
 
     return $return_val;
 }
 
-function get_price_plan_category_by_id($id,$type = ''){
+function get_price_plan_category_by_id($id, $type = '')
+{
 
     $return_val = __('uncategorized');
     $blog_cat = \App\PricePlanCategory::find($id);
 
-    if (!empty($blog_cat)){
+    if (!empty($blog_cat)) {
         $return_val = $blog_cat->name;
     }
 
     return $return_val;
 }
+
 function amount_with_currency_symbol($amount, $text = false)
 {
     $position = get_static_option('site_currency_symbol_position');
@@ -2259,6 +2274,7 @@ function get_amount_in_ngn($amount, $currency)
 
     return $output;
 }
+
 function check_currency_support_by_payment_gateway($gateway)
 {
     $output = false;
@@ -2348,6 +2364,7 @@ function redirect_404_page()
 {
     return view('frontend.pages.404');
 }
+
 function get_future_date($current_days, $days)
 {
     $date_plus_60_days = new DateTime($current_days);
@@ -2361,19 +2378,22 @@ function get_language_name_by_slug($slug)
     return $data->name;
 }
 
-function get_default_language_direction(){
-    $default_lang = Language::where('default',1)->first();
+function get_default_language_direction()
+{
+    $default_lang = Language::where('default', 1)->first();
     return !empty($default_lang) ? $default_lang->direction : 'ltr';
 }
 
-function custom_number_format ($amount){
-   return number_format((float)$amount, 2, '.', '');
+function custom_number_format($amount)
+{
+    return number_format((float)$amount, 2, '.', '');
 }
 
-function get_footer_copyright_text(){
-    $footer_copyright_text = get_static_option('site_'.get_user_lang().'_footer_copyright');
-    $footer_copyright_text = str_replace('{copy}','&copy;',$footer_copyright_text);
-    $footer_copyright_text = str_replace('{year}',date('Y'),$footer_copyright_text);
+function get_footer_copyright_text()
+{
+    $footer_copyright_text = get_static_option('site_' . get_user_lang() . '_footer_copyright');
+    $footer_copyright_text = str_replace('{copy}', '&copy;', $footer_copyright_text);
+    $footer_copyright_text = str_replace('{year}', date('Y'), $footer_copyright_text);
     return $footer_copyright_text;
 }
 
@@ -2422,12 +2442,14 @@ function get_shipping_name_by_id($id)
     $shipping_details = \App\ProductShipping::find($id);
     return !empty($shipping_details) ? $shipping_details->title : "Undefined";
 }
-function get_image_category_name_by_id($id){
+
+function get_image_category_name_by_id($id)
+{
     $return_val = __('uncategorized');
 
     $category_details = \App\ImageGalleryCategory::find($id);
-    if (!empty($category_details)){
-            $return_val = $category_details->title;
+    if (!empty($category_details)) {
+        $return_val = $category_details->title;
     }
 
     return $return_val;
