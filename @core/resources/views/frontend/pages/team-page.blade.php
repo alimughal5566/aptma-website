@@ -13,7 +13,8 @@
 
     <div class="team-member-area gray-bg team-page padding-120">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Team <?php echo ($category)? "<small>($category)<small>":"" ?></h2>
+            <h2 class="font-weight-bold mb-3 text-center">
+                Team <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
             <div class="row">
                 @forelse($all_team_members as $data)
                     <div class="col-lg-3  col-sm-6 padding-bottom-60">
@@ -23,15 +24,25 @@
                                 <div class="social-link">
                                     <ul>
                                         @if(!empty($data->icon_one) && !empty($data->icon_one_url))
-                                            <li><a href="{{$data->icon_one_url}}"><i
-                                                            class="{{$data->icon_one}}"></i></a></li>
+                                            <li>
+                                                <a href="{{$data->icon_one_url}}">
+                                                    <i class="{{$data->icon_one}}"></i>
+                                                </a>
+                                            </li>
                                         @endif
                                         @if(!empty($data->icon_two) && !empty($data->icon_two_url))
-                                            <li><a href="{{$data->icon_two_url}}"><i
-                                                            class="{{$data->icon_two}}"></i></a></li>
+                                            <li>
+                                                <a href="{{$data->icon_two_url}}">
+                                                    <i class="{{$data->icon_two}}"></i>
+                                                </a>
+                                            </li>
                                         @endif
                                         @if(!empty($data->icon_three) && !empty($data->icon_three_url))
-                                            <li><a href="{{$data->icon_three_url}}"><i class="{{$data->icon_three}}"></i></a></li>
+                                            <li>
+                                                <a href="{{$data->icon_three_url}}">
+                                                    <i class="{{$data->icon_three}}"></i>
+                                                </a>
+                                            </li>
                                         @endif
                                     </ul>
                                 </div>
@@ -42,13 +53,13 @@
                             </div>
                         </div>
                     </div>
-                    @empty
-                        <div class="col-md-12 card border-0  gray-bg mt-5 margin-bottom-40">
-                            <div class="text center px-5">
-                                <h1 class="text-muted">Sorry, No member found</h1>
-                            </div>
+                @empty
+                    <div class="col-md-12 card border-0  gray-bg mt-5 margin-bottom-40">
+                        <div class="text center px-5">
+                            <h1 class="text-muted">Sorry, No member found</h1>
                         </div>
-                    @endforelse
+                    </div>
+                @endforelse
 
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">
