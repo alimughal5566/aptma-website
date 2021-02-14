@@ -278,7 +278,7 @@
                                                 </div>
                                                 <div class="common-content content">
                                                     <a href="{{route('frontend.gallery.video.single', $data->id)}}">
-                                                        <h4 class="title">{{$data->title}}</h4>
+                                                        <h4 class="title d-flex align-items-center">{{$data->title}}</h4>
                                                     </a>
                                                     <a href="{{$data->url}}" target="_blank" class="btn">View</a>
 
@@ -332,6 +332,7 @@
                                                         <h4 class="title">{{$data->title}}</h4>
                                                     </a>
                                                     <p>{{@$data->category->name}}</p>
+                                                    <p>{{@$data->publish_date}}</p>
                                                     <a href="{{asset('assets/uploads/circular/'.$data->url)}}" class="btn">Download</a>
                                                 </div>
                                             </div>

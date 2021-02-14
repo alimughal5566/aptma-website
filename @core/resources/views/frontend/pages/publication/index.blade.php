@@ -11,9 +11,11 @@
     <meta name="tags" content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
 @section('content')
-    <section class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
+    <section
+            class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Publications<?php echo ($category)? "<small>($category)</small>":"" ?></h2>
+            <h2 class="font-weight-bold mb-3 text-center">
+                Publications <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
 
             <div class="row">
                 @php $a = 1; @endphp
@@ -34,28 +36,27 @@
                                 </a>
                             </div>
                             <div class="common-content content">
+                                <p class="">
+                                    <span>{{@$data->publish_date}}</span>
+                                </p>
                                 <a href="{{route('frontend.publication.single',$data->id)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
-                                <p class="">
-                                    <strong>Published On:</strong>
-                                    <span>{{\Carbon\Carbon::parse($data->publish_date)->format('d M Y')}}</span>
-                                </p>
-
                                 <a href="{{asset('assets/uploads/publications/pdf/'.$data->pdf_url)}}" target="_blank"
                                    class="btn text-center">Download</a>
                             </div>
                         </div>
                     </div>
                     @php
-                        if($a == 4){ $a = 1;}else{$a++;}; @endphp
-                    @empty
-                        <div class="col-md-12 card border-0 thumb margin-bottom-40">
-                            <div class="text center px-5 card-body ">
-                                <h1 class="text-muted">Sorry,No data found</h1>
-                            </div>
+                        if($a == 4){ $a = 1;}else{$a++;};
+                    @endphp
+                @empty
+                    <div class="col-md-12 card border-0 thumb margin-bottom-40">
+                        <div class="text center px-5 card-body ">
+                            <h1 class="text-muted">Sorry,No data found</h1>
                         </div>
-                    @endforelse
+                    </div>
+                @endforelse
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">
                         {{$all_services->links()}}
