@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Image Gallery Categories')}}
+    {{__('Publications Categories')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -40,7 +40,7 @@
             <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Publication Categories')}}</h4>
+                        <h4 class="header-title">{{__('Publications Categories')}}</h4>
                         <div class="bulk-delete-wrapper">
                             <div class="select-box-wrap">
                                 <select name="bulk_option" id="bulk_option">
