@@ -273,19 +273,19 @@
                         <li class=" menu-item-has-children ">
                             <a href="#">Events</a>
                             <ul class="sub-menu">
-                                <li class="menu-item-has-children ">
-                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
-                                    <ul class="sub-menu">
-                                        @php $categories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
-                                        @if($categories->count()>0)
-                                            @foreach($categories as $category)
-                                                <li>
-                                                    <a href="{{route('frontend.image.gallery',[$category->id])}}">{{$category->title}}</a>
-                                                </li>
-                                            @endforeach()
-                                        @endif
-                                    </ul>
-                                </li>
+{{--                                <li class="menu-item-has-children ">--}}
+{{--                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>--}}
+{{--                                    <ul class="sub-menu">--}}
+{{--                                        @php $categories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
+{{--                                        @if($categories->count()>0)--}}
+{{--                                            @foreach($categories as $category)--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="{{route('frontend.image.gallery',[$category->id])}}">{{$category->title}}</a>--}}
+{{--                                                </li>--}}
+{{--                                            @endforeach()--}}
+{{--                                        @endif--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>
                                     <ul class="sub-menu">
