@@ -1622,6 +1622,7 @@ html {
   width: 100%;
 }
 
+.common-area .common-item .common-img .circular-img,
 .common-area .common-item .common-img.video-img {
   min-height: 200px;
   max-height: 200px;

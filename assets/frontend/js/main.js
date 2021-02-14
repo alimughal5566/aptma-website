@@ -534,6 +534,46 @@
 
 
         /*---------------------------
+            circular carousel
+        ---------------------------*/
+
+        var $circularGridCarousel = $('.circular-grid-carousel');
+        if ($circularGridCarousel.length > 0) {
+            $circularGridCarousel.owlCarousel({
+                loop: true,
+                autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    575: {
+                        items: 2
+                    },
+                    768: {
+                        items: 2
+                    },
+                    960: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+        /*---------------------------
              case studies carousel
         ---------------------------*/
         $('.case-studies-slider-active').owlCarousel({
