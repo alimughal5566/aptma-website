@@ -11,13 +11,13 @@
 @endsection
 @section('content')
 
-    <div class="team-member-area gray-bg team-page padding-120">
+    <div class="team-member-area gray-bg team-page padding-top-50 padding-bottom-50">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
                 Team <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
             <div class="row">
                 @forelse($all_team_members as $data)
-                    <div class="col-lg-3  col-sm-6 padding-bottom-60">
+                    <div class="col-lg-3  col-sm-6 padding-bottom-50 bg-white">
                         <div class="team-section">
                             <div class="team-img-cont" onclick="detail({{$data}});">
                                 {!! render_image_markup_by_attachment_id($data->image) !!}
