@@ -11,7 +11,7 @@
     <meta name="tags" content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
 @section('content')
-    
+
     <section
             class="service-area service-page common-area video-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">

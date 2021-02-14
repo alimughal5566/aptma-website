@@ -360,6 +360,18 @@
       padding: 1.25rem 1rem;
       z-index: 999;
 
+      .title {
+        display: inline-block;
+        text-overflow: ellipsis;
+        //white-space: nowrap;
+        overflow: hidden;
+        max-height: 75px;
+        height: 75px;
+        line-height: 25px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
       a {
         position: relative;
         display: block;

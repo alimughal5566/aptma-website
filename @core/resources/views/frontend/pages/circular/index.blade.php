@@ -13,7 +13,8 @@
 @section('content')
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Circulars <?php echo ($category)? "<small>($category)</small>":"" ?></h2>
+            <h2 class="font-weight-bold mb-3 text-center">
+                Circulars <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
 
             <div class="row">
                 @forelse($all_services as $data)
@@ -35,10 +36,9 @@
                                 <a href="{{route('frontend.circular.single',$data->id)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
-                                <p>Category: {{@$data->category->name}}</p>
-                                <p>Last updated: {{@$data->updated_at->format('d M Y')}}</p>
-                                <a href="{{asset('assets/uploads/circular/'.$data->url)}}" target="_blank"
-                                   class="btn text-center">Download</a>
+                                <p>{{@$data->category->name}}</p>
+                                <p>{{@$data->publish_date->format('d M Y')}}</p>
+                                <a href="{{asset('assets/uploads/circular/'.$data->url)}}" target="_blank" class="btn">Download</a>
                             </div>
                         </div>
                     </div>

@@ -1637,6 +1637,18 @@ html {
   z-index: 999;
 }
 
+.common-area .common-item .common-content .title {
+  display: inline-block;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 75px;
+  height: 75px;
+  line-height: 25px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .common-area .common-item .common-content a {
   position: relative;
   display: block;

@@ -37,10 +37,9 @@
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item circular-single-item position-relative">
                         <div class="service-description common-single-description circular-description">
-                            <div class="margin-bottom-15">
-                                <strong>Category:</strong> {{$service_item->category->name}}</div>
-                            <p>Last updated: {{@$data->updated_at}}</p>
-                            <div>{!! $service_item->description !!}</div>
+                            <p class="margin-bottom-15">{{$service_item->category->name}}</p>
+                            <p>{{@$data->publish_date->format('d M Y')}}</p>
+                            <p>{!! $service_item->description !!}</p>
                         </div>
                     </div>
                 </div>
