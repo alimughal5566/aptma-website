@@ -37,7 +37,7 @@
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p>{{@$data->category->name}}</p>
-                                <p>{{@$data->publish_date->format('d M Y')}}</p>
+                                <p>{{@$data->publish_date}}</p>
                                 <a href="{{asset('assets/uploads/circular/'.$data->url)}}" target="_blank" class="btn">Download</a>
                             </div>
                         </div>

@@ -38,7 +38,7 @@
                     <div class="service-details-item common-single-item circular-single-item position-relative">
                         <div class="service-description common-single-description circular-description">
                             <p class="margin-bottom-15">{{$service_item->category->name}}</p>
-                            <p>{{@$data->publish_date->format('d M Y')}}</p>
+                            <p>{{@$data->publish_date}}</p>
                             <p>{!! $service_item->description !!}</p>
                         </div>
                     </div>
