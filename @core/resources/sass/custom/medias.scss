@@ -266,20 +266,20 @@
           opacity: 1;
         }
 
-        &.events-grid-carousel {
+      }
 
-          .owl-stage {
+      &.events-grid-carousel {
 
-            .owl-item {
-              width: 100% !important;
-            }
+        .owl-stage {
 
+          .owl-item {
+            width: 100% !important;
           }
 
         }
 
       }
-
+      
     }
 
   }

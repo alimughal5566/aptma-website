@@ -2019,6 +2019,10 @@ footer .copyright-area {
   .common-area .common-grid-carousel.owl-carousel.owl-loading {
     opacity: 1;
   }
+
+  .common-area .common-grid-carousel.events-grid-carousel .owl-stage .owl-item {
+    width: 100% !important;
+  }
 }
 
 /* Extra small devices (portrait phones, less than 576px)*/
