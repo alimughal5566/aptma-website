@@ -2015,6 +2015,10 @@ footer .copyright-area {
   .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
     right: -1rem;
   }
+
+  .common-area .common-grid-carousel.owl-carousel.owl-loading {
+    opacity: 1;
+  }
 }
 
 /* Extra small devices (portrait phones, less than 576px)*/
@@ -2022,15 +2026,6 @@ footer .copyright-area {
 @media (max-width: 575.98px) {
   .top-bar-inner ul.social-icons li:last-child {
     display: inline-block;
-  }
-
-  .common-area.common-grid-carousel.owl-carousel.owl-loading {
-    opacity: 1;
-  }
-
-  .common-area .common-item .common-img {
-    min-height: unset;
-    max-height: unset;
   }
 
   .fb_iframe_widget span {

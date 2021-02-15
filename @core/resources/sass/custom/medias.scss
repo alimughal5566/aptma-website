@@ -255,6 +255,10 @@
   .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
     right: -1.0rem;
   }
+  
+  .common-area .common-grid-carousel.owl-carousel.owl-loading {
+    opacity: 1;
+  }
 
   footer {
 
@@ -267,10 +271,6 @@
 
   .top-bar-inner ul.social-icons li:last-child {
     display: inline-block;
-  }
-
-  .common-area.common-grid-carousel.owl-carousel.owl-loading {
-    opacity: 1;
   }
 
   .fb_iframe_widget {
