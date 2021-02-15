@@ -267,7 +267,7 @@
         }
 
         .owl-stage {
-          display: block !important;
+          @include mix.flex-wrap;
         }
 
       }

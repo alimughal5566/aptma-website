@@ -2021,7 +2021,8 @@ footer .copyright-area {
   }
 
   .common-area .common-grid-carousel.owl-carousel .owl-stage {
-    display: block !important;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   .common-area .common-grid-carousel.events-grid-carousel .owl-stage .owl-item {
