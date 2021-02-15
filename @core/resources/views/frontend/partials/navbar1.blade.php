@@ -119,58 +119,59 @@
                             <a href="#">About Us</a>
                             <ul class="sub-menu">
                                 @php $dynamic_pages=\App\Page::where(['status' =>'publish','lang'=>'en'])->get(); @endphp
-                                    @if($dynamic_pages->count()>0)
+                                @if($dynamic_pages->count()>0)
 
-                                            @foreach($dynamic_pages as $page)
-                                                <li>
-                                                    <a href="{{route('frontend.dynamic.page',$page->slug)}}">{{$page->title}}</a>
-                                                </li>
-                                            @endforeach
-                                    @endif
+                                    @foreach($dynamic_pages as $page)
+                                        <li>
+                                            <a href="{{route('frontend.dynamic.page',$page->slug)}}">{{$page->title}}</a>
+                                        </li>
+                                    @endforeach
+                                @endif
 
-{{--                                <li>--}}
-{{--                                    <a href="#">Patron in Chief message</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">Chairman Message</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">Executive Director</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="menu-item-has-children ">--}}
-{{--                                    <a href="#">Members of Executive Committees</a>--}}
-{{--                                    <ul class="sub-menu">--}}
-{{--                                        <li>--}}
-{{--                                            <a href="#">Executive Commitee</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li>--}}
-{{--                                            <a href="#">Admin and Finance</a>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="menu-item-has-children ">--}}
-{{--                                            <a href="#">Standing Committee</a>--}}
-{{--                                            <ul class="sub-menu">--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">Cotton & Raw Material</a>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">FBR</a>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">Re-structure</a>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">Energy</a>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">Polyester, Fiber &amp; Synthetic fiber</a>--}}
-{{--                                                <li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">Others</a>--}}
-{{--                                                </li>--}}
-{{--                                            </ul>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
-{{--                                </li>--}}
+                                {{--                                <li>--}}
+                                {{--                                    <a href="#">Patron in Chief message</a>--}}
+                                {{--                                </li>--}}
+                                {{--                                <li>--}}
+                                {{--                                    <a href="#">Chairman Message</a>--}}
+                                {{--                                </li>--}}
+                                {{--                                <li>--}}
+                                {{--                                    <a href="#">Executive Director</a>--}}
+                                {{--                                </li>--}}
+                                {{--                                <li class="menu-item-has-children ">--}}
+                                {{--                                    <a href="#">Members of Executive Committees</a>--}}
+                                {{--                                    <ul class="sub-menu">--}}
+                                {{--                                        <li>--}}
+                                {{--                                            <a href="#">Executive Commitee</a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li>--}}
+                                {{--                                            <a href="#">Admin and Finance</a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li class="menu-item-has-children ">--}}
+                                {{--                                            <a href="#">Standing Committee</a>--}}
+                                {{--                                            <ul class="sub-menu">--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="#">Cotton & Raw Material</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="#">FBR</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="#">Re-structure</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="#">Energy</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="#">Polyester, Fiber &amp; Synthetic fiber</a>--}}
+                                {{--                                                <li>--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="#">Others</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                            </ul>--}}
+                                {{--                                        </li>--}}
+                                {{--                                    </ul>--}}
+                                {{--                                </li>--}}
+
                                 @php $teams=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($teams->count()>0)
                                     {{----}}{{----}}{{--                                    @php dd($teams) @endphp--}}{{----}}{{----}}
@@ -200,9 +201,9 @@
                                         <ul class="sub-menu">
                                             @foreach($categories as $category)
                                                 @if($category->blogs_count>0)
-                                                <li>
-                                                    <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>
-                                                </li>
+                                                    <li>
+                                                        <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>
+                                                    </li>
                                                 @endif
                                             @endforeach
                                         </ul>
@@ -220,9 +221,9 @@
 
                                             @foreach($categories as $category)
                                                 @if($category->publications_count>0)
-                                                <li>
-                                                    <a href="{{route('frontend.publication',[$category->id])}}">{{$category->name}}</a>
-                                                </li>
+                                                    <li>
+                                                        <a href="{{route('frontend.publication',[$category->id])}}">{{$category->name}}</a>
+                                                    </li>
                                                 @endif
                                             @endforeach
 
@@ -245,21 +246,23 @@
                                 @endif
                             </ul>
                         </li>
-                        <li class=" menu-item-has-children ">
-                            <a href="{{route('frontend.circular.index')}}">Circulars</a>
-                            <ul class="sub-menu">
-                                @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
-                                @if($categories->count()>0)
 
-                                    @foreach($categories as $category)
-                                        <li>
-                                            <a href="{{route('frontend.circular.index',[$category->id])}}">{{$category->name}}</a>
-                                        </li>
-                                    @endforeach()
+{{--                        <li class=" menu-item-has-children ">--}}
+{{--                            <a href="{{route('frontend.circular.index')}}">Circulars</a>--}}
+{{--                            <ul class="sub-menu">--}}
+{{--                                @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
+{{--                                @if($categories->count()>0)--}}
 
-                                @endif
-                            </ul>
-                        </li>
+{{--                                    @foreach($categories as $category)--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{route('frontend.circular.index',[$category->id])}}">{{$category->name}}</a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach()--}}
+
+{{--                                @endif--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+
                         <li class=" menu-item-has-children ">
                             <a href="#">Statistics</a>
                             <ul class="sub-menu">
@@ -274,6 +277,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li class=" menu-item-has-children">
                             <a href="#">Members Directory</a>
                             <ul class="sub-menu">
@@ -293,30 +297,30 @@
                                         @if($categories->count()>0)
                                             @foreach($categories as $category)
                                                 @if($category->events_count>0)
-                                                <li>
-                                                    <a href="{{route('frontend.events.category', ['id' => $category->id,'any'=> Str::slug($category->title,'-')])}}">{{$category->title}}</a>
-                                                </li>
+                                                    <li>
+                                                        <a href="{{route('frontend.events.category', ['id' => $category->id,'any'=> Str::slug($category->title,'-')])}}">{{$category->title}}</a>
+                                                    </li>
                                                 @endif
                                             @endforeach()
                                         @endif
                                     </ul>
                                 </li>
 
-                                    <li class="menu-item-has-children ">
-                                        <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
-                                        <ul class="sub-menu">
-                                            @php $categories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
-                                            @if($categories->count()>0 )
-                                                @foreach($categories as $category)
-                                                    @if($category->images_count>0)
+                                <li class="menu-item-has-children ">
+                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
+                                    <ul class="sub-menu">
+                                        @php $categories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
+                                        @if($categories->count()>0 )
+                                            @foreach($categories as $category)
+                                                @if($category->images_count>0)
                                                     <li>
                                                         <a href="{{route('frontend.image.gallery',[$category->id])}}">{{$category->title}}</a>
                                                     </li>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </li>
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>
                                     <ul class="sub-menu">
@@ -324,9 +328,9 @@
                                         @if($categories->count()>0)
                                             @foreach($categories as $category)
                                                 @if($category->videos_count>0)
-                                                <li>
-                                                    <a href="{{route('frontend.gallery.video.index',[$category->id])}}">{{$category->name}}</a>
-                                                </li>
+                                                    <li>
+                                                        <a href="{{route('frontend.gallery.video.index',[$category->id])}}">{{$category->name}}</a>
+                                                    </li>
                                                 @endif
                                             @endforeach()
                                         @endif
