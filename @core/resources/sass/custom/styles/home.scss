@@ -344,14 +344,9 @@
 
       }
 
-      .circular-img, &.video-img {
+      &.circular-img, &.video-img, &.advertise-img {
         min-height: 200px;
         max-height: 200px;
-      }
-
-      &.advertise-img {
-        min-height: 300px;
-        max-height: 300px;
       }
 
     }

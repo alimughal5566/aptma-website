@@ -1622,15 +1622,11 @@ html {
   width: 100%;
 }
 
-.common-area .common-item .common-img .circular-img,
-.common-area .common-item .common-img.video-img {
+.common-area .common-item .common-img.circular-img,
+.common-area .common-item .common-img.video-img,
+.common-area .common-item .common-img.advertise-img {
   min-height: 200px;
   max-height: 200px;
-}
-
-.common-area .common-item .common-img.advertise-img {
-  min-height: 300px;
-  max-height: 300px;
 }
 
 .common-area .common-item .common-content {
