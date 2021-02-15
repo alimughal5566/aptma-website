@@ -100,27 +100,31 @@
                         </a>
                     </div>
                     @if(!empty(get_static_option('product_module_status')))
-                        <div class="mobile-cart"><a href="{{route('frontend.products.cart')}}"><i
-                                        class="flaticon-shopping-cart"></i> <span
-                                        class="pcount">{{cart_total_items()}}</span></a></div>
+                        <div class="mobile-cart">
+                            <a href="{{route('frontend.products.cart')}}">
+                                <i class="flaticon-shopping-cart"></i>
+                                <span class="pcount">{{cart_total_items()}}</span>
+                            </a>
+                        </div>
                     @endif
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#bizcoxx_main_menu"
-                            aria-expanded="false" aria-label="Toggle navigation">
+                            data-target="#bizcoxx_main_menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
                     <ul class="navbar-nav">
-                        <li><a href="{{url('/')}}">{{ __('Home') }}</a></li>
+                        <li>
+                            <a href="{{url('/')}}">{{ __('Home') }}</a>
+                        </li>
+
+                        @php $dynamic_pages=\App\Page::where(['status' =>'publish','lang'=>'en'])->get(); @endphp
 
                         <li class=" menu-item-has-children ">
                             <a href="#">About Us</a>
                             <ul class="sub-menu">
-                                @php $dynamic_pages=\App\Page::where(['status' =>'publish','lang'=>'en'])->get(); @endphp
                                 @if($dynamic_pages->count()>0)
-
                                     @foreach($dynamic_pages as $page)
                                         <li>
                                             <a href="{{route('frontend.dynamic.page',$page->slug)}}">{{$page->title}}</a>
@@ -172,34 +176,56 @@
                                 {{--                                    </ul>--}}
                                 {{--                                </li>--}}
 
-                                @php $teams=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
-                                @if($teams->count()>0)
-                                    {{----}}{{----}}{{--                                    @php dd($teams) @endphp--}}{{----}}{{----}}
-                                    <li class="menu-item-has-children ">
-                                        <a href="{{route('frontend.team')}}">Team</a>
+                                @php $teamCategory=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
+
+                                <li class=" {{$teamCategory->count()>0 ? ' menu-item-has-children ' : ' '}} ">
+                                    <a href="{{route('frontend.team')}}">Team</a>
+                                    @if($teamCategory->count()>0)
                                         <ul class="sub-menu">
-                                            @foreach($teams as $team)
+                                            @foreach($teamCategory as $team)
                                                 <li>
                                                     <a href="{{route('frontend.team',[$team->id])}}">{{$team->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
-                                    </li>
-                                @endif
+                                    @endif
+                                </li>
+
                             </ul>
                         </li>
-                        <li class=" menu-item-has-children ">
+
+                        @php $blogCategories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->withCount('blogs')->orderBy('id','desc')->get(); @endphp
+
+                        <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
                             <a href="#">Research & Publications</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="#">Research Team</a>
                                 </li>
-                                @php $categories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->withCount('blogs')->orderBy('id','desc')->get(); @endphp
-                                @if($categories->count()>0)
-                                    <li class="menu-item-has-children ">
-                                        <a href="{{route('frontend.blog')}}">Blogs & Articles</a>
+                                @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
+
+                                <li class=" {{$publicationCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
+                                    <a href="{{route('frontend.publication')}}">Publications</a>
+                                    @if($publicationCategories->count()>0)
                                         <ul class="sub-menu">
-                                            @foreach($categories as $category)
+                                            @foreach($publicationCategories as $category)
+                                                @if($category->publications_count>0)
+                                                    <li>
+                                                        <a href="{{route('frontend.publication',[$category->id])}}">{{$category->name}}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+
+
+                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
+                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>
+
+                                    @if($blogCategories->count()>0)
+                                        <ul class="sub-menu">
+                                            @foreach($blogCategories as $category)
                                                 @if($category->blogs_count>0)
                                                     <li>
                                                         <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>
@@ -207,43 +233,29 @@
                                                 @endif
                                             @endforeach
                                         </ul>
-                                    </li>
-                                @endif
+                                    @endif
+
+                                </li>
 
                                 <li>
                                     <a href="#">Policy Document</a>
                                 </li>
-                                @php $categories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
-                                @if($categories->count()>0)
-                                    <li class="menu-item-has-children ">
-                                        <a href="{{route('frontend.publication')}}">Publications</a>
-                                        <ul class="sub-menu">
 
-                                            @foreach($categories as $category)
-                                                @if($category->publications_count>0)
-                                                    <li>
-                                                        <a href="{{route('frontend.publication',[$category->id])}}">{{$category->name}}</a>
-                                                    </li>
-                                                @endif
-                                            @endforeach
+                                {{--                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
 
-                                        </ul>
-                                    </li>
-                                @endif
-                                @php $categories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
-                                @if($categories->count()>0)
-                                    {{--                                    @php dd($teams) @endphp--}}
-                                    <li class="menu-item-has-children ">
-                                        <a href="{{route('frontend.book.index')}}">Books</a>
-                                        <ul class="sub-menu">
-                                            @foreach($categories as $category)
-                                                <li>
-                                                    <a href="{{route('frontend.book.index',[$category->id])}}">{{$category->name}}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                @endif
+                                {{--                                <li class=" {{$bookCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
+                                {{--                                    <a href="{{route('frontend.book.index')}}">Books</a>--}}
+                                {{--                                    @if($bookCategories->count()>0)--}}
+                                {{--                                        <ul class="sub-menu">--}}
+                                {{--                                            @foreach($bookCategories as $category)--}}
+                                {{--                                                <li>--}}
+                                {{--                                                    <a href="{{route('frontend.book.index',[$category->id])}}">{{$category->name}}</a>--}}
+                                {{--                                                </li>--}}
+                                {{--                                            @endforeach--}}
+                                {{--                                        </ul>--}}
+                                {{--                                    @endif--}}
+                                {{--                                </li>--}}
+
                             </ul>
                         </li>
 
@@ -286,58 +298,60 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li class=" menu-item-has-children ">
                             <a href="#">Events</a>
                             <ul class="sub-menu">
-
-                                <li class="menu-item-has-children ">
+                                @php $eventCategories= \App\EventsCategory::where(['status' =>'publish','lang'=>'en'])->withCount('events')->orderBy('id','desc')->get(); @endphp
+                                <li class="  {{$eventCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
                                     <a href="{{route('frontend.events')}}">APTMA Events</a>
-                                    <ul class="sub-menu">
-                                        @php $categories= \App\EventsCategory::where(['status' =>'publish','lang'=>'en'])->withCount('events')->orderBy('id','desc')->get(); @endphp
-                                        @if($categories->count()>0)
-                                            @foreach($categories as $category)
+                                    @if($eventCategories->count()>0)
+                                        <ul class="sub-menu">
+                                            @foreach($eventCategories as $category)
                                                 @if($category->events_count>0)
                                                     <li>
                                                         <a href="{{route('frontend.events.category', ['id' => $category->id,'any'=> Str::slug($category->title,'-')])}}">{{$category->title}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach()
-                                        @endif
-                                    </ul>
+                                        </ul>
+                                    @endif
                                 </li>
 
-                                <li class="menu-item-has-children ">
+                                @php $imageCategories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
+                                <li class=" {{$imageCategories->count()>1 ? ' menu-item-has-children ' : ' '}}">
                                     <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
-                                    <ul class="sub-menu">
-                                        @php $categories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
-                                        @if($categories->count()>0 )
-                                            @foreach($categories as $category)
+                                    @if($imageCategories->count()>0 )
+                                        <ul class="sub-menu">
+                                            @foreach($imageCategories as $category)
                                                 @if($category->images_count>0)
                                                     <li>
                                                         <a href="{{route('frontend.image.gallery',[$category->id])}}">{{$category->title}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach
-                                        @endif
-                                    </ul>
+                                        </ul>
+                                    @endif
                                 </li>
-                                <li class="menu-item-has-children ">
+
+                                @php $videoCategories= \App\VideoGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('videos')->orderBy('id','desc')->get(); @endphp
+                                <li class=" {{$videoCategories->count()>0 ? ' menu-item-has-children ' : ' '}}  ">
                                     <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>
-                                    <ul class="sub-menu">
-                                        @php $categories= \App\VideoGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('videos')->orderBy('id','desc')->get(); @endphp
-                                        @if($categories->count()>0)
-                                            @foreach($categories as $category)
+                                    @if($videoCategories->count()>0)
+                                        <ul class="sub-menu">
+                                            @foreach($videoCategories as $category)
                                                 @if($category->videos_count>0)
                                                     <li>
                                                         <a href="{{route('frontend.gallery.video.index',[$category->id])}}">{{$category->name}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach()
-                                        @endif
-                                    </ul>
+                                        </ul>
+                                    @endif
                                 </li>
                             </ul>
                         </li>
+
                         <li>
                             <a href="{{route('frontend.contact')}}">Contact</a>
                         </li>
