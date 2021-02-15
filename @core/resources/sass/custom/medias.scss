@@ -255,9 +255,33 @@
   .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
     right: -1.0rem;
   }
-  
-  .common-area .common-grid-carousel.owl-carousel.owl-loading {
-    opacity: 1;
+
+  .common-area {
+
+    .common-grid-carousel {
+
+      &.owl-carousel {
+
+        &.owl-loading {
+          opacity: 1;
+        }
+
+        &.events-grid-carousel {
+
+          .owl-stage {
+
+            .owl-item {
+              width: 100% !important;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
   footer {
