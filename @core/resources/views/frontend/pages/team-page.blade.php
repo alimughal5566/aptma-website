@@ -85,14 +85,14 @@
                                 <div class="team-detail-wrapper d-flex flex-column ">
                                     <div class="team-detail-item d-flex align-items-start">
                                         <div class="team-label">
-                                            <strong>Designation: </strong>
+                                            <strong>Designation </strong>
                                         </div>
                                         <div class="team-detail designation">
                                         </div>
                                     </div>
                                     <div class="team-detail-item d-flex align-items-start">
                                         <div class="team-label">
-                                            <strong>About me: </strong>
+                                            <strong>About me </strong>
                                         </div>
                                         <div class="team-detail about-me">
                                         </div>

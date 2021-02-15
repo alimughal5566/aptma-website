@@ -116,7 +116,7 @@
                         <li><a href="{{url('/')}}">{{ __('Home') }}</a></li>
 
                         <li class=" menu-item-has-children ">
-                            <a href="{{route('frontend.about')}}">About Us</a>
+                            <a href="#">About Us</a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="#">Patron in Chief message</a>
