@@ -118,49 +118,59 @@
                         <li class=" menu-item-has-children ">
                             <a href="#">About Us</a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href="#">Patron in Chief message</a>
-                                </li>
-                                <li>
-                                    <a href="#">Chairman Message</a>
-                                </li>
-                                <li>
-                                    <a href="#">Executive Director</a>
-                                </li>
-                                <li class="menu-item-has-children ">
-                                    <a href="#">Members of Executive Committees</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="#">Executive Commitee</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Admin and Finance</a>
-                                        </li>
-                                        <li class="menu-item-has-children ">
-                                            <a href="#">Standing Committee</a>
-                                            <ul class="sub-menu">
+                                @php $dynamic_pages=\App\Page::where(['status' =>'publish','lang'=>'en'])->get(); @endphp
+                                    @if($dynamic_pages->count()>0)
+
+                                            @foreach($dynamic_pages as $page)
                                                 <li>
-                                                    <a href="#">Cotton & Raw Material</a>
+                                                    <a href="{{route('frontend.dynamic.page',$page->slug)}}">{{$page->title}}</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#">FBR</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Re-structure</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Energy</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Polyester, Fiber &amp; Synthetic fiber</a>
-                                                <li>
-                                                <li>
-                                                    <a href="#">Others</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                            @endforeach
+                                    @endif
+
+{{--                                <li>--}}
+{{--                                    <a href="#">Patron in Chief message</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#">Chairman Message</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#">Executive Director</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="menu-item-has-children ">--}}
+{{--                                    <a href="#">Members of Executive Committees</a>--}}
+{{--                                    <ul class="sub-menu">--}}
+{{--                                        <li>--}}
+{{--                                            <a href="#">Executive Commitee</a>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="#">Admin and Finance</a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="menu-item-has-children ">--}}
+{{--                                            <a href="#">Standing Committee</a>--}}
+{{--                                            <ul class="sub-menu">--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">Cotton & Raw Material</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">FBR</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">Re-structure</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">Energy</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">Polyester, Fiber &amp; Synthetic fiber</a>--}}
+{{--                                                <li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">Others</a>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
                                 @php $teams=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
                                 @if($teams->count()>0)
                                     {{----}}{{----}}{{--                                    @php dd($teams) @endphp--}}{{----}}{{----}}
@@ -190,7 +200,7 @@
                                         <ul class="sub-menu">
                                             @foreach($categories as $category)
                                                 <li>
-                                                    <a href="{{route('frontend.blog',[$category->id])}}">{{$category->name}}</a>
+                                                    <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -282,6 +292,19 @@
                                 {{--                                        @endif--}}
                                 {{--                                    </ul>--}}
                                 {{--                                </li>--}}
+                                <li class="menu-item-has-children ">
+                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
+                                    <ul class="sub-menu">
+                                        @php $categories= \App\EventsCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
+                                        @if($categories->count()>0)
+                                            @foreach($categories as $category)
+                                                <li>
+                                                    <a href="{{route('frontend.events.category', ['id' => $category->id,'any'=> Str::slug($category->title,'-')])}}">{{$category->title}}</a>
+                                                </li>
+                                            @endforeach()
+                                        @endif
+                                    </ul>
+                                </li>
                                 <li class="menu-item-has-children ">
                                     <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>
                                     <ul class="sub-menu">
