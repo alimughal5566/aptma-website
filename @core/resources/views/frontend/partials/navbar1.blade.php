@@ -319,7 +319,7 @@
                                 </li>
 
                                 @php $imageCategories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
-                                <li class=" {{$imageCategories->count()>1 ? ' menu-item-has-children ' : ' '}}">
+                                <li class=" {{$imageCategories->count()>0 ? ' menu-item-has-children ' : ' '}}">
                                     <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
                                     @if($imageCategories->count()>0 )
                                         <ul class="sub-menu">
