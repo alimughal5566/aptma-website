@@ -1890,7 +1890,7 @@ footer .copyright-area {
 
   .navigation-wrap .header .navbar-area .nav-container {
     padding: 10px 0;
-    z-index: 999999;
+    z-index: 9999;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .responsive-mobile-menu {

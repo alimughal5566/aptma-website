@@ -83,21 +83,21 @@
                         <div class="row ">
                             <div class="col-lg-12">
                                 <div class="team-detail-wrapper d-flex flex-column ">
-                                    <div class="team-detail-item d-flex align-items-start">
+                                    <div class="team-detail-item d-flex align-items-start flex-column flex-lg-row">
                                         <div class="team-label">
                                             <strong>Designation </strong>
                                         </div>
                                         <div class="team-detail designation">
                                         </div>
                                     </div>
-                                    <div class="team-detail-item d-flex align-items-start">
+                                    <div class="team-detail-item d-flex align-items-start flex-column flex-lg-row">
                                         <div class="team-label">
                                             <strong>About me </strong>
                                         </div>
                                         <div class="team-detail about-me">
                                         </div>
                                     </div>
-                                    <div class="team-detail-item d-flex align-items-start">
+                                    <div class="team-detail-item d-flex align-items-start flex-column flex-lg-row">
                                         <div class="team-label">
                                             <strong> </strong>
                                         </div>
