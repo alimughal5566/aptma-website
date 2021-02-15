@@ -1,4 +1,3 @@
-;
 (function ($) {
     "use strict";
 
@@ -95,23 +94,19 @@
                 rtl: sliderRtlValue,
                 navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                 responsive: {
-                    0: {
-                        items: 1,
-                        nav: false
-                    },
-                    460: {
+                    320: {
                         items: 2,
                         nav: false
                     },
-                    599: {
+                    575: {
                         items: 2,
                         nav: false
                     },
                     768: {
-                        items: 2,
+                        items: 3,
                         nav: false
                     },
-                    960: {
+                    992: {
                         items: 3
                     },
                     1200: {
@@ -123,10 +118,10 @@
                 }
             });
         }
+
         /*--------------------------------
             Case Study Gallery Carousel
          --------------------------------*/
-
         var $rekatedCaseStudyCarousel = $('.related-case-study-carousel');
         if ($rekatedCaseStudyCarousel.length > 0) {
             $rekatedCaseStudyCarousel.owlCarousel({
@@ -139,24 +134,20 @@
                 rtl: sliderRtlValue,
                 navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
                 responsive: {
-                    0: {
+                    320: {
                         items: 1,
                         nav: false
                     },
-                    460: {
+                    575: {
                         items: 1,
-                        nav: false
-                    },
-                    599: {
-                        items: 2,
                         nav: false
                     },
                     768: {
                         items: 2,
                         nav: false
                     },
-                    960: {
-                        items: 3
+                    992: {
+                        items: 2
                     },
                     1200: {
                         items: 3
@@ -186,13 +177,10 @@
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
                 responsive: {
-                    0: {
+                    320: {
                         items: 1
                     },
-                    460: {
-                        items: 1
-                    },
-                    599: {
+                    575: {
                         items: 1
                     },
                     768: {
@@ -227,13 +215,10 @@
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
                 responsive: {
-                    0: {
+                    320: {
                         items: 1
                     },
-                    460: {
-                        items: 1
-                    },
-                    599: {
+                    575: {
                         items: 1
                     },
                     768: {
@@ -268,13 +253,10 @@
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
                 responsive: {
-                    0: {
+                    320: {
                         items: 1
                     },
-                    460: {
-                        items: 1
-                    },
-                    599: {
+                    575: {
                         items: 1
                     },
                     768: {
@@ -297,281 +279,38 @@
             Blog Grid carousel
         ---------------------------*/
         var $blogGridCarousel = $('.blog-grid-carousel');
-        if ($blogGridCarousel.length > 0) {
-            $blogGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 2
-                    },
-                    768: {
-                        items: 3
-                    },
-                    960: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    },
+        $blogGridCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            responsive: {
+                320: {
+                    items: 1
+                },
+                575: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                960: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                },
+                1920: {
+                    items: 4
                 }
-            });
-        }
-
-        /*---------------------------
-            Event Grid carousel
-        ---------------------------*/
-
-        var $eventsGridCarousel = $('.events-grid-carousel');
-        if ($eventsGridCarousel.length > 0) {
-            $eventsGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 2
-                    },
-                    768: {
-                        items: 3
-                    },
-                    960: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    },
-                }
-            });
-        }
-
-        /*---------------------------
-            Publications Grid carousel
-        ---------------------------*/
-
-        var $publicationGridCarousel = $('.publication-grid-carousel');
-        if ($publicationGridCarousel.length > 0) {
-            $publicationGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 1
-                    },
-                    768: {
-                        items: 2
-                    },
-                    960: {
-                        items: 2
-                    },
-                    1200: {
-                        items: 3
-                    },
-                }
-            });
-        }
-
-        /*---------------------------
-            Books Grid carousel
-        ---------------------------*/
-
-        var $booksGridCarousel = $('.books-grid-carousel');
-        if ($booksGridCarousel.length > 0) {
-            $booksGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 2
-                    },
-                    768: {
-                        items: 3
-                    },
-                    960: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    },
-                }
-            });
-        }
-
-        /*---------------------------
-            Videos Grid carousel
-        ---------------------------*/
-
-        var $videosGridCarousel = $('.video-grid-carousel');
-        if ($videosGridCarousel.length > 0) {
-            $videosGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 2
-                    },
-                    768: {
-                        items: 2
-                    },
-                    960: {
-                        items: 3
-                    },
-                    1200: {
-                        items: 3
-                    },
-                }
-            });
-        }
-
-        /*---------------------------
-             advertise carousel
-        ---------------------------*/
-
-        var $advertiseGridCarousel = $('.advertise-grid-carousel');
-        if ($advertiseGridCarousel.length > 0) {
-            $advertiseGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 1
-                    },
-                    768: {
-                        items: 2
-                    },
-                    960: {
-                        items: 2
-                    },
-                    1200: {
-                        items: 2
-                    },
-                }
-            });
-        }
-
-
-        /*---------------------------
-            circular carousel
-        ---------------------------*/
-
-        var $circularGridCarousel = $('.circular-grid-carousel');
-        if ($circularGridCarousel.length > 0) {
-            $circularGridCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                nav: true,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    360: {
-                        items: 1
-                    },
-                    575: {
-                        items: 2
-                    },
-                    768: {
-                        items: 2
-                    },
-                    960: {
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    },
-                }
-            });
-        }
+            }
+        });
 
         /*---------------------------
              case studies carousel
@@ -616,7 +355,7 @@
                     items: 3
                 }
             }
-        })
+        });
 
         // Clinet - active
         $('.client-active-area').owlCarousel({
@@ -628,9 +367,6 @@
             rtl: sliderRtlValue,
             navText: ['<span data-icon="&#x23;"></span>', '<span data-icon="&#x24;"></span>'],
             responsive: {
-                0: {
-                    items: 2
-                },
                 600: {
                     items: 3
                 },
@@ -641,76 +377,29 @@
                     items: 5
                 }
             }
-        })
-        if ($('.price-plan-slider').length > 0) {
-            // price plan - active
-            $('.price-plan-slider').owlCarousel({
-                loop: true,
-                nav: true,
-                margin: 30,
-                dots: false,
-                rtl: sliderRtlValue,
-                navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 2,
-                        nav: true,
-                    },
-                    992: {
-                        items: 3,
-                        nav: true,
-                    },
-                    1200: {
-                        items: 3
-                    }
-                }
-            });
-        }
+        });
 
-        /*---------------------------
-            header carousel
-        ---------------------------*/
-        var $headerCarousel = $('.header-slider-one');
-        if ($headerCarousel.length > 0) {
-            $headerCarousel.owlCarousel({
-                loop: true,
-                autoplay: true, //true if you want enable autoplay
-                autoPlayTimeout: 1000,
-                margin: 30,
-                dots: true,
-                rtl: sliderRtlValue,
-                nav: true,
-                navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false,
-                    },
-                    460: {
-                        items: 1,
-                        nav: false,
-                    },
-                    599: {
-                        items: 1
-                    },
-                    768: {
-                        items: 1
-                    },
-                    960: {
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    },
-                    1920: {
-                        items: 1
-                    }
+        $('.price-plan-slider').owlCarousel({
+            loop: true,
+            nav: true,
+            margin: 30,
+            dots: false,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+            responsive: {
+                600: {
+                    items: 2,
+                    nav: true,
+                },
+                992: {
+                    items: 3,
+                    nav: true,
+                },
+                1200: {
+                    items: 3
                 }
-            });
-        }
+            }
+        });
 
         /*---------------------------
             slider carousel
@@ -727,15 +416,11 @@
             rtl: sliderRtlValue,
             navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
             responsive: {
-                0: {
+                320: {
                     items: 1,
                     nav: false
                 },
-                460: {
-                    items: 1,
-                    nav: false
-                },
-                599: {
+                575: {
                     items: 1,
                     nav: false
                 },
@@ -755,6 +440,274 @@
             }
         });
 
+        /*---------------------------
+            header carousel
+        ---------------------------*/
+        var $headerCarousel = $('.header-slider-one');
+        $headerCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            rtl: sliderRtlValue,
+            nav: true,
+            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false,
+                },
+                460: {
+                    items: 1,
+                    nav: false,
+                },
+                599: {
+                    items: 1
+                },
+                768: {
+                    items: 1
+                },
+                960: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                },
+                1920: {
+                    items: 1
+                }
+            }
+        });
+
+        /*---------------------------
+            circular carousel
+        ---------------------------*/
+
+        var $circularGridCarousel = $('.circular-grid-carousel');
+        if ($circularGridCarousel.length > 0) {
+            $circularGridCarousel.owlCarousel({
+                loop: true,
+                autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    320: {
+                        items: 1
+                    },
+                    575: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    960: {
+                        items: 2
+                    },
+                    1200: {
+                        items: 4
+                    },
+                    1920: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+        /*---------------------------
+            advertise carousel
+        ---------------------------*/
+        var $advertiseGridCarousel = $('.advertise-grid-carousel');
+        $advertiseGridCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            responsive: {
+                320: {
+                    items: 1
+                },
+                575: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                960: {
+                    items: 2
+                },
+                1200: {
+                    items: 4
+                },
+                1920: {
+                    items: 4
+                },
+            }
+        });
+
+        /*---------------------------
+            videos Grid carousel
+        ---------------------------*/
+        var $videosGridCarousel = $('.video-grid-carousel');
+        $videosGridCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            responsive: {
+                320: {
+                    items: 1
+                },
+                575: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                960: {
+                    items: 2
+                },
+                1200: {
+                    items: 3
+                },
+                1920: {
+                    items: 3
+                }
+            }
+        });
+
+        /*---------------------------
+            books Grid carousel
+        ---------------------------*/
+        var $booksGridCarousel = $('.books-grid-carousel');
+        $booksGridCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            responsive: {
+                320: {
+                    items: 1
+                },
+                575: {
+                    items: 1
+                },
+                768: {
+                    items: 3
+                },
+                960: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                },
+                1920: {
+                    items: 4
+                },
+
+            }
+        });
+
+        /*---------------------------
+            publications Grid carousel
+        ---------------------------*/
+        var $publicationGridCarousel = $('.publication-grid-carousel');
+        $publicationGridCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            responsive: {
+                0: {
+                    items: 1
+                },
+                320: {
+                    items: 1
+                },
+                575: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                960: {
+                    items: 2
+                },
+                1200: {
+                    items: 3
+                },
+                1920: {
+                    items: 3
+                }
+            }
+        });
+
+        /*---------------------------
+            event Grid carousel
+        ---------------------------*/
+        var $eventsGridCarousel = $('.events-grid-carousel');
+        $eventsGridCarousel.owlCarousel({
+            loop: true,
+            autoplay: true, //true if you want enable autoplay
+            autoPlayTimeout: 1000,
+            margin: 30,
+            dots: true,
+            nav: true,
+            rtl: sliderRtlValue,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            responsive: {
+                320: {
+                    items: 1
+                },
+                575: {
+                    items: 2
+                },
+                768: {
+                    items: 3
+                },
+                960: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                },
+                1920: {
+                    items: 4
+                }
+            }
+        });
 
         /*----------------------
             Search Popup
@@ -767,6 +720,7 @@
             bodyOvrelay.removeClass('active');
             searchPopup.removeClass('show');
         });
+
         $(document).on('click', '#search', function (e) {
             e.preventDefault();
             searchPopup.addClass('show');
@@ -787,7 +741,6 @@
 
     });
 
-
     $(window).on('load', function () {
 
         /*-----------------
@@ -803,6 +756,5 @@
         backtoTop.fadeOut();
 
     });
-
 
 })(jQuery);

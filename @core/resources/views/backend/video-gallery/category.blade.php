@@ -45,6 +45,7 @@
                         <h4 class="header-title">{{__('Video Categories')}}</h4>
                         <div class="bulk-delete-wrapper">
                             <div class="select-box-wrap">
+                                <label for="bulk_option" class="sr-only"></label>
                                 <select name="bulk_option" id="bulk_option">
                                     <option value="" selected disabled>{{{__('Bulk Action')}}}</option>
                                     <option value="draft">{{{__('Draft')}}}</option>

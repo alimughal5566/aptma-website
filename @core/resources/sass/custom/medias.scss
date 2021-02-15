@@ -248,6 +248,14 @@
 
   }
 
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
+    left: -1.0rem;
+  }
+
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
+    right: -1.0rem;
+  }
+
   footer {
 
   }
@@ -256,6 +264,18 @@
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
+
+  .top-bar-inner ul.social-icons li:last-child {
+    display: inline-block;
+  }
+
+  .fb_iframe_widget {
+
+    span {
+      max-width: 300px;
+    }
+
+  }
 
 }
 

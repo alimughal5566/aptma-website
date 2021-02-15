@@ -58,7 +58,6 @@
 @endif
 <!-- load all script -->
 <script src="{{asset('assets/frontend/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/frontend/js/dynamic-script.js')}}"></script>
 <script src="{{asset('assets/frontend/js/jquery.magnific-popup.js')}}"></script>
 <script src="{{asset('assets/frontend/js/imagesloaded.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/frontend/js/isotope.pkgd.min.js')}}"></script>
@@ -68,6 +67,8 @@
 <script src="{{asset('assets/frontend/js/wow.min.js')}}"></script>
 <script src="{{asset('assets/frontend/js/jquery.ihavecookies.min.js')}}"></script>
 <script src="{{asset('assets/frontend/js/main.js')}}??{{ time() }}"></script>
+<script src="{{asset('assets/frontend/js/dynamic-script.js')}}?{{ time() }}"></script>
+
 @php $site_google_captcha_v3_site_key = get_static_option('site_google_captcha_v3_site_key'); @endphp
 @if(!empty($site_google_captcha_v3_site_key) && request()->path() == 'home/01' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/02' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/03' || !empty($site_google_captcha_v3_site_key) && request()->path() == 'home/04' || !empty($site_google_captcha_v3_site_key) && request()->path() == '/')
     <script

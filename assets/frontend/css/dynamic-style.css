@@ -1557,9 +1557,9 @@ html {
           user-select: none;
   position: absolute;
   top: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   color: #107c35;
   -webkit-transition: all 0.3s ease-in;
@@ -2007,7 +2007,27 @@ footer .copyright-area {
 
 /* Small devices (landscape phones, less than 768px)*/
 
+@media (max-width: 767.98px) {
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
+    left: -1rem;
+  }
+
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
+    right: -1rem;
+  }
+}
+
 /* Extra small devices (portrait phones, less than 576px)*/
+
+@media (max-width: 575.98px) {
+  .top-bar-inner ul.social-icons li:last-child {
+    display: inline-block;
+  }
+
+  .fb_iframe_widget span {
+    max-width: 300px;
+  }
+}
 
 /* Customized Media Queries (phones, less than 400px) */
 
