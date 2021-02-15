@@ -203,7 +203,7 @@
                                 <label class="mb-0" for="image">{{__('Thumbnail')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="thumbnail" value="old({{old('thumbnail')}}")>
+                                    <input type="hidden" name="thumbnail" value="{{old('thumbnail')}}")>
                                     <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
                                         {{__('Placeholder Image')}}
                                     </button>

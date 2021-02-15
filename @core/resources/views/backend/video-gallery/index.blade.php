@@ -198,12 +198,12 @@
                             <div class="form-group">
                                 <label>{{__('Url')}}</label>
                                 <input type="url" name="url" class="form-control" required placeholder="Youtube Url"
-                                       value="{{old('description')}}">
+                                       value="{{old('url')}}">
 
                             </div>
                             <div class="form-group">
                                 <label>{{__('Description')}}</label>
-                                <input type="hidden" name="description">
+                                <input type="hidden" name="description"  value="{{old('description')}}">
                                 <div class="summernote"></div>
                             </div>
 
@@ -215,7 +215,7 @@
                                 <label class="mb-0" for="image">{{__('Thumbnail')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="thumbnail">
+                                    <input type="hidden" name="thumbnail"  value="{{old('thumbnail')}}">
                                     <button type="button" class="btn btn-info media_upload_form_btn"
                                             data-btntitle="Select Image" data-modaltitle="Upload Image"
                                             data-toggle="modal" data-target="#media_upload_modal">

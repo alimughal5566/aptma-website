@@ -33,8 +33,9 @@
             <div class="col-12 col-lg-1"></div>
             <div class="col-12 col-lg-10">
                 <div class="row">
-                    <div class="col-12 col-lg-8">
 
+                    <div class="col-12 col-lg-8">
+                        @if($publications->count()>0)
                         <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30 margin-bottom-50">
                             <div class="section-title desktop-center padding-top-30 padding-bottom-30">
                                 <h2 class="font-weight-bold margin-bottom-0">{{'Latest Articles & Publications'}}</h2>
@@ -63,8 +64,8 @@
                                                         <h4 class="title">{{$data->title}}</h4>
                                                     </a>
                                                     <p>{{@$data->category->name}}</p>
-                                                    <a href="{{asset('assets/uploads/publications/'.$data->url)}}"
-                                                       class="btn">Download</a>
+                                                    <a href="{{asset('assets/uploads/publications/'.$data->pdf_url)}}"
+                                                       class="btn" download>Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,7 +73,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        @endif
+                            @if($all_events->count()>0)
                         <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30">
                             <div class="section-title desktop-center padding-top-30 padding-bottom-30">
                                 <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
@@ -113,6 +115,7 @@
                                 </div>
                             </div>
                         </div>
+                                @endif
 
                     </div>
                     <div class="col-12 col-lg-4">
@@ -199,7 +202,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--</section>--}}
-
+@if($advertisements->count()>0)
 <section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container advertise-container">
         <div class="row">
@@ -218,17 +221,18 @@
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item advertise-item single-what-we-cover-item-02 ">
                                                 <div class="common-img advertise-img single-what-img position-relative">
+                                                    <a href="{{route('frontend.advertisement.single',['slug' => $data->id])}}">
                                                     @php
                                                         $now = Carbon\Carbon::now();
                                                         $datework = Carbon\Carbon::parse($data->created_at);
                                                         $diff = $datework->diffInDays($now);
                                                     @endphp
                                                     @if($diff<15)
-                                                        <small class=" font-italic badge">New</small>
+                                                        <small class="font-italic badge">New</small>
                                                     @endif
 
-                                                    {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
-
+                                                    {!! render_image_markup_by_attachment_id($data->thumbnail,'ss') !!}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -241,10 +245,11 @@
             </div>
             <div class="col-12 col-lg-1"></div>
         </div>
-
     </div>
 </section>
+@endif
 
+@if($videos->count()>0)
 <section class="common-area video-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container video-container">
         <div class="row">
@@ -296,11 +301,12 @@
         </div>
     </div>
 </section>
+@endif
 
 
 
 
-
+@if($circulars->count()>0)
 
 {{--
 Start Tag
@@ -363,6 +369,7 @@ This Section will be displayed to only Members & When code for that then we will
 // End Tag
 This Section will be displayed to only Members & When code for that then we will add it up
 --}}
+@endif
 
 
 
@@ -371,8 +378,7 @@ This Section will be displayed to only Members & When code for that then we will
 
 
 
-
-
+@if($books->count()>0)
 {{--<section class="common-area book-area background-gray-light-lightest padding-top-50 ">--}}
 {{--    <div class="container-fluid common-container book-container">--}}
 {{--        <div class="row">--}}
@@ -423,6 +429,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--        </div>--}}
 {{--    </div>--}}
 {{--</section>--}}
+@endif
 
 @if(!empty(get_static_option('home_page_latest_news_section_status')))
     <section class="common-area blog-area background-gray-light-lightest padding-top-50 padding-bottom-50">

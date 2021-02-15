@@ -38,7 +38,7 @@
                                 </a>
                                 <p>{{@$data->category->name}}</p>
                                 <p>{{@$data->publish_date}}</p>
-                                <a href="{{asset('assets/uploads/circular/'.$data->url)}}" target="_blank" class="btn">Download</a>
+                                <a href="{{asset('assets/uploads/circular/'.$data->url)}}" download target="_blank" class="btn">Download</a>
                             </div>
                         </div>
                     </div>

@@ -175,7 +175,7 @@
                                     <option value="draft" {{(old('status')=='draft')?'selected':''}}>{{__('Draft')}}</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New Image')}}</button>
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New Category')}}</button>
                         </form>
                     </div>
                 </div>

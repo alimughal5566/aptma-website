@@ -3,7 +3,7 @@
     {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}
 @endsection
 @section('page-title')
-    Circulars
+   Advertisements
 @endsection
 @section('page-meta-data')
     <meta name="description"
@@ -36,7 +36,7 @@
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p>Category: {{@$data->category->name}}</p>
-                                <p>Last updated: {{@$data->updated_at->format('d M Y')}}</p>
+                                <p>Published at: {{@$data->published_at->format('d M Y')}}</p>
                             </div>
                         </div>
                     </div>

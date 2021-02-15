@@ -201,7 +201,7 @@
                                 <label class="mb-0" for="image">{{__('Thumbnail')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="thumbnail">
+                                    <input type="hidden" name="thumbnail" value="{{old('thumbnail')}}">
                                     <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
                                         {{__('Placeholder Image')}}
                                     </button>
@@ -247,7 +247,7 @@
                 <form action="{{route('admin.book.update')}}" id="testimonial_edit_modal_form"  method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         @csrf
-                        <input type="hidden" name="id" id="gallery_id" value="" >
+                        <input type="hidden" name="id" id="gallery_id" value="" value="{{old('gallery_id')}}" >
 
                         <div class="form-group">
                             <label for="title">{{__('Title')}}</label>

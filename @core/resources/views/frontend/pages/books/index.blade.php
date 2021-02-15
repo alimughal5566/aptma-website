@@ -39,7 +39,7 @@
                                 </a>
                                 <p><strong>Category:</strong> {{@$data->category->name}}</p>
                                 <a href="{{asset('assets/uploads/books/'.$data->url)}}"
-                                   class="btn">Download</a>
+                                   class="btn" download>Download</a>
                             </div>
                         </div>
                     </div>
