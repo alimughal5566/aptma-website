@@ -9,7 +9,7 @@ class BlogCategory extends Model
     protected $table ='blog_categories';
     protected $fillable = ['name','lang','status'];
 
-    public function category(){
-        return $this->belongsTo('App\CircularCategory','cat_id');
+    public function blogs(){
+        return $this->hasMany('App\Blog','blog_categories_id');
     }
 }

@@ -28,7 +28,7 @@ class PublicationController extends Controller
         $this->validate($request,[
             "pdf_file" => "required|mimes:pdf,application/pdf, application/x-pdf,application/acrobat, applications/vnd.pdf, text/pdf, text/x-pdf|max:10000",
             'title' => 'required|string',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail' => 'required',
             'is_featured' => 'required|string',
             'publish_date' => 'required|string',
             'description' => 'required|string',

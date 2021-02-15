@@ -74,9 +74,9 @@
                                             </th>
                                             <th>{{__('ID')}}</th>
                                             <th>{{__('Title')}}</th>
-<th>{{__('Category')}}</th>
-<th>{{__('Image')}}</th>
-<th>{{__('Published date')}}</th>
+                                        <th>{{__('Category')}}</th>
+                                        <th>{{__('Image')}}</th>
+                                        <th>{{__('Published date')}}</th>
                                             <th>{{__('Status')}}</th>
                                             <th>{{__('Is featured')}}</th>
                                             <th>{{__('Action')}}</th>
@@ -191,7 +191,7 @@
                                 <label class="mb-0" for="image">{{__('Thumbnail')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="thumbnail">
+                                    <input type="hidden" name="thumbnail"  value="{{old('thumbnail')}}">
                                     <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
                                         {{__('Placeholder Image')}}
                                     </button>
@@ -279,7 +279,7 @@
                             <label for="image">{{__('Image')}}</label>
                             <div class="media-upload-btn-wrapper">
                                 <div class="img-wrap"></div>
-                                <input type="hidden" id="edit_image" name="edit_image" value="">
+                                <input type="hidden" id="edit_image" name="edit_image"  value="{{old('edit_image')}}">
                                 <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
                                     {{__('Upload Image')}}
                                 </button>

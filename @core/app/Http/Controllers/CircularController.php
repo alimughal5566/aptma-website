@@ -47,6 +47,7 @@ class CircularController extends Controller
             'title' => $request->title,
             'url' => $url,
             'cat_id' => $request->category,
+            'publish_date' => $request->publish_date,
         ]);
         return redirect()->back()->with(['msg' => __('New circular added...'),'type' => 'success']);
     }

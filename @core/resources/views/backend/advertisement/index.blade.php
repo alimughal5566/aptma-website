@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Circulars')}}
+    {{__('Advertisements')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -295,7 +295,7 @@
                             <label for="image">{{__('Image')}}</label>
                             <div class="media-upload-btn-wrapper">
                                 <div class="img-wrap"></div>
-                                <input type="hidden" id="edit_image" name="edit_image" value="">
+                                <input type="hidden" id="edit_image" name="edit_image" value="{{old('edit_image')}}">
                                 <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
                                     {{__('Upload Image')}}
                                 </button>

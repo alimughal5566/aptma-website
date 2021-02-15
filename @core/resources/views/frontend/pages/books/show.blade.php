@@ -27,7 +27,7 @@
 
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item book-single-item position-relative">
-                        <a href="{{asset('assets/uploads/books/'.$service_item->url)}}" class="btn">Download</a>
+                        <a href="{{asset('assets/uploads/books/'.$service_item->url)}}" download class="btn">Download</a>
                         <div class="thumb margin-bottom-40">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>
