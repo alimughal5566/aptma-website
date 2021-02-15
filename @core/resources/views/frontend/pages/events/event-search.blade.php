@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="row">
+                    <div class="d-flex">
                         @if(count($all_events) > 0)
                             @foreach($all_events as $data)
                                 <div class="single-events-list-item">
@@ -28,7 +28,8 @@
                                                 <span class="month">{{date('M',strtotime($data->date))}}</span>
                                             </div>
                                             <div class="title-wrap">
-                                                <a href="{{route('frontend.events.single',$data->slug)}}"><h4 class="title">{{$data->title}}</h4></a>
+                                                <a href="{{route('frontend.events.single',$data->slug)}}"><h4
+                                                            class="title">{{$data->title}}</h4></a>
                                                 <span class="location"><i class="fas fa-map-marker-alt"></i> {{$data->venue_location}}</span>
                                             </div>
                                         </div>
@@ -53,7 +54,8 @@
                         <div class="widget widget_search">
                             <form action="{{route('frontend.events.search')}}" method="get" class="search-form">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="search" placeholder="{{__('Search...')}}">
+                                    <input type="text" class="form-control" name="search"
+                                           placeholder="{{__('Search...')}}">
                                 </div>
                                 <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
@@ -62,7 +64,9 @@
                             <h2 class="widget-title">{{get_static_option('site_events_category_'.get_user_lang().'_title')}}</h2>
                             <ul>
                                 @foreach($all_event_category as $data)
-                                    <li><a href="{{route('frontend.events.category',['id' => $data->id,'any'=> Str::slug($data->title,'-')])}}">{{ucfirst($data->title)}}</a></li>
+                                    <li>
+                                        <a href="{{route('frontend.events.category',['id' => $data->id,'any'=> Str::slug($data->title,'-')])}}">{{ucfirst($data->title)}}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
