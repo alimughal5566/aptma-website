@@ -284,6 +284,22 @@
 
       }
 
+      .owl-controls {
+
+        .owl-nav {
+
+          .owl-prev {
+            left: -1.0rem;
+          }
+
+          .owl-next {
+            right: -1.0rem;
+          }
+
+        }
+
+      }
+
     }
 
   }
