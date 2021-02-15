@@ -2020,6 +2020,10 @@ footer .copyright-area {
     opacity: 1;
   }
 
+  .common-area .common-grid-carousel.owl-carousel .owl-stage {
+    display: block !important;
+  }
+
   .common-area .common-grid-carousel.events-grid-carousel .owl-stage .owl-item {
     width: 100% !important;
   }

@@ -266,6 +266,10 @@
           opacity: 1;
         }
 
+        .owl-stage {
+          display: block !important;
+        }
+
       }
 
       &.events-grid-carousel {
@@ -279,7 +283,7 @@
         }
 
       }
-      
+
     }
 
   }
@@ -499,7 +503,6 @@
           .owl-next {
             right: -3rem;
           }
-
 
         }
 
