@@ -2008,14 +2008,6 @@ footer .copyright-area {
 /* Small devices (landscape phones, less than 768px)*/
 
 @media (max-width: 767.98px) {
-  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
-    left: -1rem;
-  }
-
-  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
-    right: -1rem;
-  }
-
   .common-area .common-grid-carousel.owl-carousel.owl-loading {
     opacity: 1;
   }
@@ -2027,6 +2019,18 @@ footer .copyright-area {
 
   .common-area .common-grid-carousel.events-grid-carousel .owl-stage .owl-item {
     width: 100% !important;
+  }
+
+  .common-area .common-grid-carousel.advertise-grid-carousel .common-item .common-img.advertise-img {
+    min-height: unset;
+  }
+
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
+    left: -1rem;
+  }
+
+  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
+    right: -1rem;
   }
 
   .section-title h2 {

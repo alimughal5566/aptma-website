@@ -248,13 +248,13 @@
 
   }
 
-  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
-    left: -1.0rem;
-  }
-
-  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
-    right: -1.0rem;
-  }
+  //.common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
+  //  left: -1.0rem;
+  //}
+  //
+  //.common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
+  //  right: -1.0rem;
+  //}
 
   .common-area {
 
@@ -278,6 +278,22 @@
 
           .owl-item {
             width: 100% !important;
+          }
+
+        }
+
+      }
+
+      &.advertise-grid-carousel {
+
+        .common-item {
+
+          .common-img {
+
+            &.advertise-img {
+              min-height: unset;
+            }
+
           }
 
         }
