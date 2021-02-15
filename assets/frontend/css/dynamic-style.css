@@ -2024,8 +2024,18 @@ footer .copyright-area {
     display: inline-block;
   }
 
+  .common-area.common-grid-carousel.owl-carousel.owl-loading {
+    opacity: 1;
+  }
+
+  .common-area .common-item .common-img {
+    min-height: unset;
+    max-height: unset;
+  }
+
   .fb_iframe_widget span {
-    max-width: 300px;
+    max-width: 300px !important;
+    width: 300px !important;
   }
 }
 

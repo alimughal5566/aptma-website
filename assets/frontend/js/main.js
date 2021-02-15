@@ -648,9 +648,6 @@
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             responsive: {
-                0: {
-                    items: 1
-                },
                 320: {
                     items: 1
                 },
@@ -692,13 +689,13 @@
                     items: 1
                 },
                 575: {
-                    items: 2
+                    items: 1
                 },
                 768: {
-                    items: 3
+                    items: 2
                 },
                 960: {
-                    items: 3
+                    items: 2
                 },
                 1200: {
                     items: 4
