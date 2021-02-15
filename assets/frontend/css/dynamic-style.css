@@ -2028,6 +2028,10 @@ footer .copyright-area {
   .common-area .common-grid-carousel.events-grid-carousel .owl-stage .owl-item {
     width: 100% !important;
   }
+
+  .section-title h2 {
+    font-size: 30px;
+  }
 }
 
 /* Extra small devices (portrait phones, less than 576px)*/
