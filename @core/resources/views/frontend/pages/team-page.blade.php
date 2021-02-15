@@ -122,7 +122,7 @@
 
     <script>
         function detail(detail) {
-// alert(detail.description);
+            // alert(detail.description);
             $('.designation').text(detail.designation);
             $('.modal-title').text(detail.name + ' Profile');
             $('.descriptionn').html(detail.description);
