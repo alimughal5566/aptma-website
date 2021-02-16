@@ -122,7 +122,7 @@
                         @php $dynamic_pages=\App\Page::where(['status' =>'publish','lang'=>'en'])->get(); @endphp
 
                         <li class=" menu-item-has-children ">
-                            <a href="#">About Us</a>
+                            <a href="javascript:void(0);">About Us</a>
                             <ul class="sub-menu">
                                 @if($dynamic_pages->count()>0)
                                     @foreach($dynamic_pages as $page)
@@ -133,43 +133,43 @@
                                 @endif
 
                                 {{--                                <li>--}}
-                                {{--                                    <a href="#">Patron in Chief message</a>--}}
+                                {{--                                    <a href="javascript:void(0);">Patron in Chief message</a>--}}
                                 {{--                                </li>--}}
                                 {{--                                <li>--}}
-                                {{--                                    <a href="#">Chairman Message</a>--}}
+                                {{--                                    <a href="javascript:void(0);">Chairman Message</a>--}}
                                 {{--                                </li>--}}
                                 {{--                                <li>--}}
-                                {{--                                    <a href="#">Executive Director</a>--}}
+                                {{--                                    <a href="javascript:void(0);">Executive Director</a>--}}
                                 {{--                                </li>--}}
                                 {{--                                <li class="menu-item-has-children ">--}}
-                                {{--                                    <a href="#">Members of Executive Committees</a>--}}
+                                {{--                                    <a href="javascript:void(0);">Members of Executive Committees</a>--}}
                                 {{--                                    <ul class="sub-menu">--}}
                                 {{--                                        <li>--}}
-                                {{--                                            <a href="#">Executive Commitee</a>--}}
+                                {{--                                            <a href="javascript:void(0);">Executive Commitee</a>--}}
                                 {{--                                        </li>--}}
                                 {{--                                        <li>--}}
-                                {{--                                            <a href="#">Admin and Finance</a>--}}
+                                {{--                                            <a href="javascript:void(0);">Admin and Finance</a>--}}
                                 {{--                                        </li>--}}
                                 {{--                                        <li class="menu-item-has-children ">--}}
-                                {{--                                            <a href="#">Standing Committee</a>--}}
+                                {{--                                            <a href="javascript:void(0);">Standing Committee</a>--}}
                                 {{--                                            <ul class="sub-menu">--}}
                                 {{--                                                <li>--}}
-                                {{--                                                    <a href="#">Cotton & Raw Material</a>--}}
+                                {{--                                                    <a href="javascript:void(0);">Cotton & Raw Material</a>--}}
                                 {{--                                                </li>--}}
                                 {{--                                                <li>--}}
-                                {{--                                                    <a href="#">FBR</a>--}}
+                                {{--                                                    <a href="javascript:void(0);">FBR</a>--}}
                                 {{--                                                </li>--}}
                                 {{--                                                <li>--}}
-                                {{--                                                    <a href="#">Re-structure</a>--}}
+                                {{--                                                    <a href="javascript:void(0);">Re-structure</a>--}}
                                 {{--                                                </li>--}}
                                 {{--                                                <li>--}}
-                                {{--                                                    <a href="#">Energy</a>--}}
+                                {{--                                                    <a href="javascript:void(0);">Energy</a>--}}
                                 {{--                                                </li>--}}
                                 {{--                                                <li>--}}
-                                {{--                                                    <a href="#">Polyester, Fiber &amp; Synthetic fiber</a>--}}
+                                {{--                                                    <a href="javascript:void(0);">Polyester, Fiber &amp; Synthetic fiber</a>--}}
                                 {{--                                                <li>--}}
                                 {{--                                                <li>--}}
-                                {{--                                                    <a href="#">Others</a>--}}
+                                {{--                                                    <a href="javascript:void(0);">Others</a>--}}
                                 {{--                                                </li>--}}
                                 {{--                                            </ul>--}}
                                 {{--                                        </li>--}}
@@ -179,7 +179,7 @@
                                 @php $teamCategory=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
 
                                 <li class=" {{$teamCategory->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                                    <a href="#">Team</a>
+                                    <a href="javascript:void(0);">Team</a>
                                     @if($teamCategory->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($teamCategory as $team)
@@ -197,10 +197,10 @@
                         @php $blogCategories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->withCount('blogs')->orderBy('id','desc')->get(); @endphp
 
                         <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                            <a href="#">Research & Publications</a>
+                            <a href="javascript:void(0);">Research & Publications</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Research Team</a>
+                                    <a href="javascript:void(0);">Research Team</a>
                                 </li>
                                 @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
 
@@ -238,7 +238,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">Policy Document</a>
+                                    <a href="javascript:void(0);">Policy Document</a>
                                 </li>
 
                                 {{--                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
@@ -276,31 +276,31 @@
                         {{--                        </li>--}}
 
                         <li class=" menu-item-has-children ">
-                            <a href="#">Statistics</a>
+                            <a href="javascript:void(0);">Statistics</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Cotton</a>
+                                    <a href="javascript:void(0);">Cotton</a>
                                 </li>
                                 <li>
-                                    <a href="#">Production</a>
+                                    <a href="javascript:void(0);">Production</a>
                                 </li>
                                 <li>
-                                    <a href="#">Exports</a>
+                                    <a href="javascript:void(0);">Exports</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class=" menu-item-has-children">
-                            <a href="#">Members Directory</a>
+                            <a href="javascript:void(0);">Members Directory</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">Members Pages</a>
+                                    <a href="javascript:void(0);">Members Pages</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class=" menu-item-has-children ">
-                            <a href="#">Events</a>
+                            <a href="javascript:void(0);">Events</a>
                             <ul class="sub-menu">
                                 @php $eventCategories= \App\EventsCategory::where(['status' =>'publish','lang'=>'en'])->withCount('events')->orderBy('id','desc')->get(); @endphp
                                 <li class="  {{$eventCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
@@ -375,7 +375,7 @@
                             {{--                            @endif--}}
 
                             <li id="search">
-                                <a href="#">
+                                <a href="javascript:void(0);">
                                     <i class="flaticon-search-1"></i>
                                 </a>
                             </li>
