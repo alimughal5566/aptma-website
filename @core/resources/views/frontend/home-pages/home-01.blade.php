@@ -92,7 +92,7 @@
                                                 <div class="common-content content-area">
                                                     <div class="top-part mb-0 py-2 flex-column">
                                                         <div class="detail-wrap w-100">
-                                                            <div class="date-time-wrap d-flex flex-column justify-content-center ">
+                                                            <div class="date-time-wrap d-flex flex-column justify-content-center align-items-center align-items-lg-start">
                                                                 <span class="date-span">{{date('d M Y',strtotime($data->date))}}</span>
                                                                 <span class="time-span">{{$data->time}}</span>
                                                             </div>
