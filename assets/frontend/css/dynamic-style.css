@@ -1811,6 +1811,10 @@ html {
   margin-left: 0;
 }
 
+.dynamic-page-content-wrap .standing-committee .table td {
+  vertical-align: middle;
+}
+
 /*      VARIABLES      */
 
 /*      VARIABLES      */
@@ -1887,10 +1891,6 @@ footer .copyright-area {
   background-color: #002a00;
 }
 
-.back-to-top {
-  right: 50px;
-}
-
 /*      /FOOTER      */
 
 /*      VARIABLES      */
@@ -1915,33 +1915,87 @@ footer .copyright-area {
 /* Medium devices (tablets, less than 992px)*/
 
 @media (max-width: 991.98px) {
+  .search-popup.show .search-popup-inner-wrapper .search-form-warp {
+    margin: 0 0.8rem;
+    padding: 40px 25px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .search-popup.show .search-popup-inner-wrapper .search-form-warp .form-group {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .navigation-wrap .top-bar-area {
+    padding: 5px 0;
+  }
+
   .navigation-wrap .top-bar-area .top-bar-inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    padding: 5px 0;
+    width: 100%;
   }
 
-  .navigation-wrap .top-bar-area .top-bar-inner .left-content {
+  .navigation-wrap .top-bar-area .top-bar-inner .left-content,
+  .navigation-wrap .top-bar-area .top-bar-inner .right-content {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+
+  .navigation-wrap .top-bar-area .top-bar-inner .left-content ul,
+  .navigation-wrap .top-bar-area .top-bar-inner .right-content ul {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+
+  .navigation-wrap .top-bar-area .top-bar-inner .left-content ul li,
+  .navigation-wrap .top-bar-area .top-bar-inner .right-content ul li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    margin-left: 0;
   }
 
   .navigation-wrap .top-bar-area .top-bar-inner .right-content {
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
   }
 
   .navigation-wrap .header .navbar-area .nav-container {
-    padding: 10px 0;
+    padding: 5px 0;
     z-index: 9999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .responsive-mobile-menu {
-    padding: 0 0.6rem;
+    padding: 0;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .responsive-mobile-menu .navbar-toggler {
@@ -2055,6 +2109,12 @@ footer .copyright-area {
     padding: 0 10px;
   }
 
+  .navigation-wrap .header .navbar-area .nav-container .nav-right-content {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+
   .blog-classic-item-01 .content .title {
     font-size: 30px;
     line-height: 40px;
@@ -2064,6 +2124,10 @@ footer .copyright-area {
     padding-top: 50px;
     padding-bottom: 50px;
   }
+
+  .back-to-top {
+    right: 30px;
+  }
 }
 
 /* Small devices (landscape phones, less than 768px)*/
@@ -2072,7 +2136,7 @@ footer .copyright-area {
   .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
     text-align: center;
     height: auto;
-    max-height: auto;
+    max-height: unset;
   }
 
   .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
@@ -2081,6 +2145,12 @@ footer .copyright-area {
     justify-content: center;
     height: auto;
     width: 100%;
+  }
+
+  .common-area .common-grid-carousel .common-grid-carousel-item.single-events-list-item .thumb {
+    min-height: 150px;
+    max-height: 150px;
+    margin-bottom: 1rem;
   }
 
   .common-area .common-grid-carousel.owl-carousel.owl-loading {
@@ -2228,6 +2298,10 @@ footer .copyright-area {
     -webkit-box-flex: 0;
             flex: 0 0 20%;
     max-width: 20%;
+  }
+
+  .back-to-top {
+    right: 50px;
   }
 }
 

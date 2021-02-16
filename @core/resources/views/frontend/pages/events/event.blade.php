@@ -10,7 +10,7 @@
     <meta name="tags" content="{{get_static_option('events_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
 @section('content')
-    <section class="blog-content-area padding-top-40 padding-bottom-100">
+    <section class="blog-content-area padding-top-40 padding-bottom-80">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -18,7 +18,7 @@
                         <div class="col-lg-12">
                             @foreach($all_events as $data)
                                 <div class="single-events-list-item background-gray-light-lightest">
-                                    <div class="thumb">
+                                    <div class="thumb mb-3">
                                         {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
                                     </div>
                                     <div class="content-area d-flex flex-column justify-content-center">

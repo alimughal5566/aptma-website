@@ -89,7 +89,7 @@
         <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
             <div class="container-fluid nav-container">
                 {{--                <div class="container-wrap">--}}
-                <div class="responsive-mobile-menu">
+                <div class="order-1 order-lg-0 responsive-mobile-menu">
                     <div class="logo-wrapper">
                         <a href="{{url('/')}}" class="logo">
                             @if(!empty(get_static_option('site_white_logo')))
@@ -113,7 +113,7 @@
                     </button>
                 </div>
 
-                <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
+                <div class="order-3 order-lg-1 collapse navbar-collapse" id="bizcoxx_main_menu">
                     <ul class="navbar-nav">
                         <li>
                             <a href="{{url('/')}}">{{ __('Home') }}</a>
@@ -358,7 +358,7 @@
                     </ul>
                 </div>
 
-                <div class="nav-right-content">
+                <div class="order-2 order-lg-2 nav-right-content">
                     <div class="icon-part">
                         <ul>
                             {{--                            @if(!empty(get_static_option('navbar_button')))--}}

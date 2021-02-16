@@ -29,12 +29,42 @@
 /* Medium devices (tablets, less than 992px)*/
 @media (max-width: 991.98px) {
 
+  .search-popup.show {
+
+    .search-popup-inner-wrapper {
+
+      .search-form-warp {
+        margin: 0 0.80rem;
+        padding: 40px 25px;
+        @include mix.flex-column;
+        @include mix.align-items-center;
+
+        .form-group {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+
+        button {
+
+          &.close-btn {
+          }
+
+        }
+      }
+
+    }
+
+  }
+
   .navigation-wrap {
 
     .top-bar-area {
+      padding: 5px 0;
 
       .top-bar-inner {
         @include mix.flex-column;
+        padding: 5px 0;
+        width: 100%;
 
         //&.fixed {
         //  position: fixed;
@@ -43,13 +73,33 @@
         //  top: 0;
         //}
 
-        .left-content {
-          @include mix.d-flex;
+        .left-content, .right-content {
+          @include mix.justify-content-center;
           @include mix.align-items-center;
+          @include mix.d-flex;
+          width: 100%;
+
+          ul {
+            @include mix.justify-content-around;
+            @include mix.d-flex;
+            width: 100%;
+
+            li {
+              @include mix.d-flex;
+              @include mix.align-items-center;
+              margin-left: 0;
+            }
+
+          }
+
+        }
+
+        .left-content {
         }
 
         .right-content {
-          margin-top: 0.5rem;
+          margin-top: 0.25rem;
+
         }
 
       }
@@ -61,11 +111,13 @@
       .navbar-area {
 
         .nav-container {
-          padding: 10px 0;
+          padding: 5px 0;
           z-index: 9999;
+          @include mix.d-flex;
+          @include mix.flex-nowrap;
 
           .responsive-mobile-menu {
-            padding: 0 0.6rem;
+            padding: 0;
 
             .navbar-toggler {
               background-color: colorVar.$primary2;
@@ -239,6 +291,10 @@
             }
           }
 
+          .nav-right-content {
+            display: flex !important;
+          }
+
         }
 
       }
@@ -263,6 +319,10 @@
   .section-padding {
     padding-top: 50px;
     padding-bottom: 50px;
+  }
+
+  .back-to-top {
+    right: 30px;
   }
 
 }
@@ -312,7 +372,7 @@
           .title {
             text-align: center;
             height: auto;
-            max-height: auto;
+            max-height: unset;
           }
 
         }
@@ -327,6 +387,16 @@
               width: 100%;
             }
 
+          }
+
+        }
+
+        &.single-events-list-item {
+
+          .thumb {
+            min-height: 150px;
+            max-height: 150px;
+            margin-bottom: 1rem;
           }
 
         }
@@ -654,6 +724,10 @@
       max-width: 20%;
     }
 
+  }
+
+  .back-to-top {
+    right: 50px;
   }
 
 }
