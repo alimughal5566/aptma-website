@@ -1532,8 +1532,12 @@ html {
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   min-height: 90px;
   max-height: 90px;
+  width: 100%;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {

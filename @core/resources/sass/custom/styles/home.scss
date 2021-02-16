@@ -242,8 +242,10 @@
         z-index: 10;
 
         .title-wrap {
+          display: inline-flex;
           min-height: 90px;
           max-height: 90px;
+          width: 100%;
 
           .title {
             line-height: 25px;
