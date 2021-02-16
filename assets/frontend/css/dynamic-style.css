@@ -1439,6 +1439,10 @@ html {
 .common-area .common-grid-carousel .common-grid-carousel-item .thumb {
   border-radius: 0.25rem;
   overflow: hidden;
+  min-height: 150px;
+  max-height: 150px;
+  height: 100%;
+  width: 100%;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item:before {
