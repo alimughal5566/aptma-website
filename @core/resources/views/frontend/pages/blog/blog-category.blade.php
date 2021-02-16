@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <section class="blog-content-area padding-top-100 padding-bottom-80">
+    <section class="blog-content-area padding-top-80 padding-bottom-80">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
