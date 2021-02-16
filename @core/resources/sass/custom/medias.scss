@@ -273,6 +273,33 @@
 
     .common-grid-carousel {
 
+      .common-grid-carousel-item {
+
+        .content {
+
+          .title {
+            text-align: center;
+            height: auto;
+            max-height: auto;
+          }
+
+        }
+
+        .content-area {
+
+          .title-wrap {
+
+            .title {
+              text-align: center;
+              height: auto;
+            }
+
+          }
+
+        }
+
+      }
+
       &.owl-carousel {
 
         &.owl-loading {

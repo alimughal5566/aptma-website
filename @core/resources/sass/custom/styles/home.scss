@@ -142,9 +142,9 @@
 
       .thumb {
         border-radius: 0.25rem;
+        min-height: 100px;
+        max-height: 100px;
         overflow: hidden;
-        min-height: 150px;
-        max-height: 150px;
         height: 100%;
         width: 100%;
       }
@@ -203,15 +203,17 @@
         }
 
         .title {
-          display: inline-block;
+          display: inline-flex;
+          @include mix.align-items-center;
           text-overflow: ellipsis;
           //white-space: nowrap;
           overflow: hidden;
-          max-height: 75px;
-          height: 75px;
           line-height: 25px;
+          max-height: 75px;
           font-size: 20px;
           font-weight: 600;
+          text-align: left;
+          height: 75px;
 
           a {
             color: color.$primary2;
@@ -246,11 +248,14 @@
           .title {
             line-height: 25px;
             font-weight: 600;
-            display: inline-block;
             text-overflow: ellipsis;
             //white-space: nowrap;
+            display: inline-flex;
+            @include mix.align-items-center;
+            align-items: center;
             overflow: hidden;
             height: 75px;
+            text-align: left;
           }
 
         }
@@ -360,15 +365,17 @@
       z-index: 999;
 
       .title {
-        display: inline-block;
+        @include mix.align-items-center;
+        display: inline-flex;
         text-overflow: ellipsis;
         //white-space: nowrap;
         overflow: hidden;
-        max-height: 75px;
-        height: 75px;
         line-height: 25px;
-        font-size: 20px;
+        max-height: 75px;
         font-weight: 600;
+        font-size: 20px;
+        text-align: left;
+        height: 75px;
       }
 
       a {

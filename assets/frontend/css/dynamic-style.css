@@ -1438,9 +1438,9 @@ html {
 
 .common-area .common-grid-carousel .common-grid-carousel-item .thumb {
   border-radius: 0.25rem;
+  min-height: 100px;
+  max-height: 100px;
   overflow: hidden;
-  min-height: 150px;
-  max-height: 150px;
   height: 100%;
   width: 100%;
 }
@@ -1488,15 +1488,21 @@ html {
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   overflow: hidden;
-  max-height: 75px;
-  height: 75px;
   line-height: 25px;
+  max-height: 75px;
   font-size: 20px;
   font-weight: 600;
+  text-align: left;
+  height: 75px;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title a {
@@ -1533,11 +1539,18 @@ html {
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
   line-height: 25px;
   font-weight: 600;
-  display: inline-block;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  align-items: center;
   overflow: hidden;
   height: 75px;
+  text-align: left;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .location span {
@@ -1639,15 +1652,21 @@ html {
 }
 
 .common-area .common-item .common-content .title {
-  display: inline-block;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   overflow: hidden;
-  max-height: 75px;
-  height: 75px;
   line-height: 25px;
-  font-size: 20px;
+  max-height: 75px;
   font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+  height: 75px;
 }
 
 .common-area .common-item .common-content a {
@@ -2028,6 +2047,17 @@ footer .copyright-area {
 /* Small devices (landscape phones, less than 768px)*/
 
 @media (max-width: 767.98px) {
+  .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
+    text-align: center;
+    height: auto;
+    max-height: auto;
+  }
+
+  .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
+    text-align: center;
+    height: auto;
+  }
+
   .common-area .common-grid-carousel.owl-carousel.owl-loading {
     opacity: 1;
   }
