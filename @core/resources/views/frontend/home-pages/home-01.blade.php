@@ -97,7 +97,7 @@
                                                                 <span class="time-span">{{$data->time}}</span>
                                                             </div>
                                                         </div>
-                                                        <div class="title-wrap d-flex py-1">
+                                                        <div class="title-wrap py-1">
                                                             <a href="{{route('frontend.events.single',$data->slug)}}">
                                                                 <h4 class="title mb-0">{{$data->title}}</h4>
                                                             </a>
