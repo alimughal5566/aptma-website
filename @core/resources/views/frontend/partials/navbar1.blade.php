@@ -304,7 +304,7 @@
                             <ul class="sub-menu">
                                 @php $eventCategories= \App\EventsCategory::where(['status' =>'publish','lang'=>'en'])->withCount('events')->orderBy('id','desc')->get(); @endphp
                                 <li class="  {{$eventCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                                    <a href="{{route('frontend.events')}}">APTMA Events</a>
+                                    <a href="javascript:void(0);">APTMA Events</a>
                                     @if($eventCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($eventCategories as $category)
@@ -320,7 +320,7 @@
 
                                 @php $imageCategories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
                                 <li class=" {{$imageCategories->count()>0 ? ' menu-item-has-children ' : ' '}}">
-                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
+                                    <a href="javascript:void(0);">Photos Gallery</a>
                                     @if($imageCategories->count()>0 )
                                         <ul class="sub-menu">
                                             @foreach($imageCategories as $category)
@@ -336,7 +336,7 @@
 
                                 @php $videoCategories= \App\VideoGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('videos')->orderBy('id','desc')->get(); @endphp
                                 <li class=" {{$videoCategories->count()>0 ? ' menu-item-has-children ' : ' '}}  ">
-                                    <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>
+                                    <a href="javascript:void(0);">Video Gallery</a>
                                     @if($videoCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($videoCategories as $category)
