@@ -10,7 +10,7 @@
     {{$page_post->title}}
 @endsection
 @section('content')
-    <section class="dynamic-page-content-area padding-100">
+    <section class="dynamic-page-content-area padding-top-50 padding-bottom-50">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

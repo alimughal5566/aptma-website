@@ -6,5 +6,9 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
+    $('.navbar-collapse .navbar-nav > li.menu-item-has-children > .sub-menu li.menu-item-has-children, .navbar-collapse .navbar-nav > li.menu-item-has-mega-menu > li').on('click', function () {
+        $(this).parents('.menu-item-has-children').addClass('active');
+        $(this).toggleClass('active');
+    });
 
 });

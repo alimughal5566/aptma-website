@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="top-bar-inner">
+                        <div class="top-bar-inner fixed">
                             <div class="left-content">
                                 <ul class="social-icons">
                                     @foreach($all_social_item as $data)
@@ -122,7 +122,7 @@
                         @php $dynamic_pages=\App\Page::where(['status' =>'publish','lang'=>'en'])->get(); @endphp
 
                         <li class=" menu-item-has-children ">
-                            <a href="javascript:void(0);">About Us</a>
+                            <a href="javascript:void(0);">About</a>
                             <ul class="sub-menu">
                                 @if($dynamic_pages->count()>0)
                                     @foreach($dynamic_pages as $page)

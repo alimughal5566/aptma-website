@@ -36,6 +36,13 @@
       .top-bar-inner {
         @include mix.flex-column;
 
+        //&.fixed {
+        //  position: fixed;
+        //  width: 100%;
+        //  left: 0;
+        //  top: 0;
+        //}
+
         .left-content {
           @include mix.d-flex;
           @include mix.align-items-center;
@@ -82,9 +89,34 @@
                   padding: 10px;
                   line-height: 1.75 !important;
 
+                  &.menu-item-has-children {
+
+                    &.active {
+
+                      & > .sub-menu {
+                        border-top: 1px solid #e2e2e2;
+                        border-bottom: none;
+                        visibility: visible;
+                        margin-top: 10px;
+                        height: auto;
+                        opacity: 1;
+                      }
+
+                    }
+
+                  }
+
                   a {
                     display: block;
                     width: 100%;
+                  }
+
+                  ul {
+
+                    li {
+                      line-height: 1.5 !important;
+                    }
+
                   }
 
                 }
@@ -290,8 +322,9 @@
           .title-wrap {
 
             .title {
-              text-align: center;
+              @include mix.justify-content-center;
               height: auto;
+              width: 100%;
             }
 
           }

@@ -1540,6 +1540,11 @@ html {
   width: 100%;
 }
 
+.common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap a {
+  width: 100%;
+  display: block;
+}
+
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
   line-height: 25px;
   font-weight: 600;
@@ -1960,9 +1965,22 @@ footer .copyright-area {
     line-height: 1.75 !important;
   }
 
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children.active > .sub-menu {
+    border-top: 1px solid #e2e2e2;
+    border-bottom: none;
+    visibility: visible;
+    margin-top: 10px;
+    height: auto;
+    opacity: 1;
+  }
+
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li a {
     display: block;
     width: 100%;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li ul li {
+    line-height: 1.5 !important;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav > li {
@@ -2058,8 +2076,11 @@ footer .copyright-area {
   }
 
   .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
-    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     height: auto;
+    width: 100%;
   }
 
   .common-area .common-grid-carousel.owl-carousel.owl-loading {

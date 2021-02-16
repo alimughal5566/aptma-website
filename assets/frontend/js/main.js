@@ -30,6 +30,7 @@
         $('.video-play-btn,.video-popup,.small-vide-play-btn,.video-play').magnificPopup({
             type: 'video'
         });
+
         $('.image-popup').magnificPopup({
             type: 'image',
             gallery: {
