@@ -551,10 +551,10 @@
                     items: 2
                 },
                 1200: {
-                    items: 4
+                    items: 2
                 },
                 1920: {
-                    items: 4
+                    items: 2
                 },
             }
         });

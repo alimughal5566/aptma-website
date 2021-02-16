@@ -1764,6 +1764,21 @@ html {
   display: none !important;
 }
 
+.blog-classic-item-01 .content .post-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.blog-classic-item-01 .content .post-meta li + li {
+  margin-left: 0;
+}
+
 /*      VARIABLES      */
 
 /*      VARIABLES      */
@@ -1995,6 +2010,11 @@ footer .copyright-area {
     padding: 0 10px;
   }
 
+  .blog-classic-item-01 .content .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
   .section-padding {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -2031,6 +2051,16 @@ footer .copyright-area {
 
   .section-title h2 {
     font-size: 30px;
+  }
+
+  .blog-classic-item-01 .content .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .blog-classic-item-01 .content .post-meta li {
+    margin-top: 0.5rem;
+    width: 48.5%;
   }
 }
 

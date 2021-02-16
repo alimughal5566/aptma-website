@@ -548,3 +548,29 @@
 .grecaptcha {
   display: none !important;
 }
+
+.blog-classic-item-01 {
+
+  .content {
+
+    .title {
+    }
+
+    .post-meta {
+      @include mix.d-flex;
+      @include mix.flex-wrap;
+      @include mix.justify-content-between;
+
+      li {
+
+        & + li {
+          margin-left: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}

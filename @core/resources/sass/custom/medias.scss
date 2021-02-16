@@ -215,6 +215,19 @@
 
   }
 
+  .blog-classic-item-01 {
+
+    .content {
+
+      .title {
+        font-size: 30px;
+        line-height: 40px;
+      }
+
+    }
+
+  }
+
   .section-padding {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -324,6 +337,28 @@
 
     h2 {
       font-size: 30px;
+    }
+
+  }
+
+  .blog-classic-item-01 {
+
+    .content {
+
+      .title {
+        font-size: 30px;
+        line-height: 40px;
+      }
+
+      .post-meta {
+
+        li {
+          margin-top: 0.5rem;
+          width: 48.5%;
+        }
+
+      }
+
     }
 
   }
