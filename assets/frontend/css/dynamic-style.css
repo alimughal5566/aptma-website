@@ -1649,10 +1649,14 @@ html {
 }
 
 .common-area .common-item .common-img.circular-img,
-.common-area .common-item .common-img.video-img,
-.common-area .common-item .common-img.advertise-img {
+.common-area .common-item .common-img.video-img {
   min-height: 200px;
   max-height: 200px;
+}
+
+.common-area .common-item .common-img.advertise-img {
+  min-height: 250px;
+  max-height: 250px;
 }
 
 .common-area .common-item .common-content {
@@ -1759,6 +1763,10 @@ html {
 }
 
 /* /HOME */
+
+.team-img-cont img {
+  border-radius: 50%;
+}
 
 .team-member-area .team-section .team-img-cont {
   min-height: 305px;
