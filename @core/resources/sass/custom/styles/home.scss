@@ -360,9 +360,14 @@
 
       }
 
-      &.circular-img, &.video-img, &.advertise-img {
+      &.circular-img, &.video-img {
         min-height: 200px;
         max-height: 200px;
+      }
+
+      &.advertise-img {
+        min-height: 250px;
+        max-height: 250px;
       }
 
     }
@@ -503,6 +508,14 @@
 }
 
 /* /HOME */
+
+.team-img-cont {
+
+  img {
+    border-radius: 50%;
+  }
+
+}
 
 .team-member-area {
 

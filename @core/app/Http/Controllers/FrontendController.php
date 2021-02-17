@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Admin;
 use App\Advertisement;
 use App\AdvertisementCategory;
+use App\Blog;
+use App\BlogCategory;
 use App\Book;
 use App\BookCategory;
+use App\Brand;
 use App\Circular;
 use App\CircularCategory;
 use App\ContactInfoItem;
+use App\Counterup;
 use App\Donation;
 use App\DonationLogs;
 use App\EventAttendance;
@@ -18,24 +22,22 @@ use App\Events;
 use App\EventsCategory;
 use App\Faq;
 use App\Feedback;
+use App\HeaderSlider;
 use App\ImageGallery;
 use App\ImageGalleryCategory;
 use App\JobApplicant;
 use App\Jobs;
 use App\JobsCategory;
+use App\KeyFeatures;
 use App\Knowledgebase;
 use App\KnowledgebaseTopic;
 use App\Language;
 use App\Mail\AdminResetEmail;
-use App\Mail\CallBack;
-use App\Mail\ContactMessage;
-use App\Mail\PlaceOrder;
-use App\Mail\RequestQuote;
-use App\Menu;
 use App\Newsletter;
 use App\Order;
 use App\Page;
 use App\PaymentLogs;
+use App\PricePlan;
 use App\ProductCategory;
 use App\ProductOrder;
 use App\ProductRatings;
@@ -43,20 +45,12 @@ use App\Products;
 use App\ProductShipping;
 use App\Publication;
 use App\PublicationCategory;
-use App\Quote;
 use App\ServiceCategory;
 use App\Services;
-use App\Blog;
-use App\BlogCategory;
-use App\Brand;
-use App\HeaderSlider;
-use App\KeyFeatures;
-use App\PricePlan;
 use App\TeamCategory;
 use App\TeamMember;
-use App\User;
-use App\Counterup;
 use App\Testimonial;
+use App\User;
 use App\VideoGallery;
 use App\VideoGalleryCategory;
 use App\Works;
@@ -67,10 +61,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use Svg\Tag\Image;
-use Symfony\Component\Process\Process;
 
 class FrontendController extends Controller
 {
@@ -383,11 +374,12 @@ class FrontendController extends Controller
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.circular.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
     }
+
     public function advertisement_single_page($slug)
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item =Advertisement::where('id', $slug)->with('category')->first();
+        $service_item = Advertisement::where('id', $slug)->with('category')->first();
         $service_category = AdvertisementCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.advertisement.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
@@ -451,73 +443,77 @@ class FrontendController extends Controller
         $all_services = Services::where('lang', $lang)->orderBy('sr_order', 'asc')->paginate(get_static_option('service_page_service_items'));
         return view('frontend.pages.service.services')->with(['all_services' => $all_services]);
     }
-    public function publication_page($cat_id=null)
+
+    public function publication_page($cat_id = null)
     {
-        $category=null;
+        $category = null;
         $default_lang = Language::where('default', 1)->first();
-        $lang = !empty(session()->get('lang')) ? session()->get('lang'):$default_lang->slug;
-        if(!is_null($cat_id)){
-            $all_services = Publication::where('status','1')->where('cat_id',$cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        if (!is_null($cat_id)) {
+            $all_services = Publication::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
             $category = PublicationCategory::where('id', $cat_id)->pluck('name')->first();
-        }else {
-            $all_services= Publication::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        } else {
+            $all_services = Publication::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
-        return view('frontend.pages.publication.index')->with(['all_services' => $all_services,'category' => $category]);
+        return view('frontend.pages.publication.index')->with(['all_services' => $all_services, 'category' => $category]);
     }
-    public function video_page($cat_id=null)
+
+    public function video_page($cat_id = null)
     {
-        $category=null;
+        $category = null;
         $default_lang = Language::where('default', 1)->first();
-        $lang = !empty(session()->get('lang')) ? session()->get('lang'):$default_lang->slug;
-        if(!is_null($cat_id)){
-            $all_services =  VideoGallery::where('status','1')->where('cat_id',$cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category =  VideoGalleryCategory::where('id', $cat_id)->pluck('name')->first();
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        if (!is_null($cat_id)) {
+            $all_services = VideoGallery::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+            $category = VideoGalleryCategory::where('id', $cat_id)->pluck('name')->first();
 //            dd($category);
-        }else{
-            $all_services=VideoGallery::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        } else {
+            $all_services = VideoGallery::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
-        return view('frontend.pages.video-gallery.index')->with(['all_services' => $all_services,'category' => $category]);
+        return view('frontend.pages.video-gallery.index')->with(['all_services' => $all_services, 'category' => $category]);
 
 
 //        return view('frontend.pages.video-gallery.index')->with(['all_services' => $all_services]);
     }
 
-    public function book_page($cat_id=null){
-        $category=null;
+    public function book_page($cat_id = null)
+    {
+        $category = null;
         $default_lang = Language::where('default', 1)->first();
 //        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        if(!is_null($cat_id)){
-            $all_services = Book::where('cat_id',$cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        if (!is_null($cat_id)) {
+            $all_services = Book::where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
             $category = BookCategory::where('id', $cat_id)->pluck('name')->first();
-        }else {
+        } else {
             $all_services = Book::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
 //        dd($category );
-        return view('frontend.pages.books.index')->with(['all_services' => $all_services,'category' => $category]);
-    }
-    public function circular_page($cat_id=null)
-    {
-        $category=null;
-        if(!is_null($cat_id)){
-            $all_services = Circular::where('status','1')->where('cat_id',$cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = CircularCategory::where('id', $cat_id)->pluck('name')->first();
-        }else {
-            $all_services=Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-        }
-//        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
-        return view('frontend.pages.circular.index')->with(['all_services' => $all_services,'category' => $category]);
+        return view('frontend.pages.books.index')->with(['all_services' => $all_services, 'category' => $category]);
     }
 
-    public function advertisement_page($cat_id=null)
+    public function circular_page($cat_id = null)
     {
-        $category=null;
-        if(!is_null($cat_id)){
-            $all_services = Advertisement::where('status','1')->where('cat_id',$cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category =AdvertisementCategory::where('id', $cat_id)->pluck('name')->first();
-        }else {
-            $all_services=Advertisement::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        $category = null;
+        if (!is_null($cat_id)) {
+            $all_services = Circular::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+            $category = CircularCategory::where('id', $cat_id)->pluck('name')->first();
+        } else {
+            $all_services = Circular::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
-        return view('frontend.pages.advertisement.index')->with(['all_services' => $all_services,'category' => $category]);
+//        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
+        return view('frontend.pages.circular.index')->with(['all_services' => $all_services, 'category' => $category]);
+    }
+
+    public function advertisement_page($cat_id = null)
+    {
+        $category = null;
+        if (!is_null($cat_id)) {
+            $all_services = Advertisement::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+            $category = AdvertisementCategory::where('id', $cat_id)->pluck('name')->first();
+        } else {
+            $all_services = Advertisement::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        }
+        return view('frontend.pages.advertisement.index')->with(['all_services' => $all_services, 'category' => $category]);
     }
 
     public function work_page()
@@ -534,22 +530,20 @@ class FrontendController extends Controller
         return view('frontend.pages.work.work')->with(['all_work' => $all_work, 'all_work_category' => $all_work_category]);
     }
 
-    public function team_page($cat_id=null)
+    public function team_page($cat_id = null)
     {
-        $category=null;
+        $category = null;
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
 //        dd();c
-        if(!is_null($cat_id)){
+        if (!is_null($cat_id)) {
             $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'desc')->paginate(12);
             $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
+        } else {
+            $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'asc')->paginate(12);
         }
 
-        else{
-            $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'desc')->paginate(12);
-        }
-
-        return view('frontend.pages.team-page')->with(['all_team_members' => $all_team_members,'category' => $category]);
+        return view('frontend.pages.team-page')->with(['all_team_members' => $all_team_members, 'category' => $category]);
     }
 
     public function faq_page()
@@ -1194,9 +1188,9 @@ class FrontendController extends Controller
         return view('frontend.pages.clients-feedback')->with(['all_feedback' => $all_feedback]);
     }
 
-    public function image_gallery_page($cat_id=null)
+    public function image_gallery_page($cat_id = null)
     {
-        $category=null;
+        $category = null;
 
         $order = !empty(get_static_option('site_image_gallery_order')) ? get_static_option('site_image_gallery_order') : 'DESC';
         $order_by = !empty(get_static_option('site_image_gallery_order_by')) ? get_static_option('site_image_gallery_order_by') : 'id';
@@ -1206,20 +1200,20 @@ class FrontendController extends Controller
             array_push($all_contain_cat, $work->cat_id);
         }
 
-        if(!is_null($cat_id)){
+        if (!is_null($cat_id)) {
             $all_categories = ImageGalleryCategory::where('id', $cat_id)->with('images.get_image')->where(['lang' => get_user_lang()])->where('status', 'publish')->orderBy($order_by, $order)->get();
             $category = ImageGalleryCategory::where('id', $cat_id)->pluck('title')->first();
-        }
-        else{
+        } else {
             $all_categories = ImageGalleryCategory::with('images.get_image')->where(['lang' => get_user_lang()])->where('status', 'publish')->orderBy($order_by, $order)->get();
         }
 //        dd($category);
         $all_category = ImageGalleryCategory::find($all_contain_cat);
-        return view('frontend.pages.image-gallery')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category, 'all_categories' => $all_categories,'category' => $category]);
+        return view('frontend.pages.image-gallery')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category, 'all_categories' => $all_categories, 'category' => $category]);
     }
-    public function image_gallery_page1($cat_id=null)
+
+    public function image_gallery_page1($cat_id = null)
     {
-        $category=null;
+        $category = null;
 
         $order = !empty(get_static_option('site_image_gallery_order')) ? get_static_option('site_image_gallery_order') : 'DESC';
         $order_by = !empty(get_static_option('site_image_gallery_order_by')) ? get_static_option('site_image_gallery_order_by') : 'id';
@@ -1229,13 +1223,13 @@ class FrontendController extends Controller
             array_push($all_contain_cat, $work->cat_id);
         }
 
-        if(!is_null($cat_id)){
+        if (!is_null($cat_id)) {
             $all_categories = ImageGallery::where('cat_id', $cat_id)->with('get_image')->where(['lang' => get_user_lang()])->orderBy($order_by, $order)->get();
 //            dd($all_categories);
             $category = ImageGalleryCategory::where('id', $cat_id)->pluck('title')->first();
         }
         $all_category = ImageGalleryCategory::find($all_contain_cat);
-        return view('frontend.pages.image-gallerycat-images')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category, 'all_categories' => $all_categories,'category' => $category]);
+        return view('frontend.pages.image-gallerycat-images')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category, 'all_categories' => $all_categories, 'category' => $category]);
     }
 
     public function donor_list()
