@@ -1314,6 +1314,30 @@ html {
   top: 0.25rem;
 }
 
+.section-title a.btn {
+  border: 1px solid #107c35;
+  background: #107c35;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  width: auto;
+}
+
+.section-title a.btn:hover,
+.section-title a.btn:focus,
+.section-title a.btn:active {
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+  background: #fff;
+  color: #107c35;
+  border: 1px solid #107c35;
+}
+
 /* HOME */
 
 /*      Banner section      */
@@ -1819,8 +1843,18 @@ html {
   margin-left: 0;
 }
 
+.dynamic-page-content-wrap {
+  text-align: justify;
+}
+
 .dynamic-page-content-wrap .standing-committee .table td {
   vertical-align: middle;
+}
+
+.dynamic-page-content-wrap .standing-committee .table.table-hover tbody tr:hover,
+.dynamic-page-content-wrap .standing-committee .table.table-hover tbody tr:focus,
+.dynamic-page-content-wrap .standing-committee .table.table-hover tbody tr:active {
+  background-color: rgba(16, 124, 53, 0.075);
 }
 
 /*      VARIABLES      */
@@ -1915,6 +1949,10 @@ footer .copyright-area {
   .section-padding {
     padding-top: 75px;
     padding-bottom: 75px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
   }
 }
 
@@ -2183,7 +2221,7 @@ footer .copyright-area {
   }
 
   .section-title h2 {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .blog-classic-item-01 .content .title {
@@ -2293,14 +2331,6 @@ footer .copyright-area {
     top: 105px;
   }
 
-  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-prev {
-    left: -3rem;
-  }
-
-  .common-area .common-grid-carousel .owl-controls .owl-nav .owl-next {
-    right: -3rem;
-  }
-
   .footer-widget-wrap .col-lg-3 {
     -ms-flex: 0 0 20%;
     -webkit-box-flex: 0;
@@ -2320,6 +2350,12 @@ footer .copyright-area {
 /* Extra large devices (large desktops, 1200px and up)*/
 
 /* Extra extra large devices (1400px and up)*/
+
+@media (min-width: 1400px) {
+  .section-title h2 {
+    font-size: 30px;
+  }
+}
 
 /* Extra extra extra large devices (4K and up)*/
 

@@ -18,6 +18,32 @@
 
 }
 
+.section-title {
+
+  a {
+
+    &.btn {
+      border: 1px solid color.$primary2;
+      background: color.$primary2;
+      display: inline-flex;
+      align-items: center;
+      color: #fff;
+      width: auto;
+
+      &:hover, &:focus, &:active {
+        @include mix.plain-all;
+        background: #fff;
+        color: color.$primary2;
+        border: 1px solid color.$primary2;
+      }
+
+    }
+
+  }
+
+}
+
+
 /* HOME */
 
 /*      Banner section      */
@@ -607,6 +633,7 @@
 }
 
 .dynamic-page-content-wrap {
+  text-align: justify;
 
   .standing-committee {
 
@@ -614,6 +641,22 @@
 
       td {
         vertical-align: middle;
+      }
+
+      &.table-hover {
+
+        tbody {
+
+          tr {
+
+            &:hover, &:focus, &:active {
+              background-color: rgba(16, 124, 53, .075);
+            }
+
+          }
+
+        }
+
       }
 
     }
