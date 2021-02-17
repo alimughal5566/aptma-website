@@ -16,7 +16,7 @@
                 @endif
                     @php $a = 1; @endphp
                     @foreach($service_items as$data)
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="single-what-we-cover-item-02 margin-bottom-30">
                                 <div class="single-what-img">
                                     {!! render_image_markup_by_attachment_id($data->image) !!}
