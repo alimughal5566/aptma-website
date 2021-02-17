@@ -1847,6 +1847,10 @@ html {
   text-align: justify;
 }
 
+.dynamic-page-content-wrap .standing-committee .table {
+  border: 1px solid #dee2e6;
+}
+
 .dynamic-page-content-wrap .standing-committee .table td {
   vertical-align: middle;
 }

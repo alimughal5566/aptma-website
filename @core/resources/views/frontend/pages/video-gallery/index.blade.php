@@ -20,7 +20,7 @@
             <div class="row">
 
                 @forelse($all_services as $data)
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="common-item single-what-we-cover-item-02 margin-bottom-30">
                             <div class="common-img single-what-img ">
                                 @php
