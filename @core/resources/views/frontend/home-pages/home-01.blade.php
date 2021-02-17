@@ -30,16 +30,17 @@
 <section class="common-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container">
         <div class="row">
-            <div class="col-12 col-lg-1"></div>
-            <div class="col-12 col-lg-10">
+            {{--            <div class="col-12 col-lg-1"></div>--}}
+            {{--            <div class="col-12 col-lg-10">--}}
+            <div class="col-12">
                 <div class="row">
-
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-9">
                         @if($publications->count()>0)
                             <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30 margin-bottom-50">
-                                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                                    <h2 class="font-weight-bold margin-bottom-0">{{'Latest Articles & Publications'}}</h2>
+                                <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                    <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Articles & Publications'}}</h2>
                                     {{--                    <p class="desc">{{''}}</p>--}}
+                                    <a href="{{route('frontend.publication')}}" class="btn">View All</a>
                                 </div>
                                 <div class="common-grid-carousel-wrapper ">
                                     <div class="common-grid-carousel publication-grid-carousel">
@@ -76,9 +77,10 @@
                         @endif
                         @if($all_events->count()>0)
                             <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                                <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                                    <h2 class="font-weight-bold">{{'Latest Events'}}</h2>
+                                <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                    <h2 class="mb-0 font-weight-bold">{{'Latest Events'}}</h2>
                                     {{--                    <p class="desc">{{''}}</p>--}}
+                                    <a href="{{route('frontend.events')}}" class="btn">View All</a>
                                 </div>
                                 <div class="common-grid-carousel-wrapper events-grid-carosel-wrapper">
                                     <div class="common-grid-carousel events-grid-carousel">
@@ -118,25 +120,25 @@
                         @endif
 
                     </div>
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-3">
                         <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
-                            <div class="section-title desktop-center padding-top-30 padding-bottom-20">
-                                <h2 class="font-weight-bold">{{'Social Feeds'}}</h2>
-                                {{--                    <p class="desc">{{''}}</p>--}}
-                            </div>
+                            {{--                            <div class="section-title desktop-center padding-top-30 padding-bottom-20">--}}
+                            {{--                                <h2 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
+                            {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
+                            {{--                            </div>--}}
                             <div class="row">
                                 <div class="col-12">
                                     <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center bg">
                                         <div class="d-flex flex-column">
-                                            <span class="social-feed-item d-flex justify-content-center mb-3">
+                                            <span class="social-feed-item d-flex justify-content-center mt-5 mb-1">
                                                 {{--
                                                 @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")
                                                 {{$data->url}}
                                                 {$data->icon}}
                                                 --}}
-                                                <a href="#">
+                                                <a href="https://twitter.com/aptmaofficial" target="_blank">
                                                     <i class="fab fa-twitter fa-2x"></i>
-                                                    <span>Twitter</span>
+{{--                                                    <span>Twitter</span>--}}
                                                 </a>
                                             </span>
                                             <div>
@@ -150,10 +152,9 @@
 
                                     <div class="mt-4 social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
                                         <div class="d-flex flex-column">
-                                            <span class="social-feed-item d-flex justify-content-center mb-3">
-                                                <a href="#">
+                                            <span class="social-feed-item d-flex justify-content-center mb-2">
+                                                <a href="https://www.facebook.com/APTMA" target="_blank">
                                                     <i class="fab fa-facebook-f fa-2x"></i>
-                                                    <span>Facebook</span>
                                                 </a>
                                             </span>
                                             <div>
@@ -182,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-1"></div>
+            {{--            <div class="col-12 col-lg-1"></div>--}}
         </div>
     </div>
 </section>
@@ -205,14 +206,16 @@
 <section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container advertise-container">
         <div class="row">
-            <div class="col-12 col-lg-1"></div>
-            <div class="col-12 col-lg-10">
+            {{--            <div class="col-12 col-lg-1"></div>--}}
+            {{--            <div class="col-12 col-lg-10">--}}
+            <div class="col-12">
                 <div class="row">
                     <div class="col-12">
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h2>
+                            <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h2>
                                 {{--                    <p class="desc">{{''}}</p>--}}
+                                <a href="{{route('frontend.advertisement.index')}}" class="btn">View All</a>
                             </div>
                             <div class="common-grid-carousel-wrapper">
                                 <div class="common-grid-carousel advertise-grid-carousel">
@@ -242,22 +245,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-1"></div>
+            {{--            <div class="col-12 col-lg-1"></div>--}}
         </div>
     </div>
 </section>
 
-<section class="common-area video-area background-gray-light-lightest padding-top-50 padding-bottom-50 ">
+<section class="common-area video-area background-gray-light-lightest padding-50 ">
     <div class="container-fluid common-container video-container">
         <div class="row">
-            <div class="col-12 col-lg-1"></div>
-            <div class="col-12 col-lg-10">
+            {{--            <div class="col-12 col-lg-1"></div>--}}
+            {{--            <div class="col-12 col-lg-10">--}}
+            <div class="col-12">
                 <div class="row">
                     <div class="col-12">
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">
-                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h2>
+                            <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h2>
                                 {{--                    <p class="desc">{{''}}</p>--}}
+                                <a href="{{route('frontend.gallery.video.index')}}" class="btn">View All</a>
                             </div>
                             <div class="common-grid-carousel-wrapper">
                                 <div class="common-grid-carousel video-grid-carousel">
@@ -294,7 +299,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-1"></div>
+            {{--            <div class="col-12 col-lg-1"></div>--}}
         </div>
     </div>
 </section>
@@ -313,8 +318,8 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                <div class="row">--}}
 {{--                    <div class="col-12">--}}
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
-{{--                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">--}}
-{{--                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Circulars'}}</h2>--}}
+{{--                            <div class="section-title desktop-center padding-30">--}}
+{{--                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Circulars'}}</h2>--}}
 {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
 {{--                            <div class="common-grid-carousel-wrapper">--}}
@@ -371,8 +376,8 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                <div class="row">--}}
 {{--                    <div class="col-12">--}}
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
-{{--                            <div class="section-title desktop-center padding-top-30 padding-bottom-30">--}}
-{{--                                <h2 class="font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>--}}
+{{--                            <div class="section-title desktop-center padding-30">--}}
+{{--                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>--}}
 {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
 {{--                            <div class="common-grid-carousel-wrapper">--}}
@@ -419,18 +424,21 @@ This Section will be displayed to only Members & When code for that then we will
 
 
 @if(!empty(get_static_option('home_page_latest_news_section_status')))
-    <section class="common-area blog-area background-gray-light-lightest padding-top-50 padding-bottom-50">
+    <section class="common-area blog-area background-gray-light-lightest padding-50">
         <div class="container-fluid common-container">
             <div class="row">
-                <div class="col-12 col-lg-1"></div>
-                <div class="col-12 col-lg-10">
+                {{--                <div class="col-12 col-lg-1"></div>--}}
+                {{--                <div class="col-12 col-lg-10">--}}
+                <div class="col-12">
                     <div class="row">
                         <div class="col-12">
                             <div class=" bg-white rounded px-2 px-lg-3 padding-top-50 padding-bottom-30">
-                                <div class="section-title desktop-center padding-bottom-20">
-                                    <h2 class="font-weight-bold">{{'Latest News & Articles'}}</h2>
+                                <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                    <h2 class="mb-0 font-weight-bold">{{'Latest News & Articles'}}</h2>
                                     {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
                                     {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
+                                    <a href="{{route('frontend.blog')}}" class="btn">View All</a>
+
                                 </div>
                                 <div class="common-grid-carousel-wrapper blog-grid-carosel-wrapper">
                                     <div class="common-grid-carousel blog-grid-carousel">
@@ -463,7 +471,7 @@ This Section will be displayed to only Members & When code for that then we will
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-1"></div>
+                {{--                <div class="col-12 col-lg-1"></div>--}}
             </div>
         </div>
     </section>
@@ -527,7 +535,7 @@ This Section will be displayed to only Members & When code for that then we will
                 <div class="col-lg-6">
                     <div class="our-service-wrappper bg-main padding-top-100 padding-bottom-15">
                         <div class="section-title white padding-bottom-15 desktop-left">
-                            <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>
+                            <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>
                             <p class="m-inherit">{!! get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_description') !!}</p>
                             <div class="service-area-work">
                                 @foreach($all_key_features as $key => $data)
@@ -582,7 +590,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title white desktop-center margin-bottom-55">
-                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_service_area_title')}}</h3>
+                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_service_area_title')}}</h3>
                         <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_service_area_description')}}</p>
                     </div>
                 </div>
@@ -646,7 +654,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--            <div class="row justify-content-center">--}}
 {{--                <div class="col-lg-8">--}}
 {{--                    <div class="section-title desktop-center margin-bottom-50">--}}
-{{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_service_area_title')}}</h3>--}}
+{{--                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_service_area_title')}}</h3>--}}
 {{--                        <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_service_area_description')}}</p>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
@@ -740,7 +748,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title desktop-center padding-top-110 padding-bottom-50">
-                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_case_study_title')}}</h3>
+                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_case_study_title')}}</h3>
                         <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_case_study_description')}}</p>
                     </div>
                 </div>
@@ -783,7 +791,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--            <div class="row justify-content-center">--}}
 {{--                <div class="col-lg-12">--}}
 {{--                    <div class="section-title white bg-blue desktop-center padding-top-110 padding-bottom-55">--}}
-{{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_case_study_title')}}</h3>--}}
+{{--                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_case_study_title')}}</h3>--}}
 {{--                        <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_case_study_description')}}</p>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
@@ -816,7 +824,7 @@ This Section will be displayed to only Members & When code for that then we will
 
 
 {{--@if(!empty(get_static_option('home_page_counterup_section_status')))--}}
-{{--    <div class="counterup-area counterup-bg padding-top-30 padding-bottom-30">--}}
+{{--    <div class="counterup-area counterup-bg padding-30">--}}
 {{--        <div class="container counter-container bg-white padding-top-20 padding-bottom-20">--}}
 {{--            <div class="row">--}}
 {{--                @foreach($all_counterup as $data)--}}
@@ -841,7 +849,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--@endif--}}
 
 @if(!empty(get_static_option('home_page_call_to_action_section_status')))
-    <div class="call-to-action bg-image padding-top-50 padding-bottom-50">
+    <div class="call-to-action bg-image padding-50">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -864,7 +872,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title desktop-center padding-bottom-20">
-                        <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>
+                        <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>
                     </div>
                 </div>
             </div>
@@ -907,7 +915,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--            <div class="row justify-content-center">--}}
 {{--                <div class="col-lg-8">--}}
 {{--                    <div class="section-title desktop-center padding-bottom-20">--}}
-{{--                        <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>--}}
+{{--                        <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
@@ -949,7 +957,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title white desktop-center padding-bottom-55">
-                        <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_price_plan_section_title')}}</h2>
+                        <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_price_plan_section_title')}}</h2>
                         <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_price_plan_section_description')}} </p>
                     </div>
                 </div>

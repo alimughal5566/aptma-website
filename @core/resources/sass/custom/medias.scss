@@ -16,6 +16,14 @@
     padding-bottom: 75px;
   }
 
+  .section-title {
+
+    h2 {
+      font-size: 28px;
+    }
+
+  }
+
   .header {
 
   }
@@ -465,7 +473,7 @@
   .section-title {
 
     h2 {
-      font-size: 30px;
+      font-size: 26px;
     }
 
   }
@@ -696,21 +704,21 @@
 
     .common-grid-carousel {
 
-      .owl-controls {
-
-        .owl-nav {
-
-          .owl-prev {
-            left: -3rem;
-          }
-
-          .owl-next {
-            right: -3rem;
-          }
-
-        }
-
-      }
+      //.owl-controls {
+      //
+      //  .owl-nav {
+      //
+      //    .owl-prev {
+      //      left: -2rem;
+      //    }
+      //
+      //    .owl-next {
+      //      right: -2rem;
+      //    }
+      //
+      //  }
+      //
+      //}
 
     }
 
@@ -746,6 +754,14 @@
 
 /* Extra extra large devices (1400px and up)*/
 @media (min-width: 1400px) {
+
+  .section-title {
+
+    h2 {
+      font-size: 30px;
+    }
+
+  }
 
 }
 

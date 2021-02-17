@@ -21,6 +21,10 @@
                         <div class="team-section">
                             <div class="team-img-cont" onclick="detail({{$data}});">
                                 {!! render_image_markup_by_attachment_id($data->image) !!}
+                            </div>
+                            <div class="team-text">
+                                <h4 class="title">{{$data->name}}</h4>
+                                <span>{{$data->designation}}</span>
                                 <div class="social-link">
                                     <ul>
                                         @if(!empty($data->icon_one) && !empty($data->icon_one_url))
@@ -46,10 +50,6 @@
                                         @endif
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="team-text">
-                                <h4 class="title">{{$data->name}}</h4>
-                                <span>{{$data->designation}}</span>
                             </div>
                         </div>
                     </div>

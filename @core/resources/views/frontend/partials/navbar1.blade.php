@@ -49,9 +49,9 @@
                                         </li>
                                     @else
                                         <li>
-                                            <a href="{{route('user.login')}}">{{__('Login')}}</a>
-                                            <span>/</span>
-                                            <a href="{{route('user.register')}}">{{__('Register')}}</a>
+                                            <a href="{{route('user.login')}}">{{__('Member Login')}}</a>
+{{--                                            <span>/</span>--}}
+{{--                                            <a href="{{route('user.register')}}">{{__('Register')}}</a>--}}
                                         </li>
                                     @endif
                                     @if(!empty(get_static_option('language_select_option')))
@@ -205,7 +205,7 @@
                                 @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
 
                                 <li class=" {{$publicationCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                                    <a href="{{route('frontend.publication')}}">Publications</a>
+                                    <a href="{{route('frontend.publication')}}">Articles &amp; Publications</a>
                                     @if($publicationCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($publicationCategories as $category)
@@ -220,26 +220,26 @@
                                 </li>
 
 
-                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>
+{{--                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
+{{--                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>--}}
 
-                                    @if($blogCategories->count()>0)
-                                        <ul class="sub-menu">
-                                            @foreach($blogCategories as $category)
-                                                @if($category->blogs_count>0)
-                                                    <li>
-                                                        <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    @endif
+{{--                                    @if($blogCategories->count()>0)--}}
+{{--                                        <ul class="sub-menu">--}}
+{{--                                            @foreach($blogCategories as $category)--}}
+{{--                                                @if($category->blogs_count>0)--}}
+{{--                                                    <li>--}}
+{{--                                                        <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>--}}
+{{--                                                    </li>--}}
+{{--                                                @endif--}}
+{{--                                            @endforeach--}}
+{{--                                        </ul>--}}
+{{--                                    @endif--}}
 
-                                </li>
+{{--                                </li>--}}
 
-                                <li>
-                                    <a href="javascript:void(0);">Policy Document</a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="javascript:void(0);">Policy Document</a>--}}
+{{--                                </li>--}}
 
                                 {{--                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
 
