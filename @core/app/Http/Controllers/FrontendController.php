@@ -537,7 +537,7 @@ class FrontendController extends Controller
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
 //        dd();c
         if (!is_null($cat_id)) {
-            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'desc')->paginate(12);
+            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
             $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
         } else {
             $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'asc')->paginate(12);

@@ -664,3 +664,26 @@
   }
 
 }
+
+.social-link {
+  height: 25px;
+
+  ul {
+    display: inline-flex;
+    @include mix.align-items-center;
+
+    li {
+
+      a {
+
+        i {
+          font-size: 1.5rem;
+        }
+
+      }
+
+    }
+
+  }
+
+}

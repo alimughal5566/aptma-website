@@ -41,7 +41,7 @@
             <div class="col-lg-7 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Books')}}</h4>
+                        <h4 class="header-title">{{__('Advertisements')}}</h4>
                         <div class="bulk-delete-wrapper">
                             <div class="select-box-wrap">
                                 <select name="bulk_option" id="bulk_option">

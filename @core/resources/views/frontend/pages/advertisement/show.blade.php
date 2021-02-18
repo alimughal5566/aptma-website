@@ -39,7 +39,7 @@
                         <div class="service-description common-single-description advertise-description">
                             <div class="margin-bottom-15">
                                 <strong>Category:</strong> {{$service_item->category->name}}</div>
-                            <p>Last updated: {{$service_item->updated_at->format('d M Y')}}</p>
+{{--                            <p>Last updated: {{$service_item->updated_at->format('d M Y')}}</p>--}}
                             <div>{!! $service_item->description !!}</div>
                         </div>
                     </div>
