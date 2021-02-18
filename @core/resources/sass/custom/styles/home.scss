@@ -524,7 +524,7 @@
 .single-contact-item {
   padding: 20px;
   height: 100%;
-  @include mix.align-items-start;
+  //@include mix.align-items-start;
 
   .icon {
     @include mix.d-flex;
