@@ -537,11 +537,17 @@
     .title {
       font-size: 1rem;
       font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
     .details {
       font-weight: 500;
       margin-bottom: 0.5rem;
+
+      &::first-word {
+        font-weight: 700;
+      }
+
     }
 
   }
