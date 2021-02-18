@@ -34,6 +34,7 @@
                 <div class="col-lg-6 ">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
                         <h5>Designation:  {{$data->designation}}</h5>
+                        <h5>Department:  {{$data->department->name}}</h5>
                         <h6 class="publish-date font-weight-bold"></h6>
                         <div class="service-description publication-description">Description: {!! $data->description !!}
                         <div class="service-description publication-description">About me: {!! $data->about_me !!}
@@ -41,7 +42,7 @@
 
 
 
-                            <div class="social-link">
+                            <div class="social-link pb-5">
                                 <ul>
                                     @if(!empty( $data->icon_one) && !empty( $data->icon_one_url))
                                         <li>

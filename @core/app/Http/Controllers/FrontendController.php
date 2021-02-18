@@ -540,7 +540,7 @@ class FrontendController extends Controller
         if (!is_null($cat_id)) {
             $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
             foreach ($teamdepartments as $department) {
-                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->where('department_id', $department->id)->orderby('order_no', 'asc')->get();
+                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
                 $data1['name'] = $department->name;
                 $data[] = $data1;
             }
