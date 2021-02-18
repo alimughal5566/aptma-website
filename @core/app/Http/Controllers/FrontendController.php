@@ -537,7 +537,6 @@ class FrontendController extends Controller
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         $data1=[];
         $data=[];
-//        dd();c
         if (!is_null($cat_id)) {
             $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
             foreach ($teamdepartments as $department) {

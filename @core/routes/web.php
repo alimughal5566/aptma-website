@@ -250,7 +250,6 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/' . $blog_page_slug . '-category/{id}/{any}', 'FrontendController@category_wise_blog_page')->name('frontend.blog.category');
     Route::get('/' . $blog_page_slug . '-tags/{name}', 'FrontendController@tags_wise_blog_page')->name('frontend.blog.tags.page');
     Route::get('/' . $blog_page_slug, 'FrontendController@blog_page')->name('frontend.blog');
-
     //quote page
     Route::get('/' . $quote_page_slug, 'FrontendController@request_quote')->name('frontend.request.quote');
 

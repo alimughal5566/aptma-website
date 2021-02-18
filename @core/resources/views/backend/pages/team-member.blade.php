@@ -211,7 +211,7 @@
                               <div class="form-group">
                                     <label for="lang">{{__('Placement order')}}</label>
                                     <select name="order_no" class="form-control" required>
-                                        @for($j=10;$j>=1; $j--)
+                                        @for($j=15;$j>=1; $j--)
                                             <option value="{{$j}}"  {{(old('order_no')==$j)?'selected':''}}>{{$j}}</option>
                                         @endfor
                                     </select>
@@ -354,7 +354,7 @@
                         <div class="form-group">
                             <label for="lang">{{__('Placement order')}}</label>
                             <select name="order_no" class="form-control" required>
-                                @for($j=10;$j>=1; $j--)
+                                @for($j=15;$j>=1; $j--)
                                     <option value="{{$j}}"  {{(old('order_no')==$j)?'selected':''}} >{{$j}}</option>
                                 @endfor
                             </select>
