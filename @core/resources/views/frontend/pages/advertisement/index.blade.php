@@ -36,7 +36,7 @@
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p>Category: {{@$data->category->name}}</p>
-                                <p>Published at: {{@$data->published_at->format('d M Y')}}</p>
+{{--                                <p>Published at: {{@$data->published_at}}</p>--}}
                             </div>
                         </div>
                     </div>
