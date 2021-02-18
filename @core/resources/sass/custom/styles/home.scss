@@ -525,10 +525,13 @@
   padding: 20px;
   height: 100%;
   //@include mix.align-items-start;
+  @include mix.flex-column;
 
   .icon {
     @include mix.d-flex;
     @include mix.flex-column;
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 
   .content {
@@ -537,7 +540,7 @@
     .title {
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
     .details {
