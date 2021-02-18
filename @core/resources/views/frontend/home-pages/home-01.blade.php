@@ -142,8 +142,8 @@
                                                 </a>
                                             </span>
                                             <div>
-                                                <a class="twitter-timeline" href="https://twitter.com/aptmaofficial">Tweets
-                                                    by APTMA</a>
+                                                <a class="twitter-timeline" data-height="500"
+                                                   href="https://twitter.com/aptmaofficial">Tweets by APTMA</a>
                                                 <script async src="https://platform.twitter.com/widgets.js"
                                                         charset="utf-8"></script>
                                             </div>
@@ -153,7 +153,7 @@
                                     <div class="mt-4 social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
                                         <div class="d-flex flex-column">
                                             <span class="social-feed-item d-flex justify-content-center mb-2">
-                                                <a href="https://www.facebook.com/APTMA" target="_blank">
+                                                <a href="https://www.facebook.com/APTMAOfficial1" target="_blank">
                                                     <i class="fab fa-facebook-f fa-2x"></i>
                                                 </a>
                                             </span>
@@ -164,14 +164,14 @@
                                                         src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
                                                         nonce="z0b43ddy"></script>
                                                 <!-- Your share button code -->
-                                                <div class="fb-page" data-href="https://www.facebook.com/APTMA"
+                                                <div class="fb-page" data-href="https://www.facebook.com/APTMAOfficial1"
                                                      data-tabs="timeline"
                                                      data-width="" data-height="" data-small-header="false"
                                                      data-adapt-container-width="true" data-hide-cover="false"
                                                      data-show-facepile="true">
-                                                    <blockquote cite="https://www.facebook.com/APTMA"
+                                                    <blockquote cite="https://www.facebook.com/APTMAOfficial1"
                                                                 class="fb-xfbml-parse-ignore">
-                                                        <a href="https://www.facebook.com/APTMA">APTMA</a>
+                                                        <a href="https://www.facebook.com/APTMAOfficial1">APTMA</a>
                                                     </blockquote>
                                                 </div>
                                             </div>
