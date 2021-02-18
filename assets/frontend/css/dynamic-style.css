@@ -1790,11 +1790,16 @@ html {
 .single-contact-item .content .title {
   font-size: 1rem;
   font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .single-contact-item .content .details {
   font-weight: 500;
   margin-bottom: 0.5rem;
+}
+
+.single-contact-item .content .details::first-word {
+  font-weight: 700;
 }
 
 /* /HOME */
