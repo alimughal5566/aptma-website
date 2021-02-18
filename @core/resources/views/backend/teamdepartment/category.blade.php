@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Book Categories')}}
+    {{__('Team members Department')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -40,18 +40,18 @@
             <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Publication Categories')}}</h4>
-                        <div class="bulk-delete-wrapper">
-                            <div class="select-box-wrap">
-                                <select name="bulk_option" id="bulk_option">
-                                    <option value="" selected disabled>{{{__('Bulk Action')}}}</option>
-                                    <option value="draft">{{{__('Draft')}}}</option>
-                                    <option value="publish">{{{__('publish')}}}</option>
+                        <h4 class="header-title">{{__('Team Departments')}}</h4>
+{{--                        <div class="bulk-delete-wrapper">--}}
+{{--                            <div class="select-box-wrap">--}}
+{{--                                <select name="bulk_option" id="bulk_option">--}}
+{{--                                    <option value="" selected disabled>{{{__('Bulk Action')}}}</option>--}}
+{{--                                    <option value="draft">{{{__('Draft')}}}</option>--}}
+{{--                                    <option value="publish">{{{__('publish')}}}</option>--}}
 {{--                                    <option value="delete">{{{__('Delete')}}}</option>--}}
-                                </select>
-                                <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>
-                            </div>
-                        </div>
+{{--                                </select>--}}
+{{--                                <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             @php $a=0; @endphp
                             @foreach($all_category as $key => $slider)
@@ -68,26 +68,43 @@
                                     <div class="table-wrap table-responsive">
                                         <table class="table table-default">
                                             <thead>
-                                            <th class="no-sort">
-                                                <div class="mark-all-checkbox">
-                                                    <input type="checkbox" class="all-checkbox">
-                                                </div>
-                                            </th>
+{{--                                            <th class="no-sort">--}}
+{{--                                                <div class="mark-all-checkbox">--}}
+{{--                                                    <input type="checkbox" class="all-checkbox">--}}
+{{--                                                </div>--}}
+{{--                                            </th>--}}
                                             <th>{{__('ID')}}</th>
                                             <th>{{__('Name')}}</th>
+                                            <th>{{__('Image')}}</th>
+                                            <th>{{__('Order')}}</th>
                                             <th>{{__('Status')}}</th>
                                             <th>{{__('Action')}}</th>
                                             </thead>
                                             <tbody>
                                             @foreach($category as $data)
                                                 <tr>
-                                                    <td>
-                                                        <div class="bulk-checkbox-wrapper">
-                                                            <input type="checkbox" class="bulk-checkbox" name="bulk_delete[]" value="{{$data->id}}">
-                                                        </div>
-                                                    </td>
+{{--                                                    <td>--}}
+{{--                                                        <div class="bulk-checkbox-wrapper">--}}
+{{--                                                            <input type="checkbox" class="bulk-checkbox" name="bulk_delete[]" value="{{$data->id}}">--}}
+{{--                                                        </div>--}}
+{{--                                                    </td>--}}
                                                     <td>{{$data->id}}</td>
                                                     <td>{{$data->name}}</td>
+                                                    <td> @php
+                                                            $testimonial_img = get_attachment_image_by_id($data->img_id,'thumbnail',true);
+                                                        @endphp
+                                                        @if (!empty($testimonial_img))
+                                                            <div class="attachment-preview">
+                                                                <div class="thumbnail">
+                                                                    <div class="centered">
+                                                                        <img class="avatar user-thumb" src="{{$testimonial_img['img_url']}}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        @endif
+                                                    </td>
+                                                    <td>{{$data->order_no}}</td>
                                                     <td>
                                                         @if('publish' == $data->status)
                                                             <span class="btn btn-success btn-sm">{{ucfirst($data->status)}}</span>
@@ -104,7 +121,7 @@
 {{--                                                           title=""--}}
 {{--                                                           data-content="--}}
 {{--                                                           <h6>{{__('Are you sure to delete this category?')}}</h6>--}}
-{{--                                                           <form method='post' action='{{route('admin.book.category.delete',$data->id)}}'>--}}
+{{--                                                           <form method='post' action='{{route('admin.team.category.delete',$data->id)}}'>--}}
 {{--                                                           <input type='hidden' name='_token' value='{{csrf_token()}}'>--}}
 {{--                                                           <br>--}}
 {{--                                                            <input type='submit' class='btn btn-danger btn-sm' value='{{__('Yes,Please')}}'>--}}
@@ -120,6 +137,8 @@
                                                            data-name="{{$data->name}}"
                                                            data-lang="{{$data->lang}}"
                                                            data-status="{{$data->status}}"
+                                                           data-imgid="{{$data->img_id}}"
+                                                           data-order="{{$data->order_no}}"
                                                         >
                                                             <i class="ti-pencil"></i>
                                                         </a>
@@ -139,8 +158,8 @@
             <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Add New Category')}}</h4>
-                        <form action="{{route('admin.book.category.new')}}" method="post" enctype="multipart/form-data">
+                        <h4 class="header-title">{{__('Add New department')}}</h4>
+                        <form action="{{route('admin.department.category.new')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="lang">{{__('Languages')}}</label>
@@ -151,8 +170,16 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="lang">{{__('Placement order')}}</label>
+                                <select name="order_no" class="form-control">
+                                    @for($j=10;$j>=1; $j--)
+                                    <option value="{{$j}}"  {{(old('order_no')==$j)?'selected':''}} >{{$j}}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="title" class="form-control" placeholder="Name"  required value="{{old('title')}}">
                             </div>
                             <div class="form-group">
                                 <label for="status">{{__('Status')}}</label>
@@ -161,7 +188,18 @@
                                     <option value="draft">{{__('Draft')}}</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New category')}}</button>
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <div class="media-upload-btn-wrapper">
+                                    <div class="img-wrap"></div>
+                                    <input type="hidden" name="image">
+                                    <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
+                                        Department Image
+                                    </button>
+                                </div>
+                                <small>1000x1000px image recommended</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add')}}</button>
                         </form>
                     </div>
                 </div>
@@ -173,10 +211,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{__('Edit Category')}}</h5>
+                    <h5 class="modal-title">{{__('Edit Department')}}</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
-                <form action="{{route('admin.book.category.update')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('admin.department.category.update')}}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         @csrf
                         <input type="hidden" name="id" value="">
@@ -188,9 +226,19 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <div class="form-group">
+                            <label for="order">{{__('Placement Order')}}</label>
+                            <select name="order_no" class="form-control" required >
+                                @for($j=10;$j>=1; $j--)
+                                    <option value="{{$j}}" >{{$j}}</option>
+                                @endfor
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label for="title">{{__('Title')}}</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="title" class="form-control"  required value="{{old('title')}}">
                         </div>
                         <div class="form-group">
                             <label for="status">{{__('Status')}}</label>
@@ -199,7 +247,19 @@
                                 <option value="draft">{{__('Draft')}}</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <div class="media-upload-btn-wrapper">
+                                <div class="img-wrap"></div>
+                                <input type="hidden" name="image">
+                                <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
+                                    Branch Image
+                                </button>
+                            </div>
+                            <small>1000x1000 px image recommended</small>
+                        </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Close')}}</button>
                         <button type="submit" class="btn btn-primary">{{__('Save Changes')}}</button>
@@ -214,7 +274,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
         $(document).ready(function () {
-
             $(document).on('click','#bulk_delete_btn',function (e) {
                 e.preventDefault();
 
@@ -224,7 +283,9 @@
                 allCheckbox.each(function(index,value){
                     allIds.push($(this).val());
                 });
+
                 if(allIds != ''){
+                    $(this).text('{{__('Please Wait')}}');
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
@@ -232,12 +293,11 @@
                         timer: 4000,
                         timerProgressBar: true,
                         icon: 'warning',
-                        title: 'Updated successfully',
+                        title: 'Item added successfully',
                     });
-                    $(this).text('{{__('Please Wait')}}');
                     $.ajax({
                         'type' : "POST",
-                        'url' : "{{route('admin.book.category.bulk.action')}}",
+                        'url' : "{{route('admin.department.category.bulk.action')}}",
                         'data' : {
                             _token: "{{csrf_token()}}",
                             ids: allIds,
@@ -266,14 +326,19 @@
             $(document).on('click','.category_edit_btn',function (){
                 var el = $(this);
                 var id = el.data('id');
+                var img_id = el.data('imgid');
+                // alert(img_id);
                 var title = el.data('name');
                 var status = el.data('status');
                 var lang = el.data('lang');
+                var order = el.data('order');
                 var modalContainerId = $('#image_category_item_edit_modal');
                 modalContainerId.find('input[name="id"]').val(id);
-                modalContainerId.find('input[name="name"]').val(title);
+                modalContainerId.find('input[name="image"]').val(img_id);
+                modalContainerId.find('input[name="title"]').val(title);
                 modalContainerId.find('select[name="status"] option[value="'+status+'"]').attr('selected',true);
                 modalContainerId.find('select[name="lang"] option[value="'+lang+'"]').attr('selected',true);
+                modalContainerId.find('select[name="order_no"] option[value="'+order+'"]').attr('selected',true);
             });
         });
     </script>
@@ -286,7 +351,7 @@
     <script>
         $(document).ready(function() {
             $('.table-wrap > table').DataTable( {
-                "order": [[ 1, "desc" ]],
+                "order": [[ 3, "asc" ]],
                 'columnDefs' : [{
                     'targets' : "no-sort",
                     'orderable' : false

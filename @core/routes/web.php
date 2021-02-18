@@ -241,9 +241,9 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/' . $work_page_slug . '/{slug}', 'FrontendController@work_single_page')->name('frontend.work.single');
     Route::get('/' . $work_page_slug . '/category/{id}/{any}', 'FrontendController@category_wise_works_page')->name('frontend.works.category');
     Route::get('/' . $team_page_slug . '/{cat?}', 'FrontendController@team_page')->name('frontend.team');
+
     Route::get('/' . $price_plan_page_slug, 'FrontendController@price_plan_page')->name('frontend.price.plan');
     Route::get('/' . $contact_page_slug, 'FrontendController@contact_page')->name('frontend.contact');
-
     //blog
     Route::get('/' . $blog_page_slug . '/{slug}', 'FrontendController@blog_single_page')->name('frontend.blog.single');
     Route::get('/' . $blog_page_slug . '-search', 'FrontendController@blog_search_page')->name('frontend.blog.search');
@@ -254,7 +254,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     //quote page
     Route::get('/' . $quote_page_slug, 'FrontendController@request_quote')->name('frontend.request.quote');
 
-
+    Route::get('/' . $team_page_slug . '/memeber/{slug}', 'FrontendController@team_member')->name('frontend.team.member');
     //testimonials
     Route::get('/' . $testimonial_page_slug, 'FrontendController@testimonials')->name('frontend.testimonials');
     Route::get('/' . $feedback_page_slug, 'FrontendController@feedback_page')->name('frontend.feedback');
@@ -774,6 +774,14 @@ Route::prefix('admin-home')->middleware(['team_member_manage_check'])->group(fun
     Route::post('/category/delete/{id}', 'TeamMemberController@category_delete')->name('admin.team.category.delete');
     Route::post('/category/bulk-action', 'TeamMemberController@category_bulk_action')->name('admin.team.category.bulk.action');
     Route::post('/category-by-slug', 'TeamMemberController@category_by_slug')->name('admin.team.category.by.lang');
+
+    //Departments
+    Route::get('/team/department', 'TeamDepartmentController@category_index')->name('admin.department.category');
+    Route::post('/team/new', 'TeamDepartmentController@category_store')->name('admin.department.category.new');
+    Route::post('/team/update', 'TeamDepartmentController@category_update')->name('admin.department.category.update');
+    Route::post('/team/delete/{id}', 'TeamDepartmentController@category_delete')->name('admin.department.category.delete');
+    Route::post('/team/bulk-action', 'TeamDepartmentController@category_bulk_action')->name('admin.department.category.bulk.action');
+    Route::post('/department-by-slug', 'TeamDepartmentController@category_by_slug')->name('admin.department.category.by.lang');
 
 
     Route::post('/team-member', 'TeamMemberController@store');
