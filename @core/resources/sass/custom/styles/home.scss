@@ -524,11 +524,26 @@
 .single-contact-item {
   padding: 20px;
   height: 100%;
-  @include mix.align-items-center;
+  //@include mix.align-items-start;
 
   .icon {
     @include mix.d-flex;
     @include mix.flex-column;
+  }
+
+  .content {
+    height: 100%;
+
+    .title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .details {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
   }
 
 }
@@ -665,18 +680,30 @@
 
 }
 
+.single-event-details .content .alert-danger, .counterdown-wrap.event-page #event_countdown {
+  display: none !important;
+}
+
+
 .social-link {
   height: 25px;
 
   ul {
     display: inline-flex;
     @include mix.align-items-center;
+    @include mix.justify-content-center;
 
     li {
+      margin: 0 0.25rem;
 
       a {
+        display: inline-flex;
+        @include mix.align-items-center;
+        @include mix.justify-content-center;
 
         i {
+          width: 25px;
+          height: 25px;
           font-size: 1.5rem;
         }
 
