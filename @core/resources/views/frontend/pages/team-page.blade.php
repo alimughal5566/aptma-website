@@ -23,7 +23,7 @@
                                     <h3 class="subtitle"> {{$record['name']}}</h3>
                                 </div>
                                 @foreach($record['members'] as $user )
-                                    <div class="col-lg-3 col-sm-6 padding-bottom-50">
+                                    <div class="col-lg-3 col-sm-6 padding-bottom-30">
                                         <div class="team-section">
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
                                             <div class="team-img-cont" style="cursor:default;">
@@ -36,7 +36,6 @@
                                                     <h4 class="title">{{$user->name}}</h4>
                                                     <span>{{$user->designation}}</span>
                                                 </a>
-
                                                 <div class="social-link">
                                                     <ul>
                                                         @if(!empty($user->icon_one) && !empty($user->icon_one_url))

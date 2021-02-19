@@ -38,7 +38,7 @@
                         @if($publications->count()>0)
                             <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30 margin-bottom-50">
                                 <div class="section-title d-flex justify-content-between align-items-center padding-30">
-                                    <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Articles & Publications'}}</h2>
+                                    <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Articles & Publications'}}</h3>
                                     {{--                    <p class="desc">{{''}}</p>--}}
                                     <a href="{{route('frontend.publication')}}" class="btn">View All</a>
                                 </div>
@@ -78,7 +78,7 @@
                         @if($all_events->count()>0)
                             <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30">
                                 <div class="section-title d-flex justify-content-between align-items-center padding-30">
-                                    <h2 class="mb-0 font-weight-bold">{{'Latest Events'}}</h2>
+                                    <h3 class="mb-0 font-weight-bold">{{'Latest Events'}}</h3>
                                     {{--                    <p class="desc">{{''}}</p>--}}
                                     <a href="{{route('frontend.events')}}" class="btn">View All</a>
                                 </div>
@@ -123,7 +123,7 @@
                     <div class="col-12 col-lg-3">
                         <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
                             {{--                            <div class="section-title desktop-center padding-top-30 padding-bottom-20">--}}
-                            {{--                                <h2 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
+                            {{--                                <h3 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
                             {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
                             {{--                            </div>--}}
                             <div class="row">
@@ -213,7 +213,7 @@
                     <div class="col-12">
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
                             <div class="section-title d-flex justify-content-between align-items-center padding-30">
-                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h2>
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h3>
                                 {{--                    <p class="desc">{{''}}</p>--}}
                                 <a href="{{route('frontend.advertisement.index')}}" class="btn">View All</a>
                             </div>
@@ -260,7 +260,7 @@
                     <div class="col-12">
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
                             <div class="section-title d-flex justify-content-between align-items-center padding-30">
-                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h2>
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h3>
                                 {{--                    <p class="desc">{{''}}</p>--}}
                                 <a href="{{route('frontend.gallery.video.index')}}" class="btn">View All</a>
                             </div>
@@ -319,7 +319,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                    <div class="col-12">--}}
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
 {{--                            <div class="section-title desktop-center padding-30">--}}
-{{--                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Circulars'}}</h2>--}}
+{{--                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Circulars'}}</h2>--}}
 {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
 {{--                            <div class="common-grid-carousel-wrapper">--}}
@@ -377,7 +377,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                    <div class="col-12">--}}
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
 {{--                            <div class="section-title desktop-center padding-30">--}}
-{{--                                <h2 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>--}}
+{{--                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>--}}
 {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
 {{--                            <div class="common-grid-carousel-wrapper">--}}
@@ -434,7 +434,7 @@ This Section will be displayed to only Members & When code for that then we will
                         <div class="col-12">
                             <div class=" bg-white rounded px-2 px-lg-3 padding-top-50 padding-bottom-30">
                                 <div class="section-title d-flex justify-content-between align-items-center padding-30">
-                                    <h2 class="mb-0 font-weight-bold">{{'Latest News & Articles'}}</h2>
+                                    <h3 class="mb-0 font-weight-bold">{{'Latest News & Articles'}}</h3>
                                     {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
                                     {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
                                     <a href="{{route('frontend.blog')}}" class="btn">View All</a>
@@ -507,7 +507,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                <div class="col-md-12">--}}
 {{--                    <div class="experience-content">--}}
 {{--                        <div class="content">--}}
-{{--                            <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>--}}
+{{--                            <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>--}}
 {{--                        </div>--}}
 {{--                        <div class="col-lg-09 offset-lg-3">--}}
 {{--                            <div class="experience-right">--}}
@@ -535,7 +535,7 @@ This Section will be displayed to only Members & When code for that then we will
                 <div class="col-lg-6">
                     <div class="our-service-wrappper bg-main padding-top-100 padding-bottom-15">
                         <div class="section-title white padding-bottom-15 desktop-left">
-                            <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h2>
+                            <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_title')}}</h3>
                             <p class="m-inherit">{!! get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_description') !!}</p>
                             <div class="service-area-work">
                                 @foreach($all_key_features as $key => $data)
@@ -560,7 +560,7 @@ This Section will be displayed to only Members & When code for that then we will
                             </div>
                             <div class="service-text">
                                 <div class="service-text-inner">
-                                    <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_our_mission_title')}}</h2>
+                                    <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_our_mission_title')}}</h3>
                                     <p>{!! get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_our_mission_description') !!}</p>
                                 </div>
                             </div>
@@ -568,7 +568,7 @@ This Section will be displayed to only Members & When code for that then we will
                         <div class="single-service-item">
                             <div class="service-text">
                                 <div class="service-text-inner">
-                                    <h2 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_our_vision_title')}}</h2>
+                                    <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_our_vision_title')}}</h3>
                                     <p>{!! get_static_option('home_page_01_'.$user_select_lang_slug.'_about_us_our_vision_description') !!}</p>
                                 </div>
                             </div>
@@ -854,7 +854,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row">
                 <div class="col-lg-12">
                     <div class="call-to-action-inner d-flex align-items-center">
-                        <h2 class="title mb-0">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_title')}}</h2>
+                        <h3 class="title mb-0">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_title')}}</h3>
                         <div class="btn-wrapper mt-0">
                             <a href="{{get_static_option('home_page_01_cta_area_button_url')}}"
                                class="boxed-btn">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_cta_area_button_title')}}</a>
@@ -872,7 +872,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title desktop-center padding-bottom-20">
-                        <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>
+                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h3>
                     </div>
                 </div>
             </div>
@@ -915,7 +915,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--            <div class="row justify-content-center">--}}
 {{--                <div class="col-lg-8">--}}
 {{--                    <div class="section-title desktop-center padding-bottom-20">--}}
-{{--                        <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>--}}
+{{--                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_testimonial_section_title')}}</h2>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
@@ -957,7 +957,7 @@ This Section will be displayed to only Members & When code for that then we will
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title white desktop-center padding-bottom-55">
-                        <h2 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_price_plan_section_title')}}</h2>
+                        <h3 class="mb-0 title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_price_plan_section_title')}}</h3>
                         <p>{{get_static_option('home_page_01_'.$user_select_lang_slug.'_price_plan_section_description')}} </p>
                     </div>
                 </div>

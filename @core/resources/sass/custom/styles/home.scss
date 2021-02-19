@@ -460,6 +460,14 @@
 
   .common-single-item {
 
+    &.team-single-item {
+
+      .thumb {
+        max-height: 325px;
+      }
+
+    }
+
     .thumb {
       overflow: hidden;
       max-height: 500px;
