@@ -2390,6 +2390,16 @@ footer .copyright-area ul.social-icons li a.active {
     margin-top: 0.5rem;
     width: 48.5%;
   }
+
+  footer .widget.footer-widget {
+    text-align: center;
+    margin: auto;
+  }
+
+  footer .widget.footer-widget .widget-ul-wrapper ul {
+    margin: auto;
+    text-align: center;
+  }
 }
 
 /* Extra small devices (portrait phones, less than 576px)*/

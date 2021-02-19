@@ -553,6 +553,16 @@
     .widget {
 
       &.footer-widget {
+        text-align: center;
+        margin: auto;
+
+        .widget-ul-wrapper {
+          ul {
+            margin: auto;
+            text-align: center;
+          }
+        }
+
       }
 
     }

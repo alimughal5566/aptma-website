@@ -18,7 +18,7 @@
 @endsection
 @section('content')
 
-    <div class="page-content service-details common-single team-single padding-top-50 padding-bottom-100 ">
+    <div class="page-content service-details common-single team-single padding-top-50 ">
         <div class="container">
             <div class="row ">
                 <div class="col-lg-12">
@@ -80,4 +80,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
