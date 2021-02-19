@@ -10,5 +10,7 @@ $(document).ready(function () {
         $(this).parents('.menu-item-has-children').addClass('active');
         $(this).toggleClass('active');
     });
-    $('footer-widget .widget-ul-wrapper ul li a').attr('target','_blank');
+
+    $('.footer-widget .widget-ul-wrapper ul li a').attr('target', '_blank');
+    
 });
