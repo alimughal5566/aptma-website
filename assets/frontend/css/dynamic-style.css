@@ -1462,8 +1462,8 @@ html {
 
 .common-area .common-grid-carousel .common-grid-carousel-item .thumb {
   border-radius: 0.25rem;
-  min-height: 100px;
-  max-height: 100px;
+  min-height: 150px;
+  max-height: 150px;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -1645,6 +1645,11 @@ html {
   max-height: 150px;
   height: 100%;
   width: 100%;
+}
+
+.common-area .common-item .common-img.publication-img {
+  min-height: 300px;
+  max-height: 300px;
 }
 
 .common-area .common-item .common-img .badge {

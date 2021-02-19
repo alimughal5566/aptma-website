@@ -168,8 +168,8 @@
 
       .thumb {
         border-radius: 0.25rem;
-        min-height: 100px;
-        max-height: 100px;
+        min-height: 150px;
+        max-height: 150px;
         overflow: hidden;
         height: 100%;
         width: 100%;
@@ -361,6 +361,11 @@
       max-height: 150px;
       height: 100%;
       width: 100%;
+
+      &.publication-img {
+        min-height: 300px;
+        max-height: 300px;
+      }
 
       .badge {
         background: color.$primary2;
