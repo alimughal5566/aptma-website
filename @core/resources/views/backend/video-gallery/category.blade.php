@@ -50,7 +50,7 @@
                                     <option value="" selected disabled>{{{__('Bulk Action')}}}</option>
                                     <option value="draft">{{{__('Draft')}}}</option>
                                     <option value="publish">{{{__('publish')}}}</option>
-                                    <option value="delete">{{{__('Delete')}}}</option>
+{{--                                    <option value="delete">{{{__('Delete')}}}</option>--}}
                                 </select>
                                 <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>
                             </div>
@@ -103,22 +103,22 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a tabindex="0" class="btn btn-lg btn-danger btn-sm mb-3 mr-1"
-                                                           role="button"
-                                                           data-toggle="popover"
-                                                           data-trigger="focus"
-                                                           data-html="true"
-                                                           title=""
-                                                           data-content="
-                                                           <h6>{{__('Are you sure to delete this category?')}}</h6>
-                                                           <form method='post' action='{{route('admin.gallery.video.category.delete',$data->id)}}'>
-                                                           <input type='hidden' name='_token' value='{{csrf_token()}}'>
-                                                           <br>
-                                                            <input type='submit' class='btn btn-danger btn-sm' value='{{__('Yes,Please')}}'>
-                                                            </form>
-                                                            ">
-                                                            <i class="ti-trash"></i>
-                                                        </a>
+{{--                                                        <a tabindex="0" class="btn btn-lg btn-danger btn-sm mb-3 mr-1"--}}
+{{--                                                           role="button"--}}
+{{--                                                           data-toggle="popover"--}}
+{{--                                                           data-trigger="focus"--}}
+{{--                                                           data-html="true"--}}
+{{--                                                           title=""--}}
+{{--                                                           data-content="--}}
+{{--                                                           <h6>{{__('Are you sure to delete this category?')}}</h6>--}}
+{{--                                                           <form method='post' action='{{route('admin.gallery.video.category.delete',$data->id)}}'>--}}
+{{--                                                           <input type='hidden' name='_token' value='{{csrf_token()}}'>--}}
+{{--                                                           <br>--}}
+{{--                                                            <input type='submit' class='btn btn-danger btn-sm' value='{{__('Yes,Please')}}'>--}}
+{{--                                                            </form>--}}
+{{--                                                            ">--}}
+{{--                                                            <i class="ti-trash"></i>--}}
+{{--                                                        </a>--}}
                                                         <a href="#"
                                                            data-toggle="modal"
                                                            data-target="#image_category_item_edit_modal"
