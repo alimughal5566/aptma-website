@@ -2025,6 +2025,11 @@ footer .copyright-area {
   background-color: #002a00;
 }
 
+footer .copyright-area ul.social-icons li {
+  width: 25px;
+  height: 25px;
+}
+
 footer .copyright-area ul.social-icons li a {
   color: white;
 }
