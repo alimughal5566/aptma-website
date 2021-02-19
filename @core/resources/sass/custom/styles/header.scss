@@ -168,6 +168,7 @@
 
                 a {
                   width: 100%;
+                  white-space: pre;
                   color: colorVar.$primary2;
 
                   &:hover, &:focus, &:active, &.active {

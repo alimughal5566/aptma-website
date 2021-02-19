@@ -1254,6 +1254,7 @@ html {
 
 .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a {
   width: 100%;
+  white-space: pre;
   color: #107c35;
 }
 
@@ -1747,8 +1748,12 @@ html {
 }
 
 .common-single .common-single-item.team-single-item .thumb {
-  height: auto;
   max-height: 350px;
+  height: 100%;
+}
+
+.common-single .common-single-item.team-single-item .thumb img {
+  height: auto;
   max-width: 100%;
   display: block;
 }
@@ -2035,6 +2040,7 @@ footer .copyright-area {
 footer .copyright-area ul.social-icons li {
   width: 25px;
   height: 25px;
+  margin: 0 0.25rem;
 }
 
 footer .copyright-area ul.social-icons li a {

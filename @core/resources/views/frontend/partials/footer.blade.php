@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <ul class="social-icons list-unstyled d-flex justify-content-center">
+                    <ul class="social-icons list-unstyled d-flex justify-content-center mb-0">
                         @foreach($all_social_item as $data)
                             <li>
                                 <a href="{{$data->url}}">

@@ -71,7 +71,7 @@
 {{--                            <div>{!! $data->about_me !!}</div>--}}
 {{--                        </div>--}}
                         <div class="service-description team-description">
-                            <h5>Description:</h5>
+                            <h5 class="text-dark">Description:</h5>
                             <div>{!! $data->description !!}</div>
                         </div>
                     </div>
