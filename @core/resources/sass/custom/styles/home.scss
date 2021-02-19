@@ -415,11 +415,11 @@
         text-overflow: ellipsis;
         //white-space: nowrap;
         overflow: hidden;
-        line-height: 25px;
+        line-height: 20px;
         max-height: 75px;
         font-weight: 600;
-        font-size: 14px;
         text-align: left;
+        font-size: 14px;
         height: 75px;
       }
 
@@ -433,8 +433,8 @@
         &.btn {
           background: color.$primary2;
           display: inline-block;
-          color: #fff;
           margin: auto;
+          color: #fff;
           width: auto;
         }
 
@@ -522,6 +522,7 @@
       }
 
     }
+
   }
 
 }
