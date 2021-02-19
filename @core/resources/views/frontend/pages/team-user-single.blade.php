@@ -24,7 +24,7 @@
                 <div class="col-lg-12">
                     <h2 class="common-single-title team-single-title margin-bottom-15">{{$data->name}}</h2>
                 </div>
-                <div class="col-lg-6 pb-5">
+                <div class="col-lg-6 pb-lg-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
                         <div class="thumb mb-3">
                             {!! render_image_markup_by_attachment_id($data->image) !!}
@@ -65,12 +65,12 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 ">
+                <div class="col-lg-6 pb-5 pb-lg-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
-{{--                        <div class="service-description team-about">--}}
-{{--                            <strong>About me:</strong>--}}
-{{--                            <div>{!! $data->about_me !!}</div>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="service-description team-about">--}}
+                        {{--                            <strong>About me:</strong>--}}
+                        {{--                            <div>{!! $data->about_me !!}</div>--}}
+                        {{--                        </div>--}}
                         <div class="service-description team-description">
                             <h5>Description:</h5>
                             <div>{!! $data->description !!}</div>
