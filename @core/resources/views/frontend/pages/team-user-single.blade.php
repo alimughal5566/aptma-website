@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row ">
                 <div class="col-lg-12">
-                    <h3 class="common-single-title team-single-title margin-bottom-15">{{$data->name}}</h3>
+                    <h2 class="common-single-title team-single-title margin-bottom-15">{{$data->name}}</h2>
                 </div>
                 <div class="col-lg-6 pb-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">

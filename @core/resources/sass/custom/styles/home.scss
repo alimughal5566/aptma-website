@@ -468,7 +468,10 @@
     &.team-single-item {
 
       .thumb {
+        height: auto;
         max-height: 350px;
+        max-width: 100%;
+        display: block;
       }
 
     }
