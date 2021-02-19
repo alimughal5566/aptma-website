@@ -357,7 +357,7 @@
                         </li>
                     </ul>
 
-                    <ul>
+                    <ul class="list-unstyled login-bar">
                         @if(auth()->check())
                             @php
                                 $route = auth()->guest() == 'admin' ? route('admin.home') : route('user.home');

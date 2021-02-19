@@ -1252,6 +1252,17 @@ html {
           box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
 }
 
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a {
+  color: #107c35;
+}
+
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a:hover,
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a:focus,
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a:active,
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a.active {
+  color: #002a00;
+}
+
 .navigation-wrap .header .navbar-area .nav-container .nav-right-content ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2012,6 +2023,17 @@ footer .footer-top .footer-widget p {
 
 footer .copyright-area {
   background-color: #002a00;
+}
+
+footer .copyright-area ul.social-icons li a {
+  color: white;
+}
+
+footer .copyright-area ul.social-icons li a:hover,
+footer .copyright-area ul.social-icons li a:focus,
+footer .copyright-area ul.social-icons li a:active,
+footer .copyright-area ul.social-icons li a.active {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /*      /FOOTER      */
