@@ -660,39 +660,39 @@ html {
 }
 
 .background-primary2-light {
-  background-color: #439882 !important;
+  background-color: rgba(67, 152, 130, 0.75) !important;
 }
 
 .color-primary2-light {
-  color: #439882 !important;
+  color: rgba(67, 152, 130, 0.75) !important;
 }
 
 .border-primary2-light {
-  border-color: #439882 !important;
+  border-color: rgba(67, 152, 130, 0.75) !important;
 }
 
 .background-primary2-lighter {
-  background-color: #439882 !important;
+  background-color: rgba(67, 152, 130, 0.5) !important;
 }
 
 .color-primary2-lighter {
-  color: #439882 !important;
+  color: rgba(67, 152, 130, 0.5) !important;
 }
 
 .border-primary2-lighter {
-  border-color: #439882 !important;
+  border-color: rgba(67, 152, 130, 0.5) !important;
 }
 
 .background-primary2-lightest {
-  background-color: #439882 !important;
+  background-color: rgba(67, 152, 130, 0.25) !important;
 }
 
 .color-primary2-lightest {
-  color: #439882 !important;
+  color: rgba(67, 152, 130, 0.25) !important;
 }
 
 .border-primary2-lightest {
-  border-color: #439882 !important;
+  border-color: rgba(67, 152, 130, 0.25) !important;
 }
 
 .background-primary3 {
@@ -1392,6 +1392,17 @@ html {
   display: flex;
 }
 
+.single-gallery-image img,
+.case-studies-masonry .masonry-item,
+.common-grid-carousel.owl-carousel .owl-stage-outer .owl-stage,
+.common-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item,
+.common-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item .common-grid-carousel-item,
+.header-slider-one.owl-carousel .owl-stage-outer .owl-stage,
+.service-item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .service-item-wrapper {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -1529,6 +1540,10 @@ html {
   color: #002a00;
 }
 
+.common-area .common-grid-carousel .common-grid-carousel-item .content a {
+  color: #439882;
+}
+
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1603,6 +1618,7 @@ html {
   text-align: left;
   max-height: 60px;
   font-size: 14px;
+  color: #439882;
   height: 60px;
 }
 
@@ -1728,6 +1744,7 @@ html {
   font-weight: 600;
   text-align: left;
   font-size: 14px;
+  color: #439882;
   height: 75px;
 }
 
@@ -1737,6 +1754,7 @@ html {
   height: 100%;
   width: 100%;
   z-index: 999;
+  color: #439882;
 }
 
 .common-area .common-item .common-content a.btn {
@@ -1799,7 +1817,7 @@ html {
 
 .single-case-studies-item::before,
 .single-case-studies-item::after {
-  background-color: #439882;
+  background-color: rgba(67, 152, 130, 0.5);
 }
 
 .case-studies-masonry .masonry-item {
@@ -1982,9 +2000,9 @@ html {
 /*      FOOTER      */
 
 footer .footer-top {
-  background-image: -o-linear-gradient(bottom, #107C35, #12843A, #002A00);
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#107C35), color-stop(#12843A), to(#002A00));
-  background-image: linear-gradient(0deg, #107C35, #12843A, #002A00);
+  background-image: -o-linear-gradient(bottom, #439882, #439882, rgba(67, 152, 130, 0.5));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#439882), color-stop(#439882), to(rgba(67, 152, 130, 0.5)));
+  background-image: linear-gradient(0deg, #439882, #439882, rgba(67, 152, 130, 0.5));
 }
 
 footer .footer-top .counterup-area {
@@ -2066,6 +2084,10 @@ footer .copyright-area ul.social-icons li a:focus,
 footer .copyright-area ul.social-icons li a:active,
 footer .copyright-area ul.social-icons li a.active {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.back-to-top {
+  background-color: #439882;
 }
 
 /*      /FOOTER      */
