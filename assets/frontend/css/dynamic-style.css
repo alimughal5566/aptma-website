@@ -1462,8 +1462,8 @@ html {
 
 .common-area .common-grid-carousel .common-grid-carousel-item .thumb {
   border-radius: 0.25rem;
-  min-height: 100px;
-  max-height: 100px;
+  min-height: 150px;
+  max-height: 150px;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -1521,12 +1521,12 @@ html {
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   overflow: hidden;
-  line-height: 25px;
-  max-height: 75px;
-  font-size: 20px;
+  line-height: 20px;
+  max-height: 70px;
+  font-size: 16px;
   font-weight: 600;
   text-align: left;
-  height: 75px;
+  height: 70px;
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title a {
@@ -1645,6 +1645,11 @@ html {
   max-height: 150px;
   height: 100%;
   width: 100%;
+}
+
+.common-area .common-item .common-img.publication-img {
+  min-height: 300px;
+  max-height: 300px;
 }
 
 .common-area .common-item .common-img .badge {
