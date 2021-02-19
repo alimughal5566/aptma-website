@@ -77,13 +77,13 @@
                                                     <input type="checkbox" class="all-checkbox">
                                                 </div>
                                             </th>
-                                            <th>{{__('ID')}}</th>
+                                            <th>{{__('Order')}}</th>
+{{--                                            <th>{{__('ID')}}</th>--}}
                                             <th>{{__('Image')}}</th>
                                             <th>{{__('Name')}}</th>
                                             <th>{{__('Designation')}}</th>
                                             <th>{{__('Branch/Team')}}</th>
                                             <th>{{__('Department')}}</th>
-                                            <th>{{__('Order')}}</th>
                                             <th>{{__('Action')}}</th>
                                             </thead>
                                             <tbody>
@@ -96,7 +96,8 @@
                                                                    name="bulk_delete[]" value="{{$data->id}}">
                                                         </div>
                                                     </td>
-                                                    <td>{{$data->id}}</td>
+                                                    <td>{{$data->order_no}}</td>
+{{--                                                    <td>{{$data->id}}</td>--}}
                                                     <td>
                                                         @php
                                                             $brand_img = get_attachment_image_by_id($data->image,null,true);
@@ -117,7 +118,6 @@
                                                     <td>{{$data->designation}}</td>
                                                     <td>{{$data->category->name}}</td>
                                                     <td>{{$data->department->name}}</td>
-                                                    <td>{{$data->order_no}}</td>
                                                     <td>
                                                         <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
                                                            role="button"
@@ -389,7 +389,7 @@
 
                         <div class="form-group">
                             <label for="about_me">{{__('About me')}}</label>
-                            <textarea name="about_me" id="about_me" class="form-control" required
+                            <textarea name="about_me" id="aboutme" class="form-control" required
                                       value="{{old('about_me')}}"></textarea>
 
                         </div>
@@ -622,10 +622,9 @@
             }
         });
 
-
-                @if(old('description'))
-        var val = '{{old('description')}}';
-        $('.note-editable').html(val);
+        @if(old('description'))
+            var val = '{{old('description')}}';
+            $('.note-editable').html(val);
         @endif
     </script>
     <script src="{{asset('assets/backend/js/dropzone.js')}}"></script>
