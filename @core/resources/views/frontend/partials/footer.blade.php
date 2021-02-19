@@ -1,7 +1,7 @@
 <footer class="footer-area">
 
     @if(count($footer_widgets) > 0)
-        <div class="footer-top padding-top-60 padding-bottom-30">
+        <div class="footer-top padding-top-50">
             <div class="container">
                 <div class="row {{ count($footer_widgets) > 4 ? 'flex-wrap flex-lg-nowrap footer-widget-wrap' : '' }}">
                     @foreach($footer_widgets as $data)
