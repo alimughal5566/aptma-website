@@ -1747,7 +1747,10 @@ html {
 }
 
 .common-single .common-single-item.team-single-item .thumb {
+  height: auto;
   max-height: 350px;
+  max-width: 100%;
+  display: block;
 }
 
 .common-single .common-single-item .thumb {
