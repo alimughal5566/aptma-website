@@ -254,6 +254,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/' . $quote_page_slug, 'FrontendController@request_quote')->name('frontend.request.quote');
 
     Route::get('/' . $team_page_slug . '/memeber/{slug}', 'FrontendController@team_member')->name('frontend.team.member');
+    Route::get('/teams', 'TeamMemberController@teams')->name('frontend.teams');
     //testimonials
     Route::get('/' . $testimonial_page_slug, 'FrontendController@testimonials')->name('frontend.testimonials');
     Route::get('/' . $feedback_page_slug, 'FrontendController@feedback_page')->name('frontend.feedback');
@@ -765,6 +766,7 @@ Route::prefix('admin-home')->middleware(['contact_page_manage_check'])->group(fu
 Route::prefix('admin-home')->middleware(['team_member_manage_check'])->group(function () {
     //team member
     Route::get('/team-member', 'TeamMemberController@index')->name('admin.team.member');
+
 
     //team member Category
     Route::get('team-member/category', 'TeamMemberController@category_index')->name('admin.team.category');
