@@ -766,7 +766,7 @@
 
                     <li class="main_dropdown
                         {{active_menu('admin-home/team-member')}}
-                    @if(request()->is('admin-home/team-member/*')) active @endif
+                    @if(request()->is('admin-home/team-member/*') || request()->is('admin-home/team/*')) active @endif
                             ">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
                             <span>{{__('Team')}}</span></a>
@@ -775,7 +775,10 @@
                                 <a href="{{route('admin.team.member')}}" >{{__('Team Members')}}</a>
                             </li>
                             <li class="{{active_menu('admin-home/team-member/category')}}">
-                                <a href="{{route('admin.team.category')}}" >{{__('Category')}}</a>
+                                <a href="{{route('admin.team.category')}}" >{{__('Teams')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/team/department')}}">
+                                <a href="{{route('admin.department.category')}}" >{{__('Team Department')}}</a>
                             </li>
                         </ul>
                     </li>

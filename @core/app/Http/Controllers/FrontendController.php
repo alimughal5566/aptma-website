@@ -48,6 +48,7 @@ use App\PublicationCategory;
 use App\ServiceCategory;
 use App\Services;
 use App\TeamCategory;
+use App\TeamDepartment;
 use App\TeamMember;
 use App\Testimonial;
 use App\User;
@@ -530,21 +531,56 @@ class FrontendController extends Controller
         return view('frontend.pages.work.work')->with(['all_work' => $all_work, 'all_work_category' => $all_work_category]);
     }
 
-    public function team_page($cat_id = null)
-    {
+    public function team_page($cat_id = null){
         $category = null;
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-//        dd();c
+        $data1=[];
+        $data=[];
         if (!is_null($cat_id)) {
-            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
-            $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
-        } else {
-            $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'asc')->paginate(12);
+            $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
+            foreach ($teamdepartments as $department) {
+                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
+                $data1['name'] = $department->name;
+                $data[] = $data1;
+            }
+
         }
 
-        return view('frontend.pages.team-page')->with(['all_team_members' => $all_team_members, 'category' => $category]);
+//            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
+            $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
+//        } else {
+//            $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'asc')->paginate(12);
+//        }
+
+        return view('frontend.pages.team-page')->with(['category' => $category,'data' => $data]);
     }
+    public function team_member($id = null){
+        $default_lang = Language::where('default', 1)->first();
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+
+
+//            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
+            $data = TeamMember::where('id', $id)->first();
+//dd($data);
+
+        return view('frontend.pages.team-user-single')->with(['data' => $data]);
+    }
+//    public function team_page($cat_id = null)
+//    {
+//        $category = null;
+//        $default_lang = Language::where('default', 1)->first();
+//        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+////        dd();c
+//        if (!is_null($cat_id)) {
+//            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
+//            $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
+//        } else {
+//            $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'asc')->paginate(12);
+//        }
+//
+//        return view('frontend.pages.team-page1')->with(['all_team_members' => $all_team_members, 'category' => $category]);
+//    }
 
     public function faq_page()
     {

@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Team Member Item')}}
+    {{__('Staff')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -38,10 +38,10 @@
                 @endif
             </div>
 
-            <div class="col-lg-6 mt-5">
+            <div class="col-lg-7 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Team Member Items')}}</h4>
+{{--                        <h4 class="header-title">{{__('Staff')}}</h4>--}}
                         <div class="bulk-delete-wrapper">
                             <div class="select-box-wrap">
                                 <select name="bulk_option" id="bulk_option">
@@ -76,7 +76,9 @@
                                         <th>{{__('Image')}}</th>
                                         <th>{{__('Name')}}</th>
                                         <th>{{__('Designation')}}</th>
-                                        <th>{{__('Branch')}}</th>
+                                        <th>{{__('Branch/Team')}}</th>
+                                        <th>{{__('Department')}}</th>
+                                        <th>{{__('Order')}}</th>
                                         <th>{{__('Action')}}</th>
                                         </thead>
                                         <tbody>
@@ -107,6 +109,8 @@
                                                 <td>{{$data->name}}</td>
                                                 <td>{{$data->designation}}</td>
                                                 <td>{{$data->category->name}}</td>
+                                                <td>{{$data->department->name}}</td>
+                                                <td>{{$data->order_no}}</td>
                                                 <td>
                                                     <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
                                                        role="button"
@@ -144,6 +148,8 @@
                                                        data-iconTwoUrl="{{$data->icon_two_url}}"
                                                        data-iconThreeUrl="{{$data->icon_three_url}}"
                                                        data-category="{{$data->cat_id}}"
+                                                       data-department_id="{{$data->department_id}}"
+                                                       data-order="{{$data->order_no}}"
                                                     >
                                                         <i class="ti-pencil"></i>
                                                     </a>
@@ -161,40 +167,59 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mt-5">
+            <div class="col-lg-5 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('New Team Member')}}</h4>
+                        <h4 class="header-title">{{__('Add New Staff')}}</h4>
                         <form action="{{route('admin.team.member')}}" method="post" enctype="multipart/form-data" id="newForm">
                             @csrf
+{{--                            <div class="form-group">--}}
+{{--                                <label for="languages">{{__('Languages')}}</label>--}}
+{{--                                <select name="lang" class="form-control" id="languages">--}}
+{{--                                    @foreach($all_languages as $lang)--}}
+{{--                                        <option value="{{$lang->slug}}">{{$lang->name}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                             <div class="form-group">
-                                <label for="languages">{{__('Languages')}}</label>
-                                <select name="lang" class="form-control" id="languages">
-                                    @foreach($all_languages as $lang)
-                                        <option value="{{$lang->slug}}">{{$lang->name}}</option>
-                                    @endforeach
-                                </select>
+                                <label for="name">{{__('Name')}}</label>
+                                <input type="text" class="form-control" required id="name"  name="name" placeholder="{{__('Name')}}" value="{{old('name')}}">
                             </div>
                             <div class="form-group">
-                                <label for="languages">{{__('Branch')}}</label>
-                                <select name="cat_id" class="form-control" id="languages">
+                                <label for="languages">{{__('Team')}}</label>
+                                <select name="cat_id" class="form-control" id="languages" required>
+                                    <option selected disabled value="">Choose Team</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id}}" {{($category->id==old('cat_id'))?'selected':''}}>{{ $category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="name">{{__('Name')}}</label>
-                                <input type="text" class="form-control" required id="name"  name="name" placeholder="{{__('Name')}}" value="{{old('name')}}">
+                                <label for="languages">{{__('Department')}}</label>
+                                <select name="department_id" class="form-control" id="languages" required >
+                                    <option selected disabled value="">Choose Department</option>
+                                    @foreach($team_department as $department)
+                                        <option value="{{ $department->id}}" {{($department->id==old('department_id'))?'selected':''}}>{{ $department->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="designation">{{__('Designation')}}</label>
-                                <input type="text" class="form-control"  id="designation" required  name="designation" placeholder="{{__('Designation')}}" value="{{old('designation')}}">
-                            </div>
+
+                                <div class="form-group">
+                                    <label for="lang">{{__('Designation')}}</label>
+                                    <input type="text" name="designation" placeholder="Designation" class="form-control" required value="{{old('designation')}}" >
+                                </div>
+                              <div class="form-group">
+                                    <label for="lang">{{__('Placement order')}}</label>
+                                    <select name="order_no" class="form-control" required>
+                                        @for($j=15;$j>=1; $j--)
+                                            <option value="{{$j}}"  {{(old('order_no')==$j)?'selected':''}}>{{$j}}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+
                             <div class="form-group">
                                 <label>{{__('About me')}}</label>
                                 <textarea name="about_me"  class="form-control" required>{{old('about_me')}}</textarea>
-
                             </div>
                             <div class="form-group">
                                 <label>{{__('Description')}}</label>
@@ -253,17 +278,18 @@
                                     </button>
                                     <div class="dropdown-menu"></div>
                                 </div>
-                                <input type="hidden" class="form-control"  id="icon_three" value="fab fa-facebook-f" name="icon_three">
+                                <input type="hidden" class="form-control"  id="icon_three" value="fab fa-facebook-f" name="icon_three"  >
+                                <input type="hidden" value="en" name="lang">
                             </div>
                             <div class="form-group">
                                 <label for="icon_three_url">{{__('Social Profile Three URL')}}</label>
-                                <input type="text" class="form-control"  id="icon_three_url"  name="icon_three_url" placeholder="{{__('Social Profile Three URL')}}">
+                                <input type="text" class="form-control"  id="icon_three_url"  name="icon_three_url" placeholder="{{__('Social Profile Three URL')}}"  value="{{old('icon_three_url')}}">
                             </div>
                             <div class="form-group">
                                 <label for="image">{{__('Image*')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="image">
+                                    <input type="hidden" name="image" value="{{old('image')}}">
                                     <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="{{__('Select Team Image')}}" data-modaltitle="{{__('Upload Team Image')}}" data-toggle="modal" data-target="#media_upload_modal">
                                         {{__('Upload Image')}}
                                     </button>
@@ -282,21 +308,21 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{__('Edit Team Member Item')}}</h5>
+                    <h5 class="modal-title">{{__('Edit Staff')}}</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
                 <form action="#" id="team_member_edit_modal_form"  method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         @csrf
                         <input type="hidden" name="id" id="team_member_id" value="">
-                        <div class="form-group">
-                            <label for="edit_languages">{{__('Languages')}}</label>
-                            <select name="lang" class="form-control" id="edit_languages">
-                                @foreach($all_languages as $lang)
-                                    <option value="{{$lang->slug}}">{{$lang->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="edit_languages">{{__('Languages')}}</label>--}}
+{{--                            <select name="lang" class="form-control" id="edit_languages">--}}
+{{--                                @foreach($all_languages as $lang)--}}
+{{--                                    <option value="{{$lang->slug}}">{{$lang->name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <label for="edit_name">{{__('Name')}}</label>
                             <input type="text" class="form-control"  id="edit_name"  name="name" placeholder="{{__('Name')}}" value="{{old('name')}}">
@@ -306,13 +332,34 @@
                             <input type="text" class="form-control"  id="edit_designation"  name="designation" placeholder="{{__('Designation')}}" value="{{old('designation')}}">
                         </div>
                         <div class="form-group">
-                            <label for="languages">{{__('Branch')}}</label>
+                            <label for="languages">{{__('Team')}}</label>
                             <select name="cat_id" class="form-control" id="cat">
+                                <option selected disabled value="">Choose Team</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id}}" {{($category->id==old('cat_id'))?'selected':''}}>{{ $category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <input type="hidden" value="en" name="lang">
+                        <div class="form-group">
+                            <label for="languages">{{__('Department')}}</label>
+                            <select name="department_id" class="form-control" id="languages" required >
+                                <option selected disabled value="">Choose Department</option>
+                                @foreach($team_department as $department)
+                                    <option value="{{ $department->id}}" {{($department->id==old('department_id'))?'selected':''}}>{{ $department->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lang">{{__('Placement order')}}</label>
+                            <select name="order_no" class="form-control" required>
+                                @for($j=15;$j>=1; $j--)
+                                    <option value="{{$j}}"  {{(old('order_no')==$j)?'selected':''}} >{{$j}}</option>
+                                @endfor
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label>{{__('About me')}}</label>
                             <textarea name="about_me"  class="form-control" id='aboutme'required value="{{old('about_me')}}"></textarea>
@@ -452,10 +499,12 @@
                 var designation = el.data('designation');
                 var action = el.data('action');
                 var image = el.data('image');
+                var department_id = el.data('department_id');
                 var imageid = el.data('imageid');
                 var aboutme = el.data('aboutme');
                 var description = el.data('description');
                 var category = el.data('category');
+                var order = el.data('order');
                 var form = $('#team_member_edit_modal_form');
 
 
@@ -476,9 +525,11 @@
                 form.find('.note-editable').html(description);
 
                 form.find('#preview_image').attr('src',image);
-                form.find('#edit_languages option[value="'+el.data('lang')+'"]').attr('selected',true);
+                // form.find('#edit_languages option[value="'+el.data('lang')+'"]').attr('selected',true);
 
+                form.find('select[name="order_no"] option[value="'+order+'"]').attr('selected',true);
                 form.find('select[name="cat_id"] option[value="'+category+'"]').attr('selected',true);
+                form.find('select[name="department_id"] option[value="'+department_id+'"]').attr('selected',true);
 
                 form.find('.edit_icon_three .icp-dd').attr('data-selected',el.data('iconthree'));
                 form.find('.edit_icon_three .iconpicker-component i').attr('class',el.data('iconthree'));

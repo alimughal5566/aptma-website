@@ -40,18 +40,18 @@
             <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Advertisement Categories')}}</h4>
-{{--                        <div class="bulk-delete-wrapper">--}}
-{{--                            <div class="select-box-wrap">--}}
-{{--                                <select name="bulk_option" id="bulk_option">--}}
-{{--                                    <option value="" selected disabled>{{{__('Bulk Action')}}}</option>--}}
-{{--                                    <option value="draft">{{{__('Draft')}}}</option>--}}
-{{--                                    <option value="publish">{{{__('publish')}}}</option>--}}
+{{--                        <h4 class="header-title">{{__('Advertisement Categories')}}</h4>--}}
+                        <div class="bulk-delete-wrapper">
+                            <div class="select-box-wrap">
+                                <select name="bulk_option" id="bulk_option">
+                                    <option value="" selected disabled>{{{__('Bulk Action')}}}</option>
+                                    <option value="draft">{{{__('Draft')}}}</option>
+                                    <option value="publish">{{{__('publish')}}}</option>
 {{--                                    <option value="delete">{{{__('Delete')}}}</option>--}}
-{{--                                </select>--}}
-{{--                                <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                                </select>
+                                <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>
+                            </div>
+                        </div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             @php $a=0; @endphp
                             @foreach($all_category as $key => $slider)
