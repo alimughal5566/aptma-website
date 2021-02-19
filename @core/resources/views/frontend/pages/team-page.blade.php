@@ -10,7 +10,7 @@
     <meta name="tags" content="{{get_static_option('team_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
 @section('content')
-    <div class="team-member-area team-page padding-50 bg-white">
+    <div class="team-member-area team-page padding-50 background-gray-light-lightest">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
                 Team <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
