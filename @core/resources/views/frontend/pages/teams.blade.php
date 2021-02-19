@@ -30,7 +30,6 @@
 
                                 <div class="col-lg-3  col-sm-6 mb-5  pb-5 padding-bottom-50 mb-1 " style="border:1px solid #cfcfd1">
                                     <div class="team-section">
-
                                         <div class="team-img-cont pb-1 img-fluid" style="cursor:default;min-height:150px;" >
                                             {!! render_image_markup_by_attachment_id($team->img_id) !!}
                                         </div>
