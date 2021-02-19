@@ -26,9 +26,15 @@
                 </div>
                 <div class="col-lg-6 pb-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
-                        <h5>Designation: <strong>{{$data->designation}}</strong></h5>
-                        <h5>Department: <strong>{{$data->department->name}}</strong></h5>
-                        <div class="social-link pb-5">
+                        <h5 class="d-flex flex-column">
+                            <span>Designation:</span>
+                            <strong>{{$data->designation}}</strong>
+                        </h5>
+                        <h5 class="d-flex flex-column">
+                            <span>Department:</span>
+                            <strong>{{$data->department->name}}</strong>
+                        </h5>
+                        <div class="social-link pb-4">
                             <ul>
                                 @if(!empty( $data->icon_one) && !empty( $data->icon_one_url))
                                     <li>

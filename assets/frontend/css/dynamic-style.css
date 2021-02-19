@@ -1729,6 +1729,10 @@ html {
   color: #107c35;
 }
 
+.common-single .common-single-item.team-single-item .thumb {
+  max-height: 325px;
+}
+
 .common-single .common-single-item .thumb {
   overflow: hidden;
   max-height: 500px;
