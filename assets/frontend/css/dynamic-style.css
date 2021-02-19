@@ -1765,11 +1765,23 @@ html {
   width: auto;
 }
 
+.common-area .common-item:hover .content a,
+.common-area .common-item:focus .content a,
+.common-area .common-item:active .content a {
+  color: #fff;
+}
+
 .common-area .common-item:hover .content a.btn,
 .common-area .common-item:focus .content a.btn,
 .common-area .common-item:active .content a.btn {
   background: #fff;
   color: #439882;
+}
+
+.common-area .common-item:hover .content .title,
+.common-area .common-item:focus .content .title,
+.common-area .common-item:active .content .title {
+  color: #fff;
 }
 
 .common-single .common-single-item.team-single-item .thumb {
@@ -2066,7 +2078,7 @@ footer .footer-top .footer-widget p {
 }
 
 footer .copyright-area {
-  background-color: #002a00;
+  background-color: rgba(67, 152, 130, 0.5);
 }
 
 footer .copyright-area ul.social-icons li {
