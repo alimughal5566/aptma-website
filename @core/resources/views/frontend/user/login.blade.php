@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="col-6 text-right">
-                                <a class="d-block" href="{{route('user.register')}}">{{__('Create New account?')}}</a>
+{{--                                <a class="d-block" href="{{route('user.register')}}">{{__('Create New account?')}}</a>--}}
                                 <a href="{{route('user.forget.password')}}">{{__('Forgot Password?')}}</a>
                             </div>
                         </div>
