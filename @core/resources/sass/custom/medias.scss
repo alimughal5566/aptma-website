@@ -354,6 +354,26 @@
       .navbar-area {
 
         .nav-container {
+
+          .navbar-collapse {
+
+            ul {
+
+              &.login-bar {
+
+                li {
+                  padding: 10px;
+                  font-size: 15px;
+                  font-weight: 700;
+                  line-height: 1.75;
+                }
+
+              }
+
+            }
+
+          }
+
         }
 
       }

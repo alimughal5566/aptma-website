@@ -30,12 +30,12 @@
                             {!! render_image_markup_by_attachment_id($data->image) !!}
                         </div>
                         <h5 class="d-flex flex-column">
-                            <span class="text-dark">Designation:</span>
-                            <strong>{{$data->designation}}</strong>
+                            <span>Designation:</span>
+                            <strong class="text-dark">{{$data->designation}}</strong>
                         </h5>
                         <h5 class="d-flex flex-column">
-                            <span class="text-dark">Department:</span>
-                            <strong>{{$data->department->name}}</strong>
+                            <span>Department:</span>
+                            <strong class="text-dark">{{$data->department->name}}</strong>
                         </h5>
                         <div class="social-link pb-4">
                             <ul>
@@ -72,7 +72,7 @@
 {{--                            <div>{!! $data->about_me !!}</div>--}}
 {{--                        </div>--}}
                         <div class="service-description team-description">
-                            <h5 class="text-dark">Description:</h5>
+                            <h5>Description:</h5>
                             <div>{!! $data->description !!}</div>
                         </div>
                     </div>
