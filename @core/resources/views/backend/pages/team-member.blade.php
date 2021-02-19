@@ -77,7 +77,7 @@
                                                     <input type="checkbox" class="all-checkbox">
                                                 </div>
                                             </th>
-                                            <th>{{__('ID')}}</th>
+{{--                                            <th>{{__('ID')}}</th>--}}
                                             <th>{{__('Image')}}</th>
                                             <th>{{__('Name')}}</th>
                                             <th>{{__('Designation')}}</th>
@@ -96,7 +96,7 @@
                                                                    name="bulk_delete[]" value="{{$data->id}}">
                                                         </div>
                                                     </td>
-                                                    <td>{{$data->id}}</td>
+{{--                                                    <td>{{$data->id}}</td>--}}
                                                     <td>
                                                         @php
                                                             $brand_img = get_attachment_image_by_id($data->image,null,true);
@@ -389,7 +389,7 @@
 
                         <div class="form-group">
                             <label for="about_me">{{__('About me')}}</label>
-                            <textarea name="about_me" id="about_me" class="form-control" required
+                            <textarea name="about_me" id="aboutme" class="form-control" required
                                       value="{{old('about_me')}}"></textarea>
 
                         </div>
@@ -602,7 +602,7 @@
         $(document).ready(function () {
 
             $('.table-wrap > table').DataTable({
-                "order": [[1, "desc"]],
+                "order": [[6, "desc"]],
                 'columnDefs': [{
                     'targets': 'no-sort',
                     'orderable': false
@@ -622,10 +622,9 @@
             }
         });
 
-
-                @if(old('description'))
-        var val = '{{old('description')}}';
-        $('.note-editable').html(val);
+        @if(old('description'))
+            var val = '{{old('description')}}';
+            $('.note-editable').html(val);
         @endif
     </script>
     <script src="{{asset('assets/backend/js/dropzone.js')}}"></script>
