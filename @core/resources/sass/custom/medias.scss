@@ -392,6 +392,11 @@
 
   .common-area {
 
+    .common-container {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
     .common-grid-carousel {
 
       .common-grid-carousel-item {
@@ -495,6 +500,14 @@
 
     h2 {
       font-size: 26px;
+    }
+
+    a {
+
+      &.btn {
+        margin-top: 1rem;
+      }
+
     }
 
   }

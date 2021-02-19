@@ -2311,9 +2311,15 @@ footer .copyright-area ul.social-icons li a.active {
 
 @media (max-width: 767.98px) {
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li {
-    padding: 0 10px;
+    padding: 10px;
     font-size: 15px;
     font-weight: 700;
+    line-height: 1.75;
+  }
+
+  .common-area .common-container {
+    padding-right: 15px;
+    padding-left: 15px;
   }
 
   .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
@@ -2359,6 +2365,10 @@ footer .copyright-area ul.social-icons li a.active {
 
   .section-title h2 {
     font-size: 26px;
+  }
+
+  .section-title a.btn {
+    margin-top: 1rem;
   }
 
   .blog-classic-item-01 .content .title {
