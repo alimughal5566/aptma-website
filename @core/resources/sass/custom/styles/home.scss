@@ -78,6 +78,15 @@
   @include mix.d-flex;
 }
 
+.single-gallery-image img, .case-studies-masonry .masonry-item,
+.common-grid-carousel.owl-carousel .owl-stage-outer .owl-stage,
+.common-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item,
+.common-grid-carousel.owl-carousel .owl-stage-outer .owl-stage .owl-item .common-grid-carousel-item,
+.header-slider-one.owl-carousel .owl-stage-outer .owl-stage, .service-item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .service-item-wrapper {
   @include mix.justify-content-center;
 }
@@ -233,6 +242,10 @@
 
         }
 
+        a {
+          color: color.$primary2;
+        }
+
         .title {
           display: inline-flex;
           @include mix.align-items-center;
@@ -295,6 +308,7 @@
             text-align: left;
             max-height: 60px;
             font-size: 14px;
+            color: color.$primary2;
             height: 60px;
           }
 
@@ -425,6 +439,7 @@
         font-weight: 600;
         text-align: left;
         font-size: 14px;
+        color: color.$primary2;
         height: 75px;
       }
 
@@ -434,6 +449,7 @@
         height: 100%;
         width: 100%;
         z-index: 999;
+        color: color.$primary2;
 
         &.btn {
           background: color.$primary2;

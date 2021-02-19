@@ -6,7 +6,7 @@
 footer {
 
   .footer-top {
-    background-image: linear-gradient(0deg, #107C35, #12843A, #002A00);
+    background-image: linear-gradient(0deg, colorVar.$primary2, colorVar.$primary2, colorVar.$primary2-lighter);
 
     .counterup-area {
       background-color: transparent;
@@ -105,6 +105,10 @@ footer {
 
   }
 
+}
+
+.back-to-top {
+  background-color: colorVar.$primary2;
 }
 
 /*      /FOOTER      */
