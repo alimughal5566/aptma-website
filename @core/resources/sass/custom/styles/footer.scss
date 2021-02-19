@@ -78,6 +78,28 @@ footer {
 
   .copyright-area {
     background-color: colorVar.$primary1;
+
+    ul {
+
+      &.social-icons {
+
+        li {
+
+          a {
+            color: rgba(255, 255, 255, 1);
+
+            &:hover, &:focus, &:active, &.active {
+              color: rgba(255, 255, 255, 0.75);
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 }

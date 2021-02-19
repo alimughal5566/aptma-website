@@ -162,6 +162,23 @@
 
             }
 
+            &.login-bar {
+
+              li {
+
+                a {
+                  color: colorVar.$primary2;
+
+                  &:hover, &:focus, &:active, &.active {
+                    color: colorVar.$primary1;
+                  }
+
+                }
+
+              }
+
+            }
+
           }
 
         }
