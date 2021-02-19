@@ -14,7 +14,18 @@
     <div class="copyright-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <ul class="social-icons">
+                        @foreach($all_social_item as $data)
+                            <li>
+                                <a href="{{$data->url}}">
+                                    <i class="{{$data->icon}}"></i>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="col-lg-6">
                     <div class="copyright-item">
                         <div class="copyright-area-inner">
                             {!! get_footer_copyright_text() !!}

@@ -50,8 +50,8 @@
                                     @else
                                         <li>
                                             <a href="{{route('user.login')}}">{{__('Member Login')}}</a>
-{{--                                            <span>/</span>--}}
-{{--                                            <a href="{{route('user.register')}}">{{__('Register')}}</a>--}}
+                                            {{--                                            <span>/</span>--}}
+                                            {{--                                            <a href="{{route('user.register')}}">{{__('Register')}}</a>--}}
                                         </li>
                                     @endif
                                     @if(!empty(get_static_option('language_select_option')))
@@ -220,26 +220,26 @@
                                 </li>
 
 
-{{--                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
-{{--                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>--}}
+                                {{--                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
+                                {{--                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>--}}
 
-{{--                                    @if($blogCategories->count()>0)--}}
-{{--                                        <ul class="sub-menu">--}}
-{{--                                            @foreach($blogCategories as $category)--}}
-{{--                                                @if($category->blogs_count>0)--}}
-{{--                                                    <li>--}}
-{{--                                                        <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>--}}
-{{--                                                    </li>--}}
-{{--                                                @endif--}}
-{{--                                            @endforeach--}}
-{{--                                        </ul>--}}
-{{--                                    @endif--}}
+                                {{--                                    @if($blogCategories->count()>0)--}}
+                                {{--                                        <ul class="sub-menu">--}}
+                                {{--                                            @foreach($blogCategories as $category)--}}
+                                {{--                                                @if($category->blogs_count>0)--}}
+                                {{--                                                    <li>--}}
+                                {{--                                                        <a href="{{route('frontend.blog.category', ['id' => $category->id,'any'=> Str::slug($category->name,'-')])}}">{{$category->name}}</a>--}}
+                                {{--                                                    </li>--}}
+                                {{--                                                @endif--}}
+                                {{--                                            @endforeach--}}
+                                {{--                                        </ul>--}}
+                                {{--                                    @endif--}}
 
-{{--                                </li>--}}
+                                {{--                                </li>--}}
 
-{{--                                <li>--}}
-{{--                                    <a href="javascript:void(0);">Policy Document</a>--}}
-{{--                                </li>--}}
+                                {{--                                <li>--}}
+                                {{--                                    <a href="javascript:void(0);">Policy Document</a>--}}
+                                {{--                                </li>--}}
 
                                 {{--                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
 
@@ -355,6 +355,32 @@
                         <li>
                             <a href="{{route('frontend.contact')}}">Contact</a>
                         </li>
+                    </ul>
+
+                    <ul>
+                        @if(auth()->check())
+                            @php
+                                $route = auth()->guest() == 'admin' ? route('admin.home') : route('user.home');
+                            @endphp
+                            <li>
+                                <a href="{{$route}}">{{__('Dashboard')}}</a> <span>/</span>
+                                <a href="{{ route('user.logout') }}"
+                                   onclick="event.preventDefault();
+                                                         document.getElementById('userlogout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="userlogout-form" action="{{ route('user.logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{route('user.login')}}">{{__('Member Login')}}</a>
+                                {{--                                            <span>/</span>--}}
+                                {{--                                            <a href="{{route('user.register')}}">{{__('Register')}}</a>--}}
+                            </li>
+                        @endif
                     </ul>
                 </div>
 
