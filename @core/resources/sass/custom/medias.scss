@@ -587,6 +587,7 @@
           }
 
           .navbar-collapse {
+            @include mix.justify-content-center;
 
             ul {
 

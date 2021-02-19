@@ -1253,6 +1253,7 @@ html {
 }
 
 .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a {
+  width: 100%;
   color: #107c35;
 }
 
@@ -2387,6 +2388,12 @@ footer .copyright-area ul.social-icons li a.active {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children > .sub-menu {
