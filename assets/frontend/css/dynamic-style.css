@@ -2393,7 +2393,7 @@ footer .copyright-area ul.social-icons li a.active {
 
   footer .widget.footer-widget {
     text-align: center;
-    margin: auto;
+    margin: 0 auto 30px;
   }
 
   footer .widget.footer-widget .widget-ul-wrapper ul {
