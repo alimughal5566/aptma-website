@@ -28,7 +28,6 @@ class TeamMemberController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
         $this->validate($request, [
             'name' => 'required|string|max:191',
             'lang' => 'required|string|max:191',
@@ -39,8 +38,8 @@ class TeamMemberController extends Controller
             'icon_one_url' => 'nullable|string|max:191',
             'icon_two_url' => 'nullable|string|max:191',
             'icon_three_url' => 'nullable|string|max:191',
-            'description' => 'required|string|max:555',
-            'about_me' => 'required|string|max:255',
+            'description' => 'required|string|max:5000',
+            'about_me' => 'required|string|max:1000',
             'image' => 'required|string|max:225',
             'cat_id' => 'required|string|max:225',
             'department_id' => 'required|string|max:225',
@@ -52,8 +51,6 @@ class TeamMemberController extends Controller
 
     public function update(Request $request)
     {
-
-
         $this->validate($request, [
             'name' => 'required|string|max:191',
             'lang' => 'required|string|max:191',
@@ -65,8 +62,8 @@ class TeamMemberController extends Controller
             'icon_one_url' => 'nullable|string|max:191',
             'icon_two_url' => 'nullable|string|max:191',
             'icon_three_url' => 'nullable|string|max:191',
-            'about_me' => 'required|string|max:255',
-            'description' => 'required|string|max:555',
+            'about_me' => 'required|string|max:1000',
+            'description' => 'required|string|max:5000',
             'cat_id' => 'required|string|max:225',
             'department_id' => 'required|string|max:225',
             'order_no' => 'required|string|max:225',
