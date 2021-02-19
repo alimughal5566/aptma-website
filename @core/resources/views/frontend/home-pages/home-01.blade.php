@@ -37,7 +37,7 @@
                     <div class="col-12 col-lg-9">
                         @if($publications->count()>0)
                             <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30 margin-bottom-50">
-                                <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row padding-30">
                                     <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Articles & Publications'}}</h3>
                                     {{--                    <p class="desc">{{''}}</p>--}}
                                     <a href="{{route('frontend.publication')}}" class="btn">View All</a>
@@ -77,7 +77,7 @@
                         @endif
                         @if($all_events->count()>0)
                             <div class="bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                                <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
                                     <h3 class="mb-0 font-weight-bold">{{'Latest Events'}}</h3>
                                     {{--                    <p class="desc">{{''}}</p>--}}
                                     <a href="{{route('frontend.events')}}" class="btn">View All</a>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-12 col-lg-3">
                         <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
-                            {{--                            <div class="section-title desktop-center padding-top-30 padding-bottom-20">--}}
+                            {{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30 ">--}}
                             {{--                                <h3 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
                             {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
                             {{--                            </div>--}}
@@ -212,7 +212,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
                                 <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Advertisement'}}</h3>
                                 {{--                    <p class="desc">{{''}}</p>--}}
                                 <a href="{{route('frontend.advertisement.index')}}" class="btn">View All</a>
@@ -259,7 +259,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
                                 <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Videos'}}</h3>
                                 {{--                    <p class="desc">{{''}}</p>--}}
                                 <a href="{{route('frontend.gallery.video.index')}}" class="btn">View All</a>
@@ -318,7 +318,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                <div class="row">--}}
 {{--                    <div class="col-12">--}}
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
-{{--                            <div class="section-title desktop-center padding-30">--}}
+{{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row padding-30">--}}
 {{--                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Circulars'}}</h2>--}}
 {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
@@ -376,7 +376,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                <div class="row">--}}
 {{--                    <div class="col-12">--}}
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
-{{--                            <div class="section-title desktop-center padding-30">--}}
+{{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">--}}
 {{--                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>--}}
 {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
@@ -433,7 +433,7 @@ This Section will be displayed to only Members & When code for that then we will
                     <div class="row">
                         <div class="col-12">
                             <div class=" bg-white rounded px-2 px-lg-3 padding-top-50 padding-bottom-30">
-                                <div class="section-title d-flex justify-content-between align-items-center padding-30">
+                                <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
                                     <h3 class="mb-0 font-weight-bold">{{'Latest News & Articles'}}</h3>
                                     {{--                        <h3 class="title">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_title')}}</h3>--}}
                                     {{--                        <p class="text-dark">{{get_static_option('home_page_01_'.$user_select_lang_slug.'_latest_news_description')}} </p>--}}
