@@ -2311,10 +2311,16 @@ footer .copyright-area ul.social-icons li a.active {
 
 @media (max-width: 767.98px) {
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li {
+    margin: auto;
     padding: 10px;
     font-size: 15px;
     font-weight: 700;
     line-height: 1.75;
+    text-align: center;
+  }
+
+  .team-member-area .team-section .team-img-cont {
+    max-height: unset;
   }
 
   .common-area .common-container {
