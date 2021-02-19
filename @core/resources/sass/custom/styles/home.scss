@@ -560,20 +560,18 @@
 
 /* /HOME */
 
-.team-img-cont {
-
-  img {
-    border-radius: 50%;
-  }
-
-}
-
 .team-member-area {
 
   .team-section {
 
     .team-img-cont {
-      min-height: 305px;
+      min-height: 260px;
+      max-height: 260px;
+
+      img {
+        border-radius: 50%;
+      }
+
     }
 
   }

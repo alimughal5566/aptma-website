@@ -1796,6 +1796,7 @@ html {
 .single-contact-item .content .title {
   font-size: 1rem;
   font-weight: 700;
+  margin-top: 0.5rem;
   margin-bottom: 0.75rem;
 }
 
@@ -1810,12 +1811,13 @@ html {
 
 /* /HOME */
 
-.team-img-cont img {
-  border-radius: 50%;
+.team-member-area .team-section .team-img-cont {
+  min-height: 260px;
+  max-height: 260px;
 }
 
-.team-member-area .team-section .team-img-cont {
-  min-height: 305px;
+.team-member-area .team-section .team-img-cont img {
+  border-radius: 50%;
 }
 
 .team-member-area .team-detail-wrapper .team-detail-item {
