@@ -11,4 +11,6 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
+    $('.footer-widget .widget-ul-wrapper ul li a').attr('target', '_blank');
+    
 });
