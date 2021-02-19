@@ -1747,7 +1747,7 @@ html {
 }
 
 .common-single .common-single-item.team-single-item .thumb {
-  max-height: 325px;
+  max-height: 350px;
 }
 
 .common-single .common-single-item .thumb {
@@ -1758,6 +1758,9 @@ html {
 
 .common-single .common-single-item .thumb img {
   width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
 }
 
 .common-single .common-single-item a.btn {
