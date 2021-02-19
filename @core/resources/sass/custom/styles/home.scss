@@ -468,12 +468,17 @@
       .content {
 
         a {
+          color: #fff;
 
           &.btn {
             background: #fff;
             color: color.$primary2;
           }
 
+        }
+
+        .title {
+          color: #fff;
         }
 
       }
