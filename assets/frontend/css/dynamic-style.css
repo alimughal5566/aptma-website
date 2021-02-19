@@ -1771,6 +1771,10 @@ html {
 .single-contact-item {
   padding: 20px;
   height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .single-contact-item .icon {
@@ -1781,6 +1785,8 @@ html {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  margin-right: 0;
+  margin-bottom: 1rem;
 }
 
 .single-contact-item .content {
@@ -1790,7 +1796,7 @@ html {
 .single-contact-item .content .title {
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .single-contact-item .content .details {
@@ -1883,6 +1889,7 @@ html {
 }
 
 .social-link {
+  margin-top: 0.5rem;
   height: 25px;
 }
 

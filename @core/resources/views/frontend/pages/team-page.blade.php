@@ -19,11 +19,11 @@
                     @forelse($data as $record)
                         @if($record['members']->count()>0)
                             <div class="row">
-                                <div class="col-12">
-                                    <h3> {{$record['name']}}</h3>
+                                <div class="col-12 padding-bottom-30">
+                                    <h3 class="subtitle"> {{$record['name']}}</h3>
                                 </div>
                                 @foreach($record['members'] as $user )
-                                    <div class="col-lg-3  col-sm-6 padding-bottom-50">
+                                    <div class="col-lg-3 col-sm-6 padding-bottom-50">
                                         <div class="team-section">
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
                                             <div class="team-img-cont" style="cursor:default;">
@@ -69,7 +69,7 @@
                             </div>
                         @endif
                     @empty
-                        <div class="col-md-12 card border-0  gray-bg mt-5 margin-bottom-40">
+                        <div class="col-12 card border-0 mt-5 margin-bottom-40">
                             <div class="text center px-5">
                                 <h1 class="text-muted">Sorry, No member found</h1>
                             </div>
