@@ -537,21 +537,15 @@ class FrontendController extends Controller
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         $data1=[];
         $data=[];
-        if (!is_null($cat_id)) {
+        if (!is_null($cat_id)){
             $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
             foreach ($teamdepartments as $department) {
                 $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
                 $data1['name'] = $department->name;
                 $data[] = $data1;
             }
-
         }
-
-//            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
             $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
-//        } else {
-//            $all_team_members = TeamMember::where('lang', $lang)->orderBy('id', 'asc')->paginate(12);
-//        }
 
         return view('frontend.pages.team-page')->with(['category' => $category,'data' => $data]);
     }

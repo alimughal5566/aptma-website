@@ -25,6 +25,11 @@ class TeamMemberController extends Controller
         $team_department = TeamDepartment::where(['status' => 'publish' ,'lang' => get_default_language()])->orderby('id','desc')->get();
         return view('backend.pages.team-member')->with(['all_team_member' => $all_team_member,'all_languages' => $all_language,'team_department' => $team_department,'categories' => $categories]);
     }
+    public function teams()
+    {
+        $teams = TeamCategory::where(['status' => 'publish' ,'lang' => get_default_language()])->get();
+        return view('frontend.pages.teams')->with(['teams' =>$teams ]);
+    }
 
     public function store(Request $request)
     {
