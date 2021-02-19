@@ -179,7 +179,7 @@
                                 @php $teamCategory=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
 
                                 <li class=" {{$teamCategory->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                                    <a href="javascript:void(0);">Team</a>
+                                    <a href="{{route('frontend.teams')}}">Team</a>
                                     @if($teamCategory->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($teamCategory as $team)
