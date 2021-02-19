@@ -468,7 +468,7 @@
     &.team-single-item {
 
       .thumb {
-        max-height: 325px;
+        max-height: 350px;
       }
 
     }
@@ -480,6 +480,9 @@
 
       img {
         width: 100%;
+        height: auto;
+        max-width: 100%;
+        display: block;
       }
 
     }

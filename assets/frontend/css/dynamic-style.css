@@ -1253,6 +1253,7 @@ html {
 }
 
 .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.login-bar li a {
+  width: 100%;
   color: #107c35;
 }
 
@@ -1746,7 +1747,7 @@ html {
 }
 
 .common-single .common-single-item.team-single-item .thumb {
-  max-height: 325px;
+  max-height: 350px;
 }
 
 .common-single .common-single-item .thumb {
@@ -1757,6 +1758,9 @@ html {
 
 .common-single .common-single-item .thumb img {
   width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
 }
 
 .common-single .common-single-item a.btn {
@@ -2387,6 +2391,12 @@ footer .copyright-area ul.social-icons li a.active {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children > .sub-menu {
