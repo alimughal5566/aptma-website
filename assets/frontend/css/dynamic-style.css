@@ -2400,6 +2400,10 @@ footer .copyright-area ul.social-icons li a.active {
     margin: auto;
     text-align: center;
   }
+
+  footer .widget.footer-widget .contact_info_list .details {
+    text-align: left;
+  }
 }
 
 /* Extra small devices (portrait phones, less than 576px)*/
