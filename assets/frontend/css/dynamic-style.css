@@ -1870,6 +1870,10 @@ html {
   min-width: 150px;
 }
 
+.team-single .team-single-item p {
+  margin-left: 0;
+}
+
 .counterup-area .singler-counterup-item {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
