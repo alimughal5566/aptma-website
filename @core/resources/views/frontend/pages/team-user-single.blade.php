@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-6 pb-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
-                        <div class="thumb">
+                        <div class="thumb mb-3">
                             {!! render_image_markup_by_attachment_id($data->image) !!}
                         </div>
                         <h5 class="d-flex flex-column">
