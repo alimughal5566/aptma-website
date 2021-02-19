@@ -27,11 +27,11 @@
                 <div class="col-lg-6 pb-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
                         <h5 class="d-flex flex-column">
-                            <span>Designation:</span>
+                            <span class="text-dark">Designation:</span>
                             <strong>{{$data->designation}}</strong>
                         </h5>
                         <h5 class="d-flex flex-column">
-                            <span>Department:</span>
+                            <span class="text-dark">Department:</span>
                             <strong>{{$data->department->name}}</strong>
                         </h5>
                         <div class="social-link pb-4">
@@ -66,13 +66,12 @@
                 </div>
                 <div class="col-lg-6 ">
                     <div class="service-details-item common-single-item team-single-item position-relative">
-
-                        <div class="service-description team-about">
-                            <strong>About me:</strong>
-                            <div>{!! $data->about_me !!}</div>
-                        </div>
+{{--                        <div class="service-description team-about">--}}
+{{--                            <strong>About me:</strong>--}}
+{{--                            <div>{!! $data->about_me !!}</div>--}}
+{{--                        </div>--}}
                         <div class="service-description team-description">
-                            <strong>About me:</strong>
+                            <h5>Description:</h5>
                             <div>{!! $data->description !!}</div>
                         </div>
                     </div>
