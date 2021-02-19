@@ -77,13 +77,13 @@
                                                     <input type="checkbox" class="all-checkbox">
                                                 </div>
                                             </th>
+                                            <th>{{__('Order')}}</th>
 {{--                                            <th>{{__('ID')}}</th>--}}
                                             <th>{{__('Image')}}</th>
                                             <th>{{__('Name')}}</th>
                                             <th>{{__('Designation')}}</th>
                                             <th>{{__('Branch/Team')}}</th>
                                             <th>{{__('Department')}}</th>
-                                            <th>{{__('Order')}}</th>
                                             <th>{{__('Action')}}</th>
                                             </thead>
                                             <tbody>
@@ -96,6 +96,7 @@
                                                                    name="bulk_delete[]" value="{{$data->id}}">
                                                         </div>
                                                     </td>
+                                                    <td>{{$data->order_no}}</td>
 {{--                                                    <td>{{$data->id}}</td>--}}
                                                     <td>
                                                         @php
@@ -117,7 +118,6 @@
                                                     <td>{{$data->designation}}</td>
                                                     <td>{{$data->category->name}}</td>
                                                     <td>{{$data->department->name}}</td>
-                                                    <td>{{$data->order_no}}</td>
                                                     <td>
                                                         <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
                                                            role="button"
@@ -602,7 +602,7 @@
         $(document).ready(function () {
 
             $('.table-wrap > table').DataTable({
-                "order": [[6, "desc"]],
+                "order": [[1, "desc"]],
                 'columnDefs': [{
                     'targets': 'no-sort',
                     'orderable': false
