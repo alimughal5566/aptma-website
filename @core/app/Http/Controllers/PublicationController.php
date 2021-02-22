@@ -8,6 +8,7 @@ use App\Language;
 use App\Publication;
 use App\PublicationCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PublicationController extends Controller
 {
@@ -41,7 +42,7 @@ class PublicationController extends Controller
         }
 
         Publication::create([
-                'status' => $request->status,
+           'status' => $request->status,
             'is_featured' => $request->is_featured,
             'description' => $request->description,
             'thumbnail' => $request->thumbnail,
@@ -49,6 +50,7 @@ class PublicationController extends Controller
             'title' => $request->title,
             'publish_date' => $request->publish_date,
             'cat_id' => $request->category,
+
         ]);
         return redirect()->back()->with(['msg' => __('New item published...'),'type' => 'success']);
     }
@@ -102,7 +104,7 @@ class PublicationController extends Controller
     }
     public function category_store(Request $request){
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:publication_categories,name',
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -116,7 +118,7 @@ class PublicationController extends Controller
     }
     public function category_update(Request $request){
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:publication_categories,name,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -124,6 +126,7 @@ class PublicationController extends Controller
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->title,
+            'slug' => Str::slug($request->title),
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }

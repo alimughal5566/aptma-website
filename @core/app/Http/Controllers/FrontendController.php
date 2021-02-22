@@ -451,8 +451,9 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-            $all_services = Publication::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = PublicationCategory::where('id', $cat_id)->pluck('name')->first();
+        $category = PublicationCategory::where('slug', $cat_id)->first();
+            $all_services = Publication::where('status', '1')->where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+
         } else {
             $all_services = Publication::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
@@ -465,8 +466,9 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-            $all_services = VideoGallery::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = VideoGalleryCategory::where('id', $cat_id)->pluck('name')->first();
+            $category = VideoGalleryCategory::where('slug', $cat_id)->first();
+            $all_services = VideoGallery::where('status', '1')->where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+
 //            dd($category);
         } else {
             $all_services = VideoGallery::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
@@ -532,7 +534,8 @@ class FrontendController extends Controller
     }
 
     public function team_page($cat_id = null){
-        $category = null;
+        $category = TeamCategory::where('slug', $cat_id)->first();
+
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         $data1=[];
@@ -540,12 +543,12 @@ class FrontendController extends Controller
         if (!is_null($cat_id)){
             $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
             foreach ($teamdepartments as $department) {
-                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
+                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id',  $category->id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
                 $data1['name'] = $department->name;
                 $data[] = $data1;
             }
         }
-            $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
+
 
         return view('frontend.pages.team-page')->with(['category' => $category,'data' => $data]);
     }
@@ -1243,6 +1246,7 @@ class FrontendController extends Controller
 
     public function image_gallery_page1($cat_id = null)
     {
+//        dd($cat_id);
         $category = null;
 
         $order = !empty(get_static_option('site_image_gallery_order')) ? get_static_option('site_image_gallery_order') : 'DESC';
@@ -1254,9 +1258,10 @@ class FrontendController extends Controller
         }
 
         if (!is_null($cat_id)) {
-            $all_categories = ImageGallery::where('cat_id', $cat_id)->with('get_image')->where(['lang' => get_user_lang()])->orderBy($order_by, $order)->get();
+            $category = ImageGalleryCategory::where('slug', $cat_id)->first();
+            $all_categories = ImageGallery::where('cat_id', $category->id)->with('get_image')->where(['lang' => get_user_lang()])->orderBy($order_by, $order)->get();
 //            dd($all_categories);
-            $category = ImageGalleryCategory::where('id', $cat_id)->pluck('title')->first();
+
         }
         $all_category = ImageGalleryCategory::find($all_contain_cat);
         return view('frontend.pages.image-gallerycat-images')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category, 'all_categories' => $all_categories, 'category' => $category]);

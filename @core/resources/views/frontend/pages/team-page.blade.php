@@ -13,7 +13,7 @@
     <div class="team-member-area team-page padding-50 background-gray-light-lightest">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
-                Team <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
+                Team <?php echo ($category->name) ? "<small>($category->name)</small>" : "" ?></h2>
             <div class="row">
                 <div class="col-12">
                     @forelse($data as $record)
