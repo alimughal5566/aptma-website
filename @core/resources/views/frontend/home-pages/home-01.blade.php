@@ -131,12 +131,12 @@
                             {{--                            </div>--}}
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center bg">
+                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
                                         <div class="d-flex flex-column">
                                             {{--                                                @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")--}}
                                             {{--                                                {{$data->url}}--}}
                                             {{--                                                {$data->icon}}--}}
-                                            <span class="social-feed-item d-flex justify-content-center mt-5 mb-1">
+                                            <span class="social-feed-item d-flex justify-content-center mt-3 mb-1">
                                                 <a href="https://twitter.com/aptmaofficial" target="_blank">
                                                     <i class="fab fa-twitter"></i>
                                                     <span>Twitter</span>
@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="mt-4 social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
+                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center mt-3">
                                         <div class="d-flex flex-column">
                                             <span class="social-feed-item d-flex justify-content-center mb-2">
                                                 <a href="https://www.facebook.com/APTMAOfficial1" target="_blank">
