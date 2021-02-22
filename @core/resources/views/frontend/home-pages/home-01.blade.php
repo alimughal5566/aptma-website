@@ -133,17 +133,15 @@
                                 <div class="col-12">
                                     <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center bg">
                                         <div class="d-flex flex-column">
-{{--                                            <span class="social-feed-item d-flex justify-content-center mt-5 mb-1">--}}
-{{--                                                --}}{{----}}
-{{--                                                @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")--}}
-{{--                                                {{$data->url}}--}}
-{{--                                                {$data->icon}}--}}
-{{--                                                --}}
-{{--                                                <a href="https://twitter.com/aptmaofficial" target="_blank">--}}
-{{--                                                    <i class="fab fa-twitter fa-2x"></i>--}}
-{{--                                                    <span>Twitter</span>--}}
-{{--                                                </a>--}}
-{{--                                            </span>--}}
+                                            {{--                                                @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")--}}
+                                            {{--                                                {{$data->url}}--}}
+                                            {{--                                                {$data->icon}}--}}
+                                            <span class="social-feed-item d-flex justify-content-center mt-5 mb-1">
+                                                <a href="https://twitter.com/aptmaofficial" target="_blank">
+                                                    <i class="fab fa-twitter"></i>
+                                                    <span>Twitter</span>
+                                                </a>
+                                            </span>
                                             <div>
                                                 <a class="twitter-timeline" data-height="500"
                                                    href="https://twitter.com/aptmaofficial">Tweets by APTMA</a>
@@ -155,11 +153,11 @@
 
                                     <div class="mt-4 social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
                                         <div class="d-flex flex-column">
-{{--                                            <span class="social-feed-item d-flex justify-content-center mb-2">--}}
-{{--                                                <a href="https://www.facebook.com/APTMAOfficial1" target="_blank">--}}
-{{--                                                    <i class="fab fa-facebook-f fa-2x"></i>--}}
-{{--                                                </a>--}}
-{{--                                            </span>--}}
+                                            <span class="social-feed-item d-flex justify-content-center mb-2">
+                                                <a href="https://www.facebook.com/APTMAOfficial1" target="_blank">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </a>
+                                            </span>
                                             <div>
                                                 <!-- Load Facebook SDK for JavaScript -->
                                                 <div id="fb-root"></div>
