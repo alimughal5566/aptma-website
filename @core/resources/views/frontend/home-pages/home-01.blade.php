@@ -61,7 +61,7 @@
                                                             {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                                                     </div>
                                                     <div class="common-content content">
-                                                        <a href="{{route('frontend.publication.single',$data->id)}}">
+                                                        <a href="{{route('frontend.publication.single',$data->slug)}}">
                                                             <h4 class="title">{{$data->title}}</h4>
                                                         </a>
                                                         <p>{{@$data->category->name}}</p>
