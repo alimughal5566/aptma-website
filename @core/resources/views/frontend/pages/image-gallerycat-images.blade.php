@@ -23,7 +23,7 @@
                     <div class="case-studies-masonry-wrapper">
                         <ul class="case-studies-menu style-01">
                             <h2 class="font-weight-bold mb-3 text-center">
-                                Gallery <?php echo ($category) ? "<small>($category)<small>" : "" ?></h2>
+                                Gallery <?php echo ($category) ? "<small>($category->title)<small>" : "" ?></h2>
                         </ul>
                         <div class="case-studies-masonry">
                             <div class="row">

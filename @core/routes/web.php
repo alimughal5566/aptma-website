@@ -218,9 +218,9 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
 
 
     // Frontend Wasim
-    Route::get('/publications/{cat?}', 'FrontendController@publication_page')->name('frontend.publication');
+    Route::get('/publications/{slug?}', 'FrontendController@publication_page')->name('frontend.publication');
     Route::get('/publication/{slug}', 'FrontendController@publication_single_page')->name('frontend.publication.single');
-    Route::get('/gallery-videos/{cat?}', 'FrontendController@video_page')->name('frontend.gallery.video.index');
+    Route::get('/gallery-videos/{slug?}', 'FrontendController@video_page')->name('frontend.gallery.video.index');
     Route::get('/gallery-videos/show/{slug}', 'FrontendController@video_single_page')->name('frontend.gallery.video.single');
     Route::get('/books/{cat?}', 'FrontendController@book_page')->name('frontend.book.index');
     Route::get('/books/show/{slug}', 'FrontendController@book_single_page')->name('frontend.book.single');
@@ -262,7 +262,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::post('/' . $clients_feedback_page_slug . '/submit', 'FrontendFormController@clients_feedback_store')->name('frontend.clients.feedback.store');
     //image gallery
     Route::get('/' . $image_gallery_page_slug . '', 'FrontendController@image_gallery_page')->name('frontend.image.gallery');
-    Route::get('/' . $image_gallery_page_slug . '/{cat?}', 'FrontendController@image_gallery_page1')->name('frontend.image.gallery');
+    Route::get('/' . $image_gallery_page_slug . '/{slug?}', 'FrontendController@image_gallery_page1')->name('frontend.image.gallery1');
 
     Route::get('/' . $price_plan_page_slug . '/{id}', 'FrontendController@plan_order')->name('frontend.plan.order');
 

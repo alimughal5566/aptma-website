@@ -122,8 +122,7 @@
                                                            data-name="{{$data->title}}"
                                                            data-lang="{{$data->lang}}"
                                                            data-status="{{$data->status}}"
-                                                           data-image="{{$data->image}}"
-                                                        >
+                                                           data-image="{{$data->image}}">
                                                             <i class="ti-pencil"></i>
                                                         </a>
                                                     </td>
@@ -155,13 +154,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" class="form-control" value="{{old('title')}}" required>
+                                <input type="text" name="title" class="form-control" value="{{old('title')}}" required placeholder="Gallery Name">
                             </div>
                             <div class="form-group">
                                 <label for="image">{{__('Image')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="image">
+                                    <input type="hidden" name="image" value="{{old('image')}}" >
                                     <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
                                         {{__('Upload Category Image')}}
                                     </button>

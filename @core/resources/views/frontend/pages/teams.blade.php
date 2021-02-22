@@ -32,13 +32,13 @@
                         <div class="team-section p-2 ">
                             <div class="team-img-cont d-flex justify-content-center align-items-center">
                                 <a class="d-flex justify-content-center align-items-center"
-                                   href="{{route('frontend.team',$team->id) }}">
+                                   href="{{route('frontend.team',$team->slug) }}">
                                     {!! render_image_markup_by_attachment_id($team->img_id) !!}
                                 </a>
                             </div>
                             <hr>
                             <div class="team-text mt-0">
-                                <a href="{{route('frontend.team',$team->id) }}">
+                                <a href="{{route('frontend.team',$team->slug) }}">
                                     <h4 class="title my-2">{{$team->name}}</h4>
                                 </a>
                             </div>

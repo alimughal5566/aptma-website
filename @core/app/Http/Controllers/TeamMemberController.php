@@ -7,6 +7,7 @@ use App\TeamCategory;
 use App\TeamDepartment;
 use App\TeamMember;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TeamMemberController extends Controller
 {
@@ -105,7 +106,7 @@ class TeamMemberController extends Controller
     public function category_store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|string',
+            'title' => 'required|string|unique:team_categories,name',
             'status' => 'required|string',
             'lang' => 'required|string',
             'image' => 'required|string',
@@ -122,8 +123,9 @@ class TeamMemberController extends Controller
 
     public function category_update(Request $request)
     {
+//        dd($request->id);
         $this->validate($request, [
-            'title' => 'required|string',
+            'title' => 'required|string|unique:team_categories,name,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
             'image' => 'required|string',
@@ -134,6 +136,7 @@ class TeamMemberController extends Controller
             'lang' => $request->lang,
             'name' => $request->title,
             'img_id' => $request->image,
+            'slug' => Str::slug($request->title),
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'), 'type' => 'success']);
     }

@@ -6,6 +6,7 @@ use App\ImageGallery;
 use App\ImageGalleryCategory;
 use App\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ImageGalleryPageController extends Controller
 {
@@ -86,7 +87,7 @@ class ImageGalleryPageController extends Controller
     }
     public function category_update(Request $request){
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:image_gallery_categories,title,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
             'image' => 'required|string',
@@ -96,6 +97,7 @@ class ImageGalleryPageController extends Controller
             'lang' => $request->lang,
             'title' => $request->title,
             'image' => $request->image,
+            'slug' => Str::slug($request->title),
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }

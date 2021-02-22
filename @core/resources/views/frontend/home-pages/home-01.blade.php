@@ -57,7 +57,7 @@
                                                             <small class=" font-italic badge">New</small>
                                                         @endif
 
-                                                        <a href="{{route('frontend.publication.single',$data->id)}}">
+                                                        <a href="{{route('frontend.publication.single',$data->slug)}}">
                                                             {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                                                     </div>
                                                     <div class="common-content content">

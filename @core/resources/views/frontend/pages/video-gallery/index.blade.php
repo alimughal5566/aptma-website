@@ -16,7 +16,7 @@
             class="service-area service-page common-area video-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
-                Videos <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
+                Videos <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
             <div class="row">
 
                 @forelse($all_services as $data)

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class ImageGalleryCategory extends Model
 {
@@ -11,6 +12,13 @@ class ImageGalleryCategory extends Model
 
     public function images(){
         return $this->hasMany('App\ImageGallery','cat_id')->orderBy('id','desc');
+    }
+
+    protected static function boot(){
+        parent::boot();
+        static::saving(function($model){ //work fine
+            $model->slug = Str::slug($model->title);
+        });
     }
 
 }
