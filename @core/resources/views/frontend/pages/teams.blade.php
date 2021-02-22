@@ -20,7 +20,6 @@
 
     <div class="page-content service-details common-single teams-group padding-top-50 padding-bottom-80 ">
         <div class="container">
-
             <div class="row">
                 <div class="col-12">
                     <h2 class="font-weight-bold mb-3 text-center">
@@ -60,4 +59,5 @@
                 {{--                </div>--}}
             </div>
         </div>
+    </div>
 @endsection
