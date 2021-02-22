@@ -57,7 +57,8 @@
                                                             <small class=" font-italic badge">New</small>
                                                         @endif
 
-                                                        <a href="{{route('frontend.publication.single',$data->slug)}}">
+                                                        <a class="align-items-center"
+                                                           href="{{route('frontend.publication.single',$data->slug)}}">
                                                             {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                                                     </div>
                                                     <div class="common-content content">
@@ -87,8 +88,10 @@
                                         @foreach($all_events as $data)
                                             <div class="common-grid-carousel-item single-events-list-item rounded flex-column position-relative">
                                                 <div class="common-img thumb mr-0">
-                                                    <div class="thumb-wrap">
-                                                        {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
+                                                    <div class="align-items-center thumb-wrap ">
+                                                        <a href="{{route('frontend.events.single',$data->slug)}}">
+                                                            {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="common-content content-area">
@@ -223,16 +226,16 @@
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item advertise-item single-what-we-cover-item-02 ">
                                                 <div class="common-img advertise-img single-what-img position-relative">
-                                                    <a href="{{route('frontend.advertisement.single',['slug' => $data->id])}}">
-                                                        @php
-                                                            $now = Carbon\Carbon::now();
-                                                            $datework = Carbon\Carbon::parse($data->created_at);
-                                                            $diff = $datework->diffInDays($now);
-                                                        @endphp
-                                                        @if($diff<15)
-                                                            <small class="font-italic badge">New</small>
-                                                        @endif
-
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now);
+                                                    @endphp
+                                                    @if($diff<15)
+                                                        <small class="font-italic badge">New</small>
+                                                    @endif
+                                                    <a class="align-items-center"
+                                                       href="{{route('frontend.advertisement.single',['slug' => $data->id])}}">
                                                         {!! render_image_markup_by_attachment_id($data->thumbnail,'ss') !!}
                                                     </a>
                                                 </div>
@@ -278,7 +281,8 @@
                                                         <small class=" font-italic badge ">New</small>
                                                     @endif
 
-                                                    <a href="{{route('frontend.gallery.video.single', $data->id)}}"
+                                                    <a class="align-items-center"
+                                                       href="{{route('frontend.gallery.video.single', $data->id)}}"
                                                        target="_blank">
                                                         {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
                                                     </a>
