@@ -363,7 +363,9 @@
                                 $route = auth()->guest() == 'admin' ? route('admin.home') : route('user.home');
                             @endphp
                             <li>
-                                <a href="{{$route}}">{{__('Dashboard')}}</a> <span>/</span>
+                                <a href="{{$route}}">{{__('Dashboard')}}</a>
+                            </li>
+                            <li>
                                 <a href="{{ route('user.logout') }}"
                                    onclick="event.preventDefault();
                                                          document.getElementById('userlogout-form').submit();">

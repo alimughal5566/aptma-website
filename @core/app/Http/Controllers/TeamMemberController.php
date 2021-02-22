@@ -7,28 +7,28 @@ use App\TeamCategory;
 use App\TeamDepartment;
 use App\TeamMember;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
 
 class TeamMemberController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:admin')->except('teams');
     }
 
     public function index()
     {
 
         $all_language = Language::all();
-        $all_team_member = TeamMember::with('category','department')->get()->groupBy('lang');
-        $categories = TeamCategory::where(['status' => 'publish' ,'lang' => get_default_language()])->get();
-        $team_department = TeamDepartment::where(['status' => 'publish' ,'lang' => get_default_language()])->orderby('id','desc')->get();
-        return view('backend.pages.team-member')->with(['all_team_member' => $all_team_member,'all_languages' => $all_language,'team_department' => $team_department,'categories' => $categories]);
+        $all_team_member = TeamMember::with('category', 'department')->get()->groupBy('lang');
+        $categories = TeamCategory::where(['status' => 'publish', 'lang' => get_default_language()])->get();
+        $team_department = TeamDepartment::where(['status' => 'publish', 'lang' => get_default_language()])->orderby('id', 'desc')->get();
+        return view('backend.pages.team-member')->with(['all_team_member' => $all_team_member, 'all_languages' => $all_language, 'team_department' => $team_department, 'categories' => $categories]);
     }
+
     public function teams()
     {
-        $teams = TeamCategory::where(['status' => 'publish' ,'lang' => get_default_language()])->get();
-        return view('frontend.pages.teams')->with(['teams' =>$teams ]);
+        $teams = TeamCategory::where(['status' => 'publish', 'lang' => get_default_language()])->get();
+        return view('frontend.pages.teams')->with(['teams' => $teams]);
     }
 
     public function store(Request $request)
@@ -80,29 +80,31 @@ class TeamMemberController extends Controller
 
     public function delete($id)
     {
-       TeamMember::find($id)->delete();
+        TeamMember::find($id)->delete();
         return redirect()->back()->with(['msg' => __('Delete Success...'), 'type' => 'danger']);
     }
 
-    public function bulk_action(Request $request){
+    public function bulk_action(Request $request)
+    {
         $all = TeamMember::find($request->ids);
-        foreach($all as $item){
+        foreach ($all as $item) {
             $item->delete();
         }
         return response()->json(['status' => 'ok']);
     }
 
 
-
-    public function category_index(){
+    public function category_index()
+    {
 //        dd();
         $all_gallery_images = TeamCategory::all()->groupBy('lang');
         $all_languages = Language::all();
-        return view('backend.team.category')->with(['all_category' => $all_gallery_images,'all_languages' => $all_languages ]);
+        return view('backend.team.category')->with(['all_category' => $all_gallery_images, 'all_languages' => $all_languages]);
     }
 
-    public function category_store(Request $request){
-        $this->validate($request,[
+    public function category_store(Request $request)
+    {
+        $this->validate($request, [
             'title' => 'required|string',
             'status' => 'required|string',
             'lang' => 'required|string',
@@ -115,35 +117,40 @@ class TeamMemberController extends Controller
             'name' => $request->title,
             'img_id' => $request->image,
         ]);
-        return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
+        return redirect()->back()->with(['msg' => __('Category Added...'), 'type' => 'success']);
     }
-    public function category_update(Request $request){
-        $this->validate($request,[
+
+    public function category_update(Request $request)
+    {
+        $this->validate($request, [
             'title' => 'required|string',
             'status' => 'required|string',
             'lang' => 'required|string',
             'image' => 'required|string',
         ]);
 
-        TeamCategory::where('id',$request->id)->update([
+        TeamCategory::where('id', $request->id)->update([
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->title,
             'img_id' => $request->image,
         ]);
-        return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
-    }
-    public function category_delete(Request $request,$id){
-        TeamCategory::find($id)->delete();
-        return redirect()->back()->with(['msg' => __('Category Delete...'),'type' => 'danger']);
+        return redirect()->back()->with(['msg' => __('Category Updated...'), 'type' => 'success']);
     }
 
-    public function category_bulk_action(Request $request){
+    public function category_delete(Request $request, $id)
+    {
+        TeamCategory::find($id)->delete();
+        return redirect()->back()->with(['msg' => __('Category Delete...'), 'type' => 'danger']);
+    }
+
+    public function category_bulk_action(Request $request)
+    {
         $all = TeamCategory::find($request->ids);
-        foreach($all as $item){
-            if ($request->type == 'delete'){
+        foreach ($all as $item) {
+            if ($request->type == 'delete') {
                 $item->delete();
-            }else{
+            } else {
                 TeamCategory::find($item->id)->update(['status' => $request->type]);
             }
 
