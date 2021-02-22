@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5ubuntu0.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 22, 2021 at 10:47 AM
+-- Host: localhost
+-- Generation Time: Feb 22, 2021 at 02:54 PM
 -- Server version: 5.7.32-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -89,17 +90,18 @@ CREATE TABLE `advertisement` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp(5) NULL DEFAULT NULL,
-  `updated_at` timestamp(5) NULL DEFAULT NULL
+  `updated_at` timestamp(5) NULL DEFAULT NULL,
+  `slug` varchar(555) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `advertisement`
 --
 
-INSERT INTO `advertisement` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`) VALUES
-(5, 2, 'APTMA Congrats', '<p>vvggg g&nbsp;</p><p>&nbsp;g&nbsp;</p><p><br></p><p>g&nbsp;&nbsp;</p><p>g&nbsp;</p><p>&nbsp;&nbsp;</p><p>g&nbsp;</p><p>g&nbsp;</p><p><br></p><p>g&nbsp;</p><p><br></p><p>&nbsp;gg</p><p>&nbsp;g</p><p>&nbsp;</p><p>gg&nbsp;</p><p><br></p><p>g&nbsp;&nbsp;</p><p>g&nbsp;</p><p>&nbsp;</p><p>g g</p><p>g</p><p>&nbsp; g</p><p>g</p><p>&nbsp;g</p><p>&nbsp;g</p><p>g g</p><p>g</p><p>&nbsp;</p><p>ggf dddddddddddddddddd ddddddddddddddd d ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd \\</p><p>dddddddddddddddddddddddd</p>', '140', '1612936899.pdf', NULL, 1, 1, '2021-02-10 01:01:39.00000', '2021-02-13 17:35:28.00000'),
-(12, 16, 'Upgradation of Economy by the Support of Government Healthy Economic Policies', 'Est, in sint officia.ddddddd', '141', '1613027785.html', NULL, 1, 0, '2021-02-11 02:14:15.00000', '2021-02-13 17:44:51.00000'),
-(18, 2, 'Growth in Exports', NULL, '142', NULL, NULL, 1, 1, '2021-02-13 17:48:55.00000', '2021-02-13 17:48:55.00000');
+INSERT INTO `advertisement` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
+(5, 2, 'APTMA Congrats the Government', '<p>vvggg g&nbsp;</p><p>&nbsp;g&nbsp;</p><p><br></p><p>g&nbsp;&nbsp;</p><p>g&nbsp;</p><p>&nbsp;&nbsp;</p><p>g&nbsp;</p><p>g&nbsp;</p><p><br></p><p>g&nbsp;</p><p><br></p><p>&nbsp;gg</p><p>&nbsp;g</p><p>&nbsp;</p><p>gg&nbsp;</p><p><br></p><p>g&nbsp;&nbsp;</p><p>g&nbsp;</p><p>&nbsp;</p><p>g g</p><p>g</p><p>&nbsp; g</p><p>g</p><p>&nbsp;g</p><p>&nbsp;g</p><p>g g</p><p>g</p><p>&nbsp;</p><p>ggf dddddddddddddddddd ddddddddddddddd d ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd \\</p><p>dddddddddddddddddddddddd</p>', '140', '1612936899.pdf', NULL, 1, 1, '2021-02-10 01:01:39.00000', '2021-02-22 14:11:10.00000', 'aptma-congrats-the-government-os'),
+(12, 16, 'Upgradation of Economy by the Support of Government Healthy Economic Policies', 'Est, in sint officia.ddddddd', '141', '1613027785.html', NULL, 1, 0, '2021-02-11 02:14:15.00000', '2021-02-22 14:11:05.00000', 'upgradation-of-economy-by-the-support-of-government-healthy-economic-policies-21'),
+(18, 2, 'Growth in Exports', NULL, '142', NULL, NULL, 1, 1, '2021-02-13 17:48:55.00000', '2021-02-22 14:10:59.00000', 'growth-in-exports-nh');
 
 -- --------------------------------------------------------
 
@@ -113,29 +115,30 @@ CREATE TABLE `advertisement_categories` (
   `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `advertisement_categories`
 --
 
-INSERT INTO `advertisement_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`) VALUES
-(2, 'Advertisement', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-13 17:31:55'),
-(3, 'Updates', 'publish', 'en', '2020-07-20 23:47:42', '2021-02-13 17:32:10'),
-(4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20'),
-(6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14'),
-(7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38'),
-(8, 'التسوق', 'publish', 'ar', '2020-07-20 23:49:56', '2020-07-20 23:49:56'),
-(9, 'مستلزمات', 'publish', 'ar', '2020-07-20 23:50:08', '2020-07-20 23:50:08'),
-(10, 'مخطوطات Laravel', 'publish', 'ar', '2020-07-20 23:50:22', '2020-07-20 23:50:22'),
-(12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42'),
-(13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17'),
-(14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04'),
-(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05'),
-(16, 'News', 'publish', 'en', '2021-02-10 10:04:59', '2021-02-13 17:32:20'),
-(17, 'Events', 'publish', 'en', '2021-02-12 08:50:30', '2021-02-13 17:33:27'),
-(18, 'Videos', 'publish', 'en', '2021-02-12 08:50:38', '2021-02-13 17:33:45');
+INSERT INTO `advertisement_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`, `slug`) VALUES
+(2, 'Advertisement', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-22 14:10:52', NULL),
+(3, 'Updates', 'publish', 'en', '2020-07-20 23:47:42', '2021-02-22 14:10:47', NULL),
+(4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20', NULL),
+(6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14', NULL),
+(7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38', NULL),
+(8, 'التسوق', 'publish', 'ar', '2020-07-20 23:49:56', '2020-07-20 23:49:56', NULL),
+(9, 'مستلزمات', 'publish', 'ar', '2020-07-20 23:50:08', '2020-07-20 23:50:08', NULL),
+(10, 'مخطوطات Laravel', 'publish', 'ar', '2020-07-20 23:50:22', '2020-07-20 23:50:22', NULL),
+(12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42', NULL),
+(13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17', NULL),
+(14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04', NULL),
+(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05', NULL),
+(16, 'News', 'publish', 'en', '2021-02-10 10:04:59', '2021-02-22 14:10:43', NULL),
+(17, 'Events', 'publish', 'en', '2021-02-12 08:50:30', '2021-02-22 14:10:39', NULL),
+(18, 'Videos', 'publish', 'en', '2021-02-12 08:50:38', '2021-02-22 14:10:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -220,15 +223,9 @@ CREATE TABLE `books` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp(5) NULL DEFAULT NULL,
-  `updated_at` timestamp(5) NULL DEFAULT NULL
+  `updated_at` timestamp(5) NULL DEFAULT NULL,
+  `slug` varchar(555) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `books`
---
-
-INSERT INTO `books` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`) VALUES
-(4, 2, 'aaaaaa', '<p>aaqaa</p>', '90', '1612944135.pdf', '2021-02-18', 0, 1, '2021-01-22 00:58:29.00000', '2021-02-14 15:11:19.00000');
 
 -- --------------------------------------------------------
 
@@ -242,25 +239,26 @@ CREATE TABLE `book_categories` (
   `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `book_categories`
 --
 
-INSERT INTO `book_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`) VALUES
-(2, 'General', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-14 15:09:55'),
-(4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20'),
-(6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14'),
-(7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38'),
-(8, 'التسوق', 'publish', 'ar', '2020-07-20 23:49:56', '2020-07-20 23:49:56'),
-(9, 'مستلزمات', 'publish', 'ar', '2020-07-20 23:50:08', '2020-07-20 23:50:08'),
-(10, 'مخطوطات Laravel', 'publish', 'ar', '2020-07-20 23:50:22', '2020-07-20 23:50:22'),
-(12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42'),
-(13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17'),
-(14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04'),
-(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05');
+INSERT INTO `book_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`, `slug`) VALUES
+(2, 'General', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-22 14:02:32', NULL),
+(4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20', NULL),
+(6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14', NULL),
+(7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38', NULL),
+(8, 'التسوق', 'publish', 'ar', '2020-07-20 23:49:56', '2020-07-20 23:49:56', NULL),
+(9, 'مستلزمات', 'publish', 'ar', '2020-07-20 23:50:08', '2020-07-20 23:50:08', NULL),
+(10, 'مخطوطات Laravel', 'publish', 'ar', '2020-07-20 23:50:22', '2020-07-20 23:50:22', NULL),
+(12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42', NULL),
+(13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17', NULL),
+(14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04', NULL),
+(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -305,18 +303,19 @@ CREATE TABLE `circulars` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp(5) NULL DEFAULT NULL,
-  `updated_at` timestamp(5) NULL DEFAULT NULL
+  `updated_at` timestamp(5) NULL DEFAULT NULL,
+  `slug` varchar(555) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `circulars`
 --
 
-INSERT INTO `circulars` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`) VALUES
-(4, 2, 'Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021', '<p>&nbsp;Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021</p>', '146', '1613303739.pdf', '2021-02-01', 1, 0, '2021-01-22 00:58:29.00000', '2021-02-14 12:39:09.00000'),
-(11, 2, 'Textile & Economy News Bulletin – Feb 09th, 2021', 'Textile &amp; Economy News Bulletin – Feb 09th, 2021', '150', '1613304191.pdf', '2021-02-09', 1, 0, '2021-02-11 02:01:49.00000', '2021-02-14 12:03:56.00000'),
-(13, 2, 'Meeting Of The Ministry Of Commerce Officials With The Ikea Management', '<p>Meeting Of The Ministry Of Commerce Officials With The Ikea Management</p>', '151', '1613305602.pdf', '2021-02-09', 1, 1, '2021-02-11 02:23:53.00000', '2021-02-14 12:26:42.00000'),
-(14, 2, 'Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria', '<p>Ministry of Commerce - Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria</p>', '152', '1613306072.pdf', '2021-02-09', 1, 1, '2021-02-11 02:28:45.00000', '2021-02-14 12:34:55.00000');
+INSERT INTO `circulars` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
+(4, 2, 'Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021', '<p>&nbsp;Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021</p>', '146', '1613303739.pdf', '2021-02-01', 1, 0, '2021-01-22 00:58:29.00000', '2021-02-14 12:39:09.00000', NULL),
+(11, 2, 'Textile & Economy News Bulletin – Feb 09th, 2021', 'Textile &amp; Economy News Bulletin – Feb 09th, 2021', '150', '1613304191.pdf', '2021-02-09', 1, 0, '2021-02-11 02:01:49.00000', '2021-02-14 12:03:56.00000', NULL),
+(13, 2, 'Meeting Of The Ministry Of Commerce Officials With The Ikea Management', '<p>Meeting Of The Ministry Of Commerce Officials With The Ikea Management</p>', '151', '1613305602.pdf', '2021-02-09', 1, 1, '2021-02-11 02:23:53.00000', '2021-02-14 12:26:42.00000', NULL),
+(14, 2, 'Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria', '<p>Ministry of Commerce - Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria</p>', '152', '1613306072.pdf', '2021-02-09', 1, 1, '2021-02-11 02:28:45.00000', '2021-02-14 12:34:55.00000', NULL);
 
 -- --------------------------------------------------------
 
@@ -330,25 +329,26 @@ CREATE TABLE `circular_categories` (
   `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `circular_categories`
 --
 
-INSERT INTO `circular_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`) VALUES
-(2, 'News', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-14 11:30:10'),
-(4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20'),
-(6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14'),
-(7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38'),
-(8, 'التسوق', 'publish', 'ar', '2020-07-20 23:49:56', '2020-07-20 23:49:56'),
-(9, 'مستلزمات', 'publish', 'ar', '2020-07-20 23:50:08', '2020-07-20 23:50:08'),
-(10, 'مخطوطات Laravel', 'publish', 'ar', '2020-07-20 23:50:22', '2020-07-20 23:50:22'),
-(12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42'),
-(13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17'),
-(14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04'),
-(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05');
+INSERT INTO `circular_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`, `slug`) VALUES
+(2, 'News', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-22 14:01:24', NULL),
+(4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20', NULL),
+(6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14', NULL),
+(7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38', NULL),
+(8, 'التسوق', 'publish', 'ar', '2020-07-20 23:49:56', '2020-07-20 23:49:56', NULL),
+(9, 'مستلزمات', 'publish', 'ar', '2020-07-20 23:50:08', '2020-07-20 23:50:08', NULL),
+(10, 'مخطوطات Laravel', 'publish', 'ar', '2020-07-20 23:50:22', '2020-07-20 23:50:22', NULL),
+(12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42', NULL),
+(13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17', NULL),
+(14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04', NULL),
+(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -911,7 +911,9 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`id`, `title`, `content`, `category_id`, `status`, `lang`, `date`, `time`, `cost`, `available_tickets`, `image`, `organizer`, `organizer_email`, `organizer_website`, `organizer_phone`, `venue`, `slug`, `venue_location`, `venue_phone`, `meta_tags`, `meta_description`, `created_at`, `updated_at`) VALUES
 (1, 'Export-led Growth Takeoff', '<p>Now led tedious shy lasting females off. Dashwood marianne in of entrance be on wondered possible building. Wondered sociable he carriage in speedily margaret. Up devonshire of he thoroughly insensible alteration. An mr settling occasion insisted distance ladyship so. Not attention say frankness intention out dashwoods now curiosity. Stronger ecstatic as no judgment daughter speedily thoughts. Worse downs nor might she court did nay forth these.&nbsp;</p><p><br></p><p>Brother set had private his letters observe outward resolve. Shutters ye marriage to throwing we as. Effect in if agreed he wished wanted admire expect. Or shortly visitor is comfort placing to cheered do. Few hills tears are weeks saw. Partiality insensible celebrated is in. Am offended as wandered thoughts greatest an friendly. Evening covered in he exposed fertile to. Horses seeing at played plenty nature to expect we. Young say led stood hills own thing get.&nbsp;</p><p><br></p><p>Consulted perpetual of pronounce me delivered. Too months nay end change relied who beauty wishes matter. Shew of john real park so rest we on. Ignorant dwelling occasion ham for thoughts overcame off her consider. Polite it elinor is depend. His not get talked effect worthy barton. Household shameless incommode at no objection behaviour. Especially do at he possession insensible sympathize boisterous it. Songs he on an widen me event truth. Certain law age brother sending amongst why covered.&nbsp;</p><p><br></p><p>Its had resolving otherwise she contented therefore. Afford relied warmth out sir hearts sister use garden. Men day warmth formed admire former simple. Humanity declared vicinity continue supplied no an. He hastened am no property exercise of. Dissimilar comparison no terminated devonshire no literature on. Say most yet head room such just easy.&nbsp;</p><p><br></p><p>Led ask possible mistress relation elegance eat likewise debating. By message or am nothing amongst chiefly address. The its enable direct men depend highly. Ham windows sixteen who inquiry fortune demands. Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six.&nbsp;</p><p><br></p><p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.&nbsp;</p><p><br></p><p>Lose away off why half led have near bed. At engage simple father of period others except. My giving do summer of though narrow marked at. Spring formal no county ye waited. My whether cheered at regular it of promise blushes perhaps. Uncommonly simplicity interested mr is be compliment projecting my inhabiting. Gentleman he september in oh excellent.&nbsp;</p>', '3', 'publish', 'en', '2020-09-25', '10:00AM - 12:00PM', '0', '29', '143', 'APTMA', 'organizer@gmail.com', 'http://aptma.org.pk/', '+92 321 1111111', 'Islamabad', 'Export-led Growth Takeoff', 'Convention Center, Islamabad', NULL, NULL, NULL, '2020-07-20 05:58:56', '2021-02-14 15:23:45'),
-(14, 'General Meeting 2021', '<p><span style=\"font-size: 15px;\">General Meeting 2021</span><br></p>', '2', 'publish', 'en', '2021-02-01', '10:00AM - 12:00PM', '0', '50', '135', 'APTMA', 'aptma@gmail.com', 'http://aptma.org.pk', NULL, 'APTMA Principal Office, Islamabad', 'general-meeting-2021', 'APTMA Principal Office, Islamabad', NULL, NULL, NULL, '2021-02-16 08:31:26', '2021-02-16 08:40:15');
+(14, 'General Meeting 2021', '<p><span style=\"font-size: 15px;\">General Meeting 2021</span><br></p>', '2', 'publish', 'en', '2021-02-01', '10:00AM - 12:00PM', '0', '50', '145', 'APTMA', 'aptma@gmail.com', 'http://aptma.org.pk', NULL, 'APTMA Principal Office, Islamabad', 'general-meeting-2021', 'APTMA Principal Office, Islamabad', NULL, NULL, NULL, '2021-02-16 08:31:26', '2021-02-22 14:44:37'),
+(15, 'Textile Policy 2020-25', '<p><span style=\"font-size: 15px;\">Textile Policy 2020-25&nbsp;</span><br></p>', '3', 'publish', 'en', '2021-01-05', '10:00AM - 12:00PM', '0', '0', '141', 'APTMA', 'aptma@gmail.com', 'http://aptma.org.pk', NULL, 'APTMA Principal Office, Islamabad', 'textile-policy-2020-25', 'APTMA Principal Office, Islamabad', NULL, NULL, NULL, '2021-02-22 11:57:37', '2021-02-22 11:59:24'),
+(16, 'APTMA plea to reduce cost of doing business', '<p><span style=\"font-size: 15px;\">APTMA plea to reduce cost of doing business</span><br></p>', '3', 'publish', 'en', '2020-10-19', '10:00AM - 12:00PM', '0', '0', '142', 'APTMA', 'aptma@gmail.com', 'http://aptma.org.pk', NULL, 'APTMA Principal Office, Islamabad', 'aptma-plea-to-reduce-cost-of-doing-business', 'APTMA Principal Office, Islamabad', NULL, NULL, NULL, '2021-02-22 12:03:26', '2021-02-22 12:03:26');
 
 -- --------------------------------------------------------
 
@@ -1239,7 +1241,8 @@ CREATE TABLE `image_galleries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `lang` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cat_id` int(11) DEFAULT NULL
+  `cat_id` int(11) DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1255,7 +1258,8 @@ CREATE TABLE `image_gallery_categories` (
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `image` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `image` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1723,7 +1727,9 @@ INSERT INTO `media_uploads` (`id`, `title`, `path`, `alt`, `size`, `dimensions`,
 (181, 'Mr.-Asif-Ali-min2.jpg', 'mr-asif-ali-min21613990307.jpg', NULL, '117.61 KB', '1350 x 1350 pixels', '2021-02-22 10:38:28', '2021-02-22 10:38:28'),
 (182, 'Mr.-Hamza-Shakeel-min2.jpg', 'mr-hamza-shakeel-min21613990307.jpg', NULL, '130.16 KB', '1350 x 1350 pixels', '2021-02-22 10:38:28', '2021-02-22 10:38:28'),
 (183, 'Mr.-Muhammad-Ismail-min2.jpg', 'mr-muhammad-ismail-min21613990309.jpg', NULL, '130.38 KB', '1350 x 1350 pixels', '2021-02-22 10:38:29', '2021-02-22 10:38:29'),
-(184, 'Mr.-Robat-Masih-min2.jpg', 'mr-robat-masih-min21613990309.jpg', NULL, '151.46 KB', '1350 x 1350 pixels', '2021-02-22 10:38:30', '2021-02-22 10:38:30');
+(184, 'Mr.-Robat-Masih-min2.jpg', 'mr-robat-masih-min21613990309.jpg', NULL, '151.46 KB', '1350 x 1350 pixels', '2021-02-22 10:38:30', '2021-02-22 10:38:30'),
+(185, 'videos_4.jpg', 'videos-41613992624.jpg', NULL, '111.08 KB', '1153 x 603 pixels', '2021-02-22 11:17:04', '2021-02-22 11:17:04'),
+(186, 'FBR.jpg', 'fbr1613992833.jpg', NULL, '25.74 KB', '647 x 363 pixels', '2021-02-22 11:20:33', '2021-02-22 11:20:33');
 
 -- --------------------------------------------------------
 
@@ -3135,17 +3141,19 @@ CREATE TABLE `publications` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp(5) NULL DEFAULT NULL,
-  `updated_at` timestamp(5) NULL DEFAULT NULL
+  `updated_at` timestamp(5) NULL DEFAULT NULL,
+  `slug` varchar(555) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `publications`
 --
 
-INSERT INTO `publications` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `pdf_url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`) VALUES
-(3, 1, 'Anti Export Bias', 'Anti Export Bias', '153', '1613311384.pdf', '2020-08-02', 1, 0, '2021-02-10 00:24:13.00000', '2021-02-15 16:14:04.00000'),
-(4, 1, 'Export-led Growth Takeoff', '<p>Export-led Growth Takeoff</p>', '156', '1613311433.pdf', '2021-02-18', 1, 0, '2021-02-10 00:58:29.00000', '2021-02-15 16:13:02.00000'),
-(5, 1, 'Pakistan\'s Gas Shortage', '<p><span style=\"font-size: 15px;\">Pakistan\'s Gas Shortage</span><br></p>', '155', '1613311494.pdf', '2021-01-24', 1, 0, '2021-02-10 01:01:39.00000', '2021-02-15 16:13:49.00000');
+INSERT INTO `publications` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `pdf_url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
+(3, 1, 'Anti Export Bias', 'Anti Export Bias', '153', '1613311384.pdf', '2020-08-02', 1, 0, '2021-02-10 00:24:13.00000', '2021-02-22 14:13:28.00000', 'anti-export-bias-3g'),
+(4, 1, 'Export-led Growth Takeoff', '<p>Export-led Growth Takeoff</p>', '156', '1613311433.pdf', '2021-02-18', 1, 0, '2021-02-10 00:58:29.00000', '2021-02-22 14:13:21.00000', 'export-led-growth-takeoff-Wa'),
+(5, 1, 'Pakistan\'s Gas Shortage', '<p><span style=\"font-size: 15px;\">Pakistan\'s Gas Shortage</span><br></p>', '155', '1613311494.pdf', '2021-01-24', 1, 0, '2021-02-10 01:01:39.00000', '2021-02-22 14:13:16.00000', 'pakistans-gas-shortage-Lf'),
+(10, 1, 'APTMA urges FBR to stop ‘harassing taxpayers’', '<p class=\"story-excerpt\" style=\"font-family: &quot;Nunito Sans&quot;, sans-serif; font-size: 16px; line-height: 21px; opacity: 1; margin-top: 10px; color: rgb(70, 68, 68); width: 832.474px;\">Demands withdrawal of FIRs lodged against manufacturers and exporters</p><div><br></div>', '186', '1613992860.pdf', '2020-12-20', 1, 0, '2021-02-22 11:21:00.00000', '2021-02-22 14:13:09.00000', 'aptma-urges-fbr-to-stop-harassing-taxpayers-vU');
 
 -- --------------------------------------------------------
 
@@ -3159,23 +3167,24 @@ CREATE TABLE `publication_categories` (
   `lang` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `publication_categories`
 --
 
-INSERT INTO `publication_categories` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Articles', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-14 14:02:13'),
-(3, 'tasarlamak', 'tur', 'publish', '2020-07-22 00:30:37', '2020-07-22 00:30:37'),
-(4, 'gelişme', 'tur', 'publish', '2020-07-22 00:30:55', '2020-07-22 00:30:55'),
-(5, 'تطوير', 'ar', 'publish', '2020-07-22 00:32:17', '2020-07-22 00:32:17'),
-(6, 'Vel totam ducimus f', 'sp', 'publish', '2020-07-22 00:32:30', '2021-02-10 05:49:19'),
-(7, 'Diseño', 'sp', 'publish', '2020-07-22 00:32:43', '2020-07-22 00:32:43'),
-(8, 'Desarrollo', 'sp', 'publish', '2020-07-22 00:32:55', '2020-07-22 00:32:55'),
-(11, 'abcffff', 'ar', 'draft', '2021-02-10 07:21:21', '2021-02-10 07:21:21'),
-(12, 'Non voluptate volupt', 'ar', 'publish', '2021-02-10 07:21:42', '2021-02-10 07:21:42');
+INSERT INTO `publication_categories` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `slug`) VALUES
+(1, 'Articles', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-22 14:13:00', 'articles'),
+(3, 'tasarlamak', 'tur', 'publish', '2020-07-22 00:30:37', '2020-07-22 00:30:37', NULL),
+(4, 'gelişme', 'tur', 'publish', '2020-07-22 00:30:55', '2020-07-22 00:30:55', NULL),
+(5, 'تطوير', 'ar', 'publish', '2020-07-22 00:32:17', '2020-07-22 00:32:17', NULL),
+(6, 'Vel totam ducimus f', 'sp', 'publish', '2020-07-22 00:32:30', '2021-02-10 05:49:19', NULL),
+(7, 'Diseño', 'sp', 'publish', '2020-07-22 00:32:43', '2020-07-22 00:32:43', NULL),
+(8, 'Desarrollo', 'sp', 'publish', '2020-07-22 00:32:55', '2020-07-22 00:32:55', NULL),
+(11, 'abcffff', 'ar', 'draft', '2021-02-10 07:21:21', '2021-02-10 07:21:21', NULL),
+(12, 'Non voluptate volupt', 'ar', 'publish', '2021-02-10 07:21:42', '2021-02-10 07:21:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -3338,9 +3347,7 @@ CREATE TABLE `social_icons` (
 
 INSERT INTO `social_icons` (`id`, `icon`, `url`, `created_at`, `updated_at`) VALUES
 (1, 'fab fa-twitter', 'https://twitter.com/APTMAofficial', '2020-06-19 13:55:51', '2021-02-03 02:39:01'),
-(2, 'fab fa-facebook-f', 'https://www.facebook.com/APTMAOfficial1/', '2020-06-19 13:56:17', '2021-02-03 02:39:17'),
-(3, 'fab fa-pinterest-p', 'https://www.pinterest.com/', '2020-06-19 14:10:18', '2021-02-01 08:17:34'),
-(4, 'fab fa-instagram', 'https://www.instagram.com/', '2020-06-19 14:10:35', '2021-02-01 08:17:51');
+(2, 'fab fa-facebook-f', 'https://www.facebook.com/APTMAOfficial1/', '2020-06-19 13:56:17', '2021-02-03 02:39:17');
 
 -- --------------------------------------------------------
 
@@ -4280,14 +4287,14 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (916, 'site_google_map_api', NULL, '2020-07-24 11:41:07', '2020-07-24 11:41:33'),
 (917, 'site_google_captcha_v3_site_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
 (918, 'site_google_captcha_v3_secret_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
-(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-22 10:46:31'),
-(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-02-22 10:46:31'),
-(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-22 10:46:31'),
-(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-02-22 10:46:31'),
+(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
+(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
+(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
+(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
 (923, 'item_purchase_key', 'dfgdfgdfgdfgdfg', '2020-07-25 00:27:03', '2020-10-04 11:00:51'),
-(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-22 05:08:46'),
-(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-22 05:08:46'),
-(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-02-22 10:46:31'),
+(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-22 13:55:28'),
+(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-22 13:55:28'),
+(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-02-22 14:34:48'),
 (927, 'site_sticky_navbar_enabled', 'on', '2020-07-25 07:32:50', '2021-02-19 15:09:30'),
 (928, 'popup_enable_status', NULL, '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (929, 'popup_delay_time', '10000', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
@@ -4575,28 +4582,20 @@ CREATE TABLE `team_categories` (
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `img_id` int(33) DEFAULT NULL
+  `img_id` int(33) DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `team_categories`
 --
 
-INSERT INTO `team_categories` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `img_id`) VALUES
-(1, 'Principal Office', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-14 14:50:31', 135),
-(2, 'Lahore Office', 'en', 'draft', '2020-07-22 00:30:20', '2021-02-14 14:50:55', 139),
-(3, 'tasarlamak', 'tur', 'publish', '2020-07-22 00:30:37', '2020-07-22 00:30:37', NULL),
-(4, 'gelişme', 'tur', 'publish', '2020-07-22 00:30:55', '2020-07-22 00:30:55', NULL),
-(5, 'تطوير', 'ar', 'publish', '2020-07-22 00:32:17', '2020-07-22 00:32:17', NULL),
-(6, 'Vel totam ducimus f', 'sp', 'publish', '2020-07-22 00:32:30', '2021-02-10 05:49:19', NULL),
-(7, 'Diseño', 'sp', 'publish', '2020-07-22 00:32:43', '2020-07-22 00:32:43', NULL),
-(8, 'Desarrollo', 'sp', 'publish', '2020-07-22 00:32:55', '2020-07-22 00:32:55', NULL),
-(10, 'Islamabad Office', 'en', 'draft', '2021-02-10 06:26:28', '2021-02-14 14:51:44', 90),
-(11, 'abcffff', 'ar', 'draft', '2021-02-10 07:21:21', '2021-02-10 07:21:21', NULL),
-(12, 'Non voluptate volupt', 'ar', 'publish', '2021-02-10 07:21:42', '2021-02-10 07:21:42', NULL),
-(13, 'AAAAAAAAAA', 'en', 'draft', '2021-02-10 07:24:38', '2021-02-11 06:26:40', 135),
-(14, 'Karachi Office', 'en', 'draft', '2021-02-10 07:24:50', '2021-02-14 14:51:13', 111),
-(16, 'International Office', 'en', 'draft', '2021-02-11 06:22:43', '2021-02-14 14:52:02', 135);
+INSERT INTO `team_categories` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `img_id`, `slug`) VALUES
+(1, 'Principal Office', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-22 14:28:29', 135, 'principal-office'),
+(2, 'Lahore Office', 'en', 'draft', '2020-07-22 00:30:20', '2021-02-22 14:28:35', 139, 'lahore-office'),
+(10, 'Islamabad Office', 'en', 'draft', '2021-02-10 06:26:28', '2021-02-22 14:28:46', 90, 'islamabad-office'),
+(14, 'Karachi Office', 'en', 'draft', '2021-02-10 07:24:50', '2021-02-22 14:28:41', 111, 'karachi-office'),
+(16, 'International Office', 'en', 'draft', '2021-02-11 06:22:43', '2021-02-22 14:28:52', 135, 'international-office');
 
 -- --------------------------------------------------------
 
@@ -4612,23 +4611,24 @@ CREATE TABLE `team_departments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `img_id` int(33) DEFAULT NULL,
-  `order_no` int(11) DEFAULT NULL
+  `order_no` int(11) DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `team_departments`
 --
 
-INSERT INTO `team_departments` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `img_id`, `order_no`) VALUES
-(19, 'Finance Staff', 'en', 'publish', '2021-02-18 03:29:19', '2021-02-19 11:28:26', 81, 3),
-(20, 'Executive Staff', 'en', 'publish', '2021-02-18 03:29:42', '2021-02-19 11:26:43', 81, 2),
-(21, 'Research Staff', 'en', 'publish', '2021-02-18 03:30:38', '2021-02-19 11:28:46', 81, 5),
-(22, 'Support Staff', 'en', 'publish', '2021-02-18 03:30:56', '2021-02-22 10:09:22', 81, 9),
-(23, 'Admin Staff', 'en', 'publish', '2021-02-18 03:31:23', '2021-02-19 11:30:00', 81, 7),
-(25, 'Patron In Chief', 'en', 'publish', '2021-02-19 11:23:28', '2021-02-19 11:23:28', 81, 1),
-(26, 'Secretariat', 'en', 'publish', '2021-02-19 11:27:14', '2021-02-19 11:27:29', 81, 4),
-(27, 'IT Staff', 'en', 'publish', '2021-02-19 11:28:08', '2021-02-19 11:29:45', 81, 6),
-(28, 'Communication Staff', 'en', 'publish', '2021-02-19 11:30:48', '2021-02-19 11:30:48', 81, 10);
+INSERT INTO `team_departments` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `img_id`, `order_no`, `slug`) VALUES
+(19, 'Finance Staff', 'en', 'publish', '2021-02-18 03:29:19', '2021-02-22 14:14:35', 81, 3, NULL),
+(20, 'Executive Staff', 'en', 'publish', '2021-02-18 03:29:42', '2021-02-22 14:14:31', 81, 2, NULL),
+(21, 'Research Staff', 'en', 'publish', '2021-02-18 03:30:38', '2021-02-22 14:15:45', 81, 5, NULL),
+(22, 'Support Staff', 'en', 'publish', '2021-02-18 03:30:56', '2021-02-22 14:15:27', 81, 9, NULL),
+(23, 'Admin Staff', 'en', 'publish', '2021-02-18 03:31:23', '2021-02-22 14:15:32', 81, 7, NULL),
+(25, 'Patron In Chief', 'en', 'publish', '2021-02-19 11:23:28', '2021-02-22 14:14:28', 81, 1, NULL),
+(26, 'Secretariat', 'en', 'publish', '2021-02-19 11:27:14', '2021-02-22 14:15:50', 81, 4, NULL),
+(27, 'IT Staff', 'en', 'publish', '2021-02-19 11:28:08', '2021-02-22 14:15:39', 81, 6, NULL),
+(28, 'Communication Staff', 'en', 'publish', '2021-02-19 11:30:48', '2021-02-22 14:15:22', 81, 10, NULL);
 
 -- --------------------------------------------------------
 
@@ -4654,31 +4654,32 @@ CREATE TABLE `team_members` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `about_me` text COLLATE utf8mb4_unicode_ci,
-  `order_no` int(33) DEFAULT NULL
+  `order_no` int(33) DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `team_members`
 --
 
-INSERT INTO `team_members` (`id`, `cat_id`, `department_id`, `name`, `designation`, `lang`, `description`, `image`, `icon_one`, `icon_two`, `icon_three`, `icon_one_url`, `icon_two_url`, `icon_three_url`, `created_at`, `updated_at`, `about_me`, `order_no`) VALUES
-(2, 1, 20, 'Shahid Sattar', 'Executive Director', 'en', '<b>PUBLIC SECTOR EXPERIENCE:</b>\r\nHe has served as Member Energy of the Planning Commission of Pakistan &amp; has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp; Power.\r\n<br>\r\n<br>\r\n<b>PRIVATE SECTOR EXPERIENCE:</b>\r\nHe has held senior management positions with the various energy sector entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the All Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and Secretary-General of APTMA.\r\n<br>\r\nHe has several international publications and has been regularly writing articles in Pakistani newspapers on industry and economic issues.', '178', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', '#', '2020-07-20 01:19:23', '2021-02-22 10:14:07', 'Mr. Shahid Sattar has served as Member Energy of the Planning Commission of Pakistan & has also been an advisor at: Ministry of Finance, Ministry of Petroleum, and Ministry of Water & Power.', 2),
-(22, 1, 19, 'Ayyaz Asim', 'CFO & Company Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Mr.\r\nAyyaz Asim is Chief Financial Officer &amp; Company Secretary of All Pakistan\r\nTextile Mills Association (APTMA) for more than the last three (3) years. He is an\r\nAssociate Member (ACA) of the Institute of Chartered Accountants of Pakistan (ICAP).\r\nHe has more than seven (7) years post qualification and eleven (11) years\r\nindustry experience of the large Manufacturing Units i.e., Textile Groups,\r\nBanking &amp; Fast-Moving Consumer Goods (FMCG) at key management positions in\r\nthe field of Finance, Accounts, Audit, ERP, Corporate Laws &amp; Taxation.<o:p></o:p></p>', '177', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', NULL, '2021-02-16 12:24:18', '2021-02-19 11:57:11', 'Mr. Ayyaz Asim is Chief Financial Officer & Company Secretary of All Pakistan Textile Mills Association (APTMA) for more than the last three (3) years.', 5),
-(23, 1, 26, 'Muhammad Asif Farooqi', 'Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Muhammad\r\nAsif Farooqi has over 26 years of experience in Human Resource Management,\r\nAdministration and IT. He has worked with various National and Multinational\r\ncompanies in Pakistan including Daewoo and binder Inc. His core competencies\r\ninclude Human Resource Management, Administration, Legal and Regulatory\r\nCompliance. Asif Farooqi holds a Master of Business Administration (HRM) degree\r\nfrom Preston Institute of Management Sciences and Technology (PIMSAT), Karachi.&nbsp;<o:p></o:p></p>', '176', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:26:08', '2021-02-19 11:45:06', 'Muhammad Asif Farooqi has over 26 years of experience in Human Resource Management, Administration and IT. He has worked with various National and Multinational companies in Pakistan including Daewoo and binder Inc.', 8),
-(24, 1, 20, 'Saad Umar', 'Senior Executive Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\ncurrently working in the capacity of Senior Executive Officer at APTMA, and\r\noversees Procurement &amp; HR, IT, and Policy Research &amp; Analysis\r\ndepartments. He has a multidisciplinary background in economics, finance and\r\nrisk management, and possesses exceptional business acumen acquired via an\r\neclectic mix of professional and entrepreneurial endeavors. Saad has been with\r\nthe organization for almost a year. He has demonstrated capabilities in\r\nunderstanding the dynamics of the industry and how APTMA plays a pivotal role\r\nin addressing each and every issue faced by Textile Sector.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\nbeing trained to enhance his expertise in the field of trade related matters\r\nincluding issues pertinent to Ministry of Commerce to become a specialist in\r\nthe field while addressing issues faced by members. He serves as a technical\r\nand research lead at APTMA and provide technical and strategic support for\r\ntextile promotion in Pakistan. He provides executive support to Senior\r\nManagement in almost every task from matters related to administrations,\r\ncommunications, publications, stakeholder management, high-profile meetings,\r\neconomic &amp; financial analysis, presentations, to current restructuring of\r\nAPTMA including budget, policy, and hiring of key resources for the\r\norganization.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is a\r\ngraduate of University College London (UCL) with a Master’s degree in Financial\r\nRisk Management, and possesses 5 years of national and international financial\r\nindustry experience, including a placement at Nomura Investment Bank, London.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad’s\r\nprofile can be vied at<span style=\"font-family:&quot;Times New Roman&quot;,serif\">\r\n</span><a href=\"https://www.linkedin.com/in/saad-umar-b6225a36/\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">https://www.linkedin.com/in/saad-umar-b6225a36/</span></a><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><o:p></o:p></span></p>', '175', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:01', '2021-02-19 11:43:40', 'Saad is currently working in the capacity of Senior Executive Officer at APTMA, and oversees Procurement & HR, IT, and Policy Research & Analysis departments.', 4),
-(25, 1, 23, 'Azhar Rana', 'Coordinator', 'en', '<p class=\"MsoNormal\"><b>Education:</b>&nbsp;&nbsp;Holds MSc. Degree&nbsp;in History\r\n(Major subjects in International Relation) from Quaid-e-Azam University,\r\nIslamabad. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\">Azhar Rana has served in various dynamic organizations for\r\nthe last 17 years. He is at the moment serving in APTMA as Coordinator. He is\r\nmanaging media, concessionary tariff rates to zero-rate connections, RFQs, and\r\nurgent R&amp;I to a government organization.<o:p></o:p></p>', '174', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:50', '2021-02-19 12:08:07', 'Holds MSc. Degree in History (Major subjects in International Relation) from Quaid-e-Azam University, Islamabad.', 13),
-(26, 1, 19, 'Haroon Aziz', 'Sr. Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Haroon\r\nAziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018.\r\nHe has done his M.B.A (fin) from the University of Arid Agriculture Rawalpindi and\r\nB.com from Punjab College of Commerce Rawalpindi. He has a vast experience of\r\nmore than 12 years in the field of accounting and taxation. Apart from this, he\r\nhas attended numerous local and international conferences pertaining to his\r\nfield. Moreover, he has a passion for literary work by writing different\r\narticles on the current issue. Recently his paper has been published in “Journal of\r\nEducation and vocational Research” on Systematic Review of Covid Spillover and\r\nOnline Education Pedagogy.<o:p></o:p></p>', '173', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:00', '2021-02-19 11:48:58', 'Haroon Aziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018. He has done his M.B.A (fin) from University of Arid Agriculture Rawalpindi and B.com from Punjab College of Commerce Rawalpindi.', 6),
-(27, 1, 19, 'Anwar ul Hassan Korai', 'Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Anwar\r\nul Hassan Korai is Accounts Officer and a professional employee with more than\r\n3 years of working experience with APTMA. In this role, he manages finance\r\ndepartment functions under supervision of Chief Financial officer. His areas of\r\ninterest are finance, tax &amp; audit. He has over 08 years of financial as\r\nwell as tax related work experience. Anwar received a Master\'s of Business\r\nAdministration MBA degree from the COMSATS University, Lahore campus.<o:p></o:p></p>', '172', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:51', '2021-02-19 11:49:39', 'Anwar ul Hassan Korai is Accounts Officer and a professional employee with more than 3 years of working experience with APTMA.', 7),
-(28, 1, 21, 'Asad Abbas Shah', 'Senior Research Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Asad\r\nAbbas Shah is a Research Economist and a professional employee with more than 3\r\nyears of working with APTMA. He played a key role in drafting Pakistan’s\r\nTextile Policy Proposals 2020-25 on behalf of APTMA. He is well versed in\r\npolicy matters, conducting research, and preparing detailed policy\r\nreports.&nbsp; He has written many articles in all leading newspapers\r\nadvocating for the issues faced by the textile sector of Pakistan and has\r\nstarted to make his name among economists and policymakers.<o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nhas been consistently performing well throughout the tenure of his career, and\r\nkeeping the same in view, he has been promoted to the position of Senior\r\nResearch Analyst with enhanced responsibilities by involving him in matters\r\nrelated to the power and gas sector. He has been dealing with the energy and gas sector\r\nissues for quite some time and has attained significant exposure in the field. <o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">\r\n\r\n\r\n\r\n</p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">His\r\nareas of interest are energy economics, applied economics, and industrial\r\neconomics. He is proficient in data handling &amp; analysis, energy issues, and\r\ncotton-related matters. He has done his Masters and MPhil in Economics from\r\nQuaid-I-Azam University Islamabad.<o:p></o:p></p>', '171', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:31:40', '2021-02-19 11:51:00', 'Asad Abbas Shah is a Research Economist and a professional employee with more than 3 years of working with APTMA. He played a key role in drafting Pakistan’s Textile Policy Proposals 2020-25 on behalf of APTMA.', 9),
-(29, 1, 27, 'Syed Irtaza Abbas', 'Executive Assistant & IT Manager', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nbrings 4+ years of diverse technology experience, local as well as\r\ninternational, to All Pakistan Textile Mills Association. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Prior\r\nto APTMA, Irtaza headed the technology division at Khushhali Microfinance Bank\r\nfor two years, where his areas of influence included technology strategy,\r\noperations and project deployments (T24). He has also worked at leading IT service\r\nprovider company Jaffer Business System, as the Senior Service Desk Coordinator\r\nof the IT Department. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nis a Microsoft Certified Solution Expert, having obtained this certification\r\nfrom Corvit Institution. Moreover, he possesses a diploma in video editing from\r\nPakistan Education Skill Council (PESC). <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Apart\r\nfrom his dynamic IT career, Irtaza is a Youtuber and a member of the non-profit\r\norganization Fisabilillah.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nholds a Bachelors in Information Technology as well as a Master’s in Business\r\nAdministration from International Islamic University, Islamabad.<o:p></o:p></p>', '170', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:32:33', '2021-02-19 11:52:21', 'Irtaza brings 4+ years of diverse technology experience, local as well as international, to All Pakistan Textile Mills Association.', 11),
-(31, 1, 21, 'Eman Ahmed', 'Economic Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Eman\r\nis an Economic Analyst at APTMA. A recent graduate of the Lahore University of\r\nManagement Sciences (LUMS), she obtained her BSc Honors in Economics and\r\nPolitical Science in 2019. Her work at APTMA is centered around economic\r\nanalysis, policy research and publications. She has published over 20 articles\r\nwith APTMA in the past year, on topics ranging from export-led growth to\r\ninvestments and energy. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">She\r\nhas previously worked with the United States Institute of Peace as a program\r\ncoordinator in the development sector in Pakistan, and served as the\r\nPublications Director for LUMS Model United Nations (LUMUN) during her\r\nundergrad. She has organised and hosted international development events in\r\ncollaboration with key partners, particularly UNDP.&nbsp;<o:p></o:p></p>', '169', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:33:54', '2021-02-19 11:51:36', 'Eman is an Economic Analyst at APTMA. A recent graduate of the Lahore University of Management Sciences (LUMS), she obtained her BSc Honors in Economics and Political Science in 2019.', 10),
-(32, 1, 27, 'Zeeshan Lashari', 'IT & Network Administrator', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\"><span style=\"color:black;mso-themecolor:text1\">Zeeshan is working as an IT\r\nAdministrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems\r\nSupport Engineer at PC Hotel Bhurban. Working in tech support for the past two\r\nyears, he has got extensive practical experience of managing servers, systems\r\nand networks. He possesses the ability to administer, and control the operation\r\nand configuration of computer-based information systems. Zeeshan earned his\r\nBachelors of Engineering degree from NED University of Engineering &amp;\r\nTechnology Karachi.<o:p></o:p></span></p>', '168', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:35:14', '2021-02-19 11:52:51', 'Zeeshan is working as an IT Administrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems Support Engineer at PC Hotel Bhurban.', 12),
-(33, 1, 25, 'Mr. Gohar Ejaz', 'Patron in Chief', 'en', '<p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">Mr. Gohar Ejaz is the Chief\r\nExecutive of Lake City Holdings (Pvt.) Ltd, a 2000 acre resort and residential\r\nproject that is home to an 18-hole PGA golf course, 8000 luxury\r\nbungalows/villas, serene lakes, landscape architecture, parks, and pavilions,\r\ncivic amenities, restaurants, a modern Cineplex, and a shopping mall. <o:p></o:p></span></p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">&nbsp;</span></p><p>\r\n\r\n\r\n\r\n</p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">He has also been elected\r\nPatron-in-Chief of the Association of Builders and Developers of Pakistan (ABAD)\r\nNorthern Region, a national level representative organization of builders and\r\ndevelopers, formed with the aim and objective of unifying and streamlining the\r\nconstruction activities of the private sector.<o:p></o:p></span></p>', '180', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-19 11:40:35', '2021-02-22 07:46:48', 'Mr. Gohar Ejaz is the Chief Executive of Ejaz Group of Companies, compromising of Ejaz Spinning Mills & Ejaz Textile Mills Limited.', 1),
-(34, 1, 20, 'Adil Bashir', 'Chairman', 'en', 'Mr Adil Bashir', '147', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 07:48:17', '2021-02-22 09:03:58', 'Mr Adil Bashir', 3),
-(35, 1, 22, 'Mr. Muhammad Ismail', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Muhammad Ismail</span><br></p>', '183', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:39:55', '2021-02-22 10:39:55', 'Mr. Muhammad Ismail', 14),
-(36, 1, 22, 'Mr. Robat Masih', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Robat Masih</span><br></p>', '184', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:40:43', '2021-02-22 10:43:01', 'Mr. Robat Masih', 18),
-(37, 1, 22, 'Mr. Asif Ali', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Asif Ali</span><br></p>', '181', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:42:10', '2021-02-22 10:42:10', 'Mr. Asif Ali', 16),
-(38, 1, 22, 'Mr. Hamza Shakeel', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Hamza Shakeel</span><br></p>', '182', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:43:53', '2021-02-22 10:43:53', 'Mr. Hamza Shakeel', 17);
+INSERT INTO `team_members` (`id`, `cat_id`, `department_id`, `name`, `designation`, `lang`, `description`, `image`, `icon_one`, `icon_two`, `icon_three`, `icon_one_url`, `icon_two_url`, `icon_three_url`, `created_at`, `updated_at`, `about_me`, `order_no`, `slug`) VALUES
+(2, 1, 20, 'Shahid Sattar', 'Executive Director', 'en', '<b>PUBLIC SECTOR EXPERIENCE:</b>\r\nHe has served as Member Energy of the Planning Commission of Pakistan &amp; has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp; Power.\r\n<br>\r\n<br>\r\n<b>PRIVATE SECTOR EXPERIENCE:</b>\r\nHe has held senior management positions with the various energy sector entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the All Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and Secretary-General of APTMA.\r\n<br>\r\nHe has several international publications and has been regularly writing articles in Pakistani newspapers on industry and economic issues.', '178', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', '#', '2020-07-20 01:19:23', '2021-02-22 14:18:58', 'Mr. Shahid Sattar has served as Member Energy of the Planning Commission of Pakistan & has also been an advisor at: Ministry of Finance, Ministry of Petroleum, and Ministry of Water & Power.', 2, 'shahid-sattar-executive-director'),
+(22, 1, 19, 'Ayyaz Asim', 'CFO & Company Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Mr.\r\nAyyaz Asim is Chief Financial Officer &amp; Company Secretary of All Pakistan\r\nTextile Mills Association (APTMA) for more than the last three (3) years. He is an\r\nAssociate Member (ACA) of the Institute of Chartered Accountants of Pakistan (ICAP).\r\nHe has more than seven (7) years post qualification and eleven (11) years\r\nindustry experience of the large Manufacturing Units i.e., Textile Groups,\r\nBanking &amp; Fast-Moving Consumer Goods (FMCG) at key management positions in\r\nthe field of Finance, Accounts, Audit, ERP, Corporate Laws &amp; Taxation.<o:p></o:p></p>', '177', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', NULL, '2021-02-16 12:24:18', '2021-02-22 14:19:33', 'Mr. Ayyaz Asim is Chief Financial Officer & Company Secretary of All Pakistan Textile Mills Association (APTMA) for more than the last three (3) years.', 5, 'ayyaz-asim-cfo-company-secretary'),
+(23, 1, 26, 'Muhammad Asif Farooqi', 'Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Muhammad\r\nAsif Farooqi has over 26 years of experience in Human Resource Management,\r\nAdministration and IT. He has worked with various National and Multinational\r\ncompanies in Pakistan including Daewoo and binder Inc. His core competencies\r\ninclude Human Resource Management, Administration, Legal and Regulatory\r\nCompliance. Asif Farooqi holds a Master of Business Administration (HRM) degree\r\nfrom Preston Institute of Management Sciences and Technology (PIMSAT), Karachi.&nbsp;<o:p></o:p></p>', '176', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:26:08', '2021-02-22 14:21:49', 'Muhammad Asif Farooqi has over 26 years of experience in Human Resource Management, Administration and IT. He has worked with various National and Multinational companies in Pakistan including Daewoo and binder Inc.', 8, 'muhammad-asif-farooqi-secretary'),
+(24, 1, 20, 'Saad Umar', 'Senior Executive Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\ncurrently working in the capacity of Senior Executive Officer at APTMA, and\r\noversees Procurement &amp; HR, IT, and Policy Research &amp; Analysis\r\ndepartments. He has a multidisciplinary background in economics, finance and\r\nrisk management, and possesses exceptional business acumen acquired via an\r\neclectic mix of professional and entrepreneurial endeavors. Saad has been with\r\nthe organization for almost a year. He has demonstrated capabilities in\r\nunderstanding the dynamics of the industry and how APTMA plays a pivotal role\r\nin addressing each and every issue faced by Textile Sector.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\nbeing trained to enhance his expertise in the field of trade related matters\r\nincluding issues pertinent to Ministry of Commerce to become a specialist in\r\nthe field while addressing issues faced by members. He serves as a technical\r\nand research lead at APTMA and provide technical and strategic support for\r\ntextile promotion in Pakistan. He provides executive support to Senior\r\nManagement in almost every task from matters related to administrations,\r\ncommunications, publications, stakeholder management, high-profile meetings,\r\neconomic &amp; financial analysis, presentations, to current restructuring of\r\nAPTMA including budget, policy, and hiring of key resources for the\r\norganization.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is a\r\ngraduate of University College London (UCL) with a Master’s degree in Financial\r\nRisk Management, and possesses 5 years of national and international financial\r\nindustry experience, including a placement at Nomura Investment Bank, London.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad’s\r\nprofile can be vied at<span style=\"font-family:&quot;Times New Roman&quot;,serif\">\r\n</span><a href=\"https://www.linkedin.com/in/saad-umar-b6225a36/\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">https://www.linkedin.com/in/saad-umar-b6225a36/</span></a><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><o:p></o:p></span></p>', '175', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:01', '2021-02-22 14:30:00', 'Saad is currently working in the capacity of Senior Executive Officer at APTMA, and oversees Procurement & HR, IT, and Policy Research & Analysis departments.', 4, 'saad-umar-senior-executive-officer'),
+(25, 1, 23, 'Azhar Rana', 'Coordinator', 'en', '<p class=\"MsoNormal\"><b>Education:</b>&nbsp;&nbsp;Holds MSc. Degree&nbsp;in History\r\n(Major subjects in International Relation) from Quaid-e-Azam University,\r\nIslamabad. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\">Azhar Rana has served in various dynamic organizations for\r\nthe last 17 years. He is at the moment serving in APTMA as Coordinator. He is\r\nmanaging media, concessionary tariff rates to zero-rate connections, RFQs, and\r\nurgent R&amp;I to a government organization.<o:p></o:p></p>', '174', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:50', '2021-02-22 14:20:53', 'Holds MSc. Degree in History (Major subjects in International Relation) from Quaid-e-Azam University, Islamabad.', 13, 'azhar-rana-coordinator'),
+(26, 1, 19, 'Haroon Aziz', 'Sr. Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Haroon\r\nAziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018.\r\nHe has done his M.B.A (fin) from the University of Arid Agriculture Rawalpindi and\r\nB.com from Punjab College of Commerce Rawalpindi. He has a vast experience of\r\nmore than 12 years in the field of accounting and taxation. Apart from this, he\r\nhas attended numerous local and international conferences pertaining to his\r\nfield. Moreover, he has a passion for literary work by writing different\r\narticles on the current issue. Recently his paper has been published in “Journal of\r\nEducation and vocational Research” on Systematic Review of Covid Spillover and\r\nOnline Education Pedagogy.<o:p></o:p></p>', '173', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:00', '2021-02-22 14:19:52', 'Haroon Aziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018. He has done his M.B.A (fin) from University of Arid Agriculture Rawalpindi and B.com from Punjab College of Commerce Rawalpindi.', 6, 'haroon-aziz-sr-accounts-officer'),
+(27, 1, 19, 'Anwar ul Hassan Korai', 'Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Anwar\r\nul Hassan Korai is Accounts Officer and a professional employee with more than\r\n3 years of working experience with APTMA. In this role, he manages finance\r\ndepartment functions under supervision of Chief Financial officer. His areas of\r\ninterest are finance, tax &amp; audit. He has over 08 years of financial as\r\nwell as tax related work experience. Anwar received a Master\'s of Business\r\nAdministration MBA degree from the COMSATS University, Lahore campus.<o:p></o:p></p>', '172', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:51', '2021-02-22 14:20:01', 'Anwar ul Hassan Korai is Accounts Officer and a professional employee with more than 3 years of working experience with APTMA.', 7, 'anwar-ul-hassan-korai-accounts-officer'),
+(28, 1, 21, 'Asad Abbas Shah', 'Senior Research Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Asad\r\nAbbas Shah is a Research Economist and a professional employee with more than 3\r\nyears of working with APTMA. He played a key role in drafting Pakistan’s\r\nTextile Policy Proposals 2020-25 on behalf of APTMA. He is well versed in\r\npolicy matters, conducting research, and preparing detailed policy\r\nreports.&nbsp; He has written many articles in all leading newspapers\r\nadvocating for the issues faced by the textile sector of Pakistan and has\r\nstarted to make his name among economists and policymakers.<o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nhas been consistently performing well throughout the tenure of his career, and\r\nkeeping the same in view, he has been promoted to the position of Senior\r\nResearch Analyst with enhanced responsibilities by involving him in matters\r\nrelated to the power and gas sector. He has been dealing with the energy and gas sector\r\nissues for quite some time and has attained significant exposure in the field. <o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">\r\n\r\n\r\n\r\n</p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">His\r\nareas of interest are energy economics, applied economics, and industrial\r\neconomics. He is proficient in data handling &amp; analysis, energy issues, and\r\ncotton-related matters. He has done his Masters and MPhil in Economics from\r\nQuaid-I-Azam University Islamabad.<o:p></o:p></p>', '171', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:31:40', '2021-02-22 14:21:36', 'Asad Abbas Shah is a Research Economist and a professional employee with more than 3 years of working with APTMA. He played a key role in drafting Pakistan’s Textile Policy Proposals 2020-25 on behalf of APTMA.', 9, 'asad-abbas-shah-senior-research-analyst'),
+(29, 1, 27, 'Syed Irtaza Abbas', 'Executive Assistant & IT Manager', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nbrings 4+ years of diverse technology experience, local as well as\r\ninternational, to All Pakistan Textile Mills Association. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Prior\r\nto APTMA, Irtaza headed the technology division at Khushhali Microfinance Bank\r\nfor two years, where his areas of influence included technology strategy,\r\noperations and project deployments (T24). He has also worked at leading IT service\r\nprovider company Jaffer Business System, as the Senior Service Desk Coordinator\r\nof the IT Department. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nis a Microsoft Certified Solution Expert, having obtained this certification\r\nfrom Corvit Institution. Moreover, he possesses a diploma in video editing from\r\nPakistan Education Skill Council (PESC). <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Apart\r\nfrom his dynamic IT career, Irtaza is a Youtuber and a member of the non-profit\r\norganization Fisabilillah.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nholds a Bachelors in Information Technology as well as a Master’s in Business\r\nAdministration from International Islamic University, Islamabad.<o:p></o:p></p>', '170', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:32:33', '2021-02-22 14:21:19', 'Irtaza brings 4+ years of diverse technology experience, local as well as international, to All Pakistan Textile Mills Association.', 11, 'syed-irtaza-abbas-executive-assistant-it-manager'),
+(31, 1, 21, 'Eman Ahmed', 'Economic Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Eman\r\nis an Economic Analyst at APTMA. A recent graduate of the Lahore University of\r\nManagement Sciences (LUMS), she obtained her BSc Honors in Economics and\r\nPolitical Science in 2019. Her work at APTMA is centered around economic\r\nanalysis, policy research and publications. She has published over 20 articles\r\nwith APTMA in the past year, on topics ranging from export-led growth to\r\ninvestments and energy. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">She\r\nhas previously worked with the United States Institute of Peace as a program\r\ncoordinator in the development sector in Pakistan, and served as the\r\nPublications Director for LUMS Model United Nations (LUMUN) during her\r\nundergrad. She has organised and hosted international development events in\r\ncollaboration with key partners, particularly UNDP.&nbsp;<o:p></o:p></p>', '169', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:33:54', '2021-02-22 14:21:27', 'Eman is an Economic Analyst at APTMA. A recent graduate of the Lahore University of Management Sciences (LUMS), she obtained her BSc Honors in Economics and Political Science in 2019.', 10, 'eman-ahmed-economic-analyst'),
+(32, 1, 27, 'Zeeshan Lashari', 'IT & Network Administrator', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\"><span style=\"color:black;mso-themecolor:text1\">Zeeshan is working as an IT\r\nAdministrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems\r\nSupport Engineer at PC Hotel Bhurban. Working in tech support for the past two\r\nyears, he has got extensive practical experience of managing servers, systems\r\nand networks. He possesses the ability to administer, and control the operation\r\nand configuration of computer-based information systems. Zeeshan earned his\r\nBachelors of Engineering degree from NED University of Engineering &amp;\r\nTechnology Karachi.<o:p></o:p></span></p>', '168', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:35:14', '2021-02-22 14:21:02', 'Zeeshan is working as an IT Administrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems Support Engineer at PC Hotel Bhurban.', 12, 'zeeshan-lashari-it-network-administrator'),
+(33, 1, 25, 'Mr. Gohar Ejaz', 'Patron in Chief', 'en', '<p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">Mr. Gohar Ejaz is the Chief\r\nExecutive of Lake City Holdings (Pvt.) Ltd, a 2000 acre resort and residential\r\nproject that is home to an 18-hole PGA golf course, 8000 luxury\r\nbungalows/villas, serene lakes, landscape architecture, parks, and pavilions,\r\ncivic amenities, restaurants, a modern Cineplex, and a shopping mall. <o:p></o:p></span></p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">&nbsp;</span></p><p>\r\n\r\n\r\n\r\n</p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">He has also been elected\r\nPatron-in-Chief of the Association of Builders and Developers of Pakistan (ABAD)\r\nNorthern Region, a national level representative organization of builders and\r\ndevelopers, formed with the aim and objective of unifying and streamlining the\r\nconstruction activities of the private sector.<o:p></o:p></span></p>', '180', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-19 11:40:35', '2021-02-22 14:18:32', 'Mr. Gohar Ejaz is the Chief Executive of Ejaz Group of Companies, compromising of Ejaz Spinning Mills & Ejaz Textile Mills Limited.', 1, 'mr-gohar-ejaz-patron-in-chief'),
+(34, 1, 20, 'Adil Bashir', 'Chairman', 'en', 'Mr Adil Bashir', '147', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 07:48:17', '2021-02-22 14:19:12', 'Mr Adil Bashir', 3, 'adil-bashir-chairman'),
+(35, 1, 22, 'Mr. Muhammad Ismail', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Muhammad Ismail</span><br></p>', '183', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:39:55', '2021-02-22 14:20:46', 'Mr. Muhammad Ismail', 14, 'mr-muhammad-ismail-staff-member'),
+(36, 1, 22, 'Mr. Robat Masih', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Robat Masih</span><br></p>', '184', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:40:43', '2021-02-22 14:20:10', 'Mr. Robat Masih', 18, 'mr-robat-masih-staff-member'),
+(37, 1, 22, 'Mr. Asif Ali', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Asif Ali</span><br></p>', '181', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:42:10', '2021-02-22 14:20:26', 'Mr. Asif Ali', 16, 'mr-asif-ali-staff-member'),
+(38, 1, 22, 'Mr. Hamza Shakeel', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Hamza Shakeel</span><br></p>', '182', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:43:53', '2021-02-22 14:20:17', 'Mr. Hamza Shakeel', 17, 'mr-hamza-shakeel-staff-member');
 
 -- --------------------------------------------------------
 
@@ -4870,17 +4871,19 @@ CREATE TABLE `video_gallery` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp(5) NULL DEFAULT NULL,
-  `updated_at` timestamp(5) NULL DEFAULT NULL
+  `updated_at` timestamp(5) NULL DEFAULT NULL,
+  `slug` varchar(555) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `video_gallery`
 --
 
-INSERT INTO `video_gallery` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`) VALUES
-(4, 1, 'APTMA Hails Punjab CM Buzdar For Reopening Textile Value Chain.', 'The All Pakistan Textile Mills Association (APTMA) Punjab Chairman Adil Bashir thanked Chief Minister Punjab Usman Buzdar for reopening the textile industry value chain in the larger interest of the country’s exports and much-needed employment in these testing times. He was addressing a press conference at the APTMA Punjab office on Saturday. Chairman All Pakistan Textile Processing Mills Association (APTPMA) Pervaiz Lala was also present on the occasion.\r\nChairman APTMA Punjab said a delegation of the Punjab-based textile associations had called on Chief Minister Punjab and briefed him about the measures taken by the textile industry to avoid the spread of Coronavirus at factory premises. He said Chief Minister Punjab has expressed his satisfaction over the arrangements and allowed the textile value chain to resumes operations throughout Punjab. He said the textile value chain was grateful to the government of Punjab for taking a prudent decision. This decision of the government would save hundreds and thousands of textile workers from layoff, he said.\r\nAccording to him, the textile industry would follow all the Standard Operating Procedures (SOPs) in letter and spirit. The member mills of APTMA have already adopted all precautionary measures at mills during the processing of the orders on the floor by providing masks, sanitizers and other PPE to labour besides observing complete cleanliness. He said it is a matter of great satisfaction that the Covid-19 situation is much better in Pakistan as compared to the US and Europe due to timely steps taken by the government. He said the number of confirmed cases is 18000 while the number of deaths is 417 today, which is far better than the developed world.', '143', 'https://www.youtube.com/watch?v=fEcek6B3OMo', NULL, 1, 1, '2021-01-22 00:58:29.00000', '2021-02-13 18:14:00.00000'),
-(7, 1, 'Textile mills owners strike | PM Imran Khan will meet APTMA Chairman Today', 'https://www.hixymenavupex.cc', '144', 'https://www.youtube.com/watch?v=QoiQYk5c0Wk', NULL, 1, 0, '2021-02-10 07:58:07.00000', '2021-02-13 18:17:08.00000'),
-(8, 1, 'PM Imran Khan Meets Aptma Leader Gohar Ejaz', 'PM Imran Khan Meets Aptma Leader Gohar Ejaz', '145', 'https://www.youtube.com/watch?v=_0K2LCSCHTo', NULL, 1, 0, '2021-02-10 09:17:16.00000', '2021-02-13 18:27:08.00000');
+INSERT INTO `video_gallery` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
+(4, 1, 'APTMA Hails Punjab CM Buzdar For Reopening Textile Value Chain.', 'The All Pakistan Textile Mills Association (APTMA) Punjab Chairman Adil Bashir thanked Chief Minister Punjab Usman Buzdar for reopening the textile industry value chain in the larger interest of the country’s exports and much-needed employment in these testing times. He was addressing a press conference at the APTMA Punjab office on Saturday. Chairman All Pakistan Textile Processing Mills Association (APTPMA) Pervaiz Lala was also present on the occasion.\r\nChairman APTMA Punjab said a delegation of the Punjab-based textile associations had called on Chief Minister Punjab and briefed him about the measures taken by the textile industry to avoid the spread of Coronavirus at factory premises. He said Chief Minister Punjab has expressed his satisfaction over the arrangements and allowed the textile value chain to resumes operations throughout Punjab. He said the textile value chain was grateful to the government of Punjab for taking a prudent decision. This decision of the government would save hundreds and thousands of textile workers from layoff, he said.\r\nAccording to him, the textile industry would follow all the Standard Operating Procedures (SOPs) in letter and spirit. The member mills of APTMA have already adopted all precautionary measures at mills during the processing of the orders on the floor by providing masks, sanitizers and other PPE to labour besides observing complete cleanliness. He said it is a matter of great satisfaction that the Covid-19 situation is much better in Pakistan as compared to the US and Europe due to timely steps taken by the government. He said the number of confirmed cases is 18000 while the number of deaths is 417 today, which is far better than the developed world.', '143', 'https://www.youtube.com/watch?v=fEcek6B3OMo', NULL, 1, 1, '2021-01-22 00:58:29.00000', '2021-02-22 14:12:07.00000', 'aptma-hails-punjab-cm-buzdar-for-reopening-textile-value-chain-ab'),
+(7, 1, 'Textile mills owners strike | PM Imran Khan will meet APTMA Chairman Today', 'https://www.hixymenavupex.cc', '144', 'https://www.youtube.com/watch?v=QoiQYk5c0Wk', NULL, 1, 0, '2021-02-10 07:58:07.00000', '2021-02-22 14:11:59.00000', 'textile-mills-owners-strike-pm-imran-khan-will-meet-aptma-chairman-today-b8'),
+(8, 1, 'PM Imran Khan Meets Aptma Leader Gohar Ejaz', 'PM Imran Khan Meets Aptma Leader Gohar Ejaz', '145', 'https://www.youtube.com/watch?v=_0K2LCSCHTo', NULL, 1, 0, '2021-02-10 09:17:16.00000', '2021-02-22 14:11:53.00000', 'pm-imran-khan-meets-aptma-leader-gohar-ejaz-je'),
+(9, 1, 'Chairman APTMA Amanullah analysis on APTMA announces closure of all textile mills across Pakistan', '<p><div id=\"info\" class=\"style-scope ytd-video-primary-info-renderer\" style=\"margin: 0px; padding: 0px; border: 0px; background: rgb(249, 249, 249); display: flex; flex-direction: row; align-items: center; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; font-size: 10px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"></div></p><h1 class=\"title style-scope ytd-video-primary-info-renderer\" style=\"margin: 0px; padding: 0px; border: 0px; background: rgb(249, 249, 249); display: block; max-height: calc(2 * var(--yt-navbar-title-line-height, 2.4rem)); overflow: hidden; font-weight: 400; line-height: var(--yt-navbar-title-line-height, 2.4rem); color: var(--ytd-video-primary-info-renderer-title-color, var(--yt-spec-text-primary)); font-family: Roboto, Arial, sans-serif; font-size: var(--ytd-video-primary-info-renderer-title-font-size, var(--yt-navbar-title-font-size, inherit)); font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: ; font-variant-east-asian: ; transform: var(--ytd-video-primary-info-renderer-title-transform, none); text-shadow: var(--ytd-video-primary-info-renderer-title-text-shadow, none); font-style: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><yt-formatted-string force-default-style=\"\" class=\"style-scope ytd-video-primary-info-renderer\" style=\"word-break: break-word;\">Chairman APTMA Amanullah analysis on APTMA announces closure of all textile mills across Pakistan</yt-formatted-string></h1>', '185', 'https://www.youtube.com/watch?v=AXGdniAyatM&ab_channel=CapitalTV', NULL, 1, 0, '2021-02-22 11:17:40.00000', '2021-02-22 14:11:47.00000', 'chairman-aptma-amanullah-analysis-on-aptma-announces-closure-of-all-textile-mills-across-pakistan-2f');
 
 -- --------------------------------------------------------
 
@@ -4894,27 +4897,28 @@ CREATE TABLE `video_gallery_categories` (
   `lang` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `video_gallery_categories`
 --
 
-INSERT INTO `video_gallery_categories` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'News Videos', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-13 18:08:53'),
-(3, 'tasarlamak', 'tur', 'publish', '2020-07-22 00:30:37', '2020-07-22 00:30:37'),
-(4, 'gelişme', 'tur', 'publish', '2020-07-22 00:30:55', '2020-07-22 00:30:55'),
-(5, 'تطوير', 'ar', 'publish', '2020-07-22 00:32:17', '2020-07-22 00:32:17'),
-(6, 'Vel totam ducimus f', 'sp', 'publish', '2020-07-22 00:32:30', '2021-02-10 05:49:19'),
-(7, 'Diseño', 'sp', 'publish', '2020-07-22 00:32:43', '2020-07-22 00:32:43'),
-(8, 'Desarrollo', 'sp', 'publish', '2020-07-22 00:32:55', '2020-07-22 00:32:55'),
-(13, 'Magna aut culpa est', 'sp', 'publish', '2021-02-10 07:26:49', '2021-02-10 07:26:49'),
-(14, 'Fugiat qui deleniti', 'sp', 'publish', '2021-02-10 09:39:01', '2021-02-10 09:39:01'),
-(15, 'Dolore et qui ut quo', 'ar', 'draft', '2021-02-10 09:40:33', '2021-02-10 09:40:33'),
-(17, 'Beatae placeat adip', 'ar', 'draft', '2021-02-10 09:40:59', '2021-02-10 09:40:59'),
-(18, 'Perferendis voluptat', 'tur', 'publish', '2021-02-10 09:41:06', '2021-02-10 09:41:06'),
-(20, 'Reprehenderit veniam', 'ar', 'draft', '2021-02-10 09:42:39', '2021-02-10 09:42:39');
+INSERT INTO `video_gallery_categories` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `slug`) VALUES
+(1, 'News Videos', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-22 14:11:36', 'news-videos'),
+(3, 'tasarlamak', 'tur', 'publish', '2020-07-22 00:30:37', '2020-07-22 00:30:37', NULL),
+(4, 'gelişme', 'tur', 'publish', '2020-07-22 00:30:55', '2020-07-22 00:30:55', NULL),
+(5, 'تطوير', 'ar', 'publish', '2020-07-22 00:32:17', '2020-07-22 00:32:17', NULL),
+(6, 'Vel totam ducimus f', 'sp', 'publish', '2020-07-22 00:32:30', '2021-02-10 05:49:19', NULL),
+(7, 'Diseño', 'sp', 'publish', '2020-07-22 00:32:43', '2020-07-22 00:32:43', NULL),
+(8, 'Desarrollo', 'sp', 'publish', '2020-07-22 00:32:55', '2020-07-22 00:32:55', NULL),
+(13, 'Magna aut culpa est', 'sp', 'publish', '2021-02-10 07:26:49', '2021-02-10 07:26:49', NULL),
+(14, 'Fugiat qui deleniti', 'sp', 'publish', '2021-02-10 09:39:01', '2021-02-10 09:39:01', NULL),
+(15, 'Dolore et qui ut quo', 'ar', 'draft', '2021-02-10 09:40:33', '2021-02-10 09:40:33', NULL),
+(17, 'Beatae placeat adip', 'ar', 'draft', '2021-02-10 09:40:59', '2021-02-10 09:40:59', NULL),
+(18, 'Perferendis voluptat', 'tur', 'publish', '2021-02-10 09:41:06', '2021-02-10 09:41:06', NULL),
+(20, 'Reprehenderit veniam', 'ar', 'draft', '2021-02-10 09:42:39', '2021-02-10 09:42:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -5456,326 +5460,392 @@ ALTER TABLE `works_categories`
 --
 ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `admin_roles`
 --
 ALTER TABLE `admin_roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `advertisement`
 --
 ALTER TABLE `advertisement`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `advertisement_categories`
 --
 ALTER TABLE `advertisement_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `blog_categories`
 --
 ALTER TABLE `blog_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `book_categories`
 --
 ALTER TABLE `book_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `circulars`
 --
 ALTER TABLE `circulars`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `circular_categories`
 --
 ALTER TABLE `circular_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `contact_info_items`
 --
 ALTER TABLE `contact_info_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `counterups`
 --
 ALTER TABLE `counterups`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `donation_logs`
 --
 ALTER TABLE `donation_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=372;
+
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `events_categories`
 --
 ALTER TABLE `events_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `event_attendances`
 --
 ALTER TABLE `event_attendances`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
 --
 -- AUTO_INCREMENT for table `event_payment_logs`
 --
 ALTER TABLE `event_payment_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `header_sliders`
 --
 ALTER TABLE `header_sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `image_galleries`
 --
 ALTER TABLE `image_galleries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `image_gallery_categories`
 --
 ALTER TABLE `image_gallery_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `jobs_categories`
 --
 ALTER TABLE `jobs_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `job_applicants`
 --
 ALTER TABLE `job_applicants`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `key_features`
 --
 ALTER TABLE `key_features`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `knowledgebases`
 --
 ALTER TABLE `knowledgebases`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT for table `knowledgebase_topics`
 --
 ALTER TABLE `knowledgebase_topics`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `media_uploads`
 --
 ALTER TABLE `media_uploads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
 --
 -- AUTO_INCREMENT for table `newsletters`
 --
 ALTER TABLE `newsletters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
+
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `payment_logs`
 --
 ALTER TABLE `payment_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+
 --
 -- AUTO_INCREMENT for table `popup_builders`
 --
 ALTER TABLE `popup_builders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `price_plans`
 --
 ALTER TABLE `price_plans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `price_plan_categories`
 --
 ALTER TABLE `price_plan_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `product_coupons`
 --
 ALTER TABLE `product_coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `product_orders`
 --
 ALTER TABLE `product_orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
+
 --
 -- AUTO_INCREMENT for table `product_ratings`
 --
 ALTER TABLE `product_ratings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `product_shippings`
 --
 ALTER TABLE `product_shippings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `publications`
 --
 ALTER TABLE `publications`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `publication_categories`
 --
 ALTER TABLE `publication_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT for table `service_categories`
 --
 ALTER TABLE `service_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `social_icons`
 --
 ALTER TABLE `social_icons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `static_options`
 --
 ALTER TABLE `static_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1209;
+
 --
 -- AUTO_INCREMENT for table `team_categories`
 --
 ALTER TABLE `team_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `team_departments`
 --
 ALTER TABLE `team_departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
 --
 -- AUTO_INCREMENT for table `team_members`
 --
 ALTER TABLE `team_members`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 --
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+
 --
 -- AUTO_INCREMENT for table `video_gallery`
 --
 ALTER TABLE `video_gallery`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `video_gallery_categories`
 --
 ALTER TABLE `video_gallery_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT for table `widgets`
 --
 ALTER TABLE `widgets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- AUTO_INCREMENT for table `works`
 --
 ALTER TABLE `works`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
 --
 -- AUTO_INCREMENT for table `works_categories`
 --
 ALTER TABLE `works_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
