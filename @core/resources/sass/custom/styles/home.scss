@@ -663,16 +663,12 @@
 
 }
 
-.teams-group {
+.team-section {
+  border: 1px solid #cfcfd1;
 
-  .team-section {
-    border: 1px solid #cfcfd1;
-
-    .team-img-cont {
-      cursor: default;
-      min-height: 150px;
-    }
-
+  .team-img-cont {
+    cursor: default;
+    min-height: 150px;
   }
 
 }
