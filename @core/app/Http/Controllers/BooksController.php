@@ -8,6 +8,7 @@ use App\Language;
 use App\Book;
 use App\BookCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BooksController extends Controller
 {
@@ -49,6 +50,7 @@ class BooksController extends Controller
             'url' => $url,
             'cat_id' => $request->category,
             'publish_date' => $request->publish_date,
+            'slug' =>Str::slug($request->title.'-'.$request->category),
         ]);
         return redirect()->back()->with(['msg' => __('New book added...'),'type' => 'success']);
     }
@@ -77,6 +79,7 @@ class BooksController extends Controller
           $data->title=$request->title;
           $data->publish_date=$request->publish_date;
           $data->cat_id=$request->category;
+          $data->slug=Str::slug($request->title.'-'.$request->category);
           $data->save();
         return redirect()->back()->with(['msg' => __('Data Updated...'),'type' => 'success']);
     }
@@ -111,12 +114,14 @@ class BooksController extends Controller
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->name,
+            'slug' =>Str::slug($request->name)
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
     public function category_update(Request $request){
         $this->validate($request,[
-            'name' => 'required|string',
+
+            'name' => 'required|string|string|unique:book_categories,name,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -124,6 +129,7 @@ class BooksController extends Controller
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->name,
+            'slug' => Str::slug($request->name),
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }
