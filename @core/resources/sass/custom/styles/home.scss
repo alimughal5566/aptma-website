@@ -496,15 +496,15 @@
     &.team-single-item {
 
       .thumb {
-        max-height: 350px;
+        max-height: 300px;
         height: 100%;
 
         img {
           width: auto;
           height: auto;
-          max-height: 350px;
-          max-width: 100%;
           display: block;
+          max-width: 100%;
+          max-height: 300px;
           border-radius: 0.5rem;
         }
 

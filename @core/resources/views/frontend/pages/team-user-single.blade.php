@@ -30,11 +30,11 @@
                         </div>
                         <h5 class="d-flex flex-column">
                             <span>Designation:</span>
-                            <strong class="text-dark">{{$data->designation}}</strong>
+                            <span class="text-dark">{{$data->designation}}</span>
                         </h5>
-                        <h5 class="d-flex flex-column">
+                        <h5 class="d-flex flex-column py-2">
                             <span>Department:</span>
-                            <strong class="text-dark">{{$data->department->name}}</strong>
+                            <span class="text-dark">{{$data->department->name}}</span>
                         </h5>
                         <div class="social-link pb-4">
                             <ul>
