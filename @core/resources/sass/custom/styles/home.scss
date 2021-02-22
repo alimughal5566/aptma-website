@@ -43,6 +43,24 @@
 
 }
 
+.custom-user-img-wrap {
+    max-height: 250px;
+    height: 100%;
+
+    img {
+
+      &.custom-user-img {
+        width: auto;
+        height: auto;
+        display: block;
+        max-width: 100%;
+        max-height: 250px;
+        border-radius: 0.5rem;
+      }
+
+    }
+
+}
 
 /* HOME */
 
@@ -496,15 +514,15 @@
     &.team-single-item {
 
       .thumb {
-        max-height: 350px;
+        max-height: 300px;
         height: 100%;
 
         img {
           width: auto;
           height: auto;
-          max-height: 350px;
-          max-width: 100%;
           display: block;
+          max-width: 100%;
+          max-height: 300px;
           border-radius: 0.5rem;
         }
 
@@ -663,16 +681,12 @@
 
 }
 
-.teams-group {
+.team-section {
+  border: 1px solid #cfcfd1;
 
-  .team-section {
-    border: 1px solid #cfcfd1;
-
-    .team-img-cont {
-      cursor: default;
-      min-height: 150px;
-    }
-
+  .team-img-cont {
+    cursor: default;
+    min-height: 150px;
   }
 
 }

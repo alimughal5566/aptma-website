@@ -28,7 +28,7 @@
                 </div>
 
                 @forelse($teams as $team)
-                    <div class="col-lg-3  col-sm-6  mb-5 ">
+                    <div class="col-lg-3 col-sm-6 mb-5 ">
                         <div class="team-section p-2 ">
                             <div class="team-img-cont d-flex justify-content-center align-items-center">
                                 <a class="d-flex justify-content-center align-items-center"

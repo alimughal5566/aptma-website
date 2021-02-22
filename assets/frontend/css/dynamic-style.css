@@ -1351,6 +1351,20 @@ html {
   border: 1px solid #439882;
 }
 
+.custom-user-img-wrap {
+  max-height: 250px;
+  height: 100%;
+}
+
+.custom-user-img-wrap img.custom-user-img {
+  width: auto;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 0.5rem;
+}
+
 /* HOME */
 
 /*      Banner section      */
@@ -1785,16 +1799,16 @@ html {
 }
 
 .common-single .common-single-item.team-single-item .thumb {
-  max-height: 350px;
+  max-height: 300px;
   height: 100%;
 }
 
 .common-single .common-single-item.team-single-item .thumb img {
   width: auto;
   height: auto;
-  max-height: 350px;
-  max-width: 100%;
   display: block;
+  max-width: 100%;
+  max-height: 300px;
   border-radius: 0.5rem;
 }
 
@@ -1904,11 +1918,11 @@ html {
   margin-left: 0;
 }
 
-.teams-group .team-section {
+.team-section {
   border: 1px solid #cfcfd1;
 }
 
-.teams-group .team-section .team-img-cont {
+.team-section .team-img-cont {
   cursor: default;
   min-height: 150px;
 }
@@ -2238,29 +2252,6 @@ footer .copyright-area ul.social-icons li a.active {
     margin-top: 0;
   }
 
-  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li {
-    padding: 10px;
-    line-height: 1.75 !important;
-  }
-
-  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children.active > .sub-menu {
-    border-top: 1px solid #e2e2e2;
-    border-bottom: none;
-    visibility: visible;
-    margin-top: 10px;
-    height: auto;
-    opacity: 1;
-  }
-
-  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li a {
-    display: block;
-    width: 100%;
-  }
-
-  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li ul li {
-    line-height: 1.5 !important;
-  }
-
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav > li {
     line-height: 1.75;
   }
@@ -2331,6 +2322,29 @@ footer .copyright-area ul.social-icons li a.active {
 
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav > li.menu-item-has-mega-menu.active .xg_mega_menu_wrapper .xg-mega-menu-single-column-wrap .mega-menu-title {
     padding: 0 10px;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li {
+    padding: 10px;
+    line-height: 1.75 !important;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children.active > .sub-menu {
+    border-top: 1px solid #e2e2e2;
+    border-bottom: none;
+    visibility: visible;
+    margin-top: 10px;
+    height: auto;
+    opacity: 1;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li a {
+    display: block;
+    width: 100%;
+  }
+
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li ul li {
+    line-height: 1.5 !important;
   }
 
   .navigation-wrap .header .navbar-area .nav-container .nav-right-content {
