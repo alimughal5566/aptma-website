@@ -21,7 +21,7 @@
                 <div class="col-12">
                     @forelse($data as $record)
                         @if($record['members']->count()>0)
-                            <div class="row mt-4">
+                            <div class="row mt-4 mb-1">
 
                                 <div class="col-12">
                                     <h3 class="subtitle font-weight-bold text-uppercase mb-0"> {{$record['name']}} </h3>
@@ -29,7 +29,7 @@
 
                                 @foreach($record['members'] as $user )
                                     <div class="col-lg-3 col-sm-6">
-                                        <div class="team-section py-4">
+                                        <div class="team-section py-4 border-0">
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
                                             <div class="team-img-cont d-flex justify-content-center align-items-center">
                                                 <a class="d-flex justify-content-center align-items-center"
