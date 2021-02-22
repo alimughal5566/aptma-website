@@ -18,7 +18,7 @@
 @endsection
 @section('content')
 
-    <div class="page-content service-details common-single teams-singles padding-top-50 padding-bottom-80 ">
+    <div class="page-content service-details common-single teams-group padding-top-50 padding-bottom-80 ">
         <div class="container">
 
             <div class="row">
@@ -29,18 +29,18 @@
                 </div>
 
                 @forelse($teams as $team)
-                    <div class="col-lg-3  col-sm-6  pb-3 mb-5 " style="border:1px solid #cfcfd1">
-                        <div class="team-section">
-                            <div class="team-img-cont pb-1 img-fluid" style="cursor:default;min-height:150px;">
-                                {!! render_image_markup_by_attachment_id($team->img_id) !!}
+                    <div class="col-lg-3  col-sm-6  mb-5 ">
+                        <div class="team-section p-2 ">
+                            <div class="team-img-cont">
+                                <a href="{{route('frontend.team',$team->id) }}">
+                                    {!! render_image_markup_by_attachment_id($team->img_id) !!}
+                                </a>
                             </div>
+                            <hr>
                             <div class="team-text">
-
-                                <hr>
                                 <a href="{{route('frontend.team',$team->id) }}">
                                     <h4 class="title">{{$team->name}}</h4>
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -52,11 +52,11 @@
                     </div>
                 @endforelse
 
-{{--                <div class="col-lg-12">--}}
-{{--                    <div class="pagination-wrapper">--}}
-{{--                        {{$all_team_members->links()}}--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                <div class="col-lg-12">--}}
+                {{--                    <div class="pagination-wrapper">--}}
+                {{--                        {{$all_team_members->links()}}--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
         </div>
 @endsection
