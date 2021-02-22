@@ -46,7 +46,7 @@
                                                     <ul>
                                                         @if(!empty($user->icon_one) && !empty($user->icon_one_url))
                                                             <li>
-                                                                <a href="{{$user->icon_one_url}}">
+                                                                <a target="_blank" href="{{$user->icon_one_url}}">
                                                                     <i class="{{$user->icon_one}}"></i>
                                                                 </a>
                                                             </li>
@@ -54,14 +54,14 @@
 
                                                         @if(!empty($user->icon_two) && !empty($user->icon_two_url))
                                                             <li>
-                                                                <a href="{{$user->icon_two_url}}">
+                                                                <a target="_blank" href="{{$user->icon_two_url}}">
                                                                     <i class="{{$user->icon_two}}"></i>
                                                                 </a>
                                                             </li>
                                                         @endif
                                                         @if(!empty($user->icon_three) && !empty($user->icon_three_url))
                                                             <li>
-                                                                <a href="{{$user->icon_three_url}}">
+                                                                <a target="_blank" href="{{$user->icon_three_url}}">
                                                                     <i class="{{$user->icon_three}}"></i>
                                                                 </a>
                                                             </li>

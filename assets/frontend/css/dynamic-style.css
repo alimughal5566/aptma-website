@@ -1904,11 +1904,11 @@ html {
   margin-left: 0;
 }
 
-.teams-group .team-section {
+.team-section {
   border: 1px solid #cfcfd1;
 }
 
-.teams-group .team-section .team-img-cont {
+.team-section .team-img-cont {
   cursor: default;
   min-height: 150px;
 }

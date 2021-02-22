@@ -17,7 +17,6 @@
     {{$data->title}}
 @endsection
 @section('content')
-
     <div class="page-content service-details common-single team-single padding-top-50 ">
         <div class="container">
             <div class="row ">
@@ -41,21 +40,21 @@
                             <ul>
                                 @if(!empty( $data->icon_one) && !empty( $data->icon_one_url))
                                     <li>
-                                        <a href="{{ $data->icon_one_url}}">
+                                        <a target="_blank" href="{{ $data->icon_one_url}}">
                                             <i class="{{ $data->icon_one}}"></i>
                                         </a>
                                     </li>
                                 @endif
                                 @if(!empty( $data->icon_two) && !empty( $data->icon_two_url))
                                     <li>
-                                        <a href="{{ $data->icon_two_url}}">
+                                        <a target="_blank" href="{{ $data->icon_two_url}}">
                                             <i class="{{ $data->icon_two}}"></i>
                                         </a>
                                     </li>
                                 @endif
                                 @if(!empty( $data->icon_three) && !empty( $data->icon_three_url))
                                     <li>
-                                        <a href="{{ $data->icon_three_url}}">
+                                        <a target="_blank" href="{{ $data->icon_three_url}}">
                                             <i class="{{ $data->icon_three}}"></i>
                                         </a>
                                     </li>
