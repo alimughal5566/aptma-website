@@ -259,21 +259,21 @@
                             </ul>
                         </li>
 
-                        {{--                        <li class=" menu-item-has-children ">--}}
-                        {{--                            <a href="{{route('frontend.circular.index')}}">Circulars</a>--}}
-                        {{--                            <ul class="sub-menu">--}}
-                        {{--                                @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
-                        {{--                                @if($categories->count()>0)--}}
+{{--                                                <li class=" menu-item-has-children ">--}}
+{{--                                                    <a href="{{route('frontend.circular.index')}}">Circulars</a>--}}
+{{--                                                    <ul class="sub-menu">--}}
+{{--                                                        @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
+{{--                                                        @if($categories->count()>0)--}}
 
-                        {{--                                    @foreach($categories as $category)--}}
-                        {{--                                        <li>--}}
-                        {{--                                            <a href="{{route('frontend.circular.index',[$category->id])}}">{{$category->name}}</a>--}}
-                        {{--                                        </li>--}}
-                        {{--                                    @endforeach()--}}
+{{--                                                            @foreach($categories as $category)--}}
+{{--                                                                <li>--}}
+{{--                                                                    <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>--}}
+{{--                                                                </li>--}}
+{{--                                                            @endforeach()--}}
 
-                        {{--                                @endif--}}
-                        {{--                            </ul>--}}
-                        {{--                        </li>--}}
+{{--                                                        @endif--}}
+{{--                                                    </ul>--}}
+{{--                                                </li>--}}
 
                         <li class=" menu-item-has-children ">
                             <a href="javascript:void(0);">Statistics</a>

@@ -278,13 +278,13 @@
                                                         <small class=" font-italic badge ">New</small>
                                                     @endif
 
-                                                    <a href="{{route('frontend.gallery.video.single', $data->id)}}"
+                                                    <a href="{{route('frontend.gallery.video.single', $data->slug)}}"
                                                        target="_blank">
                                                         {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
                                                     </a>
                                                 </div>
                                                 <div class="common-content content">
-                                                    <a href="{{route('frontend.gallery.video.single', $data->id)}}">
+                                                    <a href="{{route('frontend.gallery.video.single', $data->slug)}}">
                                                         <h4 class="title d-flex align-items-center">{{$data->title}}</h4>
                                                     </a>
                                                     <a href="{{$data->url}}" target="_blank" class="btn">View</a>
@@ -320,7 +320,7 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
 {{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row padding-30">--}}
 {{--                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Circulars'}}</h2>--}}
-{{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
+{{--                                                    <p class="desc">{{''}}</p>--}}
 {{--                            </div>--}}
 {{--                            <div class="common-grid-carousel-wrapper">--}}
 {{--                                <div class="common-grid-carousel circular-grid-carousel">--}}
@@ -337,11 +337,11 @@ This Section will be displayed to only Members & When code for that then we will
 {{--                                                        <small class=" font-italic badge">New</small>--}}
 {{--                                                    @endif--}}
 
-{{--                                                    <a href="{{route('frontend.circular.single',$data->id)}}">--}}
+{{--                                                    <a href="{{route('frontend.circular.single',$data->slug)}}">--}}
 {{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>--}}
 {{--                                                </div>--}}
 {{--                                                <div class="common-content content">--}}
-{{--                                                    <a href="{{route('frontend.circular.single',$data->id)}}">--}}
+{{--                                                    <a href="{{route('frontend.circular.single',$data->slug)}}">--}}
 {{--                                                        <h4 class="title">{{$data->title}}</h4>--}}
 {{--                                                    </a>--}}
 {{--                                                    <p>{{@$data->category->name}}</p>--}}

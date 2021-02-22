@@ -8,6 +8,7 @@ use App\Language;
 use App\Circular;
 use App\CircularCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CircularController extends Controller
 {
@@ -32,13 +33,14 @@ class CircularController extends Controller
             'description' => 'required|string',
             'category' => 'required|string',
             'pdf_file' => 'required|file',
+
         ]);
         $name=time();
         if ($request->pdf_file) {
             $url =  $name. '.' . $request->pdf_file->extension();
             $request->pdf_file->move('assets/uploads/circular/', $url);
         }
-
+//dd();
         Circular::create([
             'status' => $request->status,
             'is_featured' => $request->is_featured,
@@ -48,6 +50,7 @@ class CircularController extends Controller
             'url' => $url,
             'cat_id' => $request->category,
             'publish_date' => $request->publish_date,
+            'slug' =>Str::slug($request->title.'-'.$request->category),
         ]);
         return redirect()->back()->with(['msg' => __('New circular added...'),'type' => 'success']);
     }
@@ -75,6 +78,7 @@ class CircularController extends Controller
           $data->title=$request->title;
           $data->publish_date=$request->publish_date;
           $data->cat_id=$request->category;
+          $data->slug=Str::slug($request->title.' '.$data->cat_id);
           $data->save();
         return redirect()->back()->with(['msg' => __('Data Updated...'),'type' => 'success']);
     }
@@ -109,13 +113,14 @@ class CircularController extends Controller
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->name,
+            'slug' =>Str::slug($request->name)
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
     public function category_update(Request $request){
 //        dd();
         $this->validate($request,[
-            'name' => 'required|string',
+            'name' => 'required|string|string|unique:circular_categories,name,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -124,6 +129,7 @@ class CircularController extends Controller
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->name,
+            'slug' =>Str::slug($request->name)
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
     }

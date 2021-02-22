@@ -27,12 +27,12 @@
                                         <div class="team-section">
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
                                             <div class="team-img-cont" style="cursor:default;">
-                                                <a href="{{route('frontend.team.member',$user->id) }}">
+                                                <a href="{{route('frontend.team.member',$user->slug) }}">
                                                     {!! render_image_markup_by_attachment_id($user->image) !!}
                                                 </a>
                                             </div>
                                             <div class="team-text">
-                                                <a href="{{route('frontend.team.member',$user->id) }}">
+                                                <a href="{{route('frontend.team.member',$user->slug) }}">
                                                     <h4 class="title">{{$user->name}}</h4>
                                                     <span>{{$user->designation}}</span>
                                                 </a>

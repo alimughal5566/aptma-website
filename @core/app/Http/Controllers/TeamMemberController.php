@@ -51,7 +51,11 @@ class TeamMemberController extends Controller
             'department_id' => 'required|string|max:225',
             'order_no' => 'required|string|max:225',
         ]);
-        TeamMember::create($request->all());
+
+
+        $id= TeamMember::create($request->all());
+        $id->slug = Str::slug($request->name.' '.$request->designation);
+        $id->save();
         return redirect()->back()->with(['msg' => __('New Member Added...'), 'type' => 'success']);
     }
 
@@ -75,7 +79,9 @@ class TeamMemberController extends Controller
             'order_no' => 'required|string|max:225',
         ]);
         TeamMember::find($request->id)->update($request->all());
-
+        $id=TeamMember::find($request->id);
+        $id->slug = Str::slug($request->name.' '.$request->designation);
+        $id->save();
         return redirect()->back()->with(['msg' => __('Team Member Details Updated...'), 'type' => 'success']);
     }
 
@@ -117,6 +123,7 @@ class TeamMemberController extends Controller
             'lang' => $request->lang,
             'name' => $request->title,
             'img_id' => $request->image,
+            'slug' => Str::slug($request->title),
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'), 'type' => 'success']);
     }

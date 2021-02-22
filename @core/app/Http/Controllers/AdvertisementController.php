@@ -8,6 +8,7 @@ use App\Language;
 use App\Advertisement;
 use App\AdvertisementCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdvertisementController extends Controller
 {
@@ -39,6 +40,7 @@ class AdvertisementController extends Controller
             'thumbnail' => $request->thumbnail,
             'title' => $request->title,
             'cat_id' => $request->category,
+            'slug'=>Str::slug($request->title.'-'.Str::random(2))
         ]);
         return redirect()->back()->with(['msg' => __('New advertisement added...'),'type' => 'success']);
     }
@@ -57,6 +59,7 @@ class AdvertisementController extends Controller
           $data->title=$request->title;
           $data->publish_date=$request->publish_date;
           $data->cat_id=$request->category;
+         $data->slug=Str::slug($request->title.'-'.Str::random(2));
           $data->save();
         return redirect()->back()->with(['msg' => __('Data Updated...'),'type' => 'success']);
     }
