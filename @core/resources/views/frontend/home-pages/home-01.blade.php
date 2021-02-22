@@ -368,56 +368,56 @@ This Section will be displayed to only Members & When code for that then we will
 --}}
 
 
-<section class="common-area book-area background-gray-light-lightest padding-top-50 ">
-    <div class="container-fluid common-container book-container">
-        <div class="row">
-            <div class="col-12 col-lg-1"></div>
-            <div class="col-12 col-lg-10">
-                <div class="row">
-                    <div class="col-12">
-                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
-                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
-                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>
-                                                    <p class="desc">{{''}}</p>
-                            </div>
-                            <div class="common-grid-carousel-wrapper">
-                                <div class="common-grid-carousel books-grid-carousel">
-                                    @foreach($books as $data)
-                                        <div class="common-grid-carousel-item">
-                                            <div class="common-item book-item single-what-we-cover-item-02 ">
-                                                <div class="common-img book-img single-what-img position-relative">
-                                                    @php
-                                                        $now = Carbon\Carbon::now();
-                                                        $datework = Carbon\Carbon::parse($data->created_at);
-                                                        $diff = $datework->diffInDays($now);
-                                                    @endphp
-                                                    @if($diff<15)
-                                                        <small class=" font-italic badge">New</small>
-                                                    @endif
+{{--<section class="common-area book-area background-gray-light-lightest padding-top-50 ">--}}
+{{--    <div class="container-fluid common-container book-container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12 col-lg-1"></div>--}}
+{{--            <div class="col-12 col-lg-10">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">--}}
+{{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">--}}
+{{--                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Books'}}</h2>--}}
+{{--                                                    <p class="desc">{{''}}</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="common-grid-carousel-wrapper">--}}
+{{--                                <div class="common-grid-carousel books-grid-carousel">--}}
+{{--                                    @foreach($books as $data)--}}
+{{--                                        <div class="common-grid-carousel-item">--}}
+{{--                                            <div class="common-item book-item single-what-we-cover-item-02 ">--}}
+{{--                                                <div class="common-img book-img single-what-img position-relative">--}}
+{{--                                                    @php--}}
+{{--                                                        $now = Carbon\Carbon::now();--}}
+{{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
+{{--                                                        $diff = $datework->diffInDays($now);--}}
+{{--                                                    @endphp--}}
+{{--                                                    @if($diff<15)--}}
+{{--                                                        <small class=" font-italic badge">New</small>--}}
+{{--                                                    @endif--}}
 
-                                                    <a href="{{route('frontend.book.single',$data->slug)}}">
-                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
-                                                </div>
-                                                <div class="common-content content">
-                                                    <a href="{{route('frontend.book.single',$data->slug)}}">
-                                                        <h4 class="title">{{$data->title}}</h4>
-                                                    </a>
-                                                    <p>{{@$data->category->name}}</p>
-                                                    <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn">Download</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-1"></div>
-        </div>
-    </div>
-</section>
+{{--                                                    <a href="{{route('frontend.book.single',$data->slug)}}">--}}
+{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="common-content content">--}}
+{{--                                                    <a href="{{route('frontend.book.single',$data->slug)}}">--}}
+{{--                                                        <h4 class="title">{{$data->title}}</h4>--}}
+{{--                                                    </a>--}}
+{{--                                                    <p>{{@$data->category->name}}</p>--}}
+{{--                                                    <a href="{{asset('assets/uploads/books/'.$data->url)}}" class="btn">Download</a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-12 col-lg-1"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 
 
 
