@@ -390,7 +390,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = Book::where('id', $slug)->with('category')->first();
+        $service_item = Book::where('slug', $slug)->with('category')->first();
         $service_category = BookCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
 //        dd();
@@ -485,8 +485,8 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
 //        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-            $all_services = Book::where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = BookCategory::where('id', $cat_id)->pluck('name')->first();
+            $category = BookCategory::where('slug', $cat_id)->first();
+            $all_services = Book::where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         } else {
             $all_services = Book::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }

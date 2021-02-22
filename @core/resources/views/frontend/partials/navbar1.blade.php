@@ -241,20 +241,20 @@
                                 {{--                                    <a href="javascript:void(0);">Policy Document</a>--}}
                                 {{--                                </li>--}}
 
-                                {{--                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
+                                                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
 
-                                {{--                                <li class=" {{$bookCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
-                                {{--                                    <a href="{{route('frontend.book.index')}}">Books</a>--}}
-                                {{--                                    @if($bookCategories->count()>0)--}}
-                                {{--                                        <ul class="sub-menu">--}}
-                                {{--                                            @foreach($bookCategories as $category)--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="{{route('frontend.book.index',[$category->id])}}">{{$category->name}}</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                            @endforeach--}}
-                                {{--                                        </ul>--}}
-                                {{--                                    @endif--}}
-                                {{--                                </li>--}}
+                                                                <li class=" {{$bookCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
+                                                                    <a href="{{route('frontend.book.index')}}">Books</a>
+                                                                    @if($bookCategories->count()>0)
+                                                                        <ul class="sub-menu">
+                                                                            @foreach($bookCategories as $category)
+                                                                                <li>
+                                                                                    <a href="{{route('frontend.book.index',[$category->slug])}}">{{$category->name}}</a>
+                                                                                </li>
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    @endif
+                                                                </li>
 
                             </ul>
                         </li>
