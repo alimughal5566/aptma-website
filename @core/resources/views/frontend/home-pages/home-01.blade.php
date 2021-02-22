@@ -281,7 +281,8 @@
                                                         <small class=" font-italic badge ">New</small>
                                                     @endif
 
-                                                    <a class="align-items-center" href="{{route('frontend.gallery.video.single', $data->slug)}}"
+                                                    <a class="align-items-center"
+                                                       href="{{route('frontend.gallery.video.single', $data->slug)}}"
                                                        target="_blank">
                                                         {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
                                                     </a>
