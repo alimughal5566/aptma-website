@@ -13,7 +13,7 @@
 @section('content')
     <section class="service-area service-page common-area book-area book-page padding-top-40 padding-bottom-60">
         <h2 class="font-weight-bold mb-3 text-center">
-            Books <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
+            Books <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
 
         <div class="container">
             <div class="row">
@@ -30,11 +30,11 @@
                                     <small class=" font-italic badge">New</small>
                                 @endif
 
-                                <a href="{{route('frontend.book.single',$data->id)}}">
+                                <a href="{{route('frontend.book.single',$data->slug)}}">
                                     {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                             </div>
                             <div class="common-content content">
-                                <a href="{{route('frontend.book.single',$data->id)}}">
+                                <a href="{{route('frontend.book.single',$data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p><strong>Category:</strong> {{@$data->category->name}}</p>

@@ -350,7 +350,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = Publication::where('id', $slug)->first();
+        $service_item = Publication::where('slug', $slug)->first();
         $service_category = ServiceCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.publication.publication-single')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
@@ -360,7 +360,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = VideoGallery::where('id', $slug)->first();
+        $service_item = VideoGallery::where('slug', $slug)->first();
         $service_category = VideoGalleryCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.video-gallery.video-gallery-single')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
@@ -370,7 +370,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = Circular::where('id', $slug)->with('category')->first();
+        $service_item = Circular::where('slug', $slug)->with('category')->first();
         $service_category = CircularCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.circular.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
@@ -380,7 +380,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = Advertisement::where('id', $slug)->with('category')->first();
+        $service_item = Advertisement::where('slug', $slug)->with('category')->first();
         $service_category = AdvertisementCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.advertisement.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
@@ -390,7 +390,7 @@ class FrontendController extends Controller
     {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = Book::where('id', $slug)->with('category')->first();
+        $service_item = Book::where('slug', $slug)->with('category')->first();
         $service_category = BookCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
 //        dd();
@@ -451,8 +451,9 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-            $all_services = Publication::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = PublicationCategory::where('id', $cat_id)->pluck('name')->first();
+        $category = PublicationCategory::where('slug', $cat_id)->first();
+            $all_services = Publication::where('status', '1')->where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+
         } else {
             $all_services = Publication::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
@@ -465,8 +466,9 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-            $all_services = VideoGallery::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = VideoGalleryCategory::where('id', $cat_id)->pluck('name')->first();
+            $category = VideoGalleryCategory::where('slug', $cat_id)->first();
+            $all_services = VideoGallery::where('status', '1')->where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+
 //            dd($category);
         } else {
             $all_services = VideoGallery::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
@@ -483,8 +485,8 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
 //        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-            $all_services = Book::where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = BookCategory::where('id', $cat_id)->pluck('name')->first();
+            $category = BookCategory::where('slug', $cat_id)->first();
+            $all_services = Book::where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         } else {
             $all_services = Book::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
@@ -496,8 +498,9 @@ class FrontendController extends Controller
     {
         $category = null;
         if (!is_null($cat_id)) {
-            $all_services = Circular::where('status', '1')->where('cat_id', $cat_id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
-            $category = CircularCategory::where('id', $cat_id)->pluck('name')->first();
+            $category = CircularCategory::where('slug', $cat_id)->first();
+            $all_services = Circular::where('status', '1')->where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+
         } else {
             $all_services = Circular::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
@@ -532,7 +535,7 @@ class FrontendController extends Controller
     }
 
     public function team_page($cat_id = null){
-        $category = null;
+        $category = TeamCategory::where('slug', $cat_id)->first();
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         $data1=[];
@@ -540,12 +543,12 @@ class FrontendController extends Controller
         if (!is_null($cat_id)){
             $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
             foreach ($teamdepartments as $department) {
-                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
+                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id',  $category->id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
                 $data1['name'] = $department->name;
                 $data[] = $data1;
             }
         }
-            $category = TeamCategory::where('id', $cat_id)->pluck('name')->first();
+
 
         return view('frontend.pages.team-page')->with(['category' => $category,'data' => $data]);
     }
@@ -555,7 +558,7 @@ class FrontendController extends Controller
 
 
 //            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
-            $data = TeamMember::where('id', $id)->first();
+            $data = TeamMember::where('slug', $id)->first();
 //dd($data);
 
         return view('frontend.pages.team-user-single')->with(['data' => $data]);
@@ -1243,6 +1246,7 @@ class FrontendController extends Controller
 
     public function image_gallery_page1($cat_id = null)
     {
+//        dd($cat_id);
         $category = null;
 
         $order = !empty(get_static_option('site_image_gallery_order')) ? get_static_option('site_image_gallery_order') : 'DESC';
@@ -1254,9 +1258,10 @@ class FrontendController extends Controller
         }
 
         if (!is_null($cat_id)) {
-            $all_categories = ImageGallery::where('cat_id', $cat_id)->with('get_image')->where(['lang' => get_user_lang()])->orderBy($order_by, $order)->get();
+            $category = ImageGalleryCategory::where('slug', $cat_id)->first();
+            $all_categories = ImageGallery::where('cat_id', $category->id)->with('get_image')->where(['lang' => get_user_lang()])->orderBy($order_by, $order)->get();
 //            dd($all_categories);
-            $category = ImageGalleryCategory::where('id', $cat_id)->pluck('title')->first();
+
         }
         $all_category = ImageGalleryCategory::find($all_contain_cat);
         return view('frontend.pages.image-gallerycat-images')->with(['all_gallery_images' => $all_gallery_images, 'all_category' => $all_category, 'all_categories' => $all_categories, 'category' => $category]);

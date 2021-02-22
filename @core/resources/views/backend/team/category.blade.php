@@ -176,7 +176,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" class="form-control" required value="{{old('title')}}">
+                                <input type="text" name="title" class="form-control" required placeholder="Name" value="{{old('title')}}">
                             </div>
                             <div class="form-group">
                                 <label for="status">{{__('Status')}}</label>
@@ -189,7 +189,7 @@
                                 <label for="image">Image</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="image">
+                                    <input type="hidden" name="image" value="{{old('image')}}">
                                     <button type="button" class="btn btn-info media_upload_form_btn"
                                             data-btntitle="Select Image" data-modaltitle="Upload Image"
                                             data-toggle="modal" data-target="#media_upload_modal">

@@ -184,7 +184,7 @@
                                         <ul class="sub-menu">
                                             @foreach($teamCategory as $team)
                                                 <li>
-                                                    <a href="{{route('frontend.team',[$team->id])}}">{{$team->name}}</a>
+                                                    <a href="{{route('frontend.team',[$team->slug])}}">{{$team->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -211,7 +211,7 @@
                                             @foreach($publicationCategories as $category)
                                                 @if($category->publications_count>0)
                                                     <li>
-                                                        <a href="{{route('frontend.publication',[$category->id])}}">{{$category->name}}</a>
+                                                        <a href="{{route('frontend.publication',[$category->slug])}}">{{$category->name}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach
@@ -241,39 +241,39 @@
                                 {{--                                    <a href="javascript:void(0);">Policy Document</a>--}}
                                 {{--                                </li>--}}
 
-                                {{--                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
+{{--                                                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
 
-                                {{--                                <li class=" {{$bookCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
-                                {{--                                    <a href="{{route('frontend.book.index')}}">Books</a>--}}
-                                {{--                                    @if($bookCategories->count()>0)--}}
-                                {{--                                        <ul class="sub-menu">--}}
-                                {{--                                            @foreach($bookCategories as $category)--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="{{route('frontend.book.index',[$category->id])}}">{{$category->name}}</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                            @endforeach--}}
-                                {{--                                        </ul>--}}
-                                {{--                                    @endif--}}
-                                {{--                                </li>--}}
+{{--                                                                <li class=" {{$bookCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
+{{--                                                                    <a href="{{route('frontend.book.index')}}">Books</a>--}}
+{{--                                                                    @if($bookCategories->count()>0)--}}
+{{--                                                                        <ul class="sub-menu">--}}
+{{--                                                                            @foreach($bookCategories as $category)--}}
+{{--                                                                                <li>--}}
+{{--                                                                                    <a href="{{route('frontend.book.index',[$category->slug])}}">{{$category->name}}</a>--}}
+{{--                                                                                </li>--}}
+{{--                                                                            @endforeach--}}
+{{--                                                                        </ul>--}}
+{{--                                                                    @endif--}}
+{{--                                                                </li>--}}
 
                             </ul>
                         </li>
 
-                        {{--                        <li class=" menu-item-has-children ">--}}
-                        {{--                            <a href="{{route('frontend.circular.index')}}">Circulars</a>--}}
-                        {{--                            <ul class="sub-menu">--}}
-                        {{--                                @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
-                        {{--                                @if($categories->count()>0)--}}
+{{--                                                <li class=" menu-item-has-children ">--}}
+{{--                                                    <a href="{{route('frontend.circular.index')}}">Circulars</a>--}}
+{{--                                                    <ul class="sub-menu">--}}
+{{--                                                        @php $categories=\App\CircularCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
+{{--                                                        @if($categories->count()>0)--}}
 
-                        {{--                                    @foreach($categories as $category)--}}
-                        {{--                                        <li>--}}
-                        {{--                                            <a href="{{route('frontend.circular.index',[$category->id])}}">{{$category->name}}</a>--}}
-                        {{--                                        </li>--}}
-                        {{--                                    @endforeach()--}}
+{{--                                                            @foreach($categories as $category)--}}
+{{--                                                                <li>--}}
+{{--                                                                    <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>--}}
+{{--                                                                </li>--}}
+{{--                                                            @endforeach()--}}
 
-                        {{--                                @endif--}}
-                        {{--                            </ul>--}}
-                        {{--                        </li>--}}
+{{--                                                        @endif--}}
+{{--                                                    </ul>--}}
+{{--                                                </li>--}}
 
                         <li class=" menu-item-has-children ">
                             <a href="javascript:void(0);">Statistics</a>
@@ -320,13 +320,13 @@
 
                                 @php $imageCategories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
                                 <li class=" {{$imageCategories->count()>0 ? ' menu-item-has-children ' : ' '}}">
-                                    <a href="javascript:void(0);">Photos Gallery</a>
-                                    @if($imageCategories->count()>0 )
+                                    <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
+                                    @if($imageCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($imageCategories as $category)
                                                 @if($category->images_count>0)
                                                     <li>
-                                                        <a href="{{route('frontend.image.gallery',[$category->id])}}">{{$category->title}}</a>
+                                                        <a href="{{route('frontend.image.gallery1',[$category->slug])}}">{{$category->title}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach
@@ -335,14 +335,15 @@
                                 </li>
 
                                 @php $videoCategories= \App\VideoGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('videos')->orderBy('id','desc')->get(); @endphp
-                                <li class=" {{$videoCategories->count()>0 ? ' menu-item-has-children ' : ' '}}  ">
+                                <li class=" {{$videoCategories->count()>0 ? 'menu-item-has-children ' : ' '}}  ">
+{{--                                    <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>--}}
                                     <a href="javascript:void(0);">Video Gallery</a>
                                     @if($videoCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($videoCategories as $category)
                                                 @if($category->videos_count>0)
                                                     <li>
-                                                        <a href="{{route('frontend.gallery.video.index',[$category->id])}}">{{$category->name}}</a>
+                                                        <a href="{{route('frontend.gallery.video.index',[$category->slug])}}">{{$category->name}}</a>
                                                     </li>
                                                 @endif
                                             @endforeach()
@@ -368,7 +369,7 @@
                             <li>
                                 <a href="{{ route('user.logout') }}"
                                    onclick="event.preventDefault();
-                                                         document.getElementById('userlogout-form').submit();">
+                                  document.getElementById('userlogout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
                                 <form id="userlogout-form" action="{{ route('user.logout') }}" method="POST"

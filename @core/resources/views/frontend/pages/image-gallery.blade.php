@@ -56,7 +56,12 @@
                                         <div class="img-hover">
                                             <div @if($data->images->count()>0) data-toggle="modal"
                                                  data-target=".modalSlider_{{$data->id}}" @endif>
-                                                <a title="{{$data->title}}">
+                                                @php  $url='#';
+                                                    if($data->images->count()>0){
+                                                        $url=route('frontend.image.gallery1',[$data->slug]);
+                                                    }
+                                                    @endphp
+                                                <a href="{{$url}}" title="{{$data->title}}" style="{{($url=='#')?"cursor:default":''}}" >
                                                     <i class="fas fa-eye"></i>
                                                     <span>{{$data->title}}</span>
                                                     <span>{{$data->images->count()}}</span>

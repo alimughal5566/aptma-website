@@ -8,6 +8,7 @@ use App\Language;
 use App\VideoGallery;
 use App\VideoGalleryCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class VideoGalleryController extends Controller
 {
@@ -47,6 +48,7 @@ class VideoGalleryController extends Controller
             'title' => $request->title,
             'url' => $request->url,
             'cat_id' => $request->category,
+            'slug' =>Str::slug($request->title.'-'.Str::random(2))
         ]);
         return redirect()->back()->with(['msg' => __('New video added...'),'type' => 'success']);
     }
@@ -78,6 +80,7 @@ class VideoGalleryController extends Controller
           $data->title=$request->title;
           $data->publish_date=$request->publish_date;
           $data->cat_id=$request->category;
+          $data->slug=Str::slug($request->title.'-'.Str::random(2));
           $data->save();
         return redirect()->back()->with(['msg' => __('Data Updated...'),'type' => 'success']);
     }
@@ -103,21 +106,23 @@ class VideoGalleryController extends Controller
     public function category_store(Request $request){
 //        dd();
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:video_gallery_categories,name',
             'status' => 'required|string',
             'lang' => 'required|string',
+
         ]);
 
         VideoGalleryCategory::create([
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->title,
+            'slug' => Str::slug($request->title)
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
     public function category_update(Request $request){
         $this->validate($request,[
-            'title' => 'required|string',
+            'title' => 'required|string|unique:video_gallery_categories,name,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
         ]);
@@ -125,8 +130,9 @@ class VideoGalleryController extends Controller
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->title,
+            'slug' => Str::slug($request->title),
         ]);
-        return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);
+        return redirect()->back()->with(['msg' => __('Data Updated...'),'type' => 'success']);
     }
     public function category_delete(Request $request,$id){
         VideoGalleryCategory::find($id)->delete();

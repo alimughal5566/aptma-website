@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="font-weight-bold mb-3 text-center">
-                        Team <?php echo ($category) ? "<small>($category)</small>" : "" ?>
+                        Team <?php echo ($category->name) ? "<small>($category->name)</small>" : "" ?>
                     </h2>
                 </div>
                 <div class="col-12">
@@ -33,12 +33,12 @@
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
                                             <div class="team-img-cont d-flex justify-content-center align-items-center">
                                                 <a class="d-flex justify-content-center align-items-center"
-                                                   href="{{route('frontend.team.member',$user->id) }}">
+                                                   href="{{route('frontend.team.member',$user->slug) }}">
                                                     {!! render_image_markup_by_attachment_id($user->image) !!}
                                                 </a>
                                             </div>
                                             <div class="team-text">
-                                                <a href="{{route('frontend.team.member',$user->id) }}">
+                                                <a href="{{route('frontend.team.member',$user->slug) }}">
                                                     <h4 class="title">{{$user->name}}</h4>
                                                     <span>{{$user->designation}}</span>
                                                 </a>
@@ -51,7 +51,6 @@
                                                                 </a>
                                                             </li>
                                                         @endif
-
                                                         @if(!empty($user->icon_two) && !empty($user->icon_two_url))
                                                             <li>
                                                                 <a target="_blank" href="{{$user->icon_two_url}}">
