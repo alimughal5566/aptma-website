@@ -21,10 +21,10 @@
     <div class="page-content service-details common-single team-single padding-top-50 ">
         <div class="container">
             <div class="row ">
-                <div class="col-lg-12">
+                <div class="col-12">
                     <h2 class="common-single-title team-single-title margin-bottom-15">{{$data->name}}</h2>
                 </div>
-                <div class="col-lg-6 pb-lg-5">
+                <div class="col-12 col-lg-6 pb-lg-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
                         <div class="thumb mb-3">
                             {!! render_image_markup_by_attachment_id($data->image) !!}
@@ -62,10 +62,9 @@
                                 @endif
                             </ul>
                         </div>
-
                     </div>
                 </div>
-                <div class="col-lg-6 pb-5 pb-lg-5">
+                <div class="col-12 col-lg-6 pb-5 pb-lg-5">
                     <div class="service-details-item common-single-item team-single-item position-relative">
                         {{--                        <div class="service-description team-about">--}}
                         {{--                            <strong>About me:</strong>--}}
