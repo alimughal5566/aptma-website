@@ -31,15 +31,16 @@
                 @forelse($teams as $team)
                     <div class="col-lg-3  col-sm-6  mb-5 ">
                         <div class="team-section p-2 ">
-                            <div class="team-img-cont">
-                                <a href="{{route('frontend.team',$team->id) }}">
+                            <div class="team-img-cont d-flex justify-content-center align-items-center">
+                                <a class="d-flex justify-content-center align-items-center"
+                                   href="{{route('frontend.team',$team->id) }}">
                                     {!! render_image_markup_by_attachment_id($team->img_id) !!}
                                 </a>
                             </div>
                             <hr>
-                            <div class="team-text">
+                            <div class="team-text mt-0">
                                 <a href="{{route('frontend.team',$team->id) }}">
-                                    <h4 class="title">{{$team->name}}</h4>
+                                    <h4 class="title my-2">{{$team->name}}</h4>
                                 </a>
                             </div>
                         </div>
