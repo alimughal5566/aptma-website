@@ -39,7 +39,7 @@
                                 <p class="">
                                     <span>{{@$data->publish_date}}</span>
                                 </p>
-                                <a href="{{route('frontend.publication.single',$data->id)}}">
+                                <a href="{{route('frontend.publication.single',$data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <a href="{{asset('assets/uploads/publications/pdf/'.$data->pdf_url)}}" target="_blank"

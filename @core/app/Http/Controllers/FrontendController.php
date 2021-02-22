@@ -348,9 +348,10 @@ class FrontendController extends Controller
 
     public function publication_single_page($slug)
     {
+
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $service_item = Publication::where('id', $slug)->first();
+        $service_item = Publication::where('slug', $slug)->first();
         $service_category = ServiceCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.publication.publication-single')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
