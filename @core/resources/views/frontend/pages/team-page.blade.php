@@ -21,16 +21,19 @@
                 <div class="col-12">
                     @forelse($data as $record)
                         @if($record['members']->count()>0)
-                            <div class="row">
-                                <div class="col-12 ">
-                                    <h3 class="subtitle"> {{$record['name']}}</h3>
+                            <div class="row mt-4">
+
+                                <div class="col-12">
+                                    <h3 class="subtitle font-weight-bold text-uppercase mb-0"> {{$record['name']}} </h3>
                                 </div>
+
                                 @foreach($record['members'] as $user )
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="team-section py-4">
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
-                                            <div class="team-img-cont" style="cursor:default;">
-                                                <a href="{{route('frontend.team.member',$user->id) }}">
+                                            <div class="team-img-cont d-flex justify-content-center align-items-center">
+                                                <a class="d-flex justify-content-center align-items-center"
+                                                   href="{{route('frontend.team.member',$user->id) }}">
                                                     {!! render_image_markup_by_attachment_id($user->image) !!}
                                                 </a>
                                             </div>
