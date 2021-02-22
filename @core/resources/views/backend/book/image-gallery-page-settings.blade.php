@@ -10,27 +10,30 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">{{__("Image Gallery Page Settings")}}</h4>
-                        <form action="{{route('admin.gallery.page.settings')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.gallery.page.settings')}}" method="POST"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="site_image_gallery_post_items">{{__('Image Gallery Topics')}}</label>
-                                <input type="number" class="form-control" name="site_image_gallery_post_items" value="{{get_static_option('site_image_gallery_post_items')}}">
+                                <input type="number" class="form-control" name="site_image_gallery_post_items"
+                                       value="{{get_static_option('site_image_gallery_post_items')}}">
                             </div>
                             <div class="form-group">
                                 <label for="site_image_gallery_order_by">{{__('Order By')}}</label>
-                                <select name="site_image_gallery_order_by"  class="form-control">
+                                <select name="site_image_gallery_order_by" class="form-control">
                                     <option value="id">{{__('Id')}}</option>
                                     <option value="title">{{__('Title')}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="site_image_gallery_order">{{__('Order')}}</label>
-                                <select name="site_image_gallery_order"  class="form-control">
+                                <select name="site_image_gallery_order" class="form-control">
                                     <option value="ASC">{{__('Ascending')}}</option>
                                     <option value="DESC">{{__('Descending')}}</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Update Changes')}}</button>
+                            <button type="submit"
+                                    class="btn btn-primary mt-4 pr-4 pl-4">{{__('Update Changes')}}</button>
                         </form>
                     </div>
                 </div>
