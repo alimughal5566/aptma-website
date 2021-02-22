@@ -35,7 +35,7 @@
                                 </a>
                             </div>
                             <div class="common-content content">
-                                <a href="{{route('frontend.gallery.video.single', $data->id)}}">
+                                <a href="{{route('frontend.gallery.video.single', $data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                             </div>

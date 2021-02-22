@@ -14,7 +14,7 @@
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
-                Circulars <?php echo ($category) ? "<small>($category)</small>" : "" ?></h2>
+                Circulars <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
 
             <div class="row">
                 @forelse($all_services as $data)
@@ -30,10 +30,10 @@
                                     <small class="font-italic badge">New</small>
                                 @endif
 
-                                <a href="{{route('frontend.circular.single',$data->id)}}">{!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                <a href="{{route('frontend.circular.single',$data->slug)}}">{!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                             </div>
                             <div class="common-content content">
-                                <a href="{{route('frontend.circular.single',$data->id)}}">
+                                <a href="{{route('frontend.circular.single',$data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p>{{@$data->category->name}}</p>

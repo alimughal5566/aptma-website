@@ -34,6 +34,7 @@ class PublicationController extends Controller
             'publish_date' => 'required|string',
             'description' => 'required|string',
             'category' => 'required|string',
+
         ]);
         $name=time();
         if ($request->pdf_file) {

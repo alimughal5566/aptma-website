@@ -240,7 +240,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/' . $service_page_slug . '/{slug}', 'FrontendController@services_single_page')->name('frontend.services.single');
     Route::get('/' . $work_page_slug . '/{slug}', 'FrontendController@work_single_page')->name('frontend.work.single');
     Route::get('/' . $work_page_slug . '/category/{id}/{any}', 'FrontendController@category_wise_works_page')->name('frontend.works.category');
-    Route::get('/' . $team_page_slug . '/{cat?}', 'FrontendController@team_page')->name('frontend.team');
+    Route::get('/' . $team_page_slug . '/{slug?}', 'FrontendController@team_page')->name('frontend.team');
 
     Route::get('/' . $price_plan_page_slug, 'FrontendController@price_plan_page')->name('frontend.price.plan');
     Route::get('/' . $contact_page_slug, 'FrontendController@contact_page')->name('frontend.contact');
@@ -253,7 +253,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     //quote page
     Route::get('/' . $quote_page_slug, 'FrontendController@request_quote')->name('frontend.request.quote');
 
-    Route::get('/' . $team_page_slug . '/memeber/{slug}', 'FrontendController@team_member')->name('frontend.team.member');
+    Route::get('/' . $team_page_slug . '/member/{slug}', 'FrontendController@team_member')->name('frontend.team.member');
     Route::get('/teams', 'TeamMemberController@teams')->name('frontend.teams');
     //testimonials
     Route::get('/' . $testimonial_page_slug, 'FrontendController@testimonials')->name('frontend.testimonials');
