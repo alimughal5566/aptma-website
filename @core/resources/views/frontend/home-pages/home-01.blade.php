@@ -223,20 +223,20 @@
                                     @foreach($advertisements as $data)
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item advertise-item single-what-we-cover-item-02 ">
-                                                <div class="common-img advertise-img single-what-img position-relative">
-                                                    @php
-                                                        $now = Carbon\Carbon::now();
-                                                        $datework = Carbon\Carbon::parse($data->created_at);
-                                                        $diff = $datework->diffInDays($now);
-                                                    @endphp
-                                                    @if($diff<15)
-                                                        <small class="font-italic badge">New</small>
-                                                    @endif
-                                                    <a class="align-items-center"
-                                                       href="{{route('frontend.advertisement.single',['slug' => $data->slug])}}">
+                                                <a class="align-items-center"
+                                                   href="{{route('frontend.advertisement.single',['slug' => $data->slug])}}">
+                                                    <div class="common-img advertise-img single-what-img position-relative">
+                                                        @php
+                                                            $now = Carbon\Carbon::now();
+                                                            $datework = Carbon\Carbon::parse($data->created_at);
+                                                            $diff = $datework->diffInDays($now);
+                                                        @endphp
+                                                        @if($diff<15)
+                                                            <small class="font-italic badge">New</small>
+                                                        @endif
                                                         {!! render_image_markup_by_attachment_id($data->thumbnail,'ss') !!}
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     @endforeach
