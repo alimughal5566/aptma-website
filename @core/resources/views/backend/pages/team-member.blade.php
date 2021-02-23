@@ -78,7 +78,7 @@
                                                 </div>
                                             </th>
                                             <th>{{__('Order')}}</th>
-{{--                                            <th>{{__('ID')}}</th>--}}
+                                            {{--                                            <th>{{__('ID')}}</th>--}}
                                             <th>{{__('Image')}}</th>
                                             <th>{{__('Name')}}</th>
                                             <th>{{__('Designation')}}</th>
@@ -98,7 +98,7 @@
                                                         </div>
                                                     </td>
                                                     <td>{{$data->order_no}}</td>
-{{--                                                    <td>{{$data->id}}</td>--}}
+                                                    {{--                                                    <td>{{$data->id}}</td>--}}
                                                     <td>
                                                         @php
                                                             $brand_img = get_attachment_image_by_id($data->image,null,true);
@@ -237,14 +237,15 @@
                             <div class="form-group">
                                 <label for="show_detail_status">{{__('Show Profile Details')}}</label>
                                 <select name="show_detail_status" class="form-control" required>
-                                    <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes</option>
+                                    <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes
+                                    </option>
                                     <option value="0" {{(old('show_detail_status')=='1')?'selected':''}} >No</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="order_no">{{__('Team Type')}}</label>
-                                <select name="type"  class="form-control" required>
+                                <select name="type" class="form-control" required>
                                     <option selected disabled value="">Choose Type</option>
                                     @foreach($types as $type)
                                         <option value="{{$type->id}}" {{(old('type')==$type->id)?'selected':''}}>{{$type->name}}</option>
@@ -264,15 +265,17 @@
                             <div class="form-group">
                                 <label for="show_detail_status">{{__('Show this  profile on team types page?')}}</label>
                                 <select name="is_research_member" class="form-control" required>
-                                    <option  value="1"  {{(old('is_research_member')=='1')?'selected':''}}>Yes</option>
-                                    <option selected value="0" {{(old('is_research_member')=='1')?'selected':''}} >No</option>
+                                    <option value="1" {{(old('is_research_member')=='1')?'selected':''}}>Yes</option>
+                                    <option selected value="0" {{(old('is_research_member')=='1')?'selected':''}} >No
+                                    </option>
                                 </select>
                             </div>
 
 
                             <div class="form-group">
                                 <label for="about_me">{{__('About me')}}</label>
-                                <textarea name="about_me" id="about_me" class="form-control" required>{{old('about_me')}}</textarea>
+                                <textarea name="about_me" id="about_me" class="form-control"
+                                          required>{{old('about_me')}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="description">{{__('Description')}}</label>
@@ -436,7 +439,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">{{__('Team Type')}}</label>
-                            <select name="type"  class="form-control" required>
+                            <select name="type" class="form-control" required>
                                 @foreach($types as $type)
                                     <option value="{{$type->id}}" {{(old('type')==$type->id)?'selected':''}}>{{$type->name}}</option>
                                 @endforeach
@@ -453,21 +456,22 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="show_detail_status">{{__('Show this profile on team types page?')}}</label>
+                            <label for="is_research_member">{{__('Show this profile on team types page?')}}</label>
                             <select name="is_research_member" class="form-control" required>
                                 <option value="1" {{(old('is_research_member')=='1')?'selected':''}}>Yes</option>
-                                <option selected   {{(old('is_research_member')=='0')?'selected':''}} value="0">No</option>
+                                <option selected {{(old('is_research_member')=='0')?'selected':''}} value="0">No
+                                </option>
                             </select>
                         </div>
 
-
-                        <div class="form-group">
-                            <label for="show_detail_status">{{__('Show Profile Details ')}}</label>
-                            <select name="show_detail_status" class="form-control" required>
-                                <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes</option>
-                                <option value="0" {{(old('show_detail_status')=='0')?'selected':''}}>No</option>
-                            </select>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="show_detail_status">{{__('Show Profile Details ')}}</label>--}}
+{{--                            <select name="show_detail_status" class="form-control" required>--}}
+{{--                                <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes--}}
+{{--                                </option>--}}
+{{--                                <option value="0" {{(old('show_detail_status')=='0')?'selected':''}}>No</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
 
                         <div class="form-group">
                             <label for="about_me">{{__('About me')}}</label>
@@ -713,9 +717,9 @@
             }
         });
 
-        @if(old('description'))
-            var val = '{{old('description')}}';
-            $('.note-editable').html(val);
+                @if(old('description'))
+        var val = '{{old('description')}}';
+        $('.note-editable').html(val);
         @endif
     </script>
     <script src="{{asset('assets/backend/js/dropzone.js')}}"></script>
