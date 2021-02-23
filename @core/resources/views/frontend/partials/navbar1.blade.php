@@ -322,9 +322,9 @@
                                 </li>
 
                                 @php $imageCategories= \App\ImageGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('images')->orderBy('id','desc')->get(); @endphp
+                                @if($imageCategories->count()>0)
                                 <li class=" {{$imageCategories->count()>0 ? ' menu-item-has-children ' : ' '}}">
                                     <a href="{{route('frontend.image.gallery')}}">Photos Gallery</a>
-                                    @if($imageCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($imageCategories as $category)
                                                 @if($category->images_count>0)
@@ -334,8 +334,9 @@
                                                 @endif
                                             @endforeach
                                         </ul>
-                                    @endif
+
                                 </li>
+                                @endif
 
                                 @php $videoCategories= \App\VideoGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('videos')->orderBy('id','desc')->get(); @endphp
                                 <li class=" {{$videoCategories->count()>0 ? 'menu-item-has-children ' : ' '}}  ">
