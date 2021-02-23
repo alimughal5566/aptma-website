@@ -2338,6 +2338,10 @@ footer .copyright-area ul.social-icons li a.active {
     opacity: 1;
   }
 
+  .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children .sub-menu li.menu-item-has-children::before {
+    top: 25px;
+  }
+
   .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li a {
     display: block;
     width: 100%;

@@ -178,6 +178,7 @@
                           border-top: none;
                         }
 
+
                       }
 
                     }
@@ -273,6 +274,22 @@
                         margin-top: 10px;
                         height: auto;
                         opacity: 1;
+                      }
+
+                    }
+
+                    .sub-menu {
+
+                      li {
+
+                        &.menu-item-has-children {
+
+                          &::before {
+                            top: 25px;
+                          }
+
+                        }
+
                       }
 
                     }
