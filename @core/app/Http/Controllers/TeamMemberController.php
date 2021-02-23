@@ -23,7 +23,7 @@ class TeamMemberController extends Controller
         $all_language = Language::all();
         $all_team_member = TeamMember::with('category', 'department')->get()->groupBy('lang');
         $categories = TeamCategory::where(['status' => 'publish', 'lang' => get_default_language()])->get();
-        $types = TeamType::where(['status' => 'publish', 'lang' => get_default_language()])->orderby('order_no', 'desc')->get();
+        $types = TeamType::where(['lang' => get_default_language()])->orderby('order_no', 'desc')->get();
         $team_department = TeamDepartment::where(['status' => 'publish', 'lang' => get_default_language()])->orderby('id', 'desc')->get();
         return view('backend.pages.team-member')->with(['all_team_member' => $all_team_member, 'all_languages' => $all_language, 'team_department' => $team_department, 'categories' => $categories, 'types' =>$types]);
     }

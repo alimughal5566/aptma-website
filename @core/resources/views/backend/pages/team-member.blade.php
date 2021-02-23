@@ -249,6 +249,7 @@
                                     <option selected disabled value="">Choose Type</option>
                                     @foreach($types as $type)
                                         <option value="{{$type->id}}" {{(old('type')==$type->id)?'selected':''}}>{{$type->name}}</option>
+                                        <option value="{{$type->id}}" {{(old('type')==$type->id)?'selected':''}}>{{$type->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

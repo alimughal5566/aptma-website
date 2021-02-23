@@ -2,11 +2,17 @@
 
     @if(count($footer_widgets) > 0)
         <div class="footer-top padding-top-50">
-            <div class="container">
-                <div class="row {{ count($footer_widgets) > 4 ? 'flex-wrap flex-lg-nowrap footer-widget-wrap' : '' }}">
-                    @foreach($footer_widgets as $data)
-                        {!! call_user_func_array($data->frontend_render_function,['id' => $data->id]) !!}
-                    @endforeach
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-12 col-lg-10">
+                        <div class="row {{ count($footer_widgets) > 4 ? 'flex-wrap flex-lg-nowrap footer-widget-wrap' : '' }}">
+                            @foreach($footer_widgets as $data)
+                                {!! call_user_func_array($data->frontend_render_function,['id' => $data->id]) !!}
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
                 </div>
             </div>
         </div>
