@@ -11,10 +11,10 @@
     {{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
 @endsection
 @section('site-title')
-    'Teams'
+    Teams
 @endsection
 @section('page-title')
-    'Teams'
+    Teams
 @endsection
 @section('content')
 

@@ -1,10 +1,6 @@
 @extends('frontend.frontend-page-master')
-@section('site-title')
-    {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}
-@endsection
-@section('page-title')
-    Publications
-@endsection
+@section('site-title','Articles amd publications')
+
 @section('page-meta-data')
     <meta name="description"
           content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_description')}}">
@@ -31,7 +27,7 @@
                                 @if($diff<15)
                                     <small class="font-italic badge ">New</small>
                                 @endif
-                                <a href="{{route('frontend.publication.single',$data->id)}}">
+                                <a href="{{route('frontend.publication.single',$data->slug)}}">
                                     {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
                                 </a>
                             </div>

@@ -241,6 +241,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/' . $work_page_slug . '/{slug}', 'FrontendController@work_single_page')->name('frontend.work.single');
     Route::get('/' . $work_page_slug . '/category/{id}/{any}', 'FrontendController@category_wise_works_page')->name('frontend.works.category');
     Route::get('/' . $team_page_slug . '/{slug?}', 'FrontendController@team_page')->name('frontend.team');
+    Route::get('/team-type/{slug}', 'FrontendController@teamtype')->name('frontend.team.types');
 
     Route::get('/' . $price_plan_page_slug, 'FrontendController@price_plan_page')->name('frontend.price.plan');
     Route::get('/' . $contact_page_slug, 'FrontendController@contact_page')->name('frontend.contact');
@@ -783,6 +784,13 @@ Route::prefix('admin-home')->middleware(['team_member_manage_check'])->group(fun
     Route::post('/team/delete/{id}', 'TeamDepartmentController@category_delete')->name('admin.department.category.delete');
     Route::post('/team/bulk-action', 'TeamDepartmentController@category_bulk_action')->name('admin.department.category.bulk.action');
     Route::post('/department-by-slug', 'TeamDepartmentController@category_by_slug')->name('admin.department.category.by.lang');
+    //Team type
+    Route::get('/team-types', 'TeamTypeController@category_index')->name('admin.team.type.category');
+    Route::post('/team-type/new', 'TeamTypeController@category_store')->name('admin.type.category.new');
+    Route::post('/team-type/update', 'TeamTypeController@category_update')->name('admin.type.category.update');
+    Route::post('/team-type/delete/{id}', 'TeamTypeController@category_delete')->name('admin.type.category.delete');
+    Route::post('/team-type/bulk-action', 'TeamTypeController@category_bulk_action')->name('admin.type.category.bulk.action');
+    Route::post('/type-by-slug', 'TeamTypeController@category_by_slug')->name('admin.type.category.by.lang');
 
 
     Route::post('/team-member', 'TeamMemberController@store');

@@ -780,6 +780,9 @@
                             <li class="{{active_menu('admin-home/team/department')}}">
                                 <a href="{{route('admin.department.category')}}" >{{__('Team Department')}}</a>
                             </li>
+                            <li class="{{active_menu('admin-home/team-types')}}">
+                                <a href="{{route('admin.team.type.category')}}" >{{__('Team Type')}}</a>
+                            </li>
                         </ul>
                     </li>
                     @endif

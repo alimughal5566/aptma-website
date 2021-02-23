@@ -50,6 +50,7 @@ use App\Services;
 use App\TeamCategory;
 use App\TeamDepartment;
 use App\TeamMember;
+use App\TeamType;
 use App\Testimonial;
 use App\User;
 use App\VideoGallery;
@@ -451,7 +452,7 @@ class FrontendController extends Controller
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         if (!is_null($cat_id)) {
-        $category = PublicationCategory::where('slug', $cat_id)->first();
+            $category = PublicationCategory::where('slug', $cat_id)->first();
             $all_services = Publication::where('status', '1')->where('cat_id', $category->id)->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
 
         } else {
@@ -534,31 +535,45 @@ class FrontendController extends Controller
         return view('frontend.pages.work.work')->with(['all_work' => $all_work, 'all_work_category' => $all_work_category]);
     }
 
-    public function team_page($cat_id = null){
+    public function team_page($cat_id = null)
+    {
         $category = TeamCategory::where('slug', $cat_id)->first();
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $data1=[];
-        $data=[];
-        if (!is_null($cat_id)){
+        $data1 = [];
+        $data = [];
+        if (!is_null($cat_id)) {
             $teamdepartments = TeamDepartment::orderby('order_no', 'asc')->get();
             foreach ($teamdepartments as $department) {
-                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id',  $category->id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
+                $data1['members'] = TeamMember::where('lang', $lang)->where('cat_id', $category->id)->where('department_id', $department->id)->with('department')->orderby('order_no', 'asc')->get();
                 $data1['name'] = $department->name;
                 $data[] = $data1;
             }
         }
 
 
-        return view('frontend.pages.team-page')->with(['category' => $category,'data' => $data]);
+        return view('frontend.pages.team-page')->with(['category' => $category, 'data' => $data]);
     }
-    public function team_member($id = null){
+
+    public function teamtype($cat_id = null)
+    {
+        $default_lang = Language::where('default', 1)->first();
+        $category = TeamType::where('slug', $cat_id)->first();
+
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        $data['members'] = TeamMember::where('lang', $lang)->where('type', $category->id)->where('is_research_member', '1')->with('department')->orderby('type_order', 'asc')->get();
+//dd($data['members']);
+        return view('frontend.pages.team-type-page')->with(['data' => $data, 'category' => $category->name]);
+    }
+
+    public function team_member($id = null)
+    {
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
 
 
 //            $all_team_members = TeamMember::where('lang', $lang)->where('cat_id', $cat_id)->orderBy('id', 'asc')->paginate(12);
-            $data = TeamMember::where('slug', $id)->first();
+        $data = TeamMember::where('slug', $id)->first();
 //dd($data);
 
         return view('frontend.pages.team-user-single')->with(['data' => $data]);

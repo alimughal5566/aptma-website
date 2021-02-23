@@ -1,10 +1,6 @@
 @extends('frontend.frontend-page-master')
-@section('site-title')
-    {{get_static_option('image_gallery_page_'.$user_select_lang_slug.'_name')}}
-@endsection
-@section('page-title')
-    {{get_static_option('image_gallery_page_'.$user_select_lang_slug.'_name')}}
-@endsection
+@section('site-title',$category->title)
+
 @section('page-meta-data')
     <meta name="description"
           content="{{get_static_option('image_gallery_page_'.$user_select_lang_slug.'_meta_description')}}">

@@ -1,5 +1,5 @@
 @extends('frontend.frontend-page-master')
-@section('site-title',$category->name)
+@section('site-title',$category)
 
 {{--@section('page-title',$category->name)--}}
 @section('page-meta-data')
@@ -12,19 +12,14 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="font-weight-bold mb-3 text-center">
-                        Team <?php echo ($category->name) ? "<small>($category->name)</small>" : "" ?>
+                        {{$category}}
                     </h2>
+
                 </div>
                 <div class="col-12">
-                    @forelse($data as $record)
-                        @if($record['members']->count()>0)
-                            <div class="row mt-4 mb-1">
-                                <div class="col-12">
-                                    <h3 class="subtitle font-weight-bold text-uppercase mb-0"> {{$record['name']}} </h3>
-                                </div>
-                                @foreach($record['members'] as $user )
-                                    @php $shown_status=0;
-                                            $shown_status_route='#';
+                    <div class="row mt-4 mb-1">
+                    @forelse($data['members'] as $user)
+                                    @php $shown_status=0; $shown_status_route='#';
                                         if($user->show_detail_status==1){
                                             $shown_status=$user->show_detail_status;
                                             $shown_status_route=route('frontend.team.member',$user->slug);
@@ -71,9 +66,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            </div>
-                        @endif
                     @empty
                         <div class="col-12 card border-0 mt-5 margin-bottom-40">
                             <div class="text center px-5">
@@ -81,6 +73,7 @@
                             </div>
                         </div>
                     @endforelse
+                    </div>
 
                     {{--                <div class="col-lg-12">--}}
                     {{--                    <div class="pagination-wrapper">--}}

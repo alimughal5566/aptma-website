@@ -1,7 +1,5 @@
 @extends('frontend.frontend-page-master')
-@section('site-title')
-    {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}
-@endsection
+@section('site-title','Books')
 @section('page-title')
     Videos
 @endsection
