@@ -1,3 +1,6 @@
+@section('site-title','Home')
+
+
 <div class="header-slider-one">
     @foreach($all_header_slider as $data)
         <div class="header-area header-bg" {!! render_background_image_markup_by_attachment_id($data->image) !!}>

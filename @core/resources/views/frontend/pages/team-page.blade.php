@@ -1,7 +1,6 @@
 @extends('frontend.frontend-page-master')
-@section('site-title')
-    {{get_static_option('team_page_'.$user_select_lang_slug.'_name')}}
-@endsection
+@section('site-title','Team')
+
 @section('page-title')
     {{get_static_option('team_page_'.$user_select_lang_slug.'_name')}}
 @endsection
