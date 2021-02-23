@@ -11,6 +11,10 @@
         .hover-disable:hover {
             cursor: default;
         }
+        .single-gallery-image{
+            max-height: 300px;
+            min-height: 300px !important;
+        }
     </style>
     <div class="contact-section padding-bottom-120 padding-top-120">
         <div class="container">
@@ -28,9 +32,9 @@
                                     $gallery_img = get_attachment_image_by_id($data->image,'full',false);
                                     $img_url = !empty($gallery_img) ? $gallery_img['img_url'] : '';
                                 @endphp
-                                <a href="{{$img_url}}" title="{{$data->title}}" class="image-popup">
+                                <a href="{{$img_url}}" title="{{$data->title}}" class="image-popup ">
                                     {!! render_image_markup_by_attachment_id($data->image,'','grid') !!}
-                                    <div class="img-hover ">
+                                    <div class="img-hover">
                                         <i class="fas fa-search"></i>
                                     </div>
                                 </a>
