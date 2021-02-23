@@ -823,3 +823,9 @@
   }
 
 }
+
+.single-contact-item .content p.details:empty {
+  height: 10px;
+  display: block;
+  width: 100%;
+}

@@ -2028,6 +2028,12 @@ html {
   font-size: 1.5rem;
 }
 
+.single-contact-item .content p.details:empty {
+  height: 10px;
+  display: block;
+  width: 100%;
+}
+
 /*      VARIABLES      */
 
 /*      VARIABLES      */
