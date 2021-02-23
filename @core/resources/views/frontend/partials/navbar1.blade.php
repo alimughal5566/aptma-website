@@ -195,7 +195,7 @@
                         </li>
 
                         @php $blogCategories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->withCount('blogs')->orderBy('id','desc')->get(); @endphp
-                        @php $teamtypes=\App\TeamType::whereHas('type_members')->orderby('order_no','asc')->get(); @endphp
+                        @php $teamtypes=\App\TeamType::where(['status' =>'publish','lang'=>'en'])->whereHas('type_members')->orderby('order_no','asc')->get(); @endphp
 
                         <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
                             <a href="javascript:void(0);">Research & Publications</a>
