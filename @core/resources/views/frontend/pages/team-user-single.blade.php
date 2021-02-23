@@ -10,12 +10,7 @@
     {{--    <meta name="tags" content="{{$service_item->meta_tag}}">--}}
     {{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
 @endsection
-@section('site-title')
-    {{$data->title}}
-@endsection
-@section('page-title')
-    {{$data->title}}
-@endsection
+@section('site-title',$data->name)
 @section('content')
     <div class="page-content service-details common-single team-single padding-top-50 ">
         <div class="container">

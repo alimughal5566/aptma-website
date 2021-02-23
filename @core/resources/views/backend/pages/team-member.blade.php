@@ -84,6 +84,7 @@
                                             <th>{{__('Designation')}}</th>
                                             <th>{{__('Branch/Team')}}</th>
                                             <th>{{__('Department')}}</th>
+                                            <th>{{__('Profile')}}</th>
                                             <th>{{__('Action')}}</th>
                                             </thead>
                                             <tbody>
@@ -118,6 +119,7 @@
                                                     <td>{{$data->designation}}</td>
                                                     <td>{{$data->category->name}}</td>
                                                     <td>{{$data->department->name}}</td>
+                                                    <td>{{($data->show_detail_status==1)?'Shown':'Hide'}}</td>
                                                     <td>
                                                         <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
                                                            role="button"
@@ -132,7 +134,7 @@
                                                        <br>
                                                         <input type='submit' class='btn btn-danger btn-sm' value='{{__('Yes, Please')}}'>
                                                         </form>
-                                                        ">
+                                                       ">
                                                             <i class="ti-trash"></i>
                                                         </a>
                                                         <a href="#"
@@ -157,7 +159,10 @@
                                                            data-category="{{$data->cat_id}}"
                                                            data-department_id="{{$data->department_id}}"
                                                            data-order="{{$data->order_no}}"
-                                                        >
+                                                           data-show_detail_status="{{$data->show_detail_status}}"
+                                                           data-is_research_member="{{$data->is_research_member}}"
+                                                           data-type="{{$data->type}}"
+                                                           data-type_order="{{$data->type_order}}">
                                                             <i class="ti-pencil"></i>
                                                         </a>
                                                     </td>
@@ -177,7 +182,7 @@
             <div class="col-lg-5 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Add New Staff')}}</h4>
+                        <h4 class="header-title">{{__('Add New Member')}}</h4>
                         <form action="{{route('admin.team.member')}}" method="post" enctype="multipart/form-data"
                               id="newForm">
                             @csrf
@@ -230,9 +235,44 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="show_detail_status">{{__('Show Profile Details')}}</label>
+                                <select name="show_detail_status" class="form-control" required>
+                                    <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes</option>
+                                    <option value="0" {{(old('show_detail_status')=='1')?'selected':''}} >No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="order_no">{{__('Team Type')}}</label>
+                                <select name="type"  class="form-control" required>
+                                    <option selected disabled value="">Choose Type</option>
+                                    @foreach($types as $type)
+                                        <option value="{{$type->id}}" {{(old('type')==$type->id)?'selected':''}}>{{$type->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="type_order">{{__('Placement order')}}</label>
+                                <select name="type_order" id="type_order" class="form-control" required>
+                                    <option selected disabled value="">Choose Placement Order</option>
+                                    @for($j=1;$j<=100; $j++)
+                                        <option value="{{$j}}" {{(old('type_order')==$j)?'selected':''}}>{{$j}}</option>
+                                    @endfor
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="show_detail_status">{{__('Show this  profile on team types page?')}}</label>
+                                <select name="is_research_member" class="form-control" required>
+                                    <option  value="1"  {{(old('is_research_member')=='1')?'selected':''}}>Yes</option>
+                                    <option selected value="0" {{(old('is_research_member')=='1')?'selected':''}} >No</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
                                 <label for="about_me">{{__('About me')}}</label>
-                                <textarea name="about_me" id="about_me" class="form-control"
-                                          required>{{old('about_me')}}</textarea>
+                                <textarea name="about_me" id="about_me" class="form-control" required>{{old('about_me')}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="description">{{__('Description')}}</label>
@@ -241,7 +281,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="icon_one" class="d-block">{{__('Social Profile One')}}</label>
+                                <label for="icon_one" class="d-block">{{__('Social Profile')}}</label>
                                 <div class="btn-group ">
                                     <button type="button" class="btn btn-primary iconpicker-component">
                                         <i class="fab fa-instagram"></i>
@@ -332,7 +372,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{__('Edit Staff')}}</h5>
+                    <h5 class="modal-title">{{__('Edit User')}}</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
                 <form action="#" id="team_member_edit_modal_form" method="post" enctype="multipart/form-data">
@@ -384,6 +424,48 @@
                                 @for($j=1;$j<=100; $j++)
                                     <option value="{{$j}}" {{(old('order_no')==$j)?'selected':''}} >{{$j}}</option>
                                 @endfor
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="show_detail_status">{{__('Show Profile Details ')}}</label>
+                            <select name="show_detail_status" class="form-control" required>
+                                <option selected value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">{{__('Team Type')}}</label>
+                            <select name="type"  class="form-control" required>
+                                @foreach($types as $type)
+                                    <option value="{{$type->id}}" {{(old('type')==$type->id)?'selected':''}}>{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type_order">{{__('Placement order')}}</label>
+                            <select name="type_order" id="type_order" class="form-control" required>
+                                <option selected disabled value="">Choose Placement Order</option>
+                                @for($j=1;$j<=100; $j++)
+                                    <option value="{{$j}}" {{(old('type_order')==$j)?'selected':''}}>{{$j}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="show_detail_status">{{__('Show this profile on team types page?')}}</label>
+                            <select name="is_research_member" class="form-control" required>
+                                <option value="1" {{(old('is_research_member')=='1')?'selected':''}}>Yes</option>
+                                <option selected   {{(old('is_research_member')=='0')?'selected':''}} value="0">No</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="show_detail_status">{{__('Show Profile Details ')}}</label>
+                            <select name="show_detail_status" class="form-control" required>
+                                <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes</option>
+                                <option value="0" {{(old('show_detail_status')=='0')?'selected':''}}>No</option>
                             </select>
                         </div>
 
@@ -531,6 +613,7 @@
             });
 
             $(document).on('click', '.team_member_edit_btn', function () {
+
                 var el = $(this);
                 var id = el.data('id');
                 var name = el.data('name');
@@ -541,11 +624,15 @@
                 var imageid = el.data('imageid');
                 var aboutme = el.data('aboutme');
                 var description = el.data('description');
+                var show_detail_status = el.data('show_detail_status');
+                var is_research_member = el.data('is_research_member');
                 var category = el.data('category');
+                var type_order = el.data('type_order');
                 var order = el.data('order');
+                var type = el.data('type');
                 var form = $('#team_member_edit_modal_form');
 
-
+// alert(is_research_member);
                 form.attr('action', action);
                 form.find('#team_member_id').val(id);
                 form.find('#edit_name').val(name);
@@ -567,6 +654,10 @@
                 form.find('select[name="order_no"] option[value="' + order + '"]').attr('selected', true);
                 form.find('select[name="cat_id"] option[value="' + category + '"]').attr('selected', true);
                 form.find('select[name="department_id"] option[value="' + department_id + '"]').attr('selected', true);
+                form.find('select[name="show_detail_status"] option[value="' + show_detail_status + '"]').attr('selected', true);
+                form.find('select[name="is_research_member"] option[value="' + is_research_member + '"]').attr('selected', true);
+                form.find('select[name="type"] option[value="' + type + '"]').attr('selected', true);
+                form.find('select[name="type_order"] option[value="' + type_order + '"]').attr('selected', true);
 
                 form.find('.edit_icon_three .icp-dd').attr('data-selected', el.data('iconthree'));
                 form.find('.edit_icon_three .iconpicker-component i').attr('class', el.data('iconthree'));

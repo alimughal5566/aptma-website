@@ -50,6 +50,7 @@ use App\Services;
 use App\TeamCategory;
 use App\TeamDepartment;
 use App\TeamMember;
+use App\TeamType;
 use App\Testimonial;
 use App\User;
 use App\VideoGallery;
@@ -551,6 +552,15 @@ class FrontendController extends Controller
 
 
         return view('frontend.pages.team-page')->with(['category' => $category,'data' => $data]);
+    }
+    public function teamtype($cat_id = null){
+        $default_lang = Language::where('default', 1)->first();
+        $category = TeamType::where('slug', $cat_id)->first();
+
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        $data['members'] = TeamMember::where('lang', $lang)->where('type',$category->id)->where('is_research_member','1')->with('department')->orderby('type_order', 'asc')->get();
+//dd($data['members']);
+        return view('frontend.pages.team-type-page')->with(['data' => $data,'category' => $category->name]);
     }
     public function team_member($id = null){
         $default_lang = Language::where('default', 1)->first();
