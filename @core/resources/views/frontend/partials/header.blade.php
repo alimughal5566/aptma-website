@@ -63,11 +63,11 @@
         @yield('og-meta')
         <title>@yield('site-title')</title>
     @elseif(request()->is(get_static_option('about_page_slug')) || request()->is(get_static_option('service_page_slug')) || request()->is(get_static_option('work_page_slug')) || request()->is(get_static_option('team_page_slug')) || request()->is(get_static_option('faq_page_slug')) || request()->is(get_static_option('blog_page_slug')) || request()->is(get_static_option('contact_page_slug')) || request()->is('p/*') || request()->is(get_static_option('blog_page_slug').'/*') || request()->is(get_static_option('service_page_slug').'/*') || request()->is(get_static_option('career_with_us_page_slug').'/*') || request()->is(get_static_option('events_page_slug').'/*') || request()->is(get_static_option('knowledgebase_page_slug').'/*'))
-{{--        <title>@yield('site-title') - {{get_static_option('site_'.$user_select_lang_slug.'_title')}} </title>--}}
+        <title>@yield('site-title') - {{get_static_option('site_'.$user_select_lang_slug.'_title')}} </title>
     @else
 {{--        <title>{{get_static_option('site_'.$user_select_lang_slug.'_title')}}--}}
 {{--            - {{get_static_option('site_'.$user_select_lang_slug.'_tag_line')}}</title>--}}
-        <title>Aptma-@yield('site-title')</title>
+        <title>@yield('site-title') - Aptma</title>
     @endif
 <!-- jquery -->
     <script src="{{asset('assets/frontend/js/jquery-3.4.1.min.js')}}"></script>

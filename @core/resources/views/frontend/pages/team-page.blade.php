@@ -1,9 +1,8 @@
 @extends('frontend.frontend-page-master')
-@section('site-title','Team')
+@section('site-title',$category->name)
 
-@section('page-title')
-    {{get_static_option('team_page_'.$user_select_lang_slug.'_name')}}
-@endsection
+{{--@section('page-title',$category->name)--}}
+
 @section('page-meta-data')
     <meta name="description" content="{{get_static_option('team_page_'.$user_select_lang_slug.'_meta_description')}}">
     <meta name="tags" content="{{get_static_option('team_page_'.$user_select_lang_slug.'_meta_tags')}}">
