@@ -766,7 +766,7 @@
 
                     <li class="main_dropdown
                         {{active_menu('admin-home/team-member')}}
-                    @if(request()->is('admin-home/team-member/*') || request()->is('admin-home/team/*')) active @endif
+                    @if(request()->is('admin-home/team-member/*') || request()->is('admin-home/team/*')|| request()->is('admin-home/team-types')) active @endif
                             ">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
                             <span>{{__('Team')}}</span></a>

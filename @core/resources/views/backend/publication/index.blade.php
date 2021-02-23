@@ -67,11 +67,11 @@
                                     <div class="table-wrap table-responsive">
                                         <table class="table table-default" id="all_blog_table">
                                             <thead>
-{{--                                            <th class="no-sort">--}}
-{{--                                                <div class="mark-all-checkbox">--}}
-{{--                                                    <input type="checkbox" class="all-checkbox">--}}
-{{--                                                </div>--}}
-{{--                                            </th>--}}
+                                            <th class="no-sort">
+                                                <div class="mark-all-checkbox">
+                                                    <input type="checkbox" class="all-checkbox">
+                                                </div>
+                                            </th>
                                             <th>{{__('ID')}}</th>
                                             <th>{{__('Title')}}</th>
                                             <th>{{__('Category')}}</th>
@@ -84,11 +84,11 @@
                                             <tbody>
                                             @foreach($all_gallery_images as $data)
                                                 <tr>
-{{--                                                    <td>--}}
-{{--                                                        <div class="bulk-checkbox-wrapper">--}}
-{{--                                                            <input type="checkbox" class="bulk-checkbox" name="bulk_delete[]" value="{{$data->id}}">--}}
-{{--                                                        </div>--}}
-{{--                                                    </td>--}}
+                                                    <td>
+                                                        <div class="bulk-checkbox-wrapper">
+                                                            <input type="checkbox" class="bulk-checkbox" name="bulk_delete[]" value="{{$data->id}}">
+                                                        </div>
+                                                    </td>
                                                     <td><a class="text-white" href="{{route('frontend.publication.single',$data->id)}}">{{$data->id}}</a></td>
                                                     <td>{{$data->title}}</td>
                                                     <td>{{@$data->category->name}}</td>
