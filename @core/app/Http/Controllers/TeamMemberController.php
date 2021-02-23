@@ -6,6 +6,7 @@ use App\Language;
 use App\TeamCategory;
 use App\TeamDepartment;
 use App\TeamMember;
+use App\TeamType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,8 +23,9 @@ class TeamMemberController extends Controller
         $all_language = Language::all();
         $all_team_member = TeamMember::with('category', 'department')->get()->groupBy('lang');
         $categories = TeamCategory::where(['status' => 'publish', 'lang' => get_default_language()])->get();
+        $types = TeamType::where(['status' => 'publish', 'lang' => get_default_language()])->orderby('order_no', 'desc')->get();
         $team_department = TeamDepartment::where(['status' => 'publish', 'lang' => get_default_language()])->orderby('id', 'desc')->get();
-        return view('backend.pages.team-member')->with(['all_team_member' => $all_team_member, 'all_languages' => $all_language, 'team_department' => $team_department, 'categories' => $categories]);
+        return view('backend.pages.team-member')->with(['all_team_member' => $all_team_member, 'all_languages' => $all_language, 'team_department' => $team_department, 'categories' => $categories, 'types' =>$types]);
     }
 
     public function teams()
@@ -50,6 +52,10 @@ class TeamMemberController extends Controller
             'cat_id' => 'required|string|max:225',
             'department_id' => 'required|string|max:225',
             'order_no' => 'required|string|max:225',
+            'show_detail_status' => 'required|string|max:225',
+            'is_research_member' => 'required|string|max:225',
+            'type' => 'required|string|max:225',
+            'type_order' => 'required|string|max:225',
         ]);
 
 
@@ -77,6 +83,10 @@ class TeamMemberController extends Controller
             'cat_id' => 'required|string|max:225',
             'department_id' => 'required|string|max:225',
             'order_no' => 'required|string|max:225',
+            'show_detail_status' => 'required|string|max:225',
+            'is_research_member' => 'required|string|max:225',
+            'type' => 'required|string|max:225',
+            'type_order' => 'required|string|max:225',
         ]);
         TeamMember::find($request->id)->update($request->all());
         $id=TeamMember::find($request->id);

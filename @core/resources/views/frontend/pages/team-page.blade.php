@@ -2,7 +2,6 @@
 @section('site-title',$category->name)
 
 {{--@section('page-title',$category->name)--}}
-
 @section('page-meta-data')
     <meta name="description" content="{{get_static_option('team_page_'.$user_select_lang_slug.'_meta_description')}}">
     <meta name="tags" content="{{get_static_option('team_page_'.$user_select_lang_slug.'_meta_tags')}}">
@@ -20,23 +19,27 @@
                     @forelse($data as $record)
                         @if($record['members']->count()>0)
                             <div class="row mt-4 mb-1">
-
                                 <div class="col-12">
                                     <h3 class="subtitle font-weight-bold text-uppercase mb-0"> {{$record['name']}} </h3>
                                 </div>
-
                                 @foreach($record['members'] as $user )
+                                    @php $shown_status=0;
+                                            $shown_status_route='#';
+                                        if($user->show_detail_status==1){
+                                            $shown_status=$user->show_detail_status;
+                                            $shown_status_route=route('frontend.team.member',$user->slug);
+                                        }
+                                    @endphp
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="team-section py-4 border-0">
                                             {{--                            <div class="team-img-cont" onclick="detail({{$user}});">--}}
                                             <div class="team-img-cont d-flex justify-content-center align-items-center">
-                                                <a class="d-flex justify-content-center align-items-center"
-                                                   href="{{route('frontend.team.member',$user->slug) }}">
+                                                <a class="d-flex justify-content-center align-items-center"  href="{{$shown_status_route}}" style="cursor:{{($shown_status==0)?'default':'pointer'}}">
                                                     {!! render_image_markup_by_attachment_id($user->image) !!}
                                                 </a>
                                             </div>
                                             <div class="team-text">
-                                                <a href="{{route('frontend.team.member',$user->slug) }}">
+                                                <a href="{{$shown_status_route}}" style="cursor:{{($shown_status==0)?'default':'pointer'}}">
                                                     <h4 class="title">{{$user->name}}</h4>
                                                     <span>{{$user->designation}}</span>
                                                 </a>

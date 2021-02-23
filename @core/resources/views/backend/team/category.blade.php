@@ -162,7 +162,7 @@
             <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Add New branch')}}</h4>
+                        <h4 class="header-title">{{__('Add New Team')}}</h4>
                         <form action="{{route('admin.team.category.new')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">

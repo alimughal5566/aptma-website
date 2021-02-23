@@ -18,7 +18,6 @@ class TeamCategory extends Model
         });
     }
 
-
     public function setSlugAttribute(){
         $this->attributes['slug'] =  str_replace(' ','-',$this->name);
     }
