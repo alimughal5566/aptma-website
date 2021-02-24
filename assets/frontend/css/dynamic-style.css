@@ -1697,11 +1697,6 @@ html {
   width: 100%;
 }
 
-.common-area .common-item .common-img.publication-img {
-  min-height: 300px;
-  max-height: 300px;
-}
-
 .common-area .common-item .common-img .badge {
   background: #439882;
   border: 1px solid #fff;
@@ -1733,7 +1728,8 @@ html {
   max-height: 200px;
 }
 
-.common-area .common-item .common-img.advertise-img {
+.common-area .common-item .common-img.advertise-img,
+.common-area .common-item .common-img.publication-img {
   min-height: 250px;
   max-height: 250px;
 }
@@ -1846,8 +1842,21 @@ html {
   background-color: rgba(67, 152, 130, 0.5);
 }
 
+.case-studies-masonry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
 .case-studies-masonry .masonry-item {
   padding: 0;
+  margin-bottom: 1rem;
+  position: unset !important;
 }
 
 .contact-info {
