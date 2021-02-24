@@ -265,12 +265,13 @@
         }
 
         .title {
-          display: inline-flex;
           @include mix.align-items-center;
+          display: inline-flex;
           text-overflow: ellipsis;
           //white-space: nowrap;
-          overflow: hidden;
           line-height: 20px;
+          margin-bottom: 0;
+          overflow: hidden;
           font-weight: 600;
           max-height: 60px;
           text-align: left;
@@ -305,8 +306,8 @@
 
         .title-wrap {
           display: inline-flex;
-          min-height: 90px;
-          max-height: 90px;
+          min-height: 70px;
+          max-height: 70px;
           width: 100%;
 
           a {
@@ -315,18 +316,19 @@
           }
 
           .title {
-            text-overflow: ellipsis;
-            //white-space: nowrap;
-            display: inline-flex;
             @include mix.align-items-center;
+            display: inline-flex;
+            //white-space: nowrap;
+            text-overflow: ellipsis;
+            color: color.$primary2;
             align-items: center;
             line-height: 20px;
+            margin-bottom: 0;
             font-weight: 600;
             overflow: hidden;
             text-align: left;
             max-height: 60px;
             font-size: 14px;
-            color: color.$primary2;
             height: 60px;
           }
 
