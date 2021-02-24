@@ -16,18 +16,19 @@
             cursor: default;
         }
     </style>
-    <div class="contact-section padding-bottom-120 padding-top-120">
+    <div class="contact-section padding-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="case-studies-masonry-wrapper">
                         <ul class="case-studies-menu style-01">
-                            <li class="active" data-filter="*">{{__('Gallery')}} <?php echo ($category)?"($category)":"" ?></li>
+                            <li class="active"
+                                data-filter="*">{{__('Gallery')}} <?php echo ($category) ? "($category)" : "" ?></li>
                             {{--                           @foreach($all_category as $data)--}}
                             {{--                               <li data-filter=".{{Str::slug($data->title)}}">{{$data->title}}</li>--}}
                             {{--                           @endforeach--}}
                         </ul>
-                                 <div class="case-studies-masonry">
+                        <div class="case-studies-masonry">
                             {{--                           @foreach($all_gallery_images as $data)--}}
                             {{--                               <div class="col-lg-4 col-md-6 masonry-item {{Str::slug(get_image_category_name_by_id($data->cat_id))}}">--}}
                             {{--                                   <div class="single-gallery-image ">--}}
@@ -60,8 +61,9 @@
                                                     if($data->images->count()>0){
                                                         $url=route('frontend.image.gallery1',[$data->slug]);
                                                     }
-                                                    @endphp
-                                                <a href="{{$url}}" title="{{$data->title}}" style="{{($url=='#')?"cursor:default":''}}" >
+                                                @endphp
+                                                <a href="{{$url}}" title="{{$data->title}}"
+                                                   style="{{($url=='#')?"cursor:default":''}}">
                                                     <i class="fas fa-eye"></i>
                                                     <span>{{$data->title}}</span>
                                                     <span>{{$data->images->count()}}</span>
