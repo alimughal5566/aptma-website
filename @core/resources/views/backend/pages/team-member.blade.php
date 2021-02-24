@@ -237,7 +237,8 @@
                             <div class="form-group">
                                 <label for="show_detail_status">{{__('Show Profile Details')}}</label>
                                 <select name="show_detail_status" class="form-control" required>
-                                    <option selected value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes
+                                    <option selected disabled value="">Profile details status</option>
+                                    <option  value="1" {{(old('show_detail_status')=='1')?'selected':''}}>Yes
                                     </option>
                                     <option value="0" {{(old('show_detail_status')=='1')?'selected':''}} >No</option>
                                 </select>
@@ -276,7 +277,7 @@
                             <div class="form-group">
                                 <label for="about_me">{{__('About me')}}</label>
                                 <textarea name="about_me" id="about_me" class="form-control"
-                                          required>{{old('about_me')}}</textarea>
+                                          required placeholder="Write Short intro.." >{{old('about_me')}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="description">{{__('Description')}}</label>
@@ -350,7 +351,7 @@
                                        value="{{old('icon_three_url')}}">
                             </div>
                             <div class="form-group">
-                                <label for="image">{{__('Image*')}}</label>
+                                <label for="image">{{__('Profile Image*')}}</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
                                     <input type="hidden" name="image" value="{{old('image')}}">
@@ -358,7 +359,7 @@
                                             data-btntitle="{{__('Select Team Image')}}"
                                             data-modaltitle="{{__('Upload Team Image')}}" data-toggle="modal"
                                             data-target="#media_upload_modal">
-                                        {{__('Upload Image')}}
+                                        {{__('Upload  Image')}}
                                     </button>
                                 </div>
                                 <small>{{__('Recommended image size 270x280')}}</small>
@@ -393,17 +394,17 @@
                         {{--                        </div>--}}
                         <div class="form-group">
                             <label for="edit_name">{{__('Name')}}</label>
-                            <input type="text" class="form-control" id="edit_name" name="name"
+                            <input type="text" class="form-control" id="edit_name" name="name" required
                                    placeholder="{{__('Name')}}" value="{{old('name')}}">
                         </div>
                         <div class="form-group">
                             <label for="edit_designation">{{__('Designation')}}</label>
-                            <input type="text" class="form-control" id="edit_designation" name="designation"
+                            <input type="text" class="form-control" id="edit_designation" name="designation" required
                                    placeholder="{{__('Designation')}}" value="{{old('designation')}}">
                         </div>
                         <div class="form-group">
                             <label for="cat_id">{{__('Team')}}</label>
-                            <select name="cat_id" id="cat_id" class="form-control" id="cat">
+                            <select name="cat_id" id="cat_id" class="form-control" id="cat" required>
                                 <option selected disabled value="">Choose Team</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id}}" {{($category->id==old('cat_id'))?'selected':''}}>{{ $category->name}}</option>
@@ -483,7 +484,7 @@
                         <div class="form-group">
                             <label for="description">{{__('Description')}}</label>
                             <input type="hidden" name="description" id="description" class="description"
-                                   value="{{old('description')}}">
+                                   required    value="{{old('description')}}">
                             <div class="summernote"></div>
                         </div>
                         <div class="form-group">

@@ -193,19 +193,19 @@
                             <div class="form-group">
                                 <label for="status">{{__('Status')}}</label>
                                 <select name="status" class="form-control">
-                                    <option value="publish">{{__('Publish')}}</option>
-                                    <option value="draft">{{__('Draft')}}</option>
+                                    <option value="publish" {{(old('status')=='publish')?'selected':''}}>{{__('Publish')}}</option>
+                                    <option value="draft" {{(old('status')=='draft')?'selected':''}}>{{__('Draft')}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <div class="media-upload-btn-wrapper">
                                     <div class="img-wrap"></div>
-                                    <input type="hidden" name="image">
+                                    <input type="hidden" name="image" value="{{old('image')}}">
                                     <button type="button" class="btn btn-info media_upload_form_btn"
                                             data-btntitle="Select Image" data-modaltitle="Upload Image"
                                             data-toggle="modal" data-target="#media_upload_modal">
-                                        Department Image
+                                        Image
                                     </button>
                                 </div>
                                 <small>1000x1000px image recommended</small>
@@ -228,7 +228,7 @@
                 <form action="{{route('admin.type.category.update')}}" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         @csrf
-                        <input type="hidden" name="id" value="">
+                        <input type="hidden" name="id" value="" >
                         <div class="form-group">
                             <label for="lang">{{__('Languages')}}</label>
                             <select name="lang" class="form-control">
@@ -242,7 +242,7 @@
                             <label for="order">{{__('Placement Order')}}</label>
                             <select name="order_no" class="form-control" required>
                                 @for($j=10;$j>=1; $j--)
-                                    <option value="{{$j}}">{{$j}}</option>
+                                    <option value="{{$j}}" {{(old('order_no')==$j)?'selected':''}} >{{$j}}</option>
                                 @endfor
                             </select>
                         </div>
@@ -266,7 +266,7 @@
                                 <button type="button" class="btn btn-info media_upload_form_btn"
                                         data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal"
                                         data-target="#media_upload_modal">
-                                    Branch Image
+                                    Image
                                 </button>
                             </div>
                             <small>1000x1000 px image recommended</small>
