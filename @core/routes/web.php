@@ -680,6 +680,26 @@ Route::prefix('/admin-home/publication-page')->group(function () {
     Route::post('/category/bulk-action', 'PublicationController@category_bulk_action')->name('admin.publication.category.bulk.action');
     Route::post('/category-by-slug', 'PublicationController@category_by_slug')->name('admin.publication.category.by.lang');
 });
+
+//Exchange rates pages
+Route::prefix('/admin-home/exchange-rates')->group(function () {
+    Route::get('/', 'ExchnageRateController@index')->name('admin.exchnage.all');
+    Route::post('/new', 'ExchnageRateController@store')->name('admin.exchnage.new');
+    Route::post('/delete/{id}', 'ExchnageRateController@delete')->name('admin.exchnage.delete');
+    Route::post('/update', 'ExchnageRateController@update')->name('admin.exchnage.update');
+    Route::post('gallery-page/bulk-action', 'ExchnageRateController@bulk_action')->name('admin.exchnage.bulk.action');
+
+
+    Route::get('/category', 'ExchnageRateController@category_index')->name('admin.exchnage.category');
+    Route::post('/category/new', 'ExchnageRateController@category_store')->name('admin.exchnage.category.new');
+    Route::post('/category/update', 'ExchnageRateController@category_update')->name('admin.exchnage.category.update');
+    Route::post('/category/delete/{id}', 'ExchnageRateController@category_delete')->name('admin.exchnage.category.delete');
+    Route::post('/category/bulk-action', 'ExchnageRateController@category_bulk_action')->name('admin.exchnage.category.bulk.action');
+    Route::post('/category-by-slug', 'ExchnageRateController@category_by_slug')->name('admin.exchnage.category.by.lang');
+});
+
+
+
 //Video Gallery pages
 Route::prefix('/admin-home/video-page')->group(function () {
     Route::get('/', 'VideoGalleryController@index')->name('admin.gallery.video.all');
