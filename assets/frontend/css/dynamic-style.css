@@ -1559,16 +1559,17 @@ html {
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content .title {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
-  overflow: hidden;
   line-height: 20px;
+  margin-bottom: 0;
+  overflow: hidden;
   font-weight: 600;
   max-height: 60px;
   text-align: left;
@@ -1606,8 +1607,8 @@ html {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  min-height: 90px;
-  max-height: 90px;
+  min-height: 70px;
+  max-height: 70px;
   width: 100%;
 }
 
@@ -1617,22 +1618,23 @@ html {
 }
 
 .common-area .common-grid-carousel .common-grid-carousel-item .content-area .title-wrap .title {
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  color: #439882;
   align-items: center;
   line-height: 20px;
+  margin-bottom: 0;
   font-weight: 600;
   overflow: hidden;
   text-align: left;
   max-height: 60px;
   font-size: 14px;
-  color: #439882;
   height: 60px;
 }
 
