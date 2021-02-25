@@ -2057,37 +2057,12 @@ footer .footer-top {
   background-image: linear-gradient(0deg, #439882, #439882, rgba(67, 152, 130, 0.5));
 }
 
-footer .footer-top .counterup-area {
-  background-color: transparent;
-  position: relative;
-  top: -30px;
+footer .footer-top .footer-widget {
+  margin-bottom: 1rem;
 }
 
-footer .footer-top .counterup-area .counter-container {
-  border-radius: 0.5rem;
-  -webkit-box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
-}
-
-footer .footer-top .counterup-area .counter-container .singler-counterup-item .icon {
-  margin-right: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-footer .footer-top .counterup-area .counter-container .singler-counterup-item .content .count-wrap {
-  font-size: 45px;
-  line-height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+footer .footer-top .footer-widget ul li {
+  margin: 5px 0;
 }
 
 footer .footer-top .footer-widget ul li a,
