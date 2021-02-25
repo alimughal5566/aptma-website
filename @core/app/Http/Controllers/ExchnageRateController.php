@@ -112,12 +112,14 @@ class ExchnageRateController extends Controller
             'title' => 'required|string|unique:exchange_categories,name',
             'status' => 'required|string',
             'lang' => 'required|string',
+            'description' => 'required|string',
         ]);
 
         ExchangeRatesCategories::create([
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->title,
+            'title_description' => $request->description,
         ]);
         return redirect()->back()->with(['msg' => __('Category Added...'),'type' => 'success']);
     }
@@ -126,11 +128,13 @@ class ExchnageRateController extends Controller
             'title' => 'required|string|unique:exchange_categories,name,'.$request->id,
             'status' => 'required|string',
             'lang' => 'required|string',
+            'description' => 'required|string',
         ]);
         ExchangeRatesCategories::where('id',$request->id)->update([
             'status' => $request->status,
             'lang' => $request->lang,
             'name' => $request->title,
+            'title_description'=>$request->description,
             'slug' => Str::slug($request->title),
         ]);
         return redirect()->back()->with(['msg' => __('Category Updated...'),'type' => 'success']);

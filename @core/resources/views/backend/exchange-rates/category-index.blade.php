@@ -37,7 +37,7 @@
                 @endif
             </div>
 
-            <div class="col-lg-6 mt-5">
+            <div class="col-lg-12 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">{{__('Publications Categories')}}</h4>
@@ -74,7 +74,7 @@
                                                 </div>
                                             </th>
                                             <th>{{__('ID')}}</th>
-                                            <th>{{__('Name')}}</th>
+                                            <th>{{__('Description')}}</th>
                                             <th>{{__('Status')}}</th>
                                             <th>{{__('Action')}}</th>
                                             </thead>
@@ -87,7 +87,7 @@
                                                         </div>
                                                     </td>
                                                     <td>{{$data->id}}</td>
-                                                    <td>{{$data->name}}</td>
+                                                    <td>{{$data->title_description}}</td>
                                                     <td>
                                                         @if('publish' == $data->status)
                                                             <span class="btn btn-success btn-sm">{{ucfirst($data->status)}}</span>
@@ -118,6 +118,7 @@
                                                            class="btn btn-lg btn-primary btn-sm mb-3 mr-1 category_edit_btn"
                                                            data-id="{{$data->id}}"
                                                            data-name="{{$data->name}}"
+                                                           data-description="{{$data->title_description}}"
                                                            data-lang="{{$data->lang}}"
                                                            data-status="{{$data->status}}"
                                                         >
@@ -136,36 +137,40 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="header-title">{{__('Add New Category')}}</h4>
-                        <form action="{{route('admin.exchnage.category.new')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                                <label for="lang">{{__('Languages')}}</label>
-                                <select name="lang" class="form-control">
-                                    @foreach($all_languages as $lang)
-                                    <option value="{{$lang->slug}}" @if($lang->slug == get_default_language()) selected @endif>{{$lang->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="status">{{__('Status')}}</label>
-                                <select name="status" class="form-control">
-                                    <option value="publish">{{__('Publish')}}</option>
-                                    <option value="draft">{{__('Draft')}}</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New Category')}}</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="col-lg-6 mt-5">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <h4 class="header-title">{{__('Add New Category')}}</h4>--}}
+{{--                        <form action="{{route('admin.exchnage.category.new')}}" method="post" enctype="multipart/form-data">--}}
+{{--                            @csrf--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="lang">{{__('Languages')}}</label>--}}
+{{--                                <select name="lang" class="form-control">--}}
+{{--                                    @foreach($all_languages as $lang)--}}
+{{--                                    <option value="{{$lang->slug}}" @if($lang->slug == get_default_language()) selected @endif>{{$lang->name}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="title">{{__('Title')}}</label>--}}
+{{--                                <input type="text" name="title" class="form-control">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="description">{{__('Title Description')}}</label>--}}
+{{--                                <input type="text" name="description" class="form-control">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="status">{{__('Status')}}</label>--}}
+{{--                                <select name="status" class="form-control">--}}
+{{--                                    <option value="publish">{{__('Publish')}}</option>--}}
+{{--                                    <option value="draft">{{__('Draft')}}</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New Category')}}</button>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 
@@ -188,9 +193,13 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group d-none">
                             <label for="title">{{__('Title')}}</label>
                             <input type="text" name="title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">{{__('Description')}}</label>
+                            <input type="text" name="description" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="status">{{__('Status')}}</label>
@@ -268,11 +277,13 @@
                 var el = $(this);
                 var id = el.data('id');
                 var title = el.data('name');
+                var description = el.data('description');
                 var status = el.data('status');
                 var lang = el.data('lang');
                 var modalContainerId = $('#image_category_item_edit_modal');
                 modalContainerId.find('input[name="id"]').val(id);
                 modalContainerId.find('input[name="title"]').val(title);
+                modalContainerId.find('input[name="description"]').val(description);
                 modalContainerId.find('select[name="status"] option[value="'+status+'"]').attr('selected',true);
                 modalContainerId.find('select[name="lang"] option[value="'+lang+'"]').attr('selected',true);
             });

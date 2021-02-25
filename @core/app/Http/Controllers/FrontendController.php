@@ -123,6 +123,7 @@ class FrontendController extends Controller
         $china_zce = ChinaZce::where('published_at', $current_date)->get();
         $export = ExportBills::where('published_at', $current_date)->get();
 
+
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
         $user_select_lang_slug =$lang;

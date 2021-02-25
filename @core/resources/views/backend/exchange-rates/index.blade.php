@@ -164,17 +164,16 @@
                             @csrf
 
 
-{{--                            <div class="form-group">--}}
-{{--                                <label for="title">{{__('Title')}}</label>--}}
-{{--                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">--}}
-{{--                            </div>--}}
+                            <div class="form-group">
+                                <label for="title">{{__('Title')}}</label>
+                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">
+                            </div>
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select name="category" class="form-control" required>
                                     @foreach($all_categories as $category)
-                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->name}}">{{$category->name}}</option>
+                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->name}}">{{$category->title_description}}</option>
                                     @endforeach
-
                                 </select>
                             </div>
 
