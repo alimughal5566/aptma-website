@@ -1,7 +1,7 @@
 <footer class="footer-area">
 
     @if(count($footer_widgets) > 0)
-        <div class="footer-top pt-4">
+        <div class="footer-top pt-3">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-1"></div>
