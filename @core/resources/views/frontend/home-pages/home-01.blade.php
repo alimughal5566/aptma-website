@@ -127,52 +127,57 @@
 
                     </div>
                     <div class="col-12 col-lg-3">
-                        <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
-                            {{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30 ">--}}
-                            {{--                                <h3 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
-                            {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
-                            {{--                            </div>--}}
-                            <div class="row">
-                                <div class="col-12">
+                        {{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30 ">--}}
+                        {{--                                <h3 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
+                        {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
+                        {{--                            </div>--}}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="social-feeds bg-white rounded px-2 px-lg-3 pt-3 pb-0">
                                     <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
                                         <div class="d-flex flex-column">
                                             {{--                                                @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")--}}
                                             {{--                                                {{$data->url}}--}}
                                             {{--                                                {$data->icon}}--}}
-                                            <span class="social-feed-item d-flex justify-content-center mt-3 mb-1">
+                                            <span class="social-feed-item d-flex justify-content-center my-1">
                                                 <a href="https://twitter.com/aptmaofficial" target="_blank">
                                                     <i class="fab fa-twitter"></i>
-                                                    <span>Twitter</span>
+{{--                                                    <span>Twitter</span>--}}
                                                 </a>
                                             </span>
                                             <div>
-                                                <a class="twitter-timeline" data-height="500"
-                                                   href="https://twitter.com/aptmaofficial">Tweets by APTMA</a>
+                                                <a class="twitter-timeline" data-height="487"
+                                                   href="https://twitter.com/aptmaofficial">APTMA</a>
                                                 <script async src="https://platform.twitter.com/widgets.js"
                                                         charset="utf-8"></script>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center mt-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="social-feeds bg-white rounded px-2 px-lg-3 py-3">
+                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center ">
                                         <div class="d-flex flex-column">
-                                            <span class="social-feed-item d-flex justify-content-center mb-2">
+                                            <span class="social-feed-item d-flex justify-content-center mt-1 mb-2">
                                                 <a href="https://www.facebook.com/APTMAOfficial1" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
+{{--                                                    <span>Facebook</span>--}}
                                                 </a>
                                             </span>
                                             <div>
                                                 <!-- Load Facebook SDK for JavaScript -->
                                                 <div id="fb-root"></div>
-                                                <script async defer crossorigin="anonymous"
-                                                        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
-                                                        nonce="z0b43ddy"></script>
+                                                <script async defer crossorigin="anonymous" nonce="z0b43ddy"
+                                                        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"></script>
                                                 <!-- Your share button code -->
-                                                <div class="fb-page" data-href="https://www.facebook.com/APTMAOfficial1"
-                                                     data-tabs="timeline"
-                                                     data-width="" data-height="" data-small-header="false"
-                                                     data-adapt-container-width="true" data-hide-cover="false"
-                                                     data-show-facepile="true">
+                                                <div class="fb-page"
+                                                     data-href="https://www.facebook.com/APTMAOfficial1"
+                                                     data-tabs="timeline" data-width="" data-height="385"
+                                                     data-small-header="false" data-adapt-container-width="true"
+                                                     data-hide-cover="false" data-show-facepile="true">
                                                     <blockquote cite="https://www.facebook.com/APTMAOfficial1"
                                                                 class="fb-xfbml-parse-ignore">
                                                         <a href="https://www.facebook.com/APTMAOfficial1">APTMA</a>
