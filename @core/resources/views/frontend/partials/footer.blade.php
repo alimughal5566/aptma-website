@@ -1,7 +1,7 @@
 <footer class="footer-area">
 
     @if(count($footer_widgets) > 0)
-        <div class="footer-top padding-top-50">
+        <div class="footer-top pt-3">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-1"></div>
@@ -17,11 +17,19 @@
             </div>
         </div>
     @endif
-    <div class="copyright-area">
-        <div class="container">
+    <div class="copyright-area py-2">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6">
-                    <ul class="social-icons list-unstyled d-flex justify-content-center mb-0">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div class="copyright-item">
+                        <div class="copyright-area-inner">
+                            {!! get_footer_copyright_text() !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="social-icons list-unstyled d-flex justify-content-center justify-content-md-start mb-0">
                         @foreach($all_social_item as $data)
                             <li>
                                 <a href="{{$data->url}}">
@@ -30,13 +38,6 @@
                             </li>
                         @endforeach
                     </ul>
-                </div>
-                <div class="col-lg-6">
-                    <div class="copyright-item">
-                        <div class="copyright-area-inner">
-                            {!! get_footer_copyright_text() !!}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

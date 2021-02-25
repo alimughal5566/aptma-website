@@ -127,52 +127,57 @@
 
                     </div>
                     <div class="col-12 col-lg-3">
-                        <div class="social-feeds bg-white rounded px-2 px-lg-3 padding-bottom-40">
-                            {{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30 ">--}}
-                            {{--                                <h3 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
-                            {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
-                            {{--                            </div>--}}
-                            <div class="row">
-                                <div class="col-12">
+                        {{--                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30 ">--}}
+                        {{--                                <h3 class="mb-0 font-weight-bold">{{'Social Feeds'}}</h2>--}}
+                        {{--                                --}}{{--                    <p class="desc">{{''}}</p>--}}
+                        {{--                            </div>--}}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="social-feeds bg-white rounded px-2 px-lg-3 pt-3 pb-0">
                                     <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center">
                                         <div class="d-flex flex-column">
                                             {{--                                                @if($data->icon == "fab fa-twitter" || $data->icon == "fab fa-facebook-f")--}}
                                             {{--                                                {{$data->url}}--}}
                                             {{--                                                {$data->icon}}--}}
-                                            <span class="social-feed-item d-flex justify-content-center mt-3 mb-1">
+                                            <span class="social-feed-item d-flex justify-content-center my-1">
                                                 <a href="https://twitter.com/aptmaofficial" target="_blank">
                                                     <i class="fab fa-twitter"></i>
-                                                    <span>Twitter</span>
+{{--                                                    <span>Twitter</span>--}}
                                                 </a>
                                             </span>
                                             <div>
-                                                <a class="twitter-timeline" data-height="500"
-                                                   href="https://twitter.com/aptmaofficial">Tweets by APTMA</a>
+                                                <a class="twitter-timeline" data-height="487"
+                                                   href="https://twitter.com/aptmaofficial">APTMA</a>
                                                 <script async src="https://platform.twitter.com/widgets.js"
                                                         charset="utf-8"></script>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center mt-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="social-feeds bg-white rounded px-2 px-lg-3 py-3">
+                                    <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center ">
                                         <div class="d-flex flex-column">
-                                            <span class="social-feed-item d-flex justify-content-center mb-2">
+                                            <span class="social-feed-item d-flex justify-content-center mt-1 mb-2">
                                                 <a href="https://www.facebook.com/APTMAOfficial1" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
+{{--                                                    <span>Facebook</span>--}}
                                                 </a>
                                             </span>
                                             <div>
                                                 <!-- Load Facebook SDK for JavaScript -->
                                                 <div id="fb-root"></div>
-                                                <script async defer crossorigin="anonymous"
-                                                        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
-                                                        nonce="z0b43ddy"></script>
+                                                <script async defer crossorigin="anonymous" nonce="z0b43ddy"
+                                                        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"></script>
                                                 <!-- Your share button code -->
-                                                <div class="fb-page" data-href="https://www.facebook.com/APTMAOfficial1"
-                                                     data-tabs="timeline"
-                                                     data-width="" data-height="" data-small-header="false"
-                                                     data-adapt-container-width="true" data-hide-cover="false"
-                                                     data-show-facepile="true">
+                                                <div class="fb-page"
+                                                     data-href="https://www.facebook.com/APTMAOfficial1"
+                                                     data-tabs="timeline" data-width="" data-height="385"
+                                                     data-small-header="false" data-adapt-container-width="true"
+                                                     data-hide-cover="false" data-show-facepile="true">
                                                     <blockquote cite="https://www.facebook.com/APTMAOfficial1"
                                                                 class="fb-xfbml-parse-ignore">
                                                         <a href="https://www.facebook.com/APTMAOfficial1">APTMA</a>
@@ -206,6 +211,61 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--</section>--}}
+
+<section class="common-area dailyupdates-area background-gray-light-lightest padding-top-50">
+    <div class="container-fluid common-container dailyupdates-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Daily Economic Updates'}}</h3>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                                <a href="#" class="btn">View All</a>
+                            </div>
+                            <div class="tab-content-section">
+                                <div>
+                                    <ul class="nav nav-pills justify-content-center mb-2" id="pills-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-exchange-rate-tab" data-toggle="pill"
+                                               href="#pills-exchange-rate" role="tab"
+                                               aria-controls="pills-exchange-rate" aria-selected="true">Exchange
+                                                Rate</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-export-bill-tab" data-toggle="pill"
+                                               href="#pills-export-bill" role="tab" aria-controls="pills-export-bill"
+                                               aria-selected="false">Export Bill</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-china-zce-tab" data-toggle="pill"
+                                               href="#pills-china-zce" role="tab" aria-controls="pills-china-zce"
+                                               aria-selected="false">China ZCE</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-exchange-rate" role="tabpanel"
+                                             aria-labelledby="pills-exchange-rate-tab">Exchange Rate
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
+                                             aria-labelledby="pills-export-bill-tab">Export Bill
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
+                                             aria-labelledby="pills-china-zce-tab">China ZCE
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container advertise-container">
