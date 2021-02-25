@@ -164,10 +164,10 @@
                             @csrf
 
 
-                            <div class="form-group">
-                                <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="title">{{__('Title')}}</label>--}}
+{{--                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select name="category" class="form-control" required>

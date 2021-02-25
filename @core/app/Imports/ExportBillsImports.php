@@ -5,8 +5,9 @@ namespace App\Imports;
 use App\ExportBills;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class ExportBillsImports implements ToModel
+class ExportBillsImports implements ToModel,WithStartRow
 {
     /**
     * @param array $row
@@ -28,5 +29,13 @@ class ExportBillsImports implements ToModel
             'sixth_month'=>$row[8],
             'published_at' => Carbon::parse(Carbon::now()->toDate())->format('d-m-Y'),
         ]);
+    }
+
+    /**
+     * @return int
+     */
+    public function startRow(): int
+    {
+        return 2;
     }
 }

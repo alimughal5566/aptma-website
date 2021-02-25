@@ -5,8 +5,10 @@ namespace App\Imports;
 use App\ChinaZce;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class ChinaZceImports implements ToModel
+class ChinaZceImports implements ToModel,WithStartRow,WithValidation
 {
     /**
     * @param array $row
@@ -23,5 +25,21 @@ class ChinaZceImports implements ToModel
             'open_interest'=>$row[3],
             'published_at' => Carbon::parse(Carbon::now()->toDate())->format('d-m-Y'),
         ]);
+    }
+
+    /**
+     * @return int
+     */
+    public function startRow(): int
+    {
+        return 2;
+    }
+
+    /**
+     * @return array
+     */
+    public function rules(): array
+    {
+        // TODO: Implement rules() method.
     }
 }

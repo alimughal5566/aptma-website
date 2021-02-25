@@ -5,8 +5,9 @@ namespace App\Imports;
 use App\ExchangeRates;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class ExchangeRatesImports implements ToModel
+class ExchangeRatesImports implements ToModel,WithStartRow
 {
     /**
     * @param array $row
@@ -22,5 +23,13 @@ class ExchangeRatesImports implements ToModel
             'Buying' => $row[3],
             'published_at' => Carbon::parse(Carbon::now()->toDate())->format('d-m-Y'),
         ]);
+    }
+
+    /**
+     * @return int
+     */
+    public function startRow(): int
+    {
+        return 2;
     }
 }
