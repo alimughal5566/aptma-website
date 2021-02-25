@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Publications')}}
+    {{__('Exchange Rates')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -38,125 +38,125 @@
                 @endif
             </div>
 
-            <div class="col-lg-7 mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="header-title">{{__('Publications')}}</h4>
-                        <div class="bulk-delete-wrapper">
-                            <div class="select-box-wrap">
-                                <select name="bulk_option" id="bulk_option">
-                                    <option value="" selected disabled>{{{__('Bulk Action')}}}</option>
-                                    <option value="delete">{{{__('Delete')}}}</option>
-                                </select>
-                                <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>
-                            </div>
-                        </div>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            @php $a=0; @endphp
-                            @foreach($all_gallery_images as $key => $image)
-                                <li class="nav-item">
-                                    <a class="nav-link @if($a == 0) active @endif"  data-toggle="tab" href="#slider_tab_{{$key}}" role="tab" aria-controls="home" aria-selected="true">{{get_language_by_slug($key)}}</a>
-                                </li>
-                                @php $a++; @endphp
-                            @endforeach
-                        </ul>
-                        <div class="tab-content margin-top-40">
-                            @php $b=0; $key=0 ;@endphp
-{{--                            @foreach($all_gallery_images as $key => $galleries)--}}
-                                <div class="tab-pane fade @if($b == 0) show active @endif" id="slider_tab_{{$key}}" role="tabpanel" >
-                                    <div class="table-wrap table-responsive">
-                                        <table class="table table-default" id="all_blog_table">
-                                            <thead>
-                                            <th class="no-sort">
-                                                <div class="mark-all-checkbox">
-                                                    <input type="checkbox" class="all-checkbox">
-                                                </div>
-                                            </th>
-                                            <th>{{__('ID')}}</th>
-                                            <th>{{__('Title')}}</th>
-                                            <th>{{__('Category')}}</th>
-                                            <th>{{__('Image')}}</th>
-                                            <th>{{__('Published date')}}</th>
-                                            <th>{{__('Status')}}</th>
-                                            <th>{{__('Is featured')}}</th>
-                                            <th>{{__('Action')}}</th>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($all_gallery_images as $data)
-                                                <tr>
-                                                    <td>
-                                                        <div class="bulk-checkbox-wrapper">
-                                                            <input type="checkbox" class="bulk-checkbox" name="bulk_delete[]" value="{{$data->id}}">
-                                                        </div>
-                                                    </td>
-                                                    <td><a class="text-white" >{{$data->id}}</a></td>
-                                                    <td>{{$data->title}}</td>
-                                                    <td>{{@$data->category->name}}</td>
-                                                    <td> @php
-                                                            $testimonial_img = get_attachment_image_by_id($data->thumbnail,'thumbnail',true);
-                                                        @endphp
-                                                        @if (!empty($testimonial_img))
-                                                            <div class="attachment-preview">
-                                                                <div class="thumbnail">
-                                                                    <div class="centered">
-                                                                        <img class="avatar user-thumb" src="{{$testimonial_img['img_url']}}" alt="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        @endif
-                                                    </td>
-                                                    <td>{{$data->publish_date}}</td>
-                                                    <td>{{($data->status=='1')?'Active':'Not active'}}</td>
-                                                    <td>{{($data->is_featured=='1')?'Yes':'No'}}</td>
-
-                                                    <td>
-                                                        <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"
-                                                           role="button"
-                                                           data-toggle="popover"
-                                                           data-trigger="focus"
-                                                           data-html="true"
-                                                           title=""
-                                                           data-content="
-                                                           <h6>{{__('Are you sure to delete this publication?')}}</h6>
-                                                           <form method='post' action='{{route('admin.exchnage.delete',$data->id)}}'>
-                                                           <input type='hidden' name='_token' value='{{csrf_token()}}'>
-                                                           <br>
-                                                            <input type='submit' class='btn btn-danger btn-sm' value='{{__('Yes,Please')}}'>
-                                                            </form>
-                                                            ">
-                                                            <i class="ti-trash"></i>
-                                                        </a>
-                                                        <a href="#"
-                                                           data-toggle="modal"
-                                                           data-target="#testimonial_item_edit_modal"
-                                                           class="btn btn-lg btn-primary btn-xs mb-3 mr-1 testimonial_edit_btn"
-                                                           data-id="{{$data->id}}"
-                                                           data-title="{{$data->title}}"
-                                                           data-imageid="{{$data->thumbnail}}"
-                                                           data-description="{{$data->description}}"
-                                                           data-image="{{$testimonial_img['img_url']}}"
-                                                           data-status="{{$data->status}}"
-                                                           data-is_featured="{{$data->is_featured}}"
-                                                           data-publish_date="{{$data->publish_date}}"
-                                                           data-category="{{$data->cat_id}}">
-                                                            <i class="ti-pencil"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                @php $b++; @endphp
+{{--            <div class="col-lg-7 mt-5">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <h4 class="header-title">{{__('Publications')}}</h4>--}}
+{{--                        <div class="bulk-delete-wrapper">--}}
+{{--                            <div class="select-box-wrap">--}}
+{{--                                <select name="bulk_option" id="bulk_option">--}}
+{{--                                    <option value="" selected disabled>{{{__('Bulk Action')}}}</option>--}}
+{{--                                    <option value="delete">{{{__('Delete')}}}</option>--}}
+{{--                                </select>--}}
+{{--                                <button class="btn btn-primary btn-sm" id="bulk_delete_btn">{{__('Apply')}}</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <ul class="nav nav-tabs" id="myTab" role="tablist">--}}
+{{--                            @php $a=0; @endphp--}}
+{{--                            @foreach($all_gallery_images as $key => $image)--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link @if($a == 0) active @endif"  data-toggle="tab" href="#slider_tab_{{$key}}" role="tab" aria-controls="home" aria-selected="true">{{get_language_by_slug($key)}}</a>--}}
+{{--                                </li>--}}
+{{--                                @php $a++; @endphp--}}
 {{--                            @endforeach--}}
-                        </div>
+{{--                        </ul>--}}
+{{--                        <div class="tab-content margin-top-40">--}}
+{{--                            @php $b=0; $key=0 ;@endphp--}}
+{{--                            @foreach($all_gallery_images as $key => $galleries)--}}
+{{--                                <div class="tab-pane fade @if($b == 0) show active @endif" id="slider_tab_{{$key}}" role="tabpanel" >--}}
+{{--                                    <div class="table-wrap table-responsive">--}}
+{{--                                        <table class="table table-default" id="all_blog_table">--}}
+{{--                                            <thead>--}}
+{{--                                            <th class="no-sort">--}}
+{{--                                                <div class="mark-all-checkbox">--}}
+{{--                                                    <input type="checkbox" class="all-checkbox">--}}
+{{--                                                </div>--}}
+{{--                                            </th>--}}
+{{--                                            <th>{{__('ID')}}</th>--}}
+{{--                                            <th>{{__('Title')}}</th>--}}
+{{--                                            <th>{{__('Category')}}</th>--}}
+{{--                                            <th>{{__('Image')}}</th>--}}
+{{--                                            <th>{{__('Published date')}}</th>--}}
+{{--                                            <th>{{__('Status')}}</th>--}}
+{{--                                            <th>{{__('Is featured')}}</th>--}}
+{{--                                            <th>{{__('Action')}}</th>--}}
+{{--                                            </thead>--}}
+{{--                                            <tbody>--}}
+{{--                                            @foreach($all_gallery_images as $data)--}}
+{{--                                                <tr>--}}
+{{--                                                    <td>--}}
+{{--                                                        <div class="bulk-checkbox-wrapper">--}}
+{{--                                                            <input type="checkbox" class="bulk-checkbox" name="bulk_delete[]" value="{{$data->id}}">--}}
+{{--                                                        </div>--}}
+{{--                                                    </td>--}}
+{{--                                                    <td><a class="text-white" >{{$data->id}}</a></td>--}}
+{{--                                                    <td>{{$data->title}}</td>--}}
+{{--                                                    <td>{{@$data->category->name}}</td>--}}
+{{--                                                    <td> @php--}}
+{{--                                                            $testimonial_img = get_attachment_image_by_id($data->thumbnail,'thumbnail',true);--}}
+{{--                                                        @endphp--}}
+{{--                                                        @if (!empty($testimonial_img))--}}
+{{--                                                            <div class="attachment-preview">--}}
+{{--                                                                <div class="thumbnail">--}}
+{{--                                                                    <div class="centered">--}}
+{{--                                                                        <img class="avatar user-thumb" src="{{$testimonial_img['img_url']}}" alt="">--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 mt-5">
+{{--                                                        @endif--}}
+{{--                                                    </td>--}}
+{{--                                                    <td>{{$data->publish_date}}</td>--}}
+{{--                                                    <td>{{($data->status=='1')?'Active':'Not active'}}</td>--}}
+{{--                                                    <td>{{($data->is_featured=='1')?'Yes':'No'}}</td>--}}
+
+{{--                                                    <td>--}}
+{{--                                                        <a tabindex="0" class="btn btn-danger btn-xs mb-3 mr-1"--}}
+{{--                                                           role="button"--}}
+{{--                                                           data-toggle="popover"--}}
+{{--                                                           data-trigger="focus"--}}
+{{--                                                           data-html="true"--}}
+{{--                                                           title=""--}}
+{{--                                                           data-content="--}}
+{{--                                                           <h6>{{__('Are you sure to delete this publication?')}}</h6>--}}
+{{--                                                           <form method='post' action='{{route('admin.exchnage.delete',$data->id)}}'>--}}
+{{--                                                           <input type='hidden' name='_token' value='{{csrf_token()}}'>--}}
+{{--                                                           <br>--}}
+{{--                                                            <input type='submit' class='btn btn-danger btn-sm' value='{{__('Yes,Please')}}'>--}}
+{{--                                                            </form>--}}
+{{--                                                            ">--}}
+{{--                                                            <i class="ti-trash"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                        <a href="#"--}}
+{{--                                                           data-toggle="modal"--}}
+{{--                                                           data-target="#testimonial_item_edit_modal"--}}
+{{--                                                           class="btn btn-lg btn-primary btn-xs mb-3 mr-1 testimonial_edit_btn"--}}
+{{--                                                           data-id="{{$data->id}}"--}}
+{{--                                                           data-title="{{$data->title}}"--}}
+{{--                                                           data-imageid="{{$data->thumbnail}}"--}}
+{{--                                                           data-description="{{$data->description}}"--}}
+{{--                                                           data-image="{{$testimonial_img['img_url']}}"--}}
+{{--                                                           data-status="{{$data->status}}"--}}
+{{--                                                           data-is_featured="{{$data->is_featured}}"--}}
+{{--                                                           data-publish_date="{{$data->publish_date}}"--}}
+{{--                                                           data-category="{{$data->cat_id}}">--}}
+{{--                                                            <i class="ti-pencil"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </td>--}}
+{{--                                                </tr>--}}
+{{--                                            @endforeach--}}
+{{--                                            </tbody>--}}
+{{--                                        </table>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                @php $b++; @endphp--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <div class="col-12 mt-5">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">{{__('Add New Publication')}}</h4>
@@ -164,10 +164,10 @@
                             @csrf
 
 
-                            <div class="form-group">
-                                <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="title">{{__('Title')}}</label>--}}
+{{--                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select name="category" class="form-control" required>
@@ -178,46 +178,46 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label>{{__('Description')}}</label>
-                                <input type="hidden" name="description">
-                                <div class="summernote"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="date">Publish Date</label>
-                                <input type="date" class="form-control datepicker"  name="publish_date" placeholder="Date"  value="{{old('publish_date')}}">
-                            </div>
-                            <div class="form-group">
-                                <label class="mb-0" for="image">{{__('Thumbnail')}}</label>
-                                <div class="media-upload-btn-wrapper">
-                                    <div class="img-wrap"></div>
-                                    <input type="hidden" name="thumbnail"  value="{{old('thumbnail')}}">
-                                    <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">
-                                        {{__('Placeholder Image')}}
-                                    </button>
-                                </div>
-                                <small>{{__('1000x1000 px image recommended')}}</small>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label>{{__('Description')}}</label>--}}
+{{--                                <input type="hidden" name="description">--}}
+{{--                                <div class="summernote"></div>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="date">Publish Date</label>--}}
+{{--                                <input type="date" class="form-control datepicker"  name="publish_date" placeholder="Date"  value="{{old('publish_date')}}">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label class="mb-0" for="image">{{__('Thumbnail')}}</label>--}}
+{{--                                <div class="media-upload-btn-wrapper">--}}
+{{--                                    <div class="img-wrap"></div>--}}
+{{--                                    <input type="hidden" name="thumbnail"  value="{{old('thumbnail')}}">--}}
+{{--                                    <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">--}}
+{{--                                        {{__('Placeholder Image')}}--}}
+{{--                                    </button>--}}
+{{--                                </div>--}}
+{{--                                <small>{{__('1000x1000 px image recommended')}}</small>--}}
+{{--                            </div>--}}
                             <div class="form-group ">
                                 <label for="date">File</label>
                                 <input type="file" class="form-control"  name="pdf_file" placeholder="Pdf File" accept="application/pdf">
                                 <small>{{__('Allowed extensions:pdf')}}</small>
                             </div>
-                            <div class="form-group">
-                                <label for="category">Status</label>
-                                <select name="status" class="form-control" >
-                                    <option {{(old('status')=='1')?'selected':''}} value="1">Active</option>
-                                    <option {{(old('status')=='0')?'selected':''}}  value="0">De active</option>
-                                </select>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="category">Status</label>--}}
+{{--                                <select name="status" class="form-control" >--}}
+{{--                                    <option {{(old('status')=='1')?'selected':''}} value="1">Active</option>--}}
+{{--                                    <option {{(old('status')=='0')?'selected':''}}  value="0">De active</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
-                            <div class="form-group">
-                                <label for="category">Is featured</label>
-                                <select name="is_featured" class="form-control" >
-                                    <option value="1" {{(old('is_featured')=='1')?'selected':''}}>Yes</option>
-                                    <option value="0" {{(old('is_featured')=='0')?'selected':''}}>No</option>
-                                </select>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="category">Is featured</label>--}}
+{{--                                <select name="is_featured" class="form-control" >--}}
+{{--                                    <option value="1" {{(old('is_featured')=='1')?'selected':''}}>Yes</option>--}}
+{{--                                    <option value="0" {{(old('is_featured')=='0')?'selected':''}}>No</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
 
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add')}}</button>
                         </form>
