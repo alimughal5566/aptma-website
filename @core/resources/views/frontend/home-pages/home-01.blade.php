@@ -221,9 +221,9 @@
 
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
                             <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
-                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Daily Economic Updates'}}</h3>
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Daily Exchange & Cotton Rate'}}</h3>
                                 {{--                    <p class="desc">{{''}}</p>--}}
-                                <a href="#" class="btn">View All</a>
+                                <a href="{{route('frontend.daily.stats')}}" class="btn">View All</a>
                             </div>
                             <div class="tab-content-section">
                                 <div>

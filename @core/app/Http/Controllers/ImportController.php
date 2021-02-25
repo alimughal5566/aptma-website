@@ -54,7 +54,7 @@ class ImportController extends Controller
         }
     }
 
-    public function frontDailyDtats($slug)
+    public function frontDailyDtats()
     {
         $cat_id = null;
         $current_date = Carbon::parse(Carbon::now()->toDate())->format('d-m-Y');
@@ -63,12 +63,13 @@ class ImportController extends Controller
         $china_zce = ChinaZce::where('published_at', $current_date)->get();
         $export = ExportBills::where('published_at', $current_date)->get();
 
-        $default_lang = Language::where('default', 1)->first();
-        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $user_select_lang_slug =$lang;
+//        $default_lang = Language::where('default', 1)->first();
+//        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+//        $user_select_lang_slug =$lang;
+//
+//        $footer_widgets = null;
+//        ,'user_select_lang_slug','footer_widgets'
 
-        $footer_widgets = null;
-
-        return view('frontend.pages.exchangeRates.index',compact('exchange_rates', 'nyc', 'china_zce' , 'export' ,'user_select_lang_slug','footer_widgets'));
+        return view('frontend.pages.exchangeRates.index',compact('exchange_rates', 'nyc', 'china_zce' , 'export' ));
     }
 }
