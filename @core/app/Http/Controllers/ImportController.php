@@ -28,19 +28,22 @@ class ImportController extends Controller
         ]);
         $name=time();
         if ($request->file) {
-            $excel_sheet =  $name. '.' . $request->file->extension();
+//            $excel_sheet =  $name. '.' . $request->file->extension();
             $file = $request->file('file');
             if ($request->category=='Export Bills'){
-//                $request->file->move('assets/uploads/exportbills/excels', $excel_sheet);
+//                $profile_pic =  time(). '.' . $request->file->extension();
+//                dd($profile_pic.$request->file);
+//                $request->file->move('assets/uploads/export/', $profile_pic);
                 Excel::import(new ExportBillsImports, $file);
             }elseif ($request->category=='China ZCE Cotton'){
-//                $request->file->move('assets/uploads/chinaZCE/excels', $excel_sheet);
+//                $profile_pic =  time(). '.' . $request->file->extension();
+//                $request->file->move('assets/uploads/china/', $profile_pic);
                 Excel::import(new ChinaZceImports, $file);
             }elseif ($request->category=='Exchange Rates'){
-//                $request->file->move('assets/uploads/exchangeratess/excels', $excel_sheet);
+//                $request->file->move('assets/uploads/exchangeratess/excels', $file);
                 Excel::import(new ExchangeRatesImports, $file);
             }elseif ($request->category=='NYC US Cent/lb'){
-//                $request->file->move('assets/uploads/nycUS/excels', $excel_sheet);
+//                $request->file->move('assets/uploads/nycUS/excels', $file);
                 Excel::import(new NycUSImports, $file);
             }else{
                 return redirect()->back()->withErrors(['msg' => __('Undefined Category...'),'type' => 'danger']);

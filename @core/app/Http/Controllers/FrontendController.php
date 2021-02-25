@@ -22,6 +22,7 @@ use App\EventPaymentLogs;
 use App\Events;
 use App\EventsCategory;
 use App\ExchangeRates;
+use App\ExchangeRatesCategories;
 use App\ExportBills;
 use App\Faq;
 use App\Feedback;
@@ -122,7 +123,7 @@ class FrontendController extends Controller
         $nyc = NycUS::where('published_at', $current_date)->get();
         $china_zce = ChinaZce::where('published_at', $current_date)->get();
         $export = ExportBills::where('published_at', $current_date)->get();
-
+        $daily_stat_categories =ExchangeRatesCategories::all();
 
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
@@ -134,6 +135,7 @@ class FrontendController extends Controller
             'exchange_rates'=> $exchange_rates,
             'nyc' =>$nyc,
             'china_zce'=> $china_zce,
+            'daily_state_categories'=>$daily_stat_categories,
             'export'=>$export,
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,

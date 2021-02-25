@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-class ChinaZceImports implements ToModel,WithStartRow,WithValidation
+class ChinaZceImports implements ToModel,WithStartRow
 {
     /**
     * @param array $row
@@ -33,13 +33,5 @@ class ChinaZceImports implements ToModel,WithStartRow,WithValidation
     public function startRow(): int
     {
         return 2;
-    }
-
-    /**
-     * @return array
-     */
-    public function rules(): array
-    {
-        // TODO: Implement rules() method.
     }
 }

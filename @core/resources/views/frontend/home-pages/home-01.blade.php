@@ -247,13 +247,146 @@
                                     </ul>
                                     <div class="tab-content" id="pills-tabContent">
                                         <div class="tab-pane fade show active" id="pills-exchange-rate" role="tabpanel"
-                                             aria-labelledby="pills-exchange-rate-tab">Exchange Rate
+                                             aria-labelledby="pills-exchange-rate-tab">
+                                            {{--                                            Exchange Rate--}}
+{{--                                            {{dd($daily_state_categories)}}--}}
+                                            @php $a = 1; @endphp
+                                            @isset($exchange_rates)
+                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>
+                                                <div class="w-100 background-gray-light">{{$exchange_rates[0]->published_at}}</div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Country</th>
+                                                        <th scope="col">Currency</th>
+                                                        <th scope="col">Selling</th>
+                                                        <th scope="col">Buying</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $counter = 1 ?>
+                                                    @foreach($exchange_rates as $exchange_rate)
+                                                        <tr>
+                                                            <th scope="row">{{$counter}}</th>
+                                                            <td>{{$exchange_rate->country}}</td>
+                                                            <td>{{$exchange_rate->currency}}</td>
+                                                            <td>{{$exchange_rate->selling}}</td>
+                                                            <td>{{$exchange_rate->buying}}</td>
+                                                        </tr>
+                                                        <?php $counter = ++$counter?>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endif
+                                            <br>
+                                            <br>
+                                            <hr>
+                                            <br>
+                                            <br>
+                                            @isset($nyc)
+                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>
+                                                <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Contract</th>
+                                                        <th scope="col">Close</th>
+                                                        <th scope="col">Changes</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $counter = 1 ?>
+                                                    @foreach($nyc as $ny)
+                                                        <tr>
+                                                            <th scope="row">{{$counter}}</th>
+                                                            <td>{{$ny->contract}}</td>
+                                                            <td>{{$ny->close}}</td>
+                                                            <td>{{$ny->changes}}</td>
+                                                        </tr>
+                                                        <?php $counter = ++$counter?>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endif
+
                                         </div>
                                         <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
-                                             aria-labelledby="pills-export-bill-tab">Export Bill
+                                             aria-labelledby="pills-export-bill-tab">
+                                            {{--                                            Export Bill--}}
+                                            @isset($export)
+                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>
+                                                <div class="w-100 background-gray-light">{{$export[0]->published_at}}</div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Currency</th>
+                                                        <th scope="col">Spot</th>
+                                                        <th scope="col">Sight/OD</th>
+                                                        <th scope="col">1 Month</th>
+                                                        <th scope="col">2 Month</th>
+                                                        <th scope="col">3 Month</th>
+                                                        <th scope="col">4 Month</th>
+                                                        <th scope="col">5 Month</th>
+                                                        <th scope="col">6 Month</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $counter = 1 ?>
+                                                    @foreach($export as $exp)
+                                                        <tr>
+                                                            <th scope="row">{{$counter}}</th>
+                                                            <td>{{$exp->currency}}</td>
+                                                            <td>{{$exp->spot}}</td>
+                                                            <td>{{$exp->sight_od}}</td>
+                                                            <td>{{$exp->first_month}}</td>
+                                                            <td>{{$exp->second_month}}</td>
+                                                            <td>{{$exp->thirs_month}}</td>
+                                                            <td>{{$exp->fourth_month}}</td>
+                                                            <td>{{$exp->fifth_month}}</td>
+                                                            <td>{{$exp->sixth_month}}</td>
+                                                        </tr>
+                                                        <?php $counter = ++$counter?>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endif
                                         </div>
                                         <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
-                                             aria-labelledby="pills-china-zce-tab">China ZCE
+                                             aria-labelledby="pills-china-zce-tab">
+                                            {{--                                            China ZCE--}}
+                                            @isset($china_zce)
+                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[3]){{$daily_state_categories[3]->title_description}}@endisset</div>
+                                                <div class="w-100 background-gray-light">{{$china_zce[0]->published_at}}</div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Prod</th>
+                                                        <th scope="col">Last</th>
+                                                        <th scope="col">Chg</th>
+                                                        <th scope="col">Vol</th>
+                                                        <th scope="col">Open Interest</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $counter = 1 ?>
+                                                    @foreach($china_zce as $china)
+                                                        <tr>
+                                                            <th scope="row">{{$counter}}</th>
+                                                            <td>{{$china->prod}}</td>
+                                                            <td>{{$china->last}}</td>
+                                                            <td>{{$china->chg}}</td>
+                                                            <td>{{$china->vol}}</td>
+                                                            <td>{{$china->open_interest}}</td>
+                                                        </tr>
+                                                        <?php $counter = ++$counter?>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
