@@ -212,6 +212,61 @@
 {{--    </div>--}}
 {{--</section>--}}
 
+<section class="common-area dailyupdates-area background-gray-light-lightest padding-top-50">
+    <div class="container-fluid common-container dailyupdates-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Daily Economic Updates'}}</h3>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                                <a href="#" class="btn">View All</a>
+                            </div>
+                            <div class="tab-content-section">
+                                <div>
+                                    <ul class="nav nav-pills justify-content-center mb-2" id="pills-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-exchange-rate-tab" data-toggle="pill"
+                                               href="#pills-exchange-rate" role="tab"
+                                               aria-controls="pills-exchange-rate" aria-selected="true">Exchange
+                                                Rate</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-export-bill-tab" data-toggle="pill"
+                                               href="#pills-export-bill" role="tab" aria-controls="pills-export-bill"
+                                               aria-selected="false">Export Bill</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-china-zce-tab" data-toggle="pill"
+                                               href="#pills-china-zce" role="tab" aria-controls="pills-china-zce"
+                                               aria-selected="false">China ZCE</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-exchange-rate" role="tabpanel"
+                                             aria-labelledby="pills-exchange-rate-tab">Exchange Rate
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
+                                             aria-labelledby="pills-export-bill-tab">Export Bill
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
+                                             aria-labelledby="pills-china-zce-tab">China ZCE
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container advertise-container">
         <div class="row">

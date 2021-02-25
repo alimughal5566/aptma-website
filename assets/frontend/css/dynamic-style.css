@@ -2040,9 +2040,14 @@ html {
 }
 
 .single-contact-item .content p.details:empty {
-  height: 10px;
   display: block;
+  height: 10px;
   width: 100%;
+}
+
+.tab-content-section .nav-pills .nav-link.active,
+.tab-content-section .nav-pills .show > .nav-link {
+  background: #439882;
 }
 
 /*      VARIABLES      */
