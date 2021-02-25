@@ -227,6 +227,10 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/circulars/{cat?}', 'FrontendController@circular_page')->name('frontend.circular.index');
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
 
+    //Exchange Rates frontend blades
+    Route::get('daily-economic-updates/{slug?}','ImportController@frontDailyDtats')->name('frontend.daily.stats');
+
+
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
     Route::get('/advertisement/show/{slug}', 'FrontendController@advertisement_single_page')->name('frontend.advertisement.single');
 
@@ -681,10 +685,10 @@ Route::prefix('/admin-home/publication-page')->group(function () {
     Route::post('/category-by-slug', 'PublicationController@category_by_slug')->name('admin.publication.category.by.lang');
 });
 
-//Exchange rates pages
+//Backend Economic update pages
 Route::prefix('/admin-home/exchange-rates')->group(function () {
     Route::get('/', 'ExchnageRateController@index')->name('admin.exchnage.all');
-    Route::post('/new', 'ExchnageRateController@store')->name('admin.exchnage.new');
+    Route::post('/new', 'ImportController@imports')->name('admin.exchnage.new');
     Route::post('/delete/{id}', 'ExchnageRateController@delete')->name('admin.exchnage.delete');
     Route::post('/update', 'ExchnageRateController@update')->name('admin.exchnage.update');
     Route::post('gallery-page/bulk-action', 'ExchnageRateController@bulk_action')->name('admin.exchnage.bulk.action');
@@ -696,7 +700,13 @@ Route::prefix('/admin-home/exchange-rates')->group(function () {
     Route::post('/category/delete/{id}', 'ExchnageRateController@category_delete')->name('admin.exchnage.category.delete');
     Route::post('/category/bulk-action', 'ExchnageRateController@category_bulk_action')->name('admin.exchnage.category.bulk.action');
     Route::post('/category-by-slug', 'ExchnageRateController@category_by_slug')->name('admin.exchnage.category.by.lang');
+
+    // Imports
+//    Route::post('import','ImportController@importExcelSheets')->name('admin.import..category.by.lang');
 });
+
+//Front end economic updates
+
 
 
 

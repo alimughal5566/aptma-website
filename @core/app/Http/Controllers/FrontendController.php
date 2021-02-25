@@ -10,6 +10,7 @@ use App\BlogCategory;
 use App\Book;
 use App\BookCategory;
 use App\Brand;
+use App\ChinaZce;
 use App\Circular;
 use App\CircularCategory;
 use App\ContactInfoItem;
@@ -20,6 +21,8 @@ use App\EventAttendance;
 use App\EventPaymentLogs;
 use App\Events;
 use App\EventsCategory;
+use App\ExchangeRates;
+use App\ExportBills;
 use App\Faq;
 use App\Feedback;
 use App\HeaderSlider;
@@ -34,6 +37,7 @@ use App\KnowledgebaseTopic;
 use App\Language;
 use App\Mail\AdminResetEmail;
 use App\Newsletter;
+use App\NycUS;
 use App\Order;
 use App\Page;
 use App\PaymentLogs;
@@ -58,6 +62,7 @@ use App\VideoGalleryCategory;
 use App\Works;
 use App\WorksCategory;
 use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -111,7 +116,24 @@ class FrontendController extends Controller
         }
         $all_img_category = ImageGalleryCategory::find($all_contain_cat);
 
+        //Excel sheets
+        $current_date = Carbon::parse(Carbon::now()->toDate())->format('d-m-Y');
+        $exchange_rates = ExchangeRates::where('published_at', $current_date)->get();
+        $nyc = NycUS::where('published_at', $current_date)->get();
+        $china_zce = ChinaZce::where('published_at', $current_date)->get();
+        $export = ExportBills::where('published_at', $current_date)->get();
+
+        $default_lang = Language::where('default', 1)->first();
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        $user_select_lang_slug =$lang;
+
+        $footer_widgets = null;
+
         return view('frontend.frontend-home')->with([
+            'exchange_rates'=> $exchange_rates,
+            'nyc' =>$nyc,
+            'china_zce'=> $china_zce,
+            'export'=>$export,
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,
             'all_gallery_images' => $all_gallery_images,
@@ -448,6 +470,7 @@ class FrontendController extends Controller
 
     public function publication_page($cat_id = null)
     {
+
         $category = null;
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
@@ -1332,5 +1355,9 @@ class FrontendController extends Controller
         }
         return view('frontend.pages.jobs.job-success')->with(['applicant_details' => $applicant_details, 'job_details' => $job_details]);
     }
+
+
+
+
 
 }//end class

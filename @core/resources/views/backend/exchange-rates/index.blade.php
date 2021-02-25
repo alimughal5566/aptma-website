@@ -172,7 +172,7 @@
                                 <label for="category">Category</label>
                                 <select name="category" class="form-control" required>
                                     @foreach($all_categories as $category)
-                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
+                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->name}}">{{$category->name}}</option>
                                     @endforeach
 
                                 </select>
@@ -200,7 +200,7 @@
 {{--                            </div>--}}
                             <div class="form-group ">
                                 <label for="date">File</label>
-                                <input type="file" class="form-control"  name="pdf_file" placeholder="Pdf File" accept="application/pdf">
+                                <input type="file" class="form-control"  name="file" placeholder="Attach File" accept="application/xlsx">
                                 <small>{{__('Allowed extensions:pdf')}}</small>
                             </div>
 {{--                            <div class="form-group">--}}
