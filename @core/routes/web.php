@@ -227,8 +227,9 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/circulars/{cat?}', 'FrontendController@circular_page')->name('frontend.circular.index');
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
 
-    //Exchange Rates frontend blades
+    //frontend noman
     Route::get('daily-economic-updates','ImportController@frontDailyDtats')->name('frontend.daily.stats');
+    Route::get('exchange-rates','ImportController@frontRableExchangeRates')->name('frontend.table.exchange.rates');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');

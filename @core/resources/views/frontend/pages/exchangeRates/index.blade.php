@@ -16,125 +16,52 @@
 
             <div class="row">
                 @php $a = 1; @endphp
-                @isset($exchange_rates)
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Currency</th>
-                            <th scope="col">Selling</th>
-                            <th scope="col">Buying</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $counter = 1 ?>
-                        @foreach($exchange_rates as $exchange_rate)
-                            <tr>
-                                <th scope="row">{{$counter}}</th>
-                                <td>{{$exchange_rate->country}}</td>
-                                <td>{{$exchange_rate->currency}}</td>
-                                <td>{{$exchange_rate->selling}}</td>
-                                <td>{{$exchange_rate->buying}}</td>
-                            </tr>
-                            <?php $counter =++$counter?>
-                        @endforeach
-                        </tbody>
-                    </table>
-                @endif
-                <hr>
-{{--                {{dd($nyc)}}--}}
-                @isset($nyc)
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Contract</th>
-                            <th scope="col">Close</th>
-                            <th scope="col">Changes</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $counter = 1 ?>
-                        @foreach($nyc as $ny)
-                            <tr>
-                                <th scope="row">{{$counter}}</th>
-                                <td>{{$ny->contract}}</td>
-                                <td>{{$ny->close}}</td>
-                                <td>{{$ny->changes}}</td>
-                            </tr>
-                            <?php $counter =++$counter?>
-                        @endforeach
-                        </tbody>
-                    </table>
-                @endif
-                <hr>
-{{--                {{dd($china_zce)}}--}}
-                @isset($china_zce)
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Prod</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Chg</th>
-                            <th scope="col">Vol</th>
-                            <th scope="col">Open Interest</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $counter = 1 ?>
-                        @foreach($china_zce as $china)
-                            <tr>
-                                <th scope="row">{{$counter}}</th>
-                                <td>{{$china->prod}}</td>
-                                <td>{{$china->last}}</td>
-                                <td>{{$china->chg}}</td>
-                                <td>{{$china->vol}}</td>
-                                <td>{{$china->open_interest}}</td>
-                            </tr>
-                            <?php $counter =++$counter?>
-                        @endforeach
-                        </tbody>
-                    </table>
-                @endif
-                <hr>
-                @isset($export)
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Currency</th>
-                            <th scope="col">Spot</th>
-                            <th scope="col">Sight/OD</th>
-                            <th scope="col">1 Month</th>
-                            <th scope="col">2 Month</th>
-                            <th scope="col">3 Month</th>
-                            <th scope="col">4 Month</th>
-                            <th scope="col">5 Month</th>
-                            <th scope="col">6 Month</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $counter = 1 ?>
-                        @foreach($export as $exp)
-                            <tr>
-                                <th scope="row">{{$counter}}</th>
-                                <td>{{$exp->currency}}</td>
-                                <td>{{$exp->spot}}</td>
-                                <td>{{$exp->sight_od}}</td>
-                                <td>{{$exp->first_month}}</td>
-                                <td>{{$exp->second_month}}</td>
-                                <td>{{$exp->thirs_month}}</td>
-                                <td>{{$exp->fourth_month}}</td>
-                                <td>{{$exp->fifth_month}}</td>
-                                <td>{{$exp->sixth_month}}</td>
-                            </tr>
-                            <?php $counter =++$counter?>
-                        @endforeach
-                        </tbody>
-                    </table>
-                @endif
+{{--                @forelse($all_services as $data)--}}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                            <div class="common-img publication-img single-what-img position-relative">
+{{--                                @php--}}
+{{--                                    $now = Carbon\Carbon::now();--}}
+{{--                                    $datework = Carbon\Carbon::parse($data->created_at);--}}
+{{--                                    $diff = $datework->diffInDays($now);--}}
+{{--                                @endphp--}}
+{{--                                @if($diff<15)--}}
+                                    <small class="font-italic badge ">New</small>
+{{--                                @endif--}}
+{{--                                {{route('frontend.publication.single',$data->slug)}}--}}
+{{--                                <a href="#">--}}
+{{--                                    {!! 'View All' !!}--}}
+{{--                                </a>--}}
+                            </div>
+                            <div class="common-content content">
+                                <p class="">
+                                    <span>Published Date</span>
+                                </p>
+{{--                                {{route('frontend.publication.single',$data->slug)}}--}}
+                                <a href="">
+                                    <h4 class="title">Exchange Rates</h4>
+                                </a>
+{{--                                {{asset('assets/uploads/publications/pdf/'.$data->pdf_url)}}--}}
+                                <a href="{{route('frontend.table.exchange.rates')}}"
+                                   class="btn text-center">View</a>
+                            </div>
+                        </div>
+                    </div>
+{{--                    @php--}}
+{{--                        if($a == 4){ $a = 1;}else{$a++;};--}}
+{{--                    @endphp--}}
+{{--                @empty--}}
+{{--                    <div class="col-md-12 card border-0 thumb margin-bottom-40">--}}
+{{--                        <div class="text center px-5 card-body ">--}}
+{{--                            <h1 class="text-muted">Sorry,No data found</h1>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforelse--}}
+                <div class="col-lg-12">
+                    <div class="pagination-wrapper">
+{{--                        {{$all_services->links()}}--}}
+                    </div>
+                </div>
             </div>
         </div>
     </section>

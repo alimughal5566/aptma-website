@@ -90,15 +90,21 @@ class ImportController extends Controller
 
     }
 
+    public function frontRableExchangeRates(){
+        return view('frontend.pages.exchangeRates.single-category-table');
+    }
+
 
     public function frontDailyDtats()
     {
         $cat_id = null;
-        $current_date = Carbon::parse(Carbon::now()->toDate())->format('d-m-Y');
-        $exchange_rates = ExchangeRates::where('published_at', $current_date)->get();
-        $nyc = NycUS::where('published_at', $current_date)->get();
-        $china_zce = ChinaZce::where('published_at', $current_date)->get();
-        $export = ExportBills::where('published_at', $current_date)->get();
+//        $current_date = Carbon::parse(Carbon::now()->toDate())->format('d-m-Y');
+        $exchange_rates = ExchangeRates::all();
+        $nyc = NycUS::all();
+        $china_zce = ChinaZce::all();
+        $export = ExportBills::all();
+        $kca = KcaPakRupeesPerFourtyKg::all();
+        $cotllok = CotlookAIndex::all();
 
 //        $default_lang = Language::where('default', 1)->first();
 //        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
@@ -107,6 +113,6 @@ class ImportController extends Controller
 //        $footer_widgets = null;
 //        ,'user_select_lang_slug','footer_widgets'
 
-        return view('frontend.pages.exchangeRates.index',compact('exchange_rates', 'nyc', 'china_zce' , 'export' ));
+        return view('frontend.pages.exchangeRates.index',compact('exchange_rates', 'nyc', 'china_zce' , 'export','cotllok','kca'));
     }
 }
