@@ -221,7 +221,7 @@
 
                         <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
                             <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
-                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Daily Exchange & Cotton Rate'}}</h3>
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Daily Exchange &  Cotton Rate'}}</h3>
                                 {{--                    <p class="desc">{{''}}</p>--}}
                                 <a href="{{route('frontend.daily.stats')}}" class="btn">View All</a>
                             </div>
@@ -251,7 +251,7 @@
                                             {{--                                            Exchange Rate--}}
 {{--                                            {{dd($daily_state_categories)}}--}}
                                             @php $a = 1; @endphp
-                                            @isset($exchange_rates)
+                                            @isset($exchange_rates[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$exchange_rates[0]->published_at}}</div>
                                                 <table class="table table-striped">
@@ -284,7 +284,7 @@
                                             <hr>
                                             <br>
                                             <br>
-                                            @isset($nyc)
+                                            @isset($nyc[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>
                                                 <table class="table table-striped">
@@ -315,7 +315,7 @@
                                         <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
                                              aria-labelledby="pills-export-bill-tab">
                                             {{--                                            Export Bill--}}
-                                            @isset($export)
+                                            @isset($export[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$export[0]->published_at}}</div>
                                                 <table class="table table-striped">
@@ -357,7 +357,7 @@
                                         <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
                                              aria-labelledby="pills-china-zce-tab">
                                             {{--                                            China ZCE--}}
-                                            @isset($china_zce)
+                                            @isset($china_zce[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[3]){{$daily_state_categories[3]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$china_zce[0]->published_at}}</div>
                                                 <table class="table table-striped">
