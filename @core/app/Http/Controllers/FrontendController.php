@@ -22,6 +22,7 @@ use App\EventAttendance;
 use App\EventPaymentLogs;
 use App\Events;
 use App\EventsCategory;
+use App\ExcelPublishedDate;
 use App\ExchangeRates;
 use App\ExchangeRatesCategories;
 use App\ExportBills;
@@ -121,12 +122,8 @@ class FrontendController extends Controller
 
         //Excel sheets
         $current_date = Carbon::parse(Carbon::now()->toDate())->format('Y-m-d');
-        $exchange_rates = ExchangeRates::where('published_at', $current_date)->get();
-        $nyc = NycUS::where('published_at', $current_date)->get();
-        $china_zce = ChinaZce::where('published_at', $current_date)->get();
-        $export = ExportBills::where('published_at', $current_date)->get();
-        $kca = KcaPakRupeesPerFourtyKg::where('published_at', $current_date)->get();
-        $cotook = CotlookAIndex::where('published_at', $current_date)->get();
+        $data = ExcelPublishedDate::where('date',$current_date)->with('exchange','china','cotlook','export','kca','nyc')->first();
+
 //        dd($kca,$cotook);
         $daily_stat_categories =ExchangeRatesCategories::all();
 
@@ -137,13 +134,7 @@ class FrontendController extends Controller
         $footer_widgets = null;
 
         return view('frontend.frontend-home')->with([
-            'exchange_rates'=> $exchange_rates,
-            'nyc' =>$nyc,
-            'china_zce'=> $china_zce,
-            'daily_state_categories'=>$daily_stat_categories,
-            'export'=>$export,
-            'kca'=>$kca,
-            'cotlook'=>$cotook,
+            'excel_sheets'=>$data,
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,
             'all_gallery_images' => $all_gallery_images,

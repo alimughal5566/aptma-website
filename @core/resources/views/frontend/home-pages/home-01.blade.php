@@ -251,9 +251,10 @@
                                             {{--                                            Exchange Rate--}}
 {{--                                            {{dd($daily_state_categories)}}--}}
                                             @php $a = 1; @endphp
-                                            @isset($exchange_rates[0])
+{{--                                            {{dd($excel_sheets->nyc)}}--}}
+                                            @isset($excel_sheets->exchange[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$exchange_rates[0]->published_at}}</div>
+                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
                                                 <table class="table table-striped">
                                                     <thead>
                                                     <tr>
@@ -266,7 +267,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php $counter = 1 ?>
-                                                    @foreach($exchange_rates as $exchange_rate)
+                                                    @foreach($excel_sheets->exchange as $exchange_rate)
                                                         <tr>
                                                             <th scope="row">{{$counter}}</th>
                                                             <td>{{$exchange_rate->country}}</td>
@@ -284,9 +285,9 @@
                                             <hr>
                                             <br>
                                             <br>
-                                            @isset($nyc[0])
+                                            @isset($excel_sheets->nyc[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>
+                                                <div class="w-100 background-gray-light">{{$excel_sheets->published_at}}</div>
                                                 <table class="table table-striped">
                                                     <thead>
                                                     <tr>
@@ -298,7 +299,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php $counter = 1 ?>
-                                                    @foreach($nyc as $ny)
+                                                    @foreach($excel_sheets->nyc as $ny)
                                                         <tr>
                                                             <th scope="row">{{$counter}}</th>
                                                             <td>{{$ny->contract}}</td>
@@ -313,9 +314,9 @@
                                             <br>
                                             <br>
 {{--                                            {{dd($kca)}}--}}
-                                            @isset($kca[0])
+                                            @isset($excel_sheets->kca[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>
+                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
                                                 <table class="table table-striped">
                                                     <thead>
                                                     <tr>
@@ -325,7 +326,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php $counter = 1 ?>
-                                                    @foreach($kca as $kc)
+                                                    @foreach($excel_sheets->kca as $kc)
                                                         <tr>
                                                             <th scope="row">{{$counter}}</th>
                                                             <td>{{$kc->kca_grade_3_spot}}</td>
@@ -338,9 +339,9 @@
                                             <br>
                                             <br>
 {{--                                                                                        {{dd($daily_state_categories)}}--}}
-                                            @isset($cotlook[0])
+                                            @isset($excel_sheets->cotlook[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$cotlook[0]->published_at}}</div>
+                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
                                                 <table class="table table-striped">
                                                     <thead>
                                                     <tr>
@@ -351,7 +352,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php $counter = 1 ?>
-                                                    @foreach($cotlook as $cot)
+                                                    @foreach($excel_sheets->cotlook as $cot)
                                                         <tr>
                                                             <th scope="row">{{$counter}}</th>
                                                             <td>{{$cot->a_index}}</td>
@@ -366,9 +367,9 @@
                                         <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
                                              aria-labelledby="pills-export-bill-tab">
                                             {{--                                            Export Bill--}}
-                                            @isset($export[0])
+                                            @isset($excel_sheets->export[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$export[0]->published_at}}</div>
+                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
                                                 <table class="table table-striped">
                                                     <thead>
                                                     <tr>
@@ -386,7 +387,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php $counter = 1 ?>
-                                                    @foreach($export as $exp)
+                                                    @foreach($excel_sheets->export as $exp)
                                                         <tr>
                                                             <th scope="row">{{$counter}}</th>
                                                             <td>{{$exp->currency}}</td>
@@ -408,9 +409,9 @@
                                         <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
                                              aria-labelledby="pills-china-zce-tab">
                                             {{--                                            China ZCE--}}
-                                            @isset($china_zce[0])
+                                            @isset($excel_sheets->china[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[3]){{$daily_state_categories[3]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$china_zce[0]->published_at}}</div>
+                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
                                                 <table class="table table-striped">
                                                     <thead>
                                                     <tr>
@@ -424,7 +425,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php $counter = 1 ?>
-                                                    @foreach($china_zce as $china)
+                                                    @foreach($excel_sheets->china as $china)
                                                         <tr>
                                                             <th scope="row">{{$counter}}</th>
                                                             <td>{{$china->prod}}</td>
