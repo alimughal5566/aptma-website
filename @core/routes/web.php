@@ -229,7 +229,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
 
     //frontend noman
     Route::get('daily-economic-updates','ImportController@frontDailyDtats')->name('frontend.daily.stats');
-    Route::get('exchange-rates','ImportController@frontRableExchangeRates')->name('frontend.table.exchange.rates');
+    Route::get('exchange-rates/{date}','ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');

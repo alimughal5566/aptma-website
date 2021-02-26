@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\ExcelPublishedDate;
 use App\NycUS;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -16,12 +17,21 @@ class NycUSImports implements ToModel,WithStartRow
     */
     public function model(array $row)
     {
-//        dd(Carbon::parse(Carbon::now()->toDate())->format('d-m-Y'));
+        $current_date = Carbon::parse(Carbon::now()->toDate())->format('Y-m-d');
+        $date = ExcelPublishedDate::where('date',$current_date)->first();
+        if ($date){
+            $date_id = $date->id;
+        }else{
+            $date = new ExcelPublishedDate();
+            $date->date = $current_date;
+            $date->save();
+            $date_id = $date->id;
+        }
         return new NycUS([
             'contract'=>$row[0],
             'close'=>$row[1],
             'changes'=>$row[2],
-            'published_at' => Carbon::parse(Carbon::now()->toDate())->format('d-m-Y'),
+            'published_at' => $date_id,
         ]);
     }
 
@@ -30,6 +40,6 @@ class NycUSImports implements ToModel,WithStartRow
      */
     public function startRow(): int
     {
-        return 2;
+        return 3;
     }
 }

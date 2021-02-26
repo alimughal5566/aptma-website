@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ChinaZce;
 use App\CotlookAIndex;
+use App\ExcelPublishedDate;
 use App\ExchangeRates;
 use App\ExportBills;
 use App\Imports\ChinaZceImports;
@@ -19,6 +20,7 @@ use App\Publication;
 use App\PublicationCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -65,7 +67,7 @@ class ImportController extends Controller
 
 
     public function remove(Request $request){
-        $remove_date = Carbon::parse($request->remove_date)->format('d-m-Y');
+        $remove_date = Carbon::parse($request->remove_date)->format('Y-m-d');
         if ($request->category=='Export Bills'){
             $record = ExportBills::where('published_at',$remove_date)->get();
         }elseif ($request->category=='China ZCE Cotton'){
@@ -90,22 +92,17 @@ class ImportController extends Controller
 
     }
 
-    public function frontRableExchangeRates(){
-        return view('frontend.pages.exchangeRates.single-category-table');
+    public function frontRableExchangeRates($date){
+
+        $data = ExcelPublishedDate::where('date',$date)->with('exchange','china','cotlook','export','kca','nyc')->first();
+
+        return view('frontend.pages.exchangeRates.single-category-table',compact('data'));
     }
 
 
     public function frontDailyDtats()
     {
-        $cat_id = null;
-//        $current_date = Carbon::parse(Carbon::now()->toDate())->format('d-m-Y');
-        $exchange_rates = ExchangeRates::all();
-        $nyc = NycUS::all();
-        $china_zce = ChinaZce::all();
-        $export = ExportBills::all();
-        $kca = KcaPakRupeesPerFourtyKg::all();
-        $cotllok = CotlookAIndex::all();
-
+        $dates = ExcelPublishedDate::all();
 //        $default_lang = Language::where('default', 1)->first();
 //        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
 //        $user_select_lang_slug =$lang;
@@ -113,6 +110,6 @@ class ImportController extends Controller
 //        $footer_widgets = null;
 //        ,'user_select_lang_slug','footer_widgets'
 
-        return view('frontend.pages.exchangeRates.index',compact('exchange_rates', 'nyc', 'china_zce' , 'export','cotllok','kca'));
+        return view('frontend.pages.exchangeRates.index',compact('dates'));
     }
 }

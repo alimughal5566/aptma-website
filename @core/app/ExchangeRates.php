@@ -11,4 +11,7 @@ class ExchangeRates extends Model
     public function category(){
         return $this->belongsTo(ExchangeRatesCategories::class,'cat_id');
     }
+    public function china_zone(){
+        return $this->hasMany('App\ChinaZce' , 'published_at' , 'published_at');
+    }
 }

@@ -120,7 +120,7 @@ class FrontendController extends Controller
         $all_img_category = ImageGalleryCategory::find($all_contain_cat);
 
         //Excel sheets
-        $current_date = Carbon::parse(Carbon::now()->toDate())->format('d-m-Y');
+        $current_date = Carbon::parse(Carbon::now()->toDate())->format('Y-m-d');
         $exchange_rates = ExchangeRates::where('published_at', $current_date)->get();
         $nyc = NycUS::where('published_at', $current_date)->get();
         $china_zce = ChinaZce::where('published_at', $current_date)->get();

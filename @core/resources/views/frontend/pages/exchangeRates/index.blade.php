@@ -13,50 +13,23 @@
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
                 Daily Exchange Rates </h2>
-
             <div class="row">
                 @php $a = 1; @endphp
-{{--                @forelse($all_services as $data)--}}
+{{--                {{dd($dates)}}--}}
+                @if(isset($dates[0]))
+                @foreach($dates  as $date)
                     <div class="col-lg-3 col-md-6">
                         <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
-                            <div class="common-img publication-img single-what-img position-relative">
-{{--                                @php--}}
-{{--                                    $now = Carbon\Carbon::now();--}}
-{{--                                    $datework = Carbon\Carbon::parse($data->created_at);--}}
-{{--                                    $diff = $datework->diffInDays($now);--}}
-{{--                                @endphp--}}
-{{--                                @if($diff<15)--}}
-                                    <small class="font-italic badge ">New</small>
-{{--                                @endif--}}
-{{--                                {{route('frontend.publication.single',$data->slug)}}--}}
-{{--                                <a href="#">--}}
-{{--                                    {!! 'View All' !!}--}}
-{{--                                </a>--}}
-                            </div>
                             <div class="common-content content">
                                 <p class="">
-                                    <span>Published Date</span>
+                                    <span>{{$date->date}}</span>
                                 </p>
-{{--                                {{route('frontend.publication.single',$data->slug)}}--}}
-                                <a href="">
-                                    <h4 class="title">Exchange Rates</h4>
-                                </a>
-{{--                                {{asset('assets/uploads/publications/pdf/'.$data->pdf_url)}}--}}
-                                <a href="{{route('frontend.table.exchange.rates')}}"
-                                   class="btn text-center">View</a>
+                                <a href="{{route('frontend.view.excel.record',['date'=>$date->date])}}" class="btn text-center">View</a>
                             </div>
                         </div>
                     </div>
-{{--                    @php--}}
-{{--                        if($a == 4){ $a = 1;}else{$a++;};--}}
-{{--                    @endphp--}}
-{{--                @empty--}}
-{{--                    <div class="col-md-12 card border-0 thumb margin-bottom-40">--}}
-{{--                        <div class="text center px-5 card-body ">--}}
-{{--                            <h1 class="text-muted">Sorry,No data found</h1>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endforelse--}}
+                @endforeach
+                @endif
                 <div class="col-lg-12">
                     <div class="pagination-wrapper">
 {{--                        {{$all_services->links()}}--}}

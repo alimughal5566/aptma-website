@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\ExcelPublishedDate;
 use App\ExportBills;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -16,7 +17,16 @@ class ExportBillsImports implements ToModel,WithStartRow
     */
     public function model(array $row)
     {
-
+        $current_date = Carbon::parse(Carbon::now()->toDate())->format('Y-m-d');
+        $date = ExcelPublishedDate::where('date',$current_date)->first();
+        if ($date){
+            $date_id = $date->id;
+        }else{
+            $date = new ExcelPublishedDate();
+            $date->date = $current_date;
+            $date->save();
+            $date_id = $date->id;
+        }
         return new ExportBills([
             'currency'=>$row[0],
             'spot'=>$row[1],
@@ -27,7 +37,7 @@ class ExportBillsImports implements ToModel,WithStartRow
             'fourth_month'=>$row[6],
             'fifth_month'=>$row[6],
             'sixth_month'=>$row[8],
-            'published_at' => Carbon::parse(Carbon::now()->toDate())->format('d-m-Y'),
+            'published_at' => $date_id,
         ]);
     }
 
@@ -36,6 +46,6 @@ class ExportBillsImports implements ToModel,WithStartRow
      */
     public function startRow(): int
     {
-        return 2;
+        return 3;
     }
 }
