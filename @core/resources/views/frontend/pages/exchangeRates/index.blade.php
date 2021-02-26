@@ -1,5 +1,5 @@
 @extends('frontend.frontend-page-master')
-@section('site-title','Articles amd publications')
+@section('site-title','Daily Exchange Rates')
 
 
 @section('page-meta-data')
@@ -12,7 +12,7 @@
             class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
-                Publications </h2>
+                Daily Exchange Rates </h2>
 
             <div class="row">
                 @php $a = 1; @endphp

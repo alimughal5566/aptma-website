@@ -82,10 +82,13 @@ class ImportController extends Controller
         else{
             return redirect()->back()->withErrors(['msg' => __('No data found against the provided date.'),'type' => 'danger']);
         }
-        return redirect()->back()->with(['msg' => __('Record deleted successfully'),'type' => 'success']);
+        if (isset($record[0])){
+            return redirect()->back()->with(['msg' => __('Record deleted successfully'),'type' => 'success']);
+        }else{
+            return redirect()->back()->withErrors(['msg' => __('No data found against the provided date.'),'type' => 'danger']);
+        }
+
     }
-
-
 
 
     public function frontDailyDtats()
