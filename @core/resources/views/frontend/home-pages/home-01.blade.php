@@ -278,7 +278,7 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
-                                            @endif
+                                            @endisset
                                             <br>
                                             <br>
                                             <hr>
@@ -309,8 +309,59 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
-                                            @endif
-
+                                            @endisset
+                                            <br>
+                                            <br>
+{{--                                            {{dd($kca)}}--}}
+                                            @isset($kca[0])
+                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>
+                                                <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">KCA Grafe 3 Spot</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $counter = 1 ?>
+                                                    @foreach($kca as $kc)
+                                                        <tr>
+                                                            <th scope="row">{{$counter}}</th>
+                                                            <td>{{$kc->kca_grade_3_spot}}</td>
+                                                        </tr>
+                                                        <?php $counter = ++$counter?>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endisset
+                                            <br>
+                                            <br>
+{{--                                                                                        {{dd($daily_state_categories)}}--}}
+                                            @isset($cotlook[0])
+                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>
+                                                <div class="w-100 background-gray-light">{{$cotlook[0]->published_at}}</div>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">A Index</th>
+                                                        <th scope="col">A Index Change</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php $counter = 1 ?>
+                                                    @foreach($cotlook as $cot)
+                                                        <tr>
+                                                            <th scope="row">{{$counter}}</th>
+                                                            <td>{{$cot->a_index}}</td>
+                                                            <td>{{$cot->a_index_change}}</td>
+                                                        </tr>
+                                                        <?php $counter = ++$counter?>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endisset
                                         </div>
                                         <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
                                              aria-labelledby="pills-export-bill-tab">
@@ -352,7 +403,7 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
-                                            @endif
+                                            @endisset
                                         </div>
                                         <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
                                              aria-labelledby="pills-china-zce-tab">
@@ -386,7 +437,7 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
-                                            @endif
+                                            @endisset
                                         </div>
                                     </div>
                                 </div>

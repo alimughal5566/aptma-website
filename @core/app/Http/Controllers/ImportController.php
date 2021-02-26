@@ -6,8 +6,10 @@ use App\ChinaZce;
 use App\ExchangeRates;
 use App\ExportBills;
 use App\Imports\ChinaZceImports;
+use App\Imports\CotlookAIndexImports;
 use App\Imports\ExchangeRatesImports;
 use App\Imports\ExportBillsImports;
+use App\Imports\KcaPakRupeesPerFourtyKgImports;
 use App\Imports\NycUSImports;
 use App\Language;
 use App\NycUS;
@@ -45,7 +47,12 @@ class ImportController extends Controller
             }elseif ($request->category=='NYC US Cent/lb'){
 //                $request->file->move('assets/uploads/nycUS/excels', $file);
                 Excel::import(new NycUSImports, $file);
-            }else{
+            }elseif ($request->category=='Cotlook ‘A’ Index'){
+                Excel::import(new CotlookAIndexImports, $file);
+            }elseif ($request->category=='KCA  Pak Rs / Maund 40 Kg'){
+                Excel::import(new KcaPakRupeesPerFourtyKgImports, $file);
+            }
+            else{
                 return redirect()->back()->withErrors(['msg' => __('Undefined Category...'),'type' => 'danger']);
             }
             return redirect()->back()->with(['msg' => __('Import successful...'),'type' => 'success']);

@@ -171,7 +171,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-        </div>
+{{--        </div>--}}
     </div>
 
     <div class="modal fade" id="image_category_item_edit_modal" aria-hidden="true">

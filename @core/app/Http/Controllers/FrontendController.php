@@ -14,6 +14,7 @@ use App\ChinaZce;
 use App\Circular;
 use App\CircularCategory;
 use App\ContactInfoItem;
+use App\CotlookAIndex;
 use App\Counterup;
 use App\Donation;
 use App\DonationLogs;
@@ -32,6 +33,7 @@ use App\ImageGalleryCategory;
 use App\JobApplicant;
 use App\Jobs;
 use App\JobsCategory;
+use App\KcaPakRupeesPerFourtyKg;
 use App\KeyFeatures;
 use App\Knowledgebase;
 use App\KnowledgebaseTopic;
@@ -123,6 +125,9 @@ class FrontendController extends Controller
         $nyc = NycUS::where('published_at', $current_date)->get();
         $china_zce = ChinaZce::where('published_at', $current_date)->get();
         $export = ExportBills::where('published_at', $current_date)->get();
+        $kca = KcaPakRupeesPerFourtyKg::where('published_at', $current_date)->get();
+        $cotook = CotlookAIndex::where('published_at', $current_date)->get();
+//        dd($kca,$cotook);
         $daily_stat_categories =ExchangeRatesCategories::all();
 
         $default_lang = Language::where('default', 1)->first();
@@ -137,6 +142,8 @@ class FrontendController extends Controller
             'china_zce'=> $china_zce,
             'daily_state_categories'=>$daily_stat_categories,
             'export'=>$export,
+            'kca'=>$kca,
+            'cotlook'=>$cotook,
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,
             'all_gallery_images' => $all_gallery_images,
