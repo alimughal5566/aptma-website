@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ChinaZce;
+use App\CotlookAIndex;
 use App\ExchangeRates;
 use App\ExportBills;
 use App\Imports\ChinaZceImports;
@@ -11,6 +12,7 @@ use App\Imports\ExchangeRatesImports;
 use App\Imports\ExportBillsImports;
 use App\Imports\KcaPakRupeesPerFourtyKgImports;
 use App\Imports\NycUSImports;
+use App\KcaPakRupeesPerFourtyKg;
 use App\Language;
 use App\NycUS;
 use App\Publication;
@@ -60,6 +62,31 @@ class ImportController extends Controller
             return redirect()->back()->withErrors(['msg' => __('Please Select a Valid File...'),'type' => 'danger']);
         }
     }
+
+
+    public function remove(Request $request){
+        $remove_date = Carbon::parse($request->remove_date)->format('d-m-Y');
+        if ($request->category=='Export Bills'){
+            $record = ExportBills::where('published_at',$remove_date)->get();
+        }elseif ($request->category=='China ZCE Cotton'){
+            $record = ChinaZce::where('published_at',$remove_date)->get();
+        }elseif ($request->category=='Exchange Rates'){
+            $record = ExchangeRates::where('published_at',$remove_date)->get();
+        }elseif ($request->category=='NYC US Cent/lb'){
+            $record = NycUS::where('published_at',$remove_date)->get();
+        }elseif ($request->category=='Cotlook ‘A’ Index'){
+            $record = CotlookAIndex::where('published_at',$remove_date)->get();
+        }elseif ($request->category=='KCA  Pak Rs / Maund 40 Kg'){
+            $record = KcaPakRupeesPerFourtyKg::where('published_at',$remove_date)->get();
+        }
+        else{
+            return redirect()->back()->withErrors(['msg' => __('No data found against the provided date.'),'type' => 'danger']);
+        }
+        return redirect()->back()->with(['msg' => __('Record deleted successfully'),'type' => 'success']);
+    }
+
+
+
 
     public function frontDailyDtats()
     {

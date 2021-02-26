@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Exchange Rates')}}
+    {{__('Daily Stats')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -156,10 +156,77 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div class="col-12 mt-5">
+            <div class="col-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Add New Publication')}}</h4>
+                        <h4 class="header-title">{{__('Remove Daily Stats')}}</h4>
+                        <form action="{{route('admin.remove.daily.stats')}}" method="post" enctype="multipart/form-data">
+                            @csrf
+
+
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label for="title">{{__('Title')}}</label>--}}
+                            {{--                                <input type="text" name="title" id="title" class="form-control" required placeholder="Title" value="{{old('title')}}">--}}
+                            {{--                            </div>--}}
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="category" class="form-control" required>
+                                    @foreach($all_categories as $category)
+                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->name}}">{{$category->title_description}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label>{{__('Description')}}</label>--}}
+                            {{--                                <input type="hidden" name="description">--}}
+                            {{--                                <div class="summernote"></div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label for="date">Publish Date</label>--}}
+                            {{--                                <input type="date" class="form-control datepicker"  name="publish_date" placeholder="Date"  value="{{old('publish_date')}}">--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label class="mb-0" for="image">{{__('Thumbnail')}}</label>--}}
+                            {{--                                <div class="media-upload-btn-wrapper">--}}
+                            {{--                                    <div class="img-wrap"></div>--}}
+                            {{--                                    <input type="hidden" name="thumbnail"  value="{{old('thumbnail')}}">--}}
+                            {{--                                    <button type="button" class="btn btn-info media_upload_form_btn" data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal" data-target="#media_upload_modal">--}}
+                            {{--                                        {{__('Placeholder Image')}}--}}
+                            {{--                                    </button>--}}
+                            {{--                                </div>--}}
+                            {{--                                <small>{{__('1000x1000 px image recommended')}}</small>--}}
+                            {{--                            </div>--}}
+                            <div class="form-group ">
+                                <label for="date">File</label>
+                                <input type="date" class="form-control"  name="remove_date" placeholder="Pick Date">
+                                <small>{{__('Pick a date to remove data')}}</small>
+                            </div>
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label for="category">Status</label>--}}
+                            {{--                                <select name="status" class="form-control" >--}}
+                            {{--                                    <option {{(old('status')=='1')?'selected':''}} value="1">Active</option>--}}
+                            {{--                                    <option {{(old('status')=='0')?'selected':''}}  value="0">De active</option>--}}
+                            {{--                                </select>--}}
+                            {{--                            </div>--}}
+
+                            {{--                            <div class="form-group">--}}
+                            {{--                                <label for="category">Is featured</label>--}}
+                            {{--                                <select name="is_featured" class="form-control" >--}}
+                            {{--                                    <option value="1" {{(old('is_featured')=='1')?'selected':''}}>Yes</option>--}}
+                            {{--                                    <option value="0" {{(old('is_featured')=='0')?'selected':''}}>No</option>--}}
+                            {{--                                </select>--}}
+                            {{--                            </div>--}}
+
+                            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Remove')}}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">{{__('Add Daily Stats')}}</h4>
                         <form action="{{route('admin.exchnage.new')}}" method="post" enctype="multipart/form-data">
                             @csrf
 
@@ -200,7 +267,7 @@
                             <div class="form-group ">
                                 <label for="date">File</label>
                                 <input type="file" class="form-control"  name="file" placeholder="Attach File" accept="application/xlsx">
-                                <small>{{__('Allowed extensions:pdf')}}</small>
+                                <small>{{__('Allowed extensions:xls,xlsx')}}</small>
                             </div>
 {{--                            <div class="form-group">--}}
 {{--                                <label for="category">Status</label>--}}

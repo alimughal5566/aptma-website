@@ -686,9 +686,10 @@ Route::prefix('/admin-home/publication-page')->group(function () {
 });
 
 //Backend Economic update pages
-Route::prefix('/admin-home/exchange-rates')->group(function () {
+Route::prefix('/admin-home/daily-stats')->group(function () {
     Route::get('/', 'ExchnageRateController@index')->name('admin.exchnage.all');
     Route::post('/new', 'ImportController@imports')->name('admin.exchnage.new');
+    Route::post('/remove','ImportController@remove')->name('admin.remove.daily.stats');
     Route::post('/delete/{id}', 'ExchnageRateController@delete')->name('admin.exchnage.delete');
     Route::post('/update', 'ExchnageRateController@update')->name('admin.exchnage.update');
     Route::post('gallery-page/bulk-action', 'ExchnageRateController@bulk_action')->name('admin.exchnage.bulk.action');
