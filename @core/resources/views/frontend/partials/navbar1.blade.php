@@ -301,7 +301,10 @@
                             <a href="javascript:void(0);">Members Directory</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:void(0);">Members Pages</a>
+                                    <a href="javascript:void(0);">Members List</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">Become a member</a>
                                 </li>
                             </ul>
                         </li>
