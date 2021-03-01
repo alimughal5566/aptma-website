@@ -524,6 +524,46 @@
         }
 
         /*---------------------------
+            daily update carousel
+        ---------------------------*/
+
+        var $economicGridCarousel = $('.economic-grid-carousel');
+        if ($economicGridCarousel.length > 0) {
+            $economicGridCarousel.owlCarousel({
+                loop: true,
+                autoplay: true, //true if you want enable autoplay
+                autoPlayTimeout: 1000,
+                margin: 30,
+                dots: true,
+                nav: true,
+                rtl: sliderRtlValue,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                responsive: {
+                    320: {
+                        items: 1
+                    },
+                    575: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    960: {
+                        items: 2
+                    },
+                    1200: {
+                        items: 4
+                    },
+                    1920: {
+                        items: 4
+                    },
+                }
+            });
+        }
+
+        /*---------------------------
             advertise carousel
         ---------------------------*/
         var $advertiseGridCarousel = $('.advertise-grid-carousel');

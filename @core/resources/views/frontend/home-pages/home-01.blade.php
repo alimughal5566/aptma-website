@@ -512,7 +512,7 @@
 This Section will be displayed to only Members & When code for that then we will add it up
 --}}
 
-<section class="common-area economic-area background-gray-light-lightest padding-50 ">
+<section class="common-area economic-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container economic-container">
         <div class="row">
             {{--            <div class="col-12 col-lg-1"></div>--}}
@@ -532,20 +532,20 @@ This Section will be displayed to only Members & When code for that then we will
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item economic-item single-what-we-cover-item-02 ">
 
-{{--                                                <div class="common-img economic-img single-what-img position-relative">--}}
-{{--                                                    @php--}}
-{{--                                                        $now = Carbon\Carbon::now();--}}
-{{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
-{{--                                                        $diff = $datework->diffInDays($now); @endphp--}}
-{{--                                                    @if($diff<15)--}}
-{{--                                                        <small class=" font-italic badge ">New</small>--}}
-{{--                                                    @endif--}}
+                                                <div class="common-img economic-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now); @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge ">New</small>
+                                                    @endif
 
-{{--                                                    <a class="align-items-center"--}}
-{{--                                                       href="{{route('frontend.economic.single', $data->slug)}}">--}}
-{{--                                                        --}}{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
-{{--                                                    </a>--}}
-{{--                                                </div>--}}
+                                                    <a class="align-items-center"
+                                                       href="{{route('frontend.economic.single', $data->slug)}}">
+                                                        {{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
+                                                    </a>
+                                                </div>
 
                                                 <div class="common-content content">
                                                     <a href="{{route('frontend.economic.single', $data->slug)}}">
@@ -553,7 +553,6 @@ This Section will be displayed to only Members & When code for that then we will
                                                     </a>
                                                     <a href="{{route('frontend.economic.single', $data->slug)}}"
                                                        target="_blank" class="btn">View</a>
-
                                                 </div>
                                             </div>
                                         </div>
