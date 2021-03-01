@@ -532,20 +532,20 @@ This Section will be displayed to only Members & When code for that then we will
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item economic-item single-what-we-cover-item-02 ">
 
-                                                <div class="common-img economic-img single-what-img position-relative">
-                                                    @php
-                                                        $now = Carbon\Carbon::now();
-                                                        $datework = Carbon\Carbon::parse($data->created_at);
-                                                        $diff = $datework->diffInDays($now); @endphp
-                                                    @if($diff<15)
-                                                        <small class=" font-italic badge ">New</small>
-                                                    @endif
+{{--                                                <div class="common-img economic-img single-what-img position-relative">--}}
+{{--                                                    @php--}}
+{{--                                                        $now = Carbon\Carbon::now();--}}
+{{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
+{{--                                                        $diff = $datework->diffInDays($now); @endphp--}}
+{{--                                                    @if($diff<15)--}}
+{{--                                                        <small class=" font-italic badge ">New</small>--}}
+{{--                                                    @endif--}}
 
-                                                    <a class="align-items-center"
-                                                       href="{{route('frontend.economic.single', $data->slug)}}">
-                                                        {{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
-                                                    </a>
-                                                </div>
+{{--                                                    <a class="align-items-center"--}}
+{{--                                                       href="{{route('frontend.economic.single', $data->slug)}}">--}}
+{{--                                                        --}}{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
 
                                                 <div class="common-content content">
                                                     <a href="{{route('frontend.economic.single', $data->slug)}}">
