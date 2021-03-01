@@ -1,10 +1,9 @@
 @extends('frontend.frontend-page-master')
-@section('site-title')
-    {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}
-@endsection
+@section('site-title','Circulars')
 @section('page-title')
     Circulars
 @endsection
+
 @section('page-meta-data')
     <meta name="description"
           content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_description')}}">
