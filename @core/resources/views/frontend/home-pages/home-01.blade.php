@@ -280,11 +280,7 @@
                                                     </tbody>
                                                 </table>
                                             @endisset
-                                            <br>
-                                            <br>
-                                            <hr>
-                                            <br>
-                                            <br>
+
                                             @isset($excel_sheets->nyc[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$excel_sheets->published_at}}</div>

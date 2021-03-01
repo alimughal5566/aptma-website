@@ -282,8 +282,7 @@
                             <a href="javascript:void(0);">Statistics</a>
                             <ul class="sub-menu">
                                 <li>
-{{--                                    {{route('frontend.daily.stats',[$category->slug])}}--}}
-                                    <a href="#">Daily Stats</a>
+                                    <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);">Production</a>
