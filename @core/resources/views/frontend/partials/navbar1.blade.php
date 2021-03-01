@@ -205,10 +205,6 @@
                                         <a href="{{route('frontend.team.types',$type->slug)}}">{{$type->name}}</a>
                                     </li>
                                 @endforeach
-                                    <li>
-                                        <a href="{{route('frontend.dailyEconomicsUpdate')}}">Daily Economic Updates</a>
-                                    </li>
-                                @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
 
                                 <li class=" {{$publicationCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
                                     <a href="{{route('frontend.publication')}}">Articles &amp; Publications</a>
@@ -225,6 +221,10 @@
                                     @endif
                                 </li>
 
+                                <li>
+                                    <a href="{{route('frontend.dailyEconomicsUpdate')}}">Daily Economic Updates</a>
+                                </li>
+                                @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
 
                                 {{--                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
                                 {{--                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>--}}
