@@ -29,15 +29,16 @@
                                 @if($diff<15)
                                     <small class="font-italic badge">New</small>
                                 @endif
-
                                 <a href="{{route('frontend.circular.single',$data->slug)}}">{!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                             </div>
                             <div class="common-content content">
                                 <a href="{{route('frontend.circular.single',$data->slug)}}">
-                                    <h4 class="title">{{$data->title}}</h4>
+                                    <h4 class="title mb-0">{{$data->title}}</h4>
                                 </a>
                                 <p>{{@$data->category->name}}</p>
-                                <p>{{@$data->publish_date}}</p>
+                                <p>
+                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>
+                                </p>
                                 <a href="{{asset('assets/uploads/circular/'.$data->url)}}" download target="_blank" class="btn">Download</a>
                             </div>
                         </div>

@@ -38,8 +38,10 @@
                                     <h4 class="title mb-0">{{$data->title}}</h4>
                                 </a>
 {{--                                <p>{{@$data->category->name}}</p>--}}
-                                <p>{{@$data->publish_date}}</p>
-{{--                                <a href="{{asset('assets/uploads/daily-economics/'.$data->url)}}" download target="_blank" class="btn">Download</a>--}}
+                                <p>
+                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>
+                                </p>
+                                <a href="{{asset('assets/uploads/daily-economics/'.$data->url)}}" download target="_blank" class="btn">Download</a>
                             </div>
                         </div>
                     </div>
