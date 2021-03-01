@@ -282,7 +282,8 @@
                             <a href="javascript:void(0);">Statistics</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="javascript:void(0);">Cotton</a>
+{{--                                    {{route('frontend.daily.stats',[$category->slug])}}--}}
+                                    <a href="#">Daily Stats</a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);">Production</a>
