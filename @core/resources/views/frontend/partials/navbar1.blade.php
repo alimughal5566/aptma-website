@@ -226,7 +226,7 @@
                                 <li>
                                     <a href="{{route('frontend.dailyEconomicsUpdate')}}">Daily Economic Updates</a>
                                 </li>
-                                    
+
                                 {{--                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
                                 {{--                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>--}}
 

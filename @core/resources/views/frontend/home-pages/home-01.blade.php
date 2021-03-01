@@ -513,7 +513,7 @@ This Section will be displayed to only Members & When code for that then we will
 --}}
 
 <section class="common-area economic-area background-gray-light-lightest padding-50 ">
-    <div class="container-fluid common-container video-container">
+    <div class="container-fluid common-container economic-container">
         <div class="row">
             {{--            <div class="col-12 col-lg-1"></div>--}}
             {{--            <div class="col-12 col-lg-10">--}}
@@ -527,24 +527,26 @@ This Section will be displayed to only Members & When code for that then we will
                                 <a href="{{route('frontend.dailyEconomicsUpdate')}}" class="btn">View All</a>
                             </div>
                             <div class="common-grid-carousel-wrapper">
-                                <div class="common-grid-carousel video-grid-carousel">
+                                <div class="common-grid-carousel economic-grid-carousel">
                                     @foreach($all_daily_economic as $data)
                                         <div class="common-grid-carousel-item">
-                                            <div class="common-item video-item single-what-we-cover-item-02 ">
-                                                <div class="common-img video-img single-what-img position-relative">
-                                                    @php
-                                                        $now = Carbon\Carbon::now();
-                                                        $datework = Carbon\Carbon::parse($data->created_at);
-                                                        $diff = $datework->diffInDays($now); @endphp
-                                                    @if($diff<15)
-                                                        <small class=" font-italic badge ">New</small>
-                                                    @endif
+                                            <div class="common-item economic-item single-what-we-cover-item-02 ">
 
-                                                    <a class="align-items-center"
-                                                       href="{{route('frontend.economic.single', $data->slug)}}">
-                                                        {{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
-                                                    </a>
-                                                </div>
+{{--                                                <div class="common-img economic-img single-what-img position-relative">--}}
+{{--                                                    @php--}}
+{{--                                                        $now = Carbon\Carbon::now();--}}
+{{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
+{{--                                                        $diff = $datework->diffInDays($now); @endphp--}}
+{{--                                                    @if($diff<15)--}}
+{{--                                                        <small class=" font-italic badge ">New</small>--}}
+{{--                                                    @endif--}}
+
+{{--                                                    <a class="align-items-center"--}}
+{{--                                                       href="{{route('frontend.economic.single', $data->slug)}}">--}}
+{{--                                                        --}}{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+
                                                 <div class="common-content content">
                                                     <a href="{{route('frontend.economic.single', $data->slug)}}">
                                                         <h4 class="title d-flex align-items-center">{{$data->title}}</h4>
