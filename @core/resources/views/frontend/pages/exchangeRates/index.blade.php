@@ -14,26 +14,27 @@
                 Daily Exchange Rates </h2>
             <div class="row">
                 @php $a = 1; @endphp
-{{--                {{dd($dates)}}--}}
+                {{--                {{dd($dates)}}--}}
                 @if(isset($dates[0]))
-                @foreach($dates  as $date)
-                    <div class="col-lg-3 col-md-6">
-                        <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
-                            <div class="common-content content">
-                                <p class="">
-                                    <span>{{$date->date}}</span>
-                                </p>
-                                <a href="{{route('frontend.view.excel.record',['date'=>$date->date])}}" class="btn text-center">View</a>
+                    @foreach($dates  as $date)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                                <div class="common-content content">
+                                    <p class="">
+                                        <span>{{$date->date}}</span>
+                                    </p>
+                                    <a href="{{route('frontend.view.excel.record',['date'=>$date->date])}}"
+                                       class="btn text-center">View</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 @endif
-                <div class="col-lg-12">
-                    <div class="pagination-wrapper">
-{{--                        {{$all_services->links()}}--}}
-                    </div>
-                </div>
+{{--                <div class="col-lg-12">--}}
+{{--                    <div class="pagination-wrapper">--}}
+{{--                        --}}{{--                        {{$all_services->links()}}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </section>

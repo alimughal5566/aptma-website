@@ -50,11 +50,11 @@
                         </div>
                     </div>
                 @endforelse
-                <div class="col-lg-12">
-                    <div class="pagination-wrapper">
-                        {{$all_services->links()}}
-                    </div>
-                </div>
+{{--                <div class="col-lg-12">--}}
+{{--                    <div class="pagination-wrapper">--}}
+{{--                        {{$all_services->links()}}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </section>

@@ -225,8 +225,8 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/books/{cat?}', 'FrontendController@book_page')->name('frontend.book.index');
     Route::get('/books/show/{slug}', 'FrontendController@book_single_page')->name('frontend.book.single');
     Route::get('/circulars/{cat?}', 'FrontendController@circular_page')->name('frontend.circular.index');
-    Route::get('/daily-economics-update/{cat?}', 'FrontendController@dailyEconomicsUpdate')->name('frontend.dailyEconomicsUpdate');
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
+    Route::get('/daily-economics-update/{cat?}', 'FrontendController@dailyEconomicsUpdate')->name('frontend.dailyEconomicsUpdate');
     Route::get('/economic-update/show/{slug}', 'FrontendController@economic_single_page')->name('frontend.economic.single');
 
     //frontend noman
@@ -814,7 +814,6 @@ Route::prefix('admin-home')->middleware(['contact_page_manage_check'])->group(fu
 Route::prefix('admin-home')->middleware(['team_member_manage_check'])->group(function () {
     //team member
     Route::get('/team-member', 'TeamMemberController@index')->name('admin.team.member');
-
 
     //team member Category
     Route::get('team-member/category', 'TeamMemberController@category_index')->name('admin.team.category');

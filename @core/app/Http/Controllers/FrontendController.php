@@ -546,7 +546,7 @@ class FrontendController extends Controller
             $all_services = Circular::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
 //        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
-        return view('frontend.pages.dailyEconomic.index')->with(['all_services' => $all_services, 'category' => $category]);
+        return view('frontend.pages.circular.index')->with(['all_services' => $all_services, 'category' => $category]);
     }
     public function dailyEconomicsUpdate($cat_id = null)
     {

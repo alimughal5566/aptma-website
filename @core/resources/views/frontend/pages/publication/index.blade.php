@@ -33,7 +33,7 @@
                             </div>
                             <div class="common-content content">
                                 <p class="">
-                                    <span>{{@$data->publish_date}}</span>
+                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>
                                 </p>
                                 <a href="{{route('frontend.publication.single',$data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>

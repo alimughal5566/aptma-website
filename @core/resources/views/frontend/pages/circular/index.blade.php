@@ -13,7 +13,8 @@
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
-                Circulars <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
+                Circulars <?php echo ($category) ? "<small>($category->name)</small>" : "" ?>
+            </h2>
 
             <div class="row">
                 @forelse($all_services as $data)
