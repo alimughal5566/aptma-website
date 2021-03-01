@@ -109,7 +109,7 @@ class FrontendController extends Controller
         $all_blog = Blog::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(5)->get();
         $all_service_category = ServiceCategory::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();
         $all_contain_cat = [];
-        $all_daily_economic = DailyEconomic::where('status', '1')->whereDate('publish_date', '>', Carbon::now()->subDays(30))->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();
+        $all_daily_economic = DailyEconomic::where('status', '1') ->whereBetween('publish_date', [ Carbon::now()->subDays(30),now()])->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();
 
 
         foreach ($all_work as $work) {
@@ -553,9 +553,11 @@ class FrontendController extends Controller
         $category = null;
         if (!is_null($cat_id)) {
             $category = DailyEconomicCategory::where('slug', $cat_id)->first();
-            $all_services = DailyEconomic::where('status', '1')->where('cat_id', $category->id)->whereDate('publish_date', '>', Carbon::now()->subDays(30))->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+            $all_services = DailyEconomic::where('status', '1')->where('cat_id', $category->id) ->whereBetween('publish_date', [ Carbon::now()->subDays(30),now()])->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         } else {
-            $all_services = DailyEconomic::where('status', '1')->whereDate('publish_date', '>', Carbon::now()->subDays(30))->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+            $all_services = DailyEconomic::where('status', '1')
+                ->whereBetween('publish_date', [ Carbon::now()->subDays(30),now()])
+                ->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
 //        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
         return view('frontend.pages.dailyEconomic.index')->with(['all_services' => $all_services, 'category' => $category]);
