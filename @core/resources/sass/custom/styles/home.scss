@@ -396,6 +396,7 @@
 
     .common-img {
       @include mix.d-flex;
+      @include mix.align-items-center;
       border-radius: 0.25rem;
       overflow: hidden;
       min-height: 150px;
@@ -554,6 +555,44 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
+      }
+
+    }
+
+    &.exchange-rate-single-item {
+
+      a {
+
+        &.btn {
+          position: unset;
+          top: unset;
+          right: unset;
+        }
+
+      }
+
+      .table-responsive {
+
+        .table {
+          border-left: 1px solid #dee2e6;
+          border-right: 1px solid #dee2e6;
+          border-bottom: 1px solid #dee2e6;
+
+          thead {
+
+            th {
+              border-bottom: 1px solid #dee2e6;
+            }
+
+          }
+
+          td, th {
+            padding: .5rem;
+            vertical-align: middle;
+          }
+
+        }
+
       }
 
     }

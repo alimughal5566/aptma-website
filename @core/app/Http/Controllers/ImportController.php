@@ -93,10 +93,9 @@ class ImportController extends Controller
     }
 
     public function frontRableExchangeRates($date){
-
         $data = ExcelPublishedDate::where('date', $date)->with('exchange', 'china', 'cotlook', 'export', 'kca', 'nyc')->first();
 
-        return view('frontend.pages.exchangeRates.single-category-table',compact('data'));
+        return view('frontend.pages.exchangeRates.single-category-table',compact('data','date'));
     }
 
 
