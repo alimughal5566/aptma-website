@@ -228,8 +228,8 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
 
     //frontend noman
-    Route::get('daily-economic-updates','ImportController@frontDailyDtats')->name('frontend.daily.stats');
-    Route::get('exchange-rates/{date}','ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
+    Route::get('daily-exchange-cotton-rates', 'ImportController@frontDailyDtats')->name('frontend.daily.stats');
+    Route::get('exchange-rates/{date}', 'ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
@@ -690,7 +690,7 @@ Route::prefix('/admin-home/publication-page')->group(function () {
 Route::prefix('/admin-home/daily-stats')->group(function () {
     Route::get('/', 'ExchnageRateController@index')->name('admin.exchnage.all');
     Route::post('/new', 'ImportController@imports')->name('admin.exchnage.new');
-    Route::post('/remove','ImportController@remove')->name('admin.remove.daily.stats');
+    Route::post('/remove', 'ImportController@remove')->name('admin.remove.daily.stats');
     Route::post('/delete/{id}', 'ExchnageRateController@delete')->name('admin.exchnage.delete');
     Route::post('/update', 'ExchnageRateController@update')->name('admin.exchnage.update');
     Route::post('gallery-page/bulk-action', 'ExchnageRateController@bulk_action')->name('admin.exchnage.bulk.action');
@@ -708,8 +708,6 @@ Route::prefix('/admin-home/daily-stats')->group(function () {
 });
 
 //Front end economic updates
-
-
 
 
 //Video Gallery pages
