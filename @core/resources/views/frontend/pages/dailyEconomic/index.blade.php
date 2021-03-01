@@ -34,7 +34,7 @@
 {{--                                <a href="{{route('frontend.circular.single',$data->slug)}}">{!! render_image_markup_by_attachment_id($pdf) !!}</a>--}}
                             </div>
                             <div class="common-content content">
-                                <a href="{{route('frontend.circular.single',$data->slug)}}">
+                                <a href="{{route('frontend.economic.single',$data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p>{{@$data->category->name}}</p>

@@ -30,7 +30,7 @@
 
 
 
-                    <embed style="overflow-x: hidden; overflow-y: hidden;" src="{{asset('assets/uploads/daily-economics/'.$service_item->url.'#toolbar=0&navpanes=0&scrollbar=0&view=fitH,100&zoom=100&view=Fit')}}" height="800px" width="100%"  type="application/pdf" frameborder="0" scrolling="no" showcontrols="false"/>
+                    <embed  type="application/pdf" frameborder="0" scrolling="no" showcontrols="false" src="{{asset('assets/uploads/daily-economics/'.$service_item->url.'#toolbar=0&navpanes=0&scrollbar=0&view=fitH,100&zoom=100&view=Fit')}}" height="800px" width="100%" />
                     <div class="service-details-item common-single-item circular-single-item position-relative">
                         <a href="{{asset('assets/uploads/daily-economics/'.$service_item->url)}}" download
                            class="btn">Download</a>
@@ -38,7 +38,7 @@
 {{--                            {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}--}}
 {{--                        </div>--}}
                     </div>
-                </div>
+                      </div>
 {{--                <div class="col-lg-6">--}}
 {{--                    <div class="service-details-item common-single-item circular-single-item position-relative">--}}
 {{--                        <div class="service-description common-single-description circular-description">--}}

@@ -34,16 +34,22 @@ class DailyEconomicController extends Controller
 
         ]);
         $name=time();
+//        if ($request->pdf_file) {
+//            $url =  $name. '.' . $request->pdf_file->extension();
+//            $request->pdf_file->move('assets/uploads/daily-economics/', $url);
+//        }
         if ($request->pdf_file) {
-            $url =  $name. '.' . $request->pdf_file->extension();
-            $request->pdf_file->move('assets/uploads/daily-economics/', $url);
+            $profile_pic =  $name.'.'.$request->pdf_file->extension();
+            $request->pdf_file->move('assets/uploads/daily-economics/',$profile_pic);
+//            $data->url=$profile_pic;
         }
+
 //dd();
         DailyEconomic::create([
             'status' => $request->status,
             'is_featured' => $request->is_featured,
             'title' => $request->title,
-            'url' => $url,
+            'url' => $profile_pic,
             'cat_id' => $request->category,
             'publish_date' => $request->publish_date,
             'slug' =>Str::slug($request->title.'-'.$request->category),
@@ -60,7 +66,7 @@ class DailyEconomicController extends Controller
         $name=time();
         $data= DailyEconomic::find($request->id);
              if ($request->pdf_file) {
-                 $profile_pic =  $name. '.' . $request->pdf_file->extension();
+                 $profile_pic =  $name.'.' . $request->pdf_file->extension();
                  $request->pdf_file->move('assets/uploads/daily-economics/', $profile_pic);
                  $data->url=$profile_pic;
              }
