@@ -249,9 +249,9 @@
                                         <div class="tab-pane fade show active" id="pills-exchange-rate" role="tabpanel"
                                              aria-labelledby="pills-exchange-rate-tab">
                                             {{--                                            Exchange Rate--}}
-{{--                                            {{dd($daily_state_categories)}}--}}
+                                            {{--                                            {{dd($daily_state_categories)}}--}}
                                             @php $a = 1; @endphp
-{{--                                            {{dd($excel_sheets->nyc)}}--}}
+                                            {{--                                            {{dd($excel_sheets->nyc)}}--}}
                                             @isset($excel_sheets->exchange[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
@@ -313,7 +313,7 @@
                                             @endisset
                                             <br>
                                             <br>
-{{--                                            {{dd($kca)}}--}}
+                                            {{--                                            {{dd($kca)}}--}}
                                             @isset($excel_sheets->kca[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
@@ -338,7 +338,7 @@
                                             @endisset
                                             <br>
                                             <br>
-{{--                                                                                        {{dd($daily_state_categories)}}--}}
+                                            {{--                                                                                        {{dd($daily_state_categories)}}--}}
                                             @isset($excel_sheets->cotlook[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>

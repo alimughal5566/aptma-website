@@ -1,20 +1,20 @@
 @extends('frontend.frontend-page-master')
 @section('og-meta')
-{{--    <meta property="og:url" content="{{route('frontend.services.single',$service_item->id)}}"/>--}}
-{{--    <meta property="og:type" content="article"/>--}}
-{{--    <meta property="og:title" content="{{$service_item->title}}"/>--}}
-{{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
+    {{--    <meta property="og:url" content="{{route('frontend.services.single',$service_item->id)}}"/>--}}
+    {{--    <meta property="og:type" content="article"/>--}}
+    {{--    <meta property="og:title" content="{{$service_item->title}}"/>--}}
+    {{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
 @endsection
 @section('meta-tags')
-{{--    <meta name="description" content="{{$service_item->meta_description}}">--}}
-{{--    <meta name="tags" content="{{$service_item->meta_tag}}">--}}
-{{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
+    {{--    <meta name="description" content="{{$service_item->meta_description}}">--}}
+    {{--    <meta name="tags" content="{{$service_item->meta_tag}}">--}}
+    {{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
 @endsection
 @section('site-title')
-{{--    {{$service_item->title}} -  {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}--}}
+    {{--    {{$service_item->title}} -  {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}--}}
 @endsection
 @section('page-title')
-{{--    {{$service_item->title}}--}}
+    {{--    {{$service_item->title}}--}}
 @endsection
 @section('content')
 
@@ -31,11 +31,11 @@
 
                 <div class="col-lg-12">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
-{{--                        {{dd($data->exchange[0])}}--}}
+                        {{--                        {{dd($data->exchange[0])}}--}}
                         @php $a = 1; @endphp
                         @isset($data->exchange[0])
-{{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>--}}
-{{--                            <div class="w-100 background-gray-light">{{$exchange_rates[0]->published_at}}</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">{{$exchange_rates[0]->published_at}}</div>--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -63,10 +63,10 @@
                         @endisset
                         <br>
                         <br>
-{{--                        {{dd($data->nyc[0])}}--}}
+                        {{--                        {{dd($data->nyc[0])}}--}}
                         @isset($data->nyc[0])
-{{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>--}}
-{{--                            <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -93,8 +93,8 @@
                         <br>
                         <br>
                         @isset($data->kca[0])
-{{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>--}}
-{{--                            <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -117,8 +117,8 @@
                         <br>
                         <br>
                         @isset($data->cotlook[0])
-{{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>--}}
-{{--                            <div class="w-100 background-gray-light">{{$cotlook[0]->published_at}}</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">{{$cotlook[0]->published_at}}</div>--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -143,8 +143,8 @@
                         <br>
                         <br>
                         @isset($data->export[0])
-{{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>--}}
-{{--                            <div class="w-100 background-gray-light">{{$export[0]->published_at}}</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">{{$export[0]->published_at}}</div>--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -184,8 +184,8 @@
                         <br>
 
                         @isset($data->china[0])
-{{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[3]){{$daily_state_categories[3]->title_description}}@endisset</div>--}}
-{{--                            <div class="w-100 background-gray-light">{{$china_zce[0]->published_at}}</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[3]){{$daily_state_categories[3]->title_description}}@endisset</div>--}}
+                            {{--                            <div class="w-100 background-gray-light">{{$china_zce[0]->published_at}}</div>--}}
                             <table class="table table-striped">
                                 <thead>
                                 <tr>

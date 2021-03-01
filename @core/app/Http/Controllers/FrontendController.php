@@ -122,19 +122,19 @@ class FrontendController extends Controller
 
         //Excel sheets
         $current_date = Carbon::parse(Carbon::now()->toDate())->format('Y-m-d');
-        $data = ExcelPublishedDate::where('date',$current_date)->with('exchange','china','cotlook','export','kca','nyc')->first();
+        $data = ExcelPublishedDate::where('date', $current_date)->with('exchange', 'china', 'cotlook', 'export', 'kca', 'nyc')->first();
 
 //        dd($kca,$cotook);
-        $daily_stat_categories =ExchangeRatesCategories::all();
+        $daily_stat_categories = ExchangeRatesCategories::all();
 
         $default_lang = Language::where('default', 1)->first();
         $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-        $user_select_lang_slug =$lang;
+        $user_select_lang_slug = $lang;
 
         $footer_widgets = null;
 
         return view('frontend.frontend-home')->with([
-            'excel_sheets'=>$data,
+            'excel_sheets' => $data,
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,
             'all_gallery_images' => $all_gallery_images,
@@ -1356,9 +1356,6 @@ class FrontendController extends Controller
         }
         return view('frontend.pages.jobs.job-success')->with(['applicant_details' => $applicant_details, 'job_details' => $job_details]);
     }
-
-
-
 
 
 }//end class
