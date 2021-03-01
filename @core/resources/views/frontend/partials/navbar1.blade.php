@@ -206,6 +206,8 @@
                                     </li>
                                 @endforeach
 
+                                @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
+
                                 <li class=" {{$publicationCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
                                     <a href="{{route('frontend.publication')}}">Articles &amp; Publications</a>
                                     @if($publicationCategories->count()>0)
@@ -224,8 +226,7 @@
                                 <li>
                                     <a href="{{route('frontend.dailyEconomicsUpdate')}}">Daily Economic Updates</a>
                                 </li>
-                                @php $publicationCategories=\App\PublicationCategory::where(['status' =>'publish','lang'=>'en'])->withcount('publications')->orderBy('id','desc')->get(); @endphp
-
+                                    
                                 {{--                                <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
                                 {{--                                    <a href="{{route('frontend.blog')}}">Blogs & Articles</a>--}}
 
