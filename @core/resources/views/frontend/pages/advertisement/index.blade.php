@@ -1,15 +1,17 @@
 @extends('frontend.frontend-page-master')
-@section('site-title')
-    {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}
-@endsection
+
+@section('site-title','Advertisements')
+
 @section('page-title')
-   Advertisements
+    Advertisements
 @endsection
+
 @section('page-meta-data')
     <meta name="description"
           content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_description')}}">
     <meta name="tags" content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
+
 @section('content')
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
@@ -36,7 +38,7 @@
                                     <h4 class="title">{{$data->title}}</h4>
                                 </a>
                                 <p>Category: {{@$data->category->name}}</p>
-{{--                                <p>Published at: {{@$data->published_at}}</p>--}}
+                                {{--                                <p>Published at: {{@$data->published_at}}</p>--}}
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 @extends('frontend.frontend-page-master')
-@section('site-title','Articles amd publications')
+@section('site-title','Articles & Publications')
 
 @section('page-meta-data')
     <meta name="description"

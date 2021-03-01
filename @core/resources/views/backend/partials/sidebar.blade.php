@@ -805,6 +805,24 @@
                         </ul>
                     </li>
                     <li class="main_dropdown
+                        {{active_menu('admin-home/exchange-rates')}}
+                    @if(request()->is('admin-home/exchange-rates/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('Exchange Rates')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/exchange-rates')}}">
+                                <a href="{{route('admin.exchnage.all')}}" >{{__('Exchange Rates')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/exchange-rates/category')}}">
+                                <a href="{{route('admin.exchnage.category')}}" >{{__('Category')}}</a>
+                            </li>
+{{--                            <li class="{{active_menu('admin-home/publication-page/page-settings')}}">--}}
+{{--                                <a href="{{route('admin.gallery.page.settings')}}" >{{__('Page Settings')}}</a>--}}
+{{--                            </li>--}}
+                        </ul>
+                    </li>
+                    <li class="main_dropdown
                         {{active_menu('admin-home/video-page')}}
                     @if(request()->is('admin-home/video-page/*')) active @endif
                             ">
