@@ -225,7 +225,9 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/books/{cat?}', 'FrontendController@book_page')->name('frontend.book.index');
     Route::get('/books/show/{slug}', 'FrontendController@book_single_page')->name('frontend.book.single');
     Route::get('/circulars/{cat?}', 'FrontendController@circular_page')->name('frontend.circular.index');
+    Route::get('/daily-economics-update/{cat?}', 'FrontendController@dailyEconomicsUpdate')->name('frontend.dailyEconomicsUpdate');
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
+    Route::get('/economic-update/show/{slug}', 'FrontendController@economic_single_page')->name('frontend.economic.single');
 
     //frontend noman
     Route::get('daily-exchange-cotton-rates', 'ImportController@frontDailyDtats')->name('frontend.daily.stats');
@@ -754,6 +756,21 @@ Route::prefix('/admin-home/circular')->group(function () {
     Route::post('/category/delete/{id}', 'CircularController@category_delete')->name('admin.circular.category.delete');
     Route::post('/category/bulk-action', 'CircularController@category_bulk_action')->name('admin.circular.category.bulk.action');
     Route::post('/category-by-slug', 'CircularController@category_by_slug')->name('admin.circular.category.by.lang');
+});
+//Daily Economic update admin pages
+Route::prefix('/admin-home/daily-economic-update')->group(function () {
+    Route::get('/', 'DailyEconomicController@index')->name('admin.daily.economic.update.all');
+    Route::post('/new', 'DailyEconomicController@store')->name('admin.daily.economic.update.new');
+    Route::post('/delete/{id}', 'DailyEconomicController@delete')->name('admin.daily.economic.update.delete');
+    Route::post('/update', 'DailyEconomicController@update')->name('admin.daily.economic.update.update');
+    Route::post('/circular/bulk-action', 'DailyEconomicController@bulk_action')->name('admin.daily.economic.update.bulk.action');
+
+    Route::get('/category', 'DailyEconomicController@category_index')->name('admin.daily.economic.update.category');
+    Route::post('/category/new', 'DailyEconomicController@category_store')->name('admin.daily.economic.update.category.new');
+    Route::post('/category/update', 'DailyEconomicController@category_update')->name('admin.daily.economic.update.category.update');
+    Route::post('/category/delete/{id}', 'DailyEconomicController@category_delete')->name('admin.daily.economic.update.category.delete');
+    Route::post('/category/bulk-action', 'DailyEconomicController@category_bulk_action')->name('admin.daily.economic.update.category.bulk.action');
+    Route::post('/category-by-slug', 'DailyEconomicController@category_by_slug')->name('admin.daily.economic.update.category.by.lang');
 });
 
 
