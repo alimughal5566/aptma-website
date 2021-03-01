@@ -432,9 +432,14 @@
         max-height: 200px;
       }
 
-      &.advertise-img, &.publication-img {
+      &.advertise-img {
         min-height: 250px;
         max-height: 250px;
+      }
+
+      &.publication-img {
+        min-height: 300px;
+        max-height: 300px;
       }
 
     }

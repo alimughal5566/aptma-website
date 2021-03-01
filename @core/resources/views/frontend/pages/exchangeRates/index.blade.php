@@ -1,7 +1,6 @@
 @extends('frontend.frontend-page-master')
 @section('site-title','Daily Exchange Rates')
 
-
 @section('page-meta-data')
     <meta name="description"
           content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_description')}}">

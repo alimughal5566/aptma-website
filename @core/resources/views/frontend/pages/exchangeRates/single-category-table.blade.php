@@ -13,24 +13,24 @@
 @section('site-title')
     {{--    {{$service_item->title}} -  {{get_static_option('service_page_'.$user_select_lang_slug.'_name')}}--}}
 @endsection
-@section('page-title')
-    {{--    {{$service_item->title}}--}}
-@endsection
+
+@section('site-title','Daily Exchange Rates')
+
 @section('content')
 
 
-    <div class="page-content service-details common-single publication-single padding-top-50 padding-bottom-100">
+    <div class="page-content service-details common-single exchange-rate-single padding-top-50 padding-bottom-100">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="common-single-title publication-single-title margin-bottom-15">Title</h3>
-                </div>
                 <div class="col-12">
-                    <a href="#" class="btn" target="_blank">Download</a>
+                    <div class="d-flex flex-column align-items-center justify-content-lg-between flex-lg-row">
+                        <h3 class="common-single-title exchange-rate-single-title mb-0">Daily Exchange Rates</h3>
+                        <a href="#" class="btn" target="_blank">Download</a>
+                    </div>
                 </div>
 
                 <div class="col-lg-12">
-                    <div class="service-details-item common-single-item publication-single-item position-relative">
+                    <div class="service-details-item common-single-item exchange-rate-single-item position-relative">
                         {{--                        {{dd($data->exchange[0])}}--}}
                         @php $a = 1; @endphp
                         @isset($data->exchange[0])

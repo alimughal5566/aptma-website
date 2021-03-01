@@ -1730,10 +1730,14 @@ html {
   max-height: 200px;
 }
 
-.common-area .common-item .common-img.advertise-img,
-.common-area .common-item .common-img.publication-img {
+.common-area .common-item .common-img.advertise-img {
   min-height: 250px;
   max-height: 250px;
+}
+
+.common-area .common-item .common-img.publication-img {
+  min-height: 300px;
+  max-height: 300px;
 }
 
 .common-area .common-item .common-content {
