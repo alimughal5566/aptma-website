@@ -16,6 +16,8 @@ use App\CircularCategory;
 use App\ContactInfoItem;
 use App\CotlookAIndex;
 use App\Counterup;
+use App\DailyEconomic;
+use App\DailyEconomicCategory;
 use App\Donation;
 use App\DonationLogs;
 use App\EventAttendance;
@@ -105,8 +107,10 @@ class FrontendController extends Controller
         $all_brand_logo = Brand::all();
         $all_work = Works::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(get_static_option('home_page_01_case_study_items'))->get();
         $all_blog = Blog::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(5)->get();
-        $all_service_category = ServiceCategory::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();;
+        $all_service_category = ServiceCategory::where(['lang' => $lang, 'status' => 'publish'])->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();
         $all_contain_cat = [];
+        $all_daily_economic = DailyEconomic::where('status', '1')->whereDate('publish_date', '>', Carbon::now()->subDays(30))->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->take(get_static_option('home_page_01_service_area_items'))->get();
+
 
         foreach ($all_work as $work) {
             array_push($all_contain_cat, $work->categories_id);
@@ -155,6 +159,7 @@ class FrontendController extends Controller
             'circulars' => $circulars,
             'videos' => $videos,
             'advertisements' => $advertisements,
+            'all_daily_economic' => $all_daily_economic,
         ]);
     }
 
@@ -397,7 +402,18 @@ class FrontendController extends Controller
         $service_item = Circular::where('slug', $slug)->with('category')->first();
         $service_category = CircularCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
-        return view('frontend.pages.circular.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
+        return view('frontend.pages.dailyEconomic.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
+    }
+    public function economic_single_page($slug)
+    {
+        $default_lang = Language::where('default', 1)->first();
+        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
+        $service_item = DailyEconomic::where('slug', $slug)->orderBy('is_featured','desc')->with('category')->first();
+//        $pdf= PDF::loadView('http://localhost/aptma-website/assets/uploads/daily-economics/1614587877.pdf');
+//        dd($pdf)
+        $service_category = CircularCategory::where(['status' => 'publish', 'lang' => $lang])->get();
+        $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
+        return view('frontend.pages.dailyEconomic.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
     }
 
     public function advertisement_single_page($slug)
@@ -530,7 +546,19 @@ class FrontendController extends Controller
             $all_services = Circular::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
 //        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
-        return view('frontend.pages.circular.index')->with(['all_services' => $all_services, 'category' => $category]);
+        return view('frontend.pages.dailyEconomic.index')->with(['all_services' => $all_services, 'category' => $category]);
+    }
+    public function dailyEconomicsUpdate($cat_id = null)
+    {
+        $category = null;
+        if (!is_null($cat_id)) {
+            $category = DailyEconomicCategory::where('slug', $cat_id)->first();
+            $all_services = DailyEconomic::where('status', '1')->where('cat_id', $category->id)->whereDate('publish_date', '>', Carbon::now()->subDays(30))->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        } else {
+            $all_services = DailyEconomic::where('status', '1')->whereDate('publish_date', '>', Carbon::now()->subDays(30))->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+        }
+//        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
+        return view('frontend.pages.dailyEconomic.index')->with(['all_services' => $all_services, 'category' => $category]);
     }
 
     public function advertisement_page($cat_id = null)

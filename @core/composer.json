@@ -23,6 +23,7 @@
         "razorpay/razorpay": "2.*",
         "spatie/laravel-feed": "^2.7",
         "spatie/laravel-sitemap": "^5.7",
+        "spatie/pdf-to-image": "^2.1",
         "stripe/stripe-php": "^7.37",
         "unicodeveloper/laravel-paystack": "^1.0"
     },

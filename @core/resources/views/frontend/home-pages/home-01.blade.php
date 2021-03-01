@@ -613,6 +613,60 @@ This Section will be displayed to only Members & When code for that then we will
         </div>
     </div>
 </section>
+<section class="common-area video-area background-gray-light-lightest padding-50 ">
+    <div class="container-fluid common-container video-container">
+        <div class="row">
+            {{--            <div class="col-12 col-lg-1"></div>--}}
+            {{--            <div class="col-12 col-lg-10">--}}
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class=" bg-white rounded px-2 px-lg-3 padding-bottom-30">
+                            <div class="section-title d-flex justify-content-md-between align-items-center flex-column flex-md-row  padding-30">
+                                <h3 class="mb-0 font-weight-bold margin-bottom-0">{{'Latest Economic Updates'}}</h3>
+                                {{--                    <p class="desc">{{''}}</p>--}}
+                                <a href="{{route('frontend.dailyEconomicsUpdate')}}" class="btn">View All</a>
+                            </div>
+                            <div class="common-grid-carousel-wrapper">
+                                <div class="common-grid-carousel video-grid-carousel">
+                                    @foreach($all_daily_economic as $data)
+                                        <div class="common-grid-carousel-item">
+                                            <div class="common-item video-item single-what-we-cover-item-02 ">
+                                                <div class="common-img video-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now); @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge ">New</small>
+                                                    @endif
+
+                                                    <a class="align-items-center"
+                                                       href="{{route('frontend.economic.single', $data->slug)}}"
+                                                       target="_blank">
+{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
+                                                    </a>
+                                                </div>
+                                                <div class="common-content content">
+                                                    <a href="{{route('frontend.economic.single', $data->slug)}}">
+                                                        <h4 class="title d-flex align-items-center">{{$data->title}}</h4>
+                                                    </a>
+                                                    <a href="{{route('frontend.economic.single', $data->slug)}}" target="_blank" class="btn">View</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{--            <div class="col-12 col-lg-1"></div>--}}
+        </div>
+    </div>
+</section>
 
 {{--<section class="common-area book-area background-gray-light-lightest padding-top-50 ">--}}
 {{--    <div class="container-fluid common-container book-container">--}}
