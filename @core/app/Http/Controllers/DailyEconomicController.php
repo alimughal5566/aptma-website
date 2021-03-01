@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\ImageGallery;
-use App\ImageGalleryCategory;
 use App\Language;
 use App\DailyEconomic;
 use App\DailyEconomicCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Org_Heigl\Ghostscript\Ghostscript;
-use Spatie\PdfToImage\Pdf;
+
 
 
 
