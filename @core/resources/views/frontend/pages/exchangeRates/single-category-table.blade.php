@@ -114,7 +114,7 @@
                             {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>--}}
                             {{--                            <div class="w-100 background-gray-light">{{$cotlook[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
-                                <h3 class="text-white mb-0">
+                                <h3 class="text-white mb-0 d-flex flex-column align-items-center">
                                     <span>Cotlook ‘A’ Index</span>
                                     <span>{{Carbon\Carbon::parse($date)->addDays(-2)->format('M d, Y')}}</span>
                                 </h3>
@@ -148,7 +148,7 @@
                             {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>--}}
                             {{--                            <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
-                                <h3 class="text-white mb-0">
+                                <h3 class="text-white mb-0 d-flex flex-column align-items-center">
                                     <span>NYC US cent/lb</span>
                                     <span>{{Carbon\Carbon::parse($date)->addDays(-1)->format('M d, Y')}}</span>
                                 </h3>
@@ -184,7 +184,7 @@
                             {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>--}}
                             {{--                            <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
-                                <h3 class="text-white mb-0">KCA Pak Rs / Maund 40 Kg
+                                <h3 class="text-white mb-0 d-flex flex-column align-items-center">KCA Pak Rs / Maund 40 Kg
                                     <span>{{Carbon\Carbon::parse($date)->addDays(-1)->format('M d, Y')}}</span>
                                 </h3>
                             </div>
