@@ -23,7 +23,8 @@
                     <div class="service-details-item common-single-item exchange-rate-single-item position-relative">
 
                         <div class="d-flex flex-column align-items-center justify-content-lg-between flex-lg-row mb-3">
-                            <h2 class="common-single-title exchange-rate-single-title mb-0">Daily Exchange Rates <span>{{Carbon\Carbon::parse($date)->format('d M Y')}}</span></h2>
+                            <h2 class="common-single-title exchange-rate-single-title mb-0">Daily Exchange Rates
+                                <span>{{Carbon\Carbon::parse($date)->format('d M Y')}}</span></h2>
                             <a href="#" class="btn" target="_blank">Download</a>
                         </div>
 
@@ -129,14 +130,12 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $counter = 1 ?>
-                                    @foreach($data->cotlook as $cot)
+                                    @foreach($data->cotlook as $key=>$cot)
                                         <tr>
-                                            <th scope="row">{{$counter}}</th>
+                                            <th scope="row">{{$key+1}}</th>
                                             <td>{{$cot->a_index}}</td>
                                             <td>{{$cot->a_index_change}}</td>
                                         </tr>
-                                        <?php $counter = ++$counter?>
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -164,15 +163,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $counter = 1 ?>
-                                    @foreach($data->nyc as $ny)
+
+                                    @foreach($data->nyc as $key=>$ny)
                                         <tr>
-                                            <th scope="row">{{$counter}}</th>
+                                            <th scope="row">{{$key+1}}</th>
                                             <td>{{$ny->contract}}</td>
                                             <td>{{$ny->close}}</td>
                                             <td>{{$ny->changes}}</td>
                                         </tr>
-                                        <?php $counter = ++$counter?>
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -184,7 +182,8 @@
                             {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>--}}
                             {{--                            <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
-                                <h3 class="text-white mb-0 d-flex flex-column align-items-center">KCA Pak Rs / Maund 40 Kg
+                                <h3 class="text-white mb-0 d-flex flex-column align-items-center">
+                                    <span>KCA Pak Rs / Maund 40 Kg</span>
                                     <span>{{Carbon\Carbon::parse($date)->addDays(-1)->format('M d, Y')}}</span>
                                 </h3>
                             </div>
