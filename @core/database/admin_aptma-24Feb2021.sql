@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 22, 2021 at 02:54 PM
+-- Host: localhost:3306
+-- Generation Time: Feb 24, 2021 at 07:01 AM
 -- Server version: 5.7.32-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -372,9 +371,9 @@ CREATE TABLE `contact_info_items` (
 
 INSERT INTO `contact_info_items` (`id`, `title`, `lang`, `icon`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Email Address', 'en', 'far fa-envelope', 'info@aptma.org.pk\r\n\r\nit@aptma.org.pk', '2020-07-20 06:45:32', '2021-02-18 07:44:06'),
-(2, 'Phone', 'en', 'fas fa-phone', 'Islamabad: +92 51 2827145 \r\n\r\nKarachi: +92 21 111 700 000\r\n\r\nLahore: +92 42 35754345', '2020-07-20 06:46:20', '2021-02-18 07:47:30'),
-(3, 'Open Hours', 'en', 'far fa-clock', 'Mon - Sun\r\n24 / 7 @ 365', '2020-07-20 06:49:53', '2021-02-18 07:48:44'),
-(4, 'Location', 'en', 'fas fa-map-marker-alt', 'Islamabad: Office no. 504(b) APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Adjacent to Marriot Hotel Islamabad.\r\n\r\nKarachi: APTMA House, 44-A, Street #1, Molvi Tamizuddim Khan road, Lalazar, Karachi.\r\n\r\nLahore: Punjab Zone, APTMA House, 97-A, Aziz Avenue, Canal Bank, Lahore.', '2020-07-20 06:51:00', '2021-02-18 07:52:13'),
+(2, 'Phone', 'en', 'fas fa-phone', 'Islamabad: \r\n+92 51 2827145 \r\n\r\nKarachi: \r\n+92 21 111 700 000\r\n\r\nLahore: \r\n+92 42 35754345', '2020-07-20 06:46:20', '2021-02-23 10:53:52'),
+(3, 'Open Hours', 'en', 'far fa-clock', 'Monday - Saturday\r\n9:30AM - 5:30PM', '2020-07-20 06:49:53', '2021-02-23 10:48:47'),
+(4, 'Location', 'en', 'fas fa-map-marker-alt', 'Islamabad: \r\nOffice no. 504(b) APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Adjacent to Marriot Hotel Islamabad.\r\n\r\n\r\nKarachi: \r\nAPTMA House, 44-A, Street #1, Molvi Tamizuddim Khan road, Lalazar, Karachi.\r\n\r\n\r\nLahore: \r\nPunjab Zone, APTMA House, 97-A, Aziz Avenue, Canal Bank, Lahore.', '2020-07-20 06:51:00', '2021-02-23 10:54:47'),
 (5, 'E', 'tur', 'fas fa-envelope', 'example@gmail.com', '2020-07-27 08:26:49', '2020-07-27 08:26:49'),
 (6, 'Telefon', 'tur', 'fas fa-phone', '+123 444 5555 \r\n+32413432432', '2020-07-27 08:27:37', '2020-07-27 08:27:37'),
 (7, 'Açık saatler', 'tur', 'flaticon-clock', 'Sat - Wed 10AM - 7PM', '2020-07-27 08:28:48', '2020-07-27 08:28:48'),
@@ -1245,6 +1244,19 @@ CREATE TABLE `image_galleries` (
   `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `image_galleries`
+--
+
+INSERT INTO `image_galleries` (`id`, `image`, `title`, `created_at`, `updated_at`, `lang`, `cat_id`, `slug`) VALUES
+(13, '187', NULL, '2021-02-24 06:09:32', '2021-02-24 06:09:32', 'en', 11, NULL),
+(14, '188', NULL, '2021-02-24 06:09:43', '2021-02-24 06:09:43', 'en', 11, NULL),
+(15, '189', NULL, '2021-02-24 06:10:10', '2021-02-24 06:10:10', 'en', 11, NULL),
+(16, '190', NULL, '2021-02-24 06:10:25', '2021-02-24 06:10:25', 'en', 11, NULL),
+(18, '191', NULL, '2021-02-24 06:10:55', '2021-02-24 06:10:55', 'en', 11, NULL),
+(19, '192', NULL, '2021-02-24 06:11:29', '2021-02-24 06:11:29', 'en', 11, NULL),
+(20, '193', NULL, '2021-02-24 06:11:41', '2021-02-24 06:11:41', 'en', 11, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1261,6 +1273,13 @@ CREATE TABLE `image_gallery_categories` (
   `image` varchar(33) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `image_gallery_categories`
+--
+
+INSERT INTO `image_gallery_categories` (`id`, `title`, `lang`, `status`, `created_at`, `updated_at`, `image`, `slug`) VALUES
+(11, 'Office Gallery', 'en', 'publish', '2021-02-24 05:36:55', '2021-02-24 05:36:55', '81', 'office-gallery');
 
 -- --------------------------------------------------------
 
@@ -1729,7 +1748,14 @@ INSERT INTO `media_uploads` (`id`, `title`, `path`, `alt`, `size`, `dimensions`,
 (183, 'Mr.-Muhammad-Ismail-min2.jpg', 'mr-muhammad-ismail-min21613990309.jpg', NULL, '130.38 KB', '1350 x 1350 pixels', '2021-02-22 10:38:29', '2021-02-22 10:38:29'),
 (184, 'Mr.-Robat-Masih-min2.jpg', 'mr-robat-masih-min21613990309.jpg', NULL, '151.46 KB', '1350 x 1350 pixels', '2021-02-22 10:38:30', '2021-02-22 10:38:30'),
 (185, 'videos_4.jpg', 'videos-41613992624.jpg', NULL, '111.08 KB', '1153 x 603 pixels', '2021-02-22 11:17:04', '2021-02-22 11:17:04'),
-(186, 'FBR.jpg', 'fbr1613992833.jpg', NULL, '25.74 KB', '647 x 363 pixels', '2021-02-22 11:20:33', '2021-02-22 11:20:33');
+(186, 'FBR.jpg', 'fbr1613992833.jpg', NULL, '25.74 KB', '647 x 363 pixels', '2021-02-22 11:20:33', '2021-02-22 11:20:33'),
+(187, 'JSS_3024.jpg', 'jss-30241614146921.jpg', NULL, '290.96 KB', '1920 x 1280 pixels', '2021-02-24 06:08:41', '2021-02-24 06:08:41'),
+(188, 'JSS_3030.jpg', 'jss-30301614146922.jpg', NULL, '359.36 KB', '1920 x 1280 pixels', '2021-02-24 06:08:42', '2021-02-24 06:08:42'),
+(189, 'JSS_3046.jpg', 'jss-30461614146927.jpg', NULL, '306.43 KB', '1920 x 1280 pixels', '2021-02-24 06:08:48', '2021-02-24 06:08:48'),
+(190, 'JSS_3055.jpg', 'jss-30551614146928.jpg', NULL, '299.08 KB', '1920 x 1280 pixels', '2021-02-24 06:08:48', '2021-02-24 06:08:48'),
+(191, 'JSS_3057.jpg', 'jss-30571614146933.jpg', NULL, '335.63 KB', '1920 x 1280 pixels', '2021-02-24 06:08:54', '2021-02-24 06:08:54'),
+(192, 'JSS_3066.jpg', 'jss-30661614146934.jpg', NULL, '353.89 KB', '1920 x 1280 pixels', '2021-02-24 06:08:54', '2021-02-24 06:08:54'),
+(193, 'JSS_3086.jpg', 'jss-30861614146937.jpg', NULL, '303.18 KB', '1920 x 1280 pixels', '2021-02-24 06:08:58', '2021-02-24 06:08:58');
 
 -- --------------------------------------------------------
 
@@ -2186,9 +2212,8 @@ INSERT INTO `pages` (`id`, `title`, `slug`, `meta_tags`, `meta_description`, `co
 (3, 'Patron In Chief', 'patron-in-chief', NULL, NULL, '<div class=\"row\">\r\n    <div class=\"col-12 pb-3 order-first\">\r\n        <div>\r\n            <h3 class=\"font-weight-light\">Message from the Patron in Chief</h3>\r\n            <h2>Gohar Ejaz</h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-12\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-5 order-first order-lg-last\">\r\n                <div class=\"custom-user-img-wrap\">\r\n                    <img class=\"custom-user-img\" alt=\"Gohar Ejaz\" src=\"http://aptma.ivylabtech.com/assets/uploads/media-uploader/mr-gohar-ejaz-min1613978681.jpg\">\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-7 order-last order-lg-first\">\r\n                Dr. Gohar Ejaz is a prominent entrepreneur, philanthropist, and industrialist who has worked for the betterment and growth of Pakistan’s economy for over 30 years. For his dedication, passion, and significant services to the community, he was awarded Sitara-e-Imtiaz (the Highest Civilian Award) by the President of Pakistan. Dr. Ejaz has also been recognized for his outstanding services in business management with an Honorary Doctorate in Management from the University of Punjab, Lahore. His tenacity to resolve issues affecting Pakistan\'s industries and persistence in validating Pakistan’s export industry is outstanding.\r\n                <br><br>\r\n                Dr. Ejaz has a kind heart with empathy and deep compassion for humanity. During the ongoing COVID-19 and\r\n                pandemic and lockdown, the Gohar Ejaz Foundation and LHIS (Friends of Lahore, headed by Dr. Gohar Ejaz)\r\n                have been instrumental in collecting donations and organizing the distribution of ration packs to the doorsteps of over 100,000 deserving families of manual laborers / daily wagers. In recognition of Dr.\r\n                Ejaz’s relentless efforts to this noble cause, the President of Pakistan was pleased to confer upon him the award of “Shaan-e-Pakistan” (the Pride of Pakistan). Moreover, as Chairman LIHS, Dr. Ejaz has also ensured daily food delivery to more than 20,000 deserving hospital patients and attendants across hospitals in Lahore, such as Jinnah Hospital, Mayo Hospital, Children’s Hospital, and Services Hospital.\r\n                <br><br>\r\n                At the same time, Dr. Ejaz has successfully endeavored to put Pakistan\'s textile industry on a growth trajectory. Being a fearless spokesman, Dr. Ejaz\'s representation for securing a free market operating regime brought benefit in the shape of increased production and enhanced textile exports. His endurance to boost the economy via export-led growth has resulted in an unprecedented increase in textile exports,\r\n                with the industry now operating at full capacity. In fact, industrial activity has been so rapid that the sector is facing labor shortages to keep up with enhanced production and orders.\r\n                <br>\r\n                <br>\r\n                Dr. Ejaz is also a strong advocate of research and development. Under his stewardship, APTMA is fostering research to explore avenues for speedy and sustainable economic growth. Dr. Ejaz also has numerous publications to his credit, highlighting pressing issues and making suggestions for steering the economy through challenges towards prosperity. His inputs for short and medium-term planning for ensuring energy security for industry and other areas have also been a welcome contribution. Dr. Gohar\r\n                Ejaz’s vision for an interest rate regime that is globally competitive has its own merits and is all set to lead to increased industrial investment and growth when permitted internationally and provided domestically. For his exemplary contributions to Pakistan, and society at large, Dr. Ejaz has been presented with numerous nominations, awards, and accolades. Dr. Ejaz has also served as a board member\r\n                for many reputable institutions, including King Edward Medical University Lahore (KEMU), Board of\r\n                Investment (BOI), ADRC, PCCI, FBR, PIDE, UHS, and PCCC.\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-12 pt-4\">\r\n        <b>1) <u>Ejaz Group of Companies</u></b><br>\r\n        Dr. Gohar Ejaz is a business tycoon, investor, and philanthropist, who is the Chief Executive of Ejaz Group of\r\n        Companies, compromising of Ejaz Spinning Mills &amp; Ejaz Textile Mills Limited. Born in 1966, a qualified\r\n        Business Graduate from Karachi University, Karachi. At the age of 24, Dr. Gohar Ejaz left behind two generations of credibility and goodwill in Karachi and built a new legacy from the ground up in Lahore. Under his dynamic leadership, the Ejaz Group of Companies was established and the group commissioned its textile division in 1990.\r\n        Its first yarn manufacturing unit was established at Bhaipheru, titled Ejaz Textile Mills Limited. By 1992\r\n        another unit, ‘Ejaz Spinning Mills Limited’ was initiated in Sheikhupura with state-of-the-art machinery and its very own power generation plant. Ejaz Group employs more than 3000 people with an astounding turnover of $100\r\n        million.\r\n        <br><br>\r\n        <b>2) <u>Lake City, Lahore</u></b><br>\r\n        Dr. Gohar Ejaz is the Chief Executive of “The Lake City Holdings (Pvt.) Ltd”, a 2000-acre resort and residential project that is home to an 18-hole PGA golf course, 8,000 luxury bungalows/villas, serene lakes, landscape architecture, parks, and pavilions, civic amenities, restaurants, a modern Cineplex, and a shopping mall. He has also been elected Patron-in-Chief of the Association of Builders and Developers of Pakistan (ABAD) Northern Region, a national-level representative organization of builders and developers, formed with the aim and the objective of unifying and streamlining the construction activities of the private sector.\r\n        <br><br>\r\n        <b>3) <u>Sheikh Ejaz Ahmed Trust Dialysis Center</u></b><br>\r\n        Dr. Gohar Ejaz established a state-of-the-art dialysis center in 2006 at Jinnah Hospital, Lahore, with 56\r\n        dialysis machines and the potential to conduct 50,000 dialysis per year. Providing its services free of cost,\r\n        the Sheikh Ejaz Ahmed Dialysis Center is run by the Sheikh Ejaz Ahmed Trust, with an annual budget of over Rs.\r\n        200 million. In addition, the Trust has donated several dialysis machines to a center in Kharan, thus making dialysis facilities available to patients who previously lacked access to them.\r\n        <br><br>\r\n        <b>4) <u>Healthcare</u></b><br>\r\n        Dr. Gohar Ejaz has devoted significantly to the improvement of the healthcare system. In doing so, he also\r\n        serves as Chairman of the following prestigious institutions;\r\n        (i) Jinnah Hospital, Lahore.\r\n        (ii) Allama Iqbal Medical College, Lahore.\r\n        <br><br>\r\n        <b>5) <u>The Gohar Ejaz Foundation</u></b><br>\r\n        The foundation plans to work towards the detection of hepatitis-positive patients in Lahore and to provide complete screening through Mobile Labs followed by free medical treatment including free of cost medicine to the hepatitis patients.\r\n        <br><br>\r\n        <b>6) <u>National Outreach Program</u></b><br>\r\n        The Gohar Ejaz Foundation, National Outreach Program was set up in 2016 with a focus on providing scholarships to students from across the country. The National Outreach Program has been a crucial facilitator for students\r\n        to gain merit–based scholarships in the top 2 universities of Pakistan: Lahore University of Management Sciences\r\n        (LUMS) and Allama Iqbal Medical College (AIMC). Every year, 20 deserving students are given the opportunity to gain a world-class education fully funded by this program, inclusive of tuition, lodging, and more.\r\n        <br><br>\r\n        <b>7) <u>All Pakistan Textile Mills Association (APTMA)</u></b><br>\r\n        He was elected as the Patron-in-Chief and Group Leader of All Pakistan Textile Mills Association (APTMA), the premier textile industry association of the country, and has held this position since 2011. He previously served as the Chairman of APTMA for the year 2010 – 2011. A vocal spokesman for the textile industry and its contributions to the national economy, he has always been motivated by a desire to contribute to Pakistan’s well-being. His achievements especially attaining Energy Parity for the export sectors of Pakistan with\r\n        competing countries have allowed Pakistan Export Industry to contribute significantly to the economic well-being\r\n        of Pakistan and retaining and generating employment for the under-privileged workers of Pakistan.\r\n        <br><br>\r\n        Dr. Ejaz is a strong supporter of industrial expansion and enhancement. The boom in the textile sector during the COVID crises is all credited to him. He has been leading the sector and taking the industry with him towards\r\n        Pakistan’s export-led sustainable economic growth.\r\n    </div>\r\n</div>', 'en', 'publish', '2021-02-09 13:27:10', '2021-02-22 08:28:33'),
 (4, 'Chairman', 'chairman-message', NULL, NULL, '<div class=\"row\">\r\n      <div class=\"col-lg-12 order-first\">\r\n           <h3>Message from the Chairman</h3>\r\n           <h2>Mr. Adil Bashir</h2>\r\n      </div>\r\n      <div class=\"col-lg-5 order-first order-lg-last\">\r\n           <div class=\"custom-user-img-wrap\"><img class=\"custom-user-img\" src=\"http://aptma.ivylabtech.com/assets/uploads/media-uploader/chairman1613303963.jpg\"></div>\r\n      </div>\r\n      <div class=\"col-lg-7 order-last order-lg-first\">All Pakistan Textile Mills Association (APTMA) is the largest trade association in Pakistan. When we evaluate certain issues that relate to the fundamentals of the textile business, we aim to cultivate a solution-oriented approach, and this is notable not only in each of our published works but in the performance of Pakistan’s export-oriented sectors. As the premier industry association of the country, APTMA is well aware of its commitment to act as a partner in national development. Therefore, we pride ourselves on being a thought leader for the nation and identifying economic issues of a broad scope. We are focused on economic reform through our own contributions to Pakistan’s economic growth through an export-led strategy. In this regard, government support is a key paradigm that has been of value to us and we hope to continue receiving it. \r\nFurthermore, APTMA, being the largest and most well-organized trade association, has the ultimate responsibility to help facilitate the environment and socio-economic climate necessary for the positive performance and viability of our member mills.<br></div>\r\n</div>', 'en', 'publish', '2021-02-10 20:43:22', '2021-02-22 07:33:19'),
 (5, 'Secretary General', 'secretary-general', NULL, NULL, '<div class=\"row\">\r\n    <div class=\"col-12 order-first\">\r\n        <div>\r\n            <h3 class=\"font-weight-light\">Executive Director / Secretary General, APTMA</h3>\r\n            <h2>Shahid Sattar</h2>\r\n        </div>\r\n    </div>\r\n    <br><br>\r\n    <div class=\"col-12\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-5 order-first order-lg-last\">\r\n                <div class=\"custom-user-img-wrap\">\r\n                    <img class=\"custom-user-img\" alt=\"Shahid Sattar\" src=\"http://aptma.ivylabtech.com/assets/uploads/media-uploader/mr-shahid-sattar-min1613730410.jpg\">\r\n                </div>\r\n            </div>\r\n            <div class=\"col-lg-7 order-last order-lg-first\">\r\n                <b>PUBLIC SECTOR EXPERIENCE</b>: <br>He has served as Member Energy of the Planning Commission of\r\n                Pakistan &amp;\r\n                has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp;\r\n                Power.\r\n                <br><br>\r\n                <b>PRIVATE SECTOR EXPERIENCE</b>: <br>He has held senior management positions with the various energy sector\r\n                entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the\r\n                All\r\n                Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and\r\n                Secretary-General of\r\n                APTMA.\r\n                <br><br>\r\n                He has several international publications and has been regularly writing articles in Pakistani\r\n                newspapers on\r\n                industry and economic issues.\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>', 'en', 'publish', '2021-02-11 08:29:27', '2021-02-22 08:33:13'),
-(6, 'Executive Committee', 'executive-committee-members', NULL, NULL, NULL, 'en', 'publish', '2021-02-11 08:55:57', '2021-02-17 20:26:33'),
-(7, 'APTMA Achievements', 'aptma-achievements', NULL, NULL, '<h2 class=\"title\">All Pakistan Textile Mills Associations</h2>\r\n<br>\r\n<p>The All Pakistan Textile Mills Associations (APTMA) is a trade organization representing the largest sector of Pakistan – Textile – encompassing more than 400 textile companies. APTMA plays a pivotal role in safeguarding the business interests of not only textile companies but of other sectors to enable their contribution to the country’s economic prosperity. APTMA, through its political, economic, and social capital capabilities, has always played a leadership role for business facilitation and government-related services. \r\n</p>\r\n<br>\r\n<p>We take immense pride in achieving industrial goals benefiting the entire nation. Our biggest achievement so far is the formulation of the Textile Policy 2020-25 which has been approved by ECC and In Shaa Allah will be implemented soon. The Policy will support the entire Textile Value Chain enabling textile products to be regionally competitive, resulting in enhanced exports for several years to come and contributing to sustainable export-led economic growth. The Policy encompasses continuous implementation of viable energy tariffs, export/investment strategy including export sustainability, implementation of Special Economic Zones (SEZ), discounted finance packages ensuring liquidity and credit availability for SMEs, and reduction in Turnover Tax. The achievement of this unprecedented milestone is completely attributed to the relentless efforts and dedication of APTMA. </p>\r\n<br>\r\n<p>We have always been proactive in addressing the most pressing issues threatening the viability of our businesses in a timely manner. APTMA’s initiative in reviving the cotton crop is a pro-poor strategy that will not only uplift the country’s economic outlook in the coming years but will also serve our future generations. Once the lifeline of our farmers, the cotton crop has seen its worst in recent years. APTMA has thus formed a Cotton Task Force as a strategic alliance with the Punjab government to revamp and revive the production and yield of cotton crops in Pakistan. We have already made strides by getting in touch with embassies of many countries including the USA, China, Turkey, Brazil, Uzbekistan, Turkmenistan, and Brazil to seek and opt for their seed development technologies, establish affiliations with their top scientific research institutions and enhance bilateral trade. Addressing this critical issue, we are putting together a Cotton Secretariat spearheaded by our Patron-In-Chief, Mr. Gohar Ejaz, along with a dedicated team of researchers and seasoned consultants to sustainably steer the sector in the right direction. Now we also participate in and contribute to the monthly Cotton Crop Assessment Meetings.</p>\r\n<br>\r\n<p>Being the largest association, we ensure our presence is not only valued but has a material impact. We were the strongest proponent of having regionally competitive tariffs for Export Oriented Units in the country, which, after years of APTMA’s persistent struggle, were implemented resulting in enhanced exports. Through our continuous correspondence, we played a significant role in convincing the State Bank of Pakistan to reduce interest rates to benefit industries, especially during the pandemic. Similarly, we repeatedly voiced credit and liquidity crises hampering business operations during the pandemic, which resulted in launching schemes such as TERF/ITERF, Salary &amp; Wages Package, etc. Moreover, while ensuring inclusivity, we requested a special focus on SMEs and those textile units that are struggling for survival - we liaised with the SBP and the Ministry of Commerce to convince them for launching a separate buyout scheme amounting to USD $300 million, which is under consideration. Most significantly, we arranged a focused meeting with the Deputy Director of SBP to request an extension in LTFF for indirect exporters – which has been affirmed by DG, SBP. Furthermore, we preemptively approached the Ministry to oppose Duty on Yarn as it would prove counterproductive to the industry, and the same has been abolished by the government. We further nudged the Ministry on fronts like Duty Drawbacks on exports to Export Processing Zones, an extension of zero-rating certificates, granting zero-rated facility to consumers of LIEDA and their reimbursement against tariff differential, etc.</p>\r\n<br>\r\n<p>There have been numerous occasions where APTMA’s timely intervention worked for the welfare of the industry. A recent instance is when NEPRA tried implementing increased charges on wheeling and Captive, the team at our Principal Office timely intervened and prevented these exorbitant charges that could have cost the industry billions. Likewise, the decision on GIDC was challenged by APTMA, making a strong case to only obtain a justified amount from consumers, again saving the industry billions. On another occasion where NEECA bombarded the industry with efficacy audits of captive power plants, APTMA categorically refuted on logical and legal grounds and has delayed the same, again saving the industry billions. The core team at Principal Office, with their professional interconnectedness with government and non-government institutions, is working without any vested interest to provide a level playing field to the textile industry. </p>\r\n<br>\r\n<p>APTMA has also fought on the frontline for the industry with several government entities, notably FBR, OGRA, NEPRA, NTC, as well as the Ministry of Energy. We warranted a refund of long outstanding dues from FBR, raised concerns, and requested the deletion of extra tax on electricity, alongside making them aware of the shortcomings in their FASTER system, which FBR later publicly acknowledged. We regularly attend hearings to raise concerns/issues faced by the industry, e.g., we projected our reservations at OGRA in the petition for Estimated Revenue Requirement (ERR), and in another instance, halted OGRA’s decision of wrongfully increasing the Natural Gas tariff. We also communicated to RDA Cell to increase sample quota limits which are hampering export drive. Another successful effort of APTMA was the reduction of UFG from 14% to 6% in RLNG pricing that benefited the industry. And we are also pursuing NTC for tariff rationalization of Textile Value Chain.</p>\r\n<br>\r\n<p>APTMA has been achieving many uphill tasks for the stability of the industry and the promotion of businesses. It acts as a watchdog and continuously takes action for the protection of the sector. We at APTMA make sure to contribute to society at large. We have a dedicated team of national and international graduates working as researchers at the Principal Office under the leadership of Mr. Shahid Sattar, Executive Director, to analyze industry dynamics, critically review decisions affecting the industry, and undertake data analysis. APTMA has more than 65 newspaper and magazine articles in a span of just 2 years covering almost every aspect of the economy, and the compendium of the same will be published by the end of December 2020.</p>\r\n<br>\r\n<p>We also have a substantial media footprint from TV appearances in top-rated TV channels including DAWN and Dunya News, to articles in all the leading newspapers and magazines. Mr. Ejaz and Mr. Sattar have always been vocal about current affairs in the country and have opined on many critical issues affecting the economy. </p>', 'en', 'publish', '2021-02-16 10:28:54', '2021-02-16 10:49:45'),
-(8, 'APTMA Standing Committees', 'aptma-standing-committees', NULL, NULL, '<div class=\"table-responsive standing-committee\">\r\n    <table class=\"table table-hover table-bordered\">\r\n        <thead class=\"thead-light\">\r\n        <tr>\r\n            <th>S#</th>\r\n            <th>COMMITTEES</th>\r\n            <th>DESIGNATION</th>\r\n            <th>NAME</th>\r\n            <th>MILLS</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n            <td rowspan=\"6\">1</td>\r\n            <td rowspan=\"6\">ADMIN, FINANCE &amp; MEMBERSHIP CARE</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ADIL BASHIR</td>\r\n            <td>SHAMS TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n\r\n            <td>MEMBER</td>\r\n            <td>MR. AAMIR FAYYAZ</td>\r\n            <td>KOHINOOR MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAHID MAZHAR</td>\r\n            <td>NADEEM TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n\r\n            <td>MEMBER</td>\r\n            <td>MR. HAMID ZAMAN KHAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td> DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td rowspan=\"6\">2</td>\r\n            <td rowspan=\"6\">COTTON</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. GOHAR EJAZ</td>\r\n            <td>EJAZ TEXTILE MILLS LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>KHAWAJA MUHAMMAD ANEES</td>\r\n            <td>MASOOD SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td>DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. REHMAN NASEEM</td>\r\n            <td> AHMED FINE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. TARIQ MEHMOOD</td>\r\n            <td>PAK KUWAIT TEXTILES LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. SHAHID ABDULLAH</td>\r\n            <td>RELIANCE COTTON &amp; SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"6\">3</td>\r\n            <td rowspan=\"6\">YARN</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. NAVEED AHMED</td>\r\n            <td>INDUS DYEING &amp; MFG. CO. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. NADEEM MAQBOOL</td>\r\n            <td>SURAJ COTTON MILLS LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. ANJUM ZAFAR</td>\r\n            <td>EASTERN SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. REHMAN NASEEM</td>\r\n            <td>AHMED FINE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. MUHAMMAD ZAHID</td>\r\n            <td>ZAHIDJEE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. IMRAN MAQBOOL</td>\r\n            <td>CRESCENT FIBRES LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"2\">4</td>\r\n            <td rowspan=\"2\">HOME TEXTILES</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ZAKI BASHEER</td>\r\n            <td> GUL AHMED TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. SHAIQ JAWED</td>\r\n            <td>J.K. SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"4\">5</td>\r\n            <td rowspan=\"4\">PROCESSING FABRIC &amp; APPAREL</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. AAMIR FAYYAZ</td>\r\n            <td>KOHINOOR MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. HAMID ZAMAN KHAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAKI BASHEER</td>\r\n            <td>GUL AHMED TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"4\">6</td>\r\n            <td rowspan=\"4\">VALUE ADDED (RETAIL BUSINESS)</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. HAMID ZAMAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT.) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. MUHAMMAD ZAKI BASHIR</td>\r\n            <td>GUL AHMED TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASAD SHAFI</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. NABEEL TANVEER</td>\r\n            <td>DIN TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"5\">8</td>\r\n            <td rowspan=\"5\">LEGAL AFFAIRS</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ADIL BASHIR</td>\r\n            <td>SHAMS TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. NAVEED GULZAR</td>\r\n            <td>CRESCENT COTTON MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td>DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. AAMIR SHEIKH</td>\r\n            <td>NORTH STAR TEXTILES LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"7\">9</td>\r\n            <td rowspan=\"7\">FBR AFFAIRS</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ADIL BASHIR</td>\r\n            <td>SHAMS TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAHID MAZHAR</td>\r\n            <td>NADEEM TEXTILE MILLS LTD. .</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. HAMID ZAMAN KHAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT) LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. REHMAN NASEEM</td>\r\n            <td>AHMED FINE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. FAISAL PERVEZ</td>\r\n            <td> UMAR SPINNING MILLS (PVT.) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. SHAIQ JAWED</td>\r\n            <td>J.K. SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td rowspan=\"3\">10</td>\r\n            <td rowspan=\"3\">ENERGY (GAS &amp; ELECTRICITY)</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td>DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. KAMRAN ARSHAD</td>\r\n            <td> GHAZI FABRICS (PVT.) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td rowspan=\"3\">11</td>\r\n            <td rowspan=\"3\">BANKING, RESTRUCTURING &amp; REVIVAL OF SICK UNITS</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. MUHAMMAD YASIN SIDDIK</td>\r\n            <td>PREMIUM TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. AAMIR FAYYAZ</td>\r\n            <td>KOHINOOR MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAHID MAZHAR</td>\r\n            <td>NADEEM TEXTILE MILLS LIMITED</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>', 'en', 'publish', '2021-02-16 12:53:58', '2021-02-17 21:09:12');
+(6, 'Executive Committee', 'executive-committee-members', NULL, NULL, '<div class=\"table-responsive standing-committee\">\r\n    <table class=\"table table-hover table-bordered\">\r\n        <thead class=\"thead-light\">\r\n        <tr>\r\n            <th>S#</th>\r\n            <th>COMMITTEES</th>\r\n            <th>DESIGNATION</th>\r\n            <th>NAME</th>\r\n            <th>MILLS</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n            <td rowspan=\"6\">1</td>\r\n            <td rowspan=\"6\">ADMIN, FINANCE &amp; MEMBERSHIP CARE</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ADIL BASHIR</td>\r\n            <td>SHAMS TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n\r\n            <td>MEMBER</td>\r\n            <td>MR. AAMIR FAYYAZ</td>\r\n            <td>KOHINOOR MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAHID MAZHAR</td>\r\n            <td>NADEEM TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n\r\n            <td>MEMBER</td>\r\n            <td>MR. HAMID ZAMAN KHAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td> DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td rowspan=\"6\">2</td>\r\n            <td rowspan=\"6\">COTTON</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. GOHAR EJAZ</td>\r\n            <td>EJAZ TEXTILE MILLS LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>KHAWAJA MUHAMMAD ANEES</td>\r\n            <td>MASOOD SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td>DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. REHMAN NASEEM</td>\r\n            <td> AHMED FINE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. TARIQ MEHMOOD</td>\r\n            <td>PAK KUWAIT TEXTILES LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. SHAHID ABDULLAH</td>\r\n            <td>RELIANCE COTTON &amp; SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"6\">3</td>\r\n            <td rowspan=\"6\">YARN</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. NAVEED AHMED</td>\r\n            <td>INDUS DYEING &amp; MFG. CO. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. NADEEM MAQBOOL</td>\r\n            <td>SURAJ COTTON MILLS LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. ANJUM ZAFAR</td>\r\n            <td>EASTERN SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. REHMAN NASEEM</td>\r\n            <td>AHMED FINE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. MUHAMMAD ZAHID</td>\r\n            <td>ZAHIDJEE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. IMRAN MAQBOOL</td>\r\n            <td>CRESCENT FIBRES LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"2\">4</td>\r\n            <td rowspan=\"2\">HOME TEXTILES</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ZAKI BASHEER</td>\r\n            <td> GUL AHMED TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. SHAIQ JAWED</td>\r\n            <td>J.K. SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"4\">5</td>\r\n            <td rowspan=\"4\">PROCESSING FABRIC &amp; APPAREL</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. AAMIR FAYYAZ</td>\r\n            <td>KOHINOOR MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. HAMID ZAMAN KHAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAKI BASHEER</td>\r\n            <td>GUL AHMED TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"4\">6</td>\r\n            <td rowspan=\"4\">VALUE ADDED (RETAIL BUSINESS)</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. HAMID ZAMAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT.) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. MUHAMMAD ZAKI BASHIR</td>\r\n            <td>GUL AHMED TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASAD SHAFI</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. NABEEL TANVEER</td>\r\n            <td>DIN TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"5\">8</td>\r\n            <td rowspan=\"5\">LEGAL AFFAIRS</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ADIL BASHIR</td>\r\n            <td>SHAMS TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. NAVEED GULZAR</td>\r\n            <td>CRESCENT COTTON MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td>DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. AAMIR SHEIKH</td>\r\n            <td>NORTH STAR TEXTILES LTD.</td>\r\n        </tr>\r\n        <!-- ****************** -->\r\n        <tr>\r\n            <td rowspan=\"7\">9</td>\r\n            <td rowspan=\"7\">FBR AFFAIRS</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ADIL BASHIR</td>\r\n            <td>SHAMS TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAHID MAZHAR</td>\r\n            <td>NADEEM TEXTILE MILLS LTD. .</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. HAMID ZAMAN KHAN</td>\r\n            <td>SARENA TEXTILE INDUSTRIES (PVT) LTD</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. REHMAN NASEEM</td>\r\n            <td>AHMED FINE TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. FAISAL PERVEZ</td>\r\n            <td> UMAR SPINNING MILLS (PVT.) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td> MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. SHAIQ JAWED</td>\r\n            <td>J.K. SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td rowspan=\"3\">10</td>\r\n            <td rowspan=\"3\">ENERGY (GAS &amp; ELECTRICITY)</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. ABDUL RAHIM NASIR</td>\r\n            <td>AYESHA SPINNING MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ASIF INAM</td>\r\n            <td>DIAMOND INTERNATIONAL CORP. LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. KAMRAN ARSHAD</td>\r\n            <td> GHAZI FABRICS (PVT.) LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td rowspan=\"3\">11</td>\r\n            <td rowspan=\"3\">BANKING, RESTRUCTURING &amp; REVIVAL OF SICK UNITS</td>\r\n            <td>CHAIRMAN</td>\r\n            <td>MR. MUHAMMAD YASIN SIDDIK</td>\r\n            <td>PREMIUM TEXTILE MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. AAMIR FAYYAZ</td>\r\n            <td>KOHINOOR MILLS LTD.</td>\r\n        </tr>\r\n        <tr>\r\n            <td>MEMBER</td>\r\n            <td>MR. ZAHID MAZHAR</td>\r\n            <td>NADEEM TEXTILE MILLS LIMITED</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n</div>', 'en', 'publish', '2021-02-11 08:55:57', '2021-02-23 06:03:02'),
+(7, 'APTMA Achievements', 'aptma-achievements', NULL, NULL, '<h2 class=\"title\">All Pakistan Textile Mills Associations</h2>\r\n<br>\r\n<p>The All Pakistan Textile Mills Associations (APTMA) is a trade organization representing the largest sector of Pakistan – Textile – encompassing more than 400 textile companies. APTMA plays a pivotal role in safeguarding the business interests of not only textile companies but of other sectors to enable their contribution to the country’s economic prosperity. APTMA, through its political, economic, and social capital capabilities, has always played a leadership role for business facilitation and government-related services. \r\n</p>\r\n<br>\r\n<p>We take immense pride in achieving industrial goals benefiting the entire nation. Our biggest achievement so far is the formulation of the Textile Policy 2020-25 which has been approved by ECC and In Shaa Allah will be implemented soon. The Policy will support the entire Textile Value Chain enabling textile products to be regionally competitive, resulting in enhanced exports for several years to come and contributing to sustainable export-led economic growth. The Policy encompasses continuous implementation of viable energy tariffs, export/investment strategy including export sustainability, implementation of Special Economic Zones (SEZ), discounted finance packages ensuring liquidity and credit availability for SMEs, and reduction in Turnover Tax. The achievement of this unprecedented milestone is completely attributed to the relentless efforts and dedication of APTMA. </p>\r\n<br>\r\n<p>We have always been proactive in addressing the most pressing issues threatening the viability of our businesses in a timely manner. APTMA’s initiative in reviving the cotton crop is a pro-poor strategy that will not only uplift the country’s economic outlook in the coming years but will also serve our future generations. Once the lifeline of our farmers, the cotton crop has seen its worst in recent years. APTMA has thus formed a Cotton Task Force as a strategic alliance with the Punjab government to revamp and revive the production and yield of cotton crops in Pakistan. We have already made strides by getting in touch with embassies of many countries including the USA, China, Turkey, Brazil, Uzbekistan, Turkmenistan, and Brazil to seek and opt for their seed development technologies, establish affiliations with their top scientific research institutions and enhance bilateral trade. Addressing this critical issue, we are putting together a Cotton Secretariat spearheaded by our Patron-In-Chief, Mr. Gohar Ejaz, along with a dedicated team of researchers and seasoned consultants to sustainably steer the sector in the right direction. Now we also participate in and contribute to the monthly Cotton Crop Assessment Meetings.</p>\r\n<br>\r\n<p>Being the largest association, we ensure our presence is not only valued but has a material impact. We were the strongest proponent of having regionally competitive tariffs for Export Oriented Units in the country, which, after years of APTMA’s persistent struggle, were implemented resulting in enhanced exports. Through our continuous correspondence, we played a significant role in convincing the State Bank of Pakistan to reduce interest rates to benefit industries, especially during the pandemic. Similarly, we repeatedly voiced credit and liquidity crises hampering business operations during the pandemic, which resulted in launching schemes such as TERF/ITERF, Salary &amp; Wages Package, etc. Moreover, while ensuring inclusivity, we requested a special focus on SMEs and those textile units that are struggling for survival - we liaised with the SBP and the Ministry of Commerce to convince them for launching a separate buyout scheme amounting to USD $300 million, which is under consideration. Most significantly, we arranged a focused meeting with the Deputy Director of SBP to request an extension in LTFF for indirect exporters – which has been affirmed by DG, SBP. Furthermore, we preemptively approached the Ministry to oppose Duty on Yarn as it would prove counterproductive to the industry, and the same has been abolished by the government. We further nudged the Ministry on fronts like Duty Drawbacks on exports to Export Processing Zones, an extension of zero-rating certificates, granting zero-rated facility to consumers of LIEDA and their reimbursement against tariff differential, etc.</p>\r\n<br>\r\n<p>There have been numerous occasions where APTMA’s timely intervention worked for the welfare of the industry. A recent instance is when NEPRA tried implementing increased charges on wheeling and Captive, the team at our Principal Office timely intervened and prevented these exorbitant charges that could have cost the industry billions. Likewise, the decision on GIDC was challenged by APTMA, making a strong case to only obtain a justified amount from consumers, again saving the industry billions. On another occasion where NEECA bombarded the industry with efficacy audits of captive power plants, APTMA categorically refuted on logical and legal grounds and has delayed the same, again saving the industry billions. The core team at Principal Office, with their professional interconnectedness with government and non-government institutions, is working without any vested interest to provide a level playing field to the textile industry. </p>\r\n<br>\r\n<p>APTMA has also fought on the frontline for the industry with several government entities, notably FBR, OGRA, NEPRA, NTC, as well as the Ministry of Energy. We warranted a refund of long outstanding dues from FBR, raised concerns, and requested the deletion of extra tax on electricity, alongside making them aware of the shortcomings in their FASTER system, which FBR later publicly acknowledged. We regularly attend hearings to raise concerns/issues faced by the industry, e.g., we projected our reservations at OGRA in the petition for Estimated Revenue Requirement (ERR), and in another instance, halted OGRA’s decision of wrongfully increasing the Natural Gas tariff. We also communicated to RDA Cell to increase sample quota limits which are hampering export drive. Another successful effort of APTMA was the reduction of UFG from 14% to 6% in RLNG pricing that benefited the industry. And we are also pursuing NTC for tariff rationalization of Textile Value Chain.</p>\r\n<br>\r\n<p>APTMA has been achieving many uphill tasks for the stability of the industry and the promotion of businesses. It acts as a watchdog and continuously takes action for the protection of the sector. We at APTMA make sure to contribute to society at large. We have a dedicated team of national and international graduates working as researchers at the Principal Office under the leadership of Mr. Shahid Sattar, Executive Director, to analyze industry dynamics, critically review decisions affecting the industry, and undertake data analysis. APTMA has more than 65 newspaper and magazine articles in a span of just 2 years covering almost every aspect of the economy, and the compendium of the same will be published by the end of December 2020.</p>\r\n<br>\r\n<p>We also have a substantial media footprint from TV appearances in top-rated TV channels including DAWN and Dunya News, to articles in all the leading newspapers and magazines. Mr. Ejaz and Mr. Sattar have always been vocal about current affairs in the country and have opined on many critical issues affecting the economy. </p>', 'en', 'publish', '2021-02-16 10:28:54', '2021-02-16 10:49:45');
 
 -- --------------------------------------------------------
 
@@ -4287,14 +4312,14 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (916, 'site_google_map_api', NULL, '2020-07-24 11:41:07', '2020-07-24 11:41:33'),
 (917, 'site_google_captcha_v3_site_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
 (918, 'site_google_captcha_v3_secret_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
-(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
-(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
-(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
-(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-02-22 14:34:48'),
+(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-24 05:35:57'),
+(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-02-24 05:35:57'),
+(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-24 05:35:57'),
+(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-02-24 05:35:57'),
 (923, 'item_purchase_key', 'dfgdfgdfgdfgdfg', '2020-07-25 00:27:03', '2020-10-04 11:00:51'),
-(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-22 13:55:28'),
-(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-22 13:55:28'),
-(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-02-22 14:34:48'),
+(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-23 10:01:55'),
+(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-23 10:01:55'),
+(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-02-24 05:35:57'),
 (927, 'site_sticky_navbar_enabled', 'on', '2020-07-25 07:32:50', '2021-02-19 15:09:30'),
 (928, 'popup_enable_status', NULL, '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (929, 'popup_delay_time', '10000', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
@@ -4655,31 +4680,61 @@ CREATE TABLE `team_members` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `about_me` text COLLATE utf8mb4_unicode_ci,
   `order_no` int(33) DEFAULT NULL,
-  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type_order` int(255) DEFAULT NULL,
+  `type` int(100) DEFAULT NULL,
+  `show_detail_status` tinyint(1) DEFAULT NULL,
+  `is_research_member` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `team_members`
 --
 
-INSERT INTO `team_members` (`id`, `cat_id`, `department_id`, `name`, `designation`, `lang`, `description`, `image`, `icon_one`, `icon_two`, `icon_three`, `icon_one_url`, `icon_two_url`, `icon_three_url`, `created_at`, `updated_at`, `about_me`, `order_no`, `slug`) VALUES
-(2, 1, 20, 'Shahid Sattar', 'Executive Director', 'en', '<b>PUBLIC SECTOR EXPERIENCE:</b>\r\nHe has served as Member Energy of the Planning Commission of Pakistan &amp; has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp; Power.\r\n<br>\r\n<br>\r\n<b>PRIVATE SECTOR EXPERIENCE:</b>\r\nHe has held senior management positions with the various energy sector entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the All Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and Secretary-General of APTMA.\r\n<br>\r\nHe has several international publications and has been regularly writing articles in Pakistani newspapers on industry and economic issues.', '178', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', '#', '2020-07-20 01:19:23', '2021-02-22 14:18:58', 'Mr. Shahid Sattar has served as Member Energy of the Planning Commission of Pakistan & has also been an advisor at: Ministry of Finance, Ministry of Petroleum, and Ministry of Water & Power.', 2, 'shahid-sattar-executive-director'),
-(22, 1, 19, 'Ayyaz Asim', 'CFO & Company Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Mr.\r\nAyyaz Asim is Chief Financial Officer &amp; Company Secretary of All Pakistan\r\nTextile Mills Association (APTMA) for more than the last three (3) years. He is an\r\nAssociate Member (ACA) of the Institute of Chartered Accountants of Pakistan (ICAP).\r\nHe has more than seven (7) years post qualification and eleven (11) years\r\nindustry experience of the large Manufacturing Units i.e., Textile Groups,\r\nBanking &amp; Fast-Moving Consumer Goods (FMCG) at key management positions in\r\nthe field of Finance, Accounts, Audit, ERP, Corporate Laws &amp; Taxation.<o:p></o:p></p>', '177', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', NULL, '2021-02-16 12:24:18', '2021-02-22 14:19:33', 'Mr. Ayyaz Asim is Chief Financial Officer & Company Secretary of All Pakistan Textile Mills Association (APTMA) for more than the last three (3) years.', 5, 'ayyaz-asim-cfo-company-secretary'),
-(23, 1, 26, 'Muhammad Asif Farooqi', 'Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Muhammad\r\nAsif Farooqi has over 26 years of experience in Human Resource Management,\r\nAdministration and IT. He has worked with various National and Multinational\r\ncompanies in Pakistan including Daewoo and binder Inc. His core competencies\r\ninclude Human Resource Management, Administration, Legal and Regulatory\r\nCompliance. Asif Farooqi holds a Master of Business Administration (HRM) degree\r\nfrom Preston Institute of Management Sciences and Technology (PIMSAT), Karachi.&nbsp;<o:p></o:p></p>', '176', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:26:08', '2021-02-22 14:21:49', 'Muhammad Asif Farooqi has over 26 years of experience in Human Resource Management, Administration and IT. He has worked with various National and Multinational companies in Pakistan including Daewoo and binder Inc.', 8, 'muhammad-asif-farooqi-secretary'),
-(24, 1, 20, 'Saad Umar', 'Senior Executive Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\ncurrently working in the capacity of Senior Executive Officer at APTMA, and\r\noversees Procurement &amp; HR, IT, and Policy Research &amp; Analysis\r\ndepartments. He has a multidisciplinary background in economics, finance and\r\nrisk management, and possesses exceptional business acumen acquired via an\r\neclectic mix of professional and entrepreneurial endeavors. Saad has been with\r\nthe organization for almost a year. He has demonstrated capabilities in\r\nunderstanding the dynamics of the industry and how APTMA plays a pivotal role\r\nin addressing each and every issue faced by Textile Sector.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\nbeing trained to enhance his expertise in the field of trade related matters\r\nincluding issues pertinent to Ministry of Commerce to become a specialist in\r\nthe field while addressing issues faced by members. He serves as a technical\r\nand research lead at APTMA and provide technical and strategic support for\r\ntextile promotion in Pakistan. He provides executive support to Senior\r\nManagement in almost every task from matters related to administrations,\r\ncommunications, publications, stakeholder management, high-profile meetings,\r\neconomic &amp; financial analysis, presentations, to current restructuring of\r\nAPTMA including budget, policy, and hiring of key resources for the\r\norganization.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is a\r\ngraduate of University College London (UCL) with a Master’s degree in Financial\r\nRisk Management, and possesses 5 years of national and international financial\r\nindustry experience, including a placement at Nomura Investment Bank, London.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad’s\r\nprofile can be vied at<span style=\"font-family:&quot;Times New Roman&quot;,serif\">\r\n</span><a href=\"https://www.linkedin.com/in/saad-umar-b6225a36/\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">https://www.linkedin.com/in/saad-umar-b6225a36/</span></a><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><o:p></o:p></span></p>', '175', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:01', '2021-02-22 14:30:00', 'Saad is currently working in the capacity of Senior Executive Officer at APTMA, and oversees Procurement & HR, IT, and Policy Research & Analysis departments.', 4, 'saad-umar-senior-executive-officer'),
-(25, 1, 23, 'Azhar Rana', 'Coordinator', 'en', '<p class=\"MsoNormal\"><b>Education:</b>&nbsp;&nbsp;Holds MSc. Degree&nbsp;in History\r\n(Major subjects in International Relation) from Quaid-e-Azam University,\r\nIslamabad. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\">Azhar Rana has served in various dynamic organizations for\r\nthe last 17 years. He is at the moment serving in APTMA as Coordinator. He is\r\nmanaging media, concessionary tariff rates to zero-rate connections, RFQs, and\r\nurgent R&amp;I to a government organization.<o:p></o:p></p>', '174', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:50', '2021-02-22 14:20:53', 'Holds MSc. Degree in History (Major subjects in International Relation) from Quaid-e-Azam University, Islamabad.', 13, 'azhar-rana-coordinator'),
-(26, 1, 19, 'Haroon Aziz', 'Sr. Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Haroon\r\nAziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018.\r\nHe has done his M.B.A (fin) from the University of Arid Agriculture Rawalpindi and\r\nB.com from Punjab College of Commerce Rawalpindi. He has a vast experience of\r\nmore than 12 years in the field of accounting and taxation. Apart from this, he\r\nhas attended numerous local and international conferences pertaining to his\r\nfield. Moreover, he has a passion for literary work by writing different\r\narticles on the current issue. Recently his paper has been published in “Journal of\r\nEducation and vocational Research” on Systematic Review of Covid Spillover and\r\nOnline Education Pedagogy.<o:p></o:p></p>', '173', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:00', '2021-02-22 14:19:52', 'Haroon Aziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018. He has done his M.B.A (fin) from University of Arid Agriculture Rawalpindi and B.com from Punjab College of Commerce Rawalpindi.', 6, 'haroon-aziz-sr-accounts-officer'),
-(27, 1, 19, 'Anwar ul Hassan Korai', 'Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Anwar\r\nul Hassan Korai is Accounts Officer and a professional employee with more than\r\n3 years of working experience with APTMA. In this role, he manages finance\r\ndepartment functions under supervision of Chief Financial officer. His areas of\r\ninterest are finance, tax &amp; audit. He has over 08 years of financial as\r\nwell as tax related work experience. Anwar received a Master\'s of Business\r\nAdministration MBA degree from the COMSATS University, Lahore campus.<o:p></o:p></p>', '172', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:51', '2021-02-22 14:20:01', 'Anwar ul Hassan Korai is Accounts Officer and a professional employee with more than 3 years of working experience with APTMA.', 7, 'anwar-ul-hassan-korai-accounts-officer'),
-(28, 1, 21, 'Asad Abbas Shah', 'Senior Research Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Asad\r\nAbbas Shah is a Research Economist and a professional employee with more than 3\r\nyears of working with APTMA. He played a key role in drafting Pakistan’s\r\nTextile Policy Proposals 2020-25 on behalf of APTMA. He is well versed in\r\npolicy matters, conducting research, and preparing detailed policy\r\nreports.&nbsp; He has written many articles in all leading newspapers\r\nadvocating for the issues faced by the textile sector of Pakistan and has\r\nstarted to make his name among economists and policymakers.<o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nhas been consistently performing well throughout the tenure of his career, and\r\nkeeping the same in view, he has been promoted to the position of Senior\r\nResearch Analyst with enhanced responsibilities by involving him in matters\r\nrelated to the power and gas sector. He has been dealing with the energy and gas sector\r\nissues for quite some time and has attained significant exposure in the field. <o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">\r\n\r\n\r\n\r\n</p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">His\r\nareas of interest are energy economics, applied economics, and industrial\r\neconomics. He is proficient in data handling &amp; analysis, energy issues, and\r\ncotton-related matters. He has done his Masters and MPhil in Economics from\r\nQuaid-I-Azam University Islamabad.<o:p></o:p></p>', '171', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:31:40', '2021-02-22 14:21:36', 'Asad Abbas Shah is a Research Economist and a professional employee with more than 3 years of working with APTMA. He played a key role in drafting Pakistan’s Textile Policy Proposals 2020-25 on behalf of APTMA.', 9, 'asad-abbas-shah-senior-research-analyst'),
-(29, 1, 27, 'Syed Irtaza Abbas', 'Executive Assistant & IT Manager', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nbrings 4+ years of diverse technology experience, local as well as\r\ninternational, to All Pakistan Textile Mills Association. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Prior\r\nto APTMA, Irtaza headed the technology division at Khushhali Microfinance Bank\r\nfor two years, where his areas of influence included technology strategy,\r\noperations and project deployments (T24). He has also worked at leading IT service\r\nprovider company Jaffer Business System, as the Senior Service Desk Coordinator\r\nof the IT Department. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nis a Microsoft Certified Solution Expert, having obtained this certification\r\nfrom Corvit Institution. Moreover, he possesses a diploma in video editing from\r\nPakistan Education Skill Council (PESC). <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Apart\r\nfrom his dynamic IT career, Irtaza is a Youtuber and a member of the non-profit\r\norganization Fisabilillah.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nholds a Bachelors in Information Technology as well as a Master’s in Business\r\nAdministration from International Islamic University, Islamabad.<o:p></o:p></p>', '170', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:32:33', '2021-02-22 14:21:19', 'Irtaza brings 4+ years of diverse technology experience, local as well as international, to All Pakistan Textile Mills Association.', 11, 'syed-irtaza-abbas-executive-assistant-it-manager'),
-(31, 1, 21, 'Eman Ahmed', 'Economic Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Eman\r\nis an Economic Analyst at APTMA. A recent graduate of the Lahore University of\r\nManagement Sciences (LUMS), she obtained her BSc Honors in Economics and\r\nPolitical Science in 2019. Her work at APTMA is centered around economic\r\nanalysis, policy research and publications. She has published over 20 articles\r\nwith APTMA in the past year, on topics ranging from export-led growth to\r\ninvestments and energy. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">She\r\nhas previously worked with the United States Institute of Peace as a program\r\ncoordinator in the development sector in Pakistan, and served as the\r\nPublications Director for LUMS Model United Nations (LUMUN) during her\r\nundergrad. She has organised and hosted international development events in\r\ncollaboration with key partners, particularly UNDP.&nbsp;<o:p></o:p></p>', '169', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:33:54', '2021-02-22 14:21:27', 'Eman is an Economic Analyst at APTMA. A recent graduate of the Lahore University of Management Sciences (LUMS), she obtained her BSc Honors in Economics and Political Science in 2019.', 10, 'eman-ahmed-economic-analyst'),
-(32, 1, 27, 'Zeeshan Lashari', 'IT & Network Administrator', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\"><span style=\"color:black;mso-themecolor:text1\">Zeeshan is working as an IT\r\nAdministrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems\r\nSupport Engineer at PC Hotel Bhurban. Working in tech support for the past two\r\nyears, he has got extensive practical experience of managing servers, systems\r\nand networks. He possesses the ability to administer, and control the operation\r\nand configuration of computer-based information systems. Zeeshan earned his\r\nBachelors of Engineering degree from NED University of Engineering &amp;\r\nTechnology Karachi.<o:p></o:p></span></p>', '168', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:35:14', '2021-02-22 14:21:02', 'Zeeshan is working as an IT Administrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems Support Engineer at PC Hotel Bhurban.', 12, 'zeeshan-lashari-it-network-administrator'),
-(33, 1, 25, 'Mr. Gohar Ejaz', 'Patron in Chief', 'en', '<p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">Mr. Gohar Ejaz is the Chief\r\nExecutive of Lake City Holdings (Pvt.) Ltd, a 2000 acre resort and residential\r\nproject that is home to an 18-hole PGA golf course, 8000 luxury\r\nbungalows/villas, serene lakes, landscape architecture, parks, and pavilions,\r\ncivic amenities, restaurants, a modern Cineplex, and a shopping mall. <o:p></o:p></span></p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">&nbsp;</span></p><p>\r\n\r\n\r\n\r\n</p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">He has also been elected\r\nPatron-in-Chief of the Association of Builders and Developers of Pakistan (ABAD)\r\nNorthern Region, a national level representative organization of builders and\r\ndevelopers, formed with the aim and objective of unifying and streamlining the\r\nconstruction activities of the private sector.<o:p></o:p></span></p>', '180', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-19 11:40:35', '2021-02-22 14:18:32', 'Mr. Gohar Ejaz is the Chief Executive of Ejaz Group of Companies, compromising of Ejaz Spinning Mills & Ejaz Textile Mills Limited.', 1, 'mr-gohar-ejaz-patron-in-chief'),
-(34, 1, 20, 'Adil Bashir', 'Chairman', 'en', 'Mr Adil Bashir', '147', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 07:48:17', '2021-02-22 14:19:12', 'Mr Adil Bashir', 3, 'adil-bashir-chairman'),
-(35, 1, 22, 'Mr. Muhammad Ismail', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Muhammad Ismail</span><br></p>', '183', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:39:55', '2021-02-22 14:20:46', 'Mr. Muhammad Ismail', 14, 'mr-muhammad-ismail-staff-member'),
-(36, 1, 22, 'Mr. Robat Masih', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Robat Masih</span><br></p>', '184', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:40:43', '2021-02-22 14:20:10', 'Mr. Robat Masih', 18, 'mr-robat-masih-staff-member'),
-(37, 1, 22, 'Mr. Asif Ali', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Asif Ali</span><br></p>', '181', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:42:10', '2021-02-22 14:20:26', 'Mr. Asif Ali', 16, 'mr-asif-ali-staff-member'),
-(38, 1, 22, 'Mr. Hamza Shakeel', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Hamza Shakeel</span><br></p>', '182', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:43:53', '2021-02-22 14:20:17', 'Mr. Hamza Shakeel', 17, 'mr-hamza-shakeel-staff-member');
+INSERT INTO `team_members` (`id`, `cat_id`, `department_id`, `name`, `designation`, `lang`, `description`, `image`, `icon_one`, `icon_two`, `icon_three`, `icon_one_url`, `icon_two_url`, `icon_three_url`, `created_at`, `updated_at`, `about_me`, `order_no`, `slug`, `type_order`, `type`, `show_detail_status`, `is_research_member`) VALUES
+(2, 1, 20, 'Shahid Sattar', 'Executive Director', 'en', '<b>PUBLIC SECTOR EXPERIENCE:</b>\r\nHe has served as Member Energy of the Planning Commission of Pakistan &amp; has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp; Power.\r\n<br>\r\n<br>\r\n<b>PRIVATE SECTOR EXPERIENCE:</b>\r\nHe has held senior management positions with the various energy sector entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the All Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and Secretary-General of APTMA.\r\n<br>\r\nHe has several international publications and has been regularly writing articles in Pakistani newspapers on industry and economic issues.', '178', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', '#', '2020-07-20 01:19:23', '2021-02-23 10:24:02', 'Mr. Shahid Sattar has served as Member Energy of the Planning Commission of Pakistan & has also been an advisor at: Ministry of Finance, Ministry of Petroleum, and Ministry of Water & Power.', 2, 'shahid-sattar-executive-director', 2, 26, 1, 0),
+(22, 1, 19, 'Ayyaz Asim', 'CFO & Company Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Mr.\r\nAyyaz Asim is Chief Financial Officer &amp; Company Secretary of All Pakistan\r\nTextile Mills Association (APTMA) for more than the last three (3) years. He is an\r\nAssociate Member (ACA) of the Institute of Chartered Accountants of Pakistan (ICAP).\r\nHe has more than seven (7) years post qualification and eleven (11) years\r\nindustry experience of the large Manufacturing Units i.e., Textile Groups,\r\nBanking &amp; Fast-Moving Consumer Goods (FMCG) at key management positions in\r\nthe field of Finance, Accounts, Audit, ERP, Corporate Laws &amp; Taxation.<o:p></o:p></p>', '177', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', '#', '#', NULL, '2021-02-16 12:24:18', '2021-02-23 10:25:21', 'Mr. Ayyaz Asim is Chief Financial Officer & Company Secretary of All Pakistan Textile Mills Association (APTMA) for more than the last three (3) years.', 5, 'ayyaz-asim-cfo-company-secretary', 8, 26, 1, 0),
+(23, 1, 26, 'Muhammad Asif Farooqi', 'Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Muhammad\r\nAsif Farooqi has over 26 years of experience in Human Resource Management,\r\nAdministration and IT. He has worked with various National and Multinational\r\ncompanies in Pakistan including Daewoo and binder Inc. His core competencies\r\ninclude Human Resource Management, Administration, Legal and Regulatory\r\nCompliance. Asif Farooqi holds a Master of Business Administration (HRM) degree\r\nfrom Preston Institute of Management Sciences and Technology (PIMSAT), Karachi.&nbsp;<o:p></o:p></p>', '176', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:26:08', '2021-02-23 10:22:53', 'Muhammad Asif Farooqi has over 26 years of experience in Human Resource Management, Administration and IT. He has worked with various National and Multinational companies in Pakistan including Daewoo and binder Inc.', 8, 'muhammad-asif-farooqi-secretary', 4, 26, 1, 0),
+(24, 1, 20, 'Saad Umar', 'Senior Executive Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\ncurrently working in the capacity of Senior Executive Officer at APTMA, and\r\noversees Procurement &amp; HR, IT, and Policy Research &amp; Analysis\r\ndepartments. He has a multidisciplinary background in economics, finance and\r\nrisk management, and possesses exceptional business acumen acquired via an\r\neclectic mix of professional and entrepreneurial endeavors. Saad has been with\r\nthe organization for almost a year. He has demonstrated capabilities in\r\nunderstanding the dynamics of the industry and how APTMA plays a pivotal role\r\nin addressing each and every issue faced by Textile Sector.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\nbeing trained to enhance his expertise in the field of trade related matters\r\nincluding issues pertinent to Ministry of Commerce to become a specialist in\r\nthe field while addressing issues faced by members. He serves as a technical\r\nand research lead at APTMA and provide technical and strategic support for\r\ntextile promotion in Pakistan. He provides executive support to Senior\r\nManagement in almost every task from matters related to administrations,\r\ncommunications, publications, stakeholder management, high-profile meetings,\r\neconomic &amp; financial analysis, presentations, to current restructuring of\r\nAPTMA including budget, policy, and hiring of key resources for the\r\norganization.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is a\r\ngraduate of University College London (UCL) with a Master’s degree in Financial\r\nRisk Management, and possesses 5 years of national and international financial\r\nindustry experience, including a placement at Nomura Investment Bank, London.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad’s\r\nprofile can be vied at<span style=\"font-family:&quot;Times New Roman&quot;,serif\">\r\n</span><a href=\"https://www.linkedin.com/in/saad-umar-b6225a36/\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">https://www.linkedin.com/in/saad-umar-b6225a36/</span></a><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><o:p></o:p></span></p>', '175', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:01', '2021-02-23 10:36:44', 'Saad is currently working in the capacity of Senior Executive Officer at APTMA, and oversees Procurement & HR, IT, and Policy Research & Analysis departments.', 4, 'saad-umar-senior-executive-officer', 1, 21, 1, 1),
+(25, 1, 23, 'Azhar Rana', 'Coordinator', 'en', '<p class=\"MsoNormal\"><b>Education:</b>&nbsp;&nbsp;Holds MSc. Degree&nbsp;in History\r\n(Major subjects in International Relation) from Quaid-e-Azam University,\r\nIslamabad. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\">Azhar Rana has served in various dynamic organizations for\r\nthe last 17 years. He is at the moment serving in APTMA as Coordinator. He is\r\nmanaging media, concessionary tariff rates to zero-rate connections, RFQs, and\r\nurgent R&amp;I to a government organization.<o:p></o:p></p>', '174', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:50', '2021-02-23 12:02:32', 'Holds MSc. Degree in History (Major subjects in International Relation) from Quaid-e-Azam University, Islamabad.', 13, 'azhar-rana-coordinator', 15, 26, 1, 1),
+(26, 1, 19, 'Haroon Aziz', 'Sr. Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Haroon\r\nAziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018.\r\nHe has done his M.B.A (fin) from the University of Arid Agriculture Rawalpindi and\r\nB.com from Punjab College of Commerce Rawalpindi. He has a vast experience of\r\nmore than 12 years in the field of accounting and taxation. Apart from this, he\r\nhas attended numerous local and international conferences pertaining to his\r\nfield. Moreover, he has a passion for literary work by writing different\r\narticles on the current issue. Recently his paper has been published in “Journal of\r\nEducation and vocational Research” on Systematic Review of Covid Spillover and\r\nOnline Education Pedagogy.<o:p></o:p></p>', '173', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:00', '2021-02-23 10:23:39', 'Haroon Aziz is working as Sr. Accounts Officer in APTMA office Islamabad since 2018. He has done his M.B.A (fin) from University of Arid Agriculture Rawalpindi and B.com from Punjab College of Commerce Rawalpindi.', 6, 'haroon-aziz-sr-accounts-officer', 2, 26, 1, 0),
+(27, 1, 19, 'Anwar ul Hassan Korai', 'Accounts Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Anwar\r\nul Hassan Korai is Accounts Officer and a professional employee with more than\r\n3 years of working experience with APTMA. In this role, he manages finance\r\ndepartment functions under supervision of Chief Financial officer. His areas of\r\ninterest are finance, tax &amp; audit. He has over 08 years of financial as\r\nwell as tax related work experience. Anwar received a Master\'s of Business\r\nAdministration MBA degree from the COMSATS University, Lahore campus.<o:p></o:p></p>', '172', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:30:51', '2021-02-23 10:23:18', 'Anwar ul Hassan Korai is Accounts Officer and a professional employee with more than 3 years of working experience with APTMA.', 7, 'anwar-ul-hassan-korai-accounts-officer', 2, 26, 1, 0),
+(28, 1, 21, 'Asad Abbas Shah', 'Senior Research Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Asad\r\nAbbas Shah is a Research Economist and a professional employee with more than 3\r\nyears of working with APTMA. He played a key role in drafting Pakistan’s\r\nTextile Policy Proposals 2020-25 on behalf of APTMA. He is well versed in\r\npolicy matters, conducting research, and preparing detailed policy\r\nreports.&nbsp; He has written many articles in all leading newspapers\r\nadvocating for the issues faced by the textile sector of Pakistan and has\r\nstarted to make his name among economists and policymakers.<o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nhas been consistently performing well throughout the tenure of his career, and\r\nkeeping the same in view, he has been promoted to the position of Senior\r\nResearch Analyst with enhanced responsibilities by involving him in matters\r\nrelated to the power and gas sector. He has been dealing with the energy and gas sector\r\nissues for quite some time and has attained significant exposure in the field. <o:p></o:p></p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">\r\n\r\n\r\n\r\n</p><p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">His\r\nareas of interest are energy economics, applied economics, and industrial\r\neconomics. He is proficient in data handling &amp; analysis, energy issues, and\r\ncotton-related matters. He has done his Masters and MPhil in Economics from\r\nQuaid-I-Azam University Islamabad.<o:p></o:p></p>', '171', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:31:40', '2021-02-23 10:35:15', 'Asad Abbas Shah is a Research Economist and a professional employee with more than 3 years of working with APTMA. He played a key role in drafting Pakistan’s Textile Policy Proposals 2020-25 on behalf of APTMA.', 9, 'asad-abbas-shah-senior-research-analyst', 2, 21, 1, 1),
+(29, 1, 27, 'Syed Irtaza Abbas', 'Executive Assistant & IT Manager', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nbrings 4+ years of diverse technology experience, local as well as\r\ninternational, to All Pakistan Textile Mills Association. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Prior\r\nto APTMA, Irtaza headed the technology division at Khushhali Microfinance Bank\r\nfor two years, where his areas of influence included technology strategy,\r\noperations and project deployments (T24). He has also worked at leading IT service\r\nprovider company Jaffer Business System, as the Senior Service Desk Coordinator\r\nof the IT Department. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Irtaza\r\nis a Microsoft Certified Solution Expert, having obtained this certification\r\nfrom Corvit Institution. Moreover, he possesses a diploma in video editing from\r\nPakistan Education Skill Council (PESC). <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Apart\r\nfrom his dynamic IT career, Irtaza is a Youtuber and a member of the non-profit\r\norganization Fisabilillah.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">He\r\nholds a Bachelors in Information Technology as well as a Master’s in Business\r\nAdministration from International Islamic University, Islamabad.<o:p></o:p></p>', '170', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:32:33', '2021-02-23 10:21:49', 'Irtaza brings 4+ years of diverse technology experience, local as well as international, to All Pakistan Textile Mills Association.', 11, 'syed-irtaza-abbas-executive-assistant-it-manager', 20, 26, 1, 0),
+(31, 1, 21, 'Eman Ahmed', 'Economic Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Eman\r\nis an Economic Analyst at APTMA. A recent graduate of the Lahore University of\r\nManagement Sciences (LUMS), she obtained her BSc Honors in Economics and\r\nPolitical Science in 2019. Her work at APTMA is centered around economic\r\nanalysis, policy research and publications. She has published over 20 articles\r\nwith APTMA in the past year, on topics ranging from export-led growth to\r\ninvestments and energy. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">She\r\nhas previously worked with the United States Institute of Peace as a program\r\ncoordinator in the development sector in Pakistan, and served as the\r\nPublications Director for LUMS Model United Nations (LUMUN) during her\r\nundergrad. She has organised and hosted international development events in\r\ncollaboration with key partners, particularly UNDP.&nbsp;<o:p></o:p></p>', '169', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:33:54', '2021-02-23 10:35:55', 'Eman is an Economic Analyst at APTMA. A recent graduate of the Lahore University of Management Sciences (LUMS), she obtained her BSc Honors in Economics and Political Science in 2019.', 6, 'eman-ahmed-economic-analyst', 3, 21, 1, 1),
+(32, 1, 27, 'Zeeshan Lashari', 'IT & Network Administrator', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\"><span style=\"color:black;mso-themecolor:text1\">Zeeshan is working as an IT\r\nAdministrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems\r\nSupport Engineer at PC Hotel Bhurban. Working in tech support for the past two\r\nyears, he has got extensive practical experience of managing servers, systems\r\nand networks. He possesses the ability to administer, and control the operation\r\nand configuration of computer-based information systems. Zeeshan earned his\r\nBachelors of Engineering degree from NED University of Engineering &amp;\r\nTechnology Karachi.<o:p></o:p></span></p>', '168', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:35:14', '2021-02-23 10:18:23', 'Zeeshan is working as an IT Administrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems Support Engineer at PC Hotel Bhurban.', 12, 'zeeshan-lashari-it-network-administrator', 2, 26, 1, 0),
+(33, 1, 25, 'Mr. Gohar Ejaz', 'Patron in Chief', 'en', '<p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">Mr. Gohar Ejaz is the Chief\r\nExecutive of Lake City Holdings (Pvt.) Ltd, a 2000 acre resort and residential\r\nproject that is home to an 18-hole PGA golf course, 8000 luxury\r\nbungalows/villas, serene lakes, landscape architecture, parks, and pavilions,\r\ncivic amenities, restaurants, a modern Cineplex, and a shopping mall. <o:p></o:p></span></p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">&nbsp;</span></p><p>\r\n\r\n\r\n\r\n</p><p class=\"Default\" style=\"margin-top:0in;margin-right:0in;margin-bottom:6.0pt;\r\nmargin-left:.25in;text-align:justify\"><span style=\"font-size:14.0pt;font-family:\r\n&quot;Calibri&quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-theme-font:minor-latin\">He has also been elected\r\nPatron-in-Chief of the Association of Builders and Developers of Pakistan (ABAD)\r\nNorthern Region, a national level representative organization of builders and\r\ndevelopers, formed with the aim and objective of unifying and streamlining the\r\nconstruction activities of the private sector.<o:p></o:p></span></p>', '180', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-19 11:40:35', '2021-02-23 09:44:57', 'Mr. Gohar Ejaz is the Chief Executive of Ejaz Group of Companies, compromising of Ejaz Spinning Mills & Ejaz Textile Mills Limited.', 1, 'mr-gohar-ejaz-patron-in-chief', 1, 21, 1, 0),
+(34, 1, 20, 'Adil Bashir', 'Chairman', 'en', 'Mr Adil Bashir', '147', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 07:48:17', '2021-02-23 10:36:16', 'Mr Adil Bashir', 3, 'adil-bashir-chairman', 1, 26, 1, 0),
+(35, 1, 22, 'Mr. Muhammad Ismail', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Muhammad Ismail</span><br></p>', '183', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:39:55', '2021-02-23 10:21:18', 'Mr. Muhammad Ismail', 14, 'mr-muhammad-ismail-staff-member', 7, 26, 0, 0),
+(36, 1, 22, 'Mr. Robat Masih', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Robat Masih</span><br></p>', '184', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:40:43', '2021-02-23 10:31:54', 'Mr. Robat Masih', 18, 'mr-robat-masih-staff-member', 8, 26, 0, 1),
+(37, 1, 22, 'Mr. Asif Ali', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Asif Ali</span><br></p>', '181', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:42:10', '2021-02-23 10:20:55', 'Mr. Asif Ali', 16, 'mr-asif-ali-staff-member', 3, 26, 0, 0),
+(38, 1, 22, 'Mr. Hamza Shakeel', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Hamza Shakeel</span><br></p>', '182', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:43:53', '2021-02-22 14:20:17', 'Mr. Hamza Shakeel', 17, 'mr-hamza-shakeel-staff-member', NULL, NULL, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team_type`
+--
+
+CREATE TABLE `team_type` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lang` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `img_id` int(33) DEFAULT NULL,
+  `order_no` int(11) DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `team_type`
+--
+
+INSERT INTO `team_type` (`id`, `name`, `lang`, `status`, `created_at`, `updated_at`, `img_id`, `order_no`, `slug`) VALUES
+(21, 'Research Team', 'en', 'publish', '2021-02-18 03:30:38', '2021-02-23 10:02:40', 26, 1, 'research-team'),
+(26, 'Un  categorized', 'en', 'draft', '2021-02-23 10:16:04', '2021-02-23 10:45:39', 81, 10, 'un-categorized');
 
 -- --------------------------------------------------------
 
@@ -4942,7 +4997,7 @@ CREATE TABLE `widgets` (
 --
 
 INSERT INTO `widgets` (`id`, `admin_render_function`, `frontend_render_function`, `widget_name`, `widget_content`, `widget_order`, `created_at`, `updated_at`) VALUES
-(11, 'contact_info_widget', 'render_contact_info_widget', 'Contact Info', 'a:22:{s:2:\"id\";s:2:\"11\";s:24:\"frontend_render_function\";s:26:\"render_contact_info_widget\";s:21:\"admin_render_function\";s:19:\"contact_info_widget\";s:11:\"widget_type\";s:6:\"update\";s:11:\"widget_name\";s:12:\"Contact Info\";s:12:\"widget_order\";s:1:\"4\";s:15:\"widget_title_en\";s:10:\"Contact us\";s:11:\"location_en\";s:118:\"Office no. 504(b) APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Adjacent to Marriot Hotel Islamabad.\";s:8:\"phone_en\";s:14:\"+92 51 2827145\";s:8:\"email_en\";s:17:\"info@aptma.org.pk\";s:16:\"widget_title_tur\";s:13:\"Bize Ulaşın\";s:12:\"location_tur\";s:49:\"143 kale yol 517 ilçe, kiyev liman güney Kanada\";s:9:\"phone_tur\";s:12:\"+111 222 333\";s:9:\"email_tur\";s:17:\"info@yourmail.com\";s:15:\"widget_title_ar\";s:15:\"اتصل بنا\";s:11:\"location_ar\";s:81:\"143 طريق القلعة 517 منطقة ، ميناء كييف جنوب كندا\";s:8:\"phone_ar\";s:12:\"+111 222 333\";s:8:\"email_ar\";s:17:\"info@yourmail.com\";s:15:\"widget_title_sp\";s:21:\"Contacta con nosotras\";s:11:\"location_sp\";s:64:\"143 distrito de castle road 517, puerto de kiyev, sur de Canadá\";s:8:\"phone_sp\";s:12:\"+111 222 333\";s:8:\"email_sp\";s:17:\"info@yourmail.com\";}', 4, '2020-06-17 15:31:59', '2021-02-19 12:11:20'),
+(11, 'contact_info_widget', 'render_contact_info_widget', 'Contact Info', 'a:22:{s:2:\"id\";s:2:\"11\";s:24:\"frontend_render_function\";s:26:\"render_contact_info_widget\";s:21:\"admin_render_function\";s:19:\"contact_info_widget\";s:11:\"widget_type\";s:6:\"update\";s:11:\"widget_name\";s:12:\"Contact Info\";s:12:\"widget_order\";s:1:\"4\";s:15:\"widget_title_en\";s:10:\"Contact us\";s:11:\"location_en\";s:115:\"Office no. 504(b) APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Adjacent Marriot Hotel Islamabad.\";s:8:\"phone_en\";s:14:\"+92 51 2827145\";s:8:\"email_en\";s:17:\"info@aptma.org.pk\";s:16:\"widget_title_tur\";s:13:\"Bize Ulaşın\";s:12:\"location_tur\";s:49:\"143 kale yol 517 ilçe, kiyev liman güney Kanada\";s:9:\"phone_tur\";s:12:\"+111 222 333\";s:9:\"email_tur\";s:17:\"info@yourmail.com\";s:15:\"widget_title_ar\";s:15:\"اتصل بنا\";s:11:\"location_ar\";s:81:\"143 طريق القلعة 517 منطقة ، ميناء كييف جنوب كندا\";s:8:\"phone_ar\";s:12:\"+111 222 333\";s:8:\"email_ar\";s:17:\"info@yourmail.com\";s:15:\"widget_title_sp\";s:21:\"Contacta con nosotras\";s:11:\"location_sp\";s:64:\"143 distrito de castle road 517, puerto de kiyev, sur de Canadá\";s:8:\"phone_sp\";s:12:\"+111 222 333\";s:8:\"email_sp\";s:17:\"info@yourmail.com\";}', 4, '2020-06-17 15:31:59', '2021-02-23 11:08:31'),
 (20, 'navigation_menu_widget', 'render_navigation_menu_widget', 'Navigation Menu', 'a:14:{s:2:\"id\";s:2:\"20\";s:24:\"frontend_render_function\";s:29:\"render_navigation_menu_widget\";s:21:\"admin_render_function\";s:22:\"navigation_menu_widget\";s:11:\"widget_type\";s:6:\"update\";s:11:\"widget_name\";s:15:\"Navigation Menu\";s:12:\"widget_order\";s:1:\"2\";s:15:\"widget_title_en\";s:12:\"Useful Links\";s:10:\"menu_id_en\";s:1:\"3\";s:16:\"widget_title_tur\";N;s:11:\"menu_id_tur\";s:1:\"4\";s:15:\"widget_title_ar\";N;s:10:\"menu_id_ar\";s:1:\"6\";s:15:\"widget_title_sp\";N;s:10:\"menu_id_sp\";s:1:\"5\";}', 2, '2021-02-02 07:22:18', '2021-02-18 10:14:09'),
 (21, 'navigation_menu_widget', 'render_navigation_menu_widget', 'Navigation Menu', 'a:14:{s:2:\"id\";s:2:\"21\";s:24:\"frontend_render_function\";s:29:\"render_navigation_menu_widget\";s:21:\"admin_render_function\";s:22:\"navigation_menu_widget\";s:11:\"widget_type\";s:6:\"update\";s:11:\"widget_name\";s:15:\"Navigation Menu\";s:12:\"widget_order\";s:1:\"3\";s:15:\"widget_title_en\";s:7:\"Careers\";s:10:\"menu_id_en\";s:2:\"11\";s:16:\"widget_title_tur\";N;s:11:\"menu_id_tur\";s:1:\"4\";s:15:\"widget_title_ar\";N;s:10:\"menu_id_ar\";s:1:\"6\";s:15:\"widget_title_sp\";N;s:10:\"menu_id_sp\";s:1:\"5\";}', 3, '2021-02-02 07:23:13', '2021-02-18 10:15:50'),
 (22, 'navigation_menu_widget', 'render_navigation_menu_widget', 'Navigation Menu', 'a:14:{s:2:\"id\";s:2:\"22\";s:24:\"frontend_render_function\";s:29:\"render_navigation_menu_widget\";s:21:\"admin_render_function\";s:22:\"navigation_menu_widget\";s:11:\"widget_type\";s:6:\"update\";s:11:\"widget_name\";s:15:\"Navigation Menu\";s:12:\"widget_order\";s:1:\"1\";s:15:\"widget_title_en\";s:4:\"Data\";s:10:\"menu_id_en\";s:2:\"10\";s:16:\"widget_title_tur\";N;s:11:\"menu_id_tur\";s:1:\"4\";s:15:\"widget_title_ar\";N;s:10:\"menu_id_ar\";s:1:\"6\";s:15:\"widget_title_sp\";N;s:10:\"menu_id_sp\";s:1:\"5\";}', 1, '2021-02-18 10:14:41', '2021-02-18 10:15:40');
@@ -5409,6 +5464,12 @@ ALTER TABLE `team_members`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `team_type`
+--
+ALTER TABLE `team_type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `testimonials`
 --
 ALTER TABLE `testimonials`
@@ -5460,392 +5521,331 @@ ALTER TABLE `works_categories`
 --
 ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `admin_roles`
 --
 ALTER TABLE `admin_roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `advertisement`
 --
 ALTER TABLE `advertisement`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `advertisement_categories`
 --
 ALTER TABLE `advertisement_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `blog_categories`
 --
 ALTER TABLE `blog_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `book_categories`
 --
 ALTER TABLE `book_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `circulars`
 --
 ALTER TABLE `circulars`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT for table `circular_categories`
 --
 ALTER TABLE `circular_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `contact_info_items`
 --
 ALTER TABLE `contact_info_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `counterups`
 --
 ALTER TABLE `counterups`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `donation_logs`
 --
 ALTER TABLE `donation_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=372;
-
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `events_categories`
 --
 ALTER TABLE `events_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `event_attendances`
 --
 ALTER TABLE `event_attendances`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
-
 --
 -- AUTO_INCREMENT for table `event_payment_logs`
 --
 ALTER TABLE `event_payment_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `header_sliders`
 --
 ALTER TABLE `header_sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `image_galleries`
 --
 ALTER TABLE `image_galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `image_gallery_categories`
 --
 ALTER TABLE `image_gallery_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `jobs_categories`
 --
 ALTER TABLE `jobs_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `job_applicants`
 --
 ALTER TABLE `job_applicants`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `key_features`
 --
 ALTER TABLE `key_features`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `knowledgebases`
 --
 ALTER TABLE `knowledgebases`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `knowledgebase_topics`
 --
 ALTER TABLE `knowledgebase_topics`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `media_uploads`
 --
 ALTER TABLE `media_uploads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
-
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
 --
 -- AUTO_INCREMENT for table `newsletters`
 --
 ALTER TABLE `newsletters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
-
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `payment_logs`
 --
 ALTER TABLE `payment_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
-
 --
 -- AUTO_INCREMENT for table `popup_builders`
 --
 ALTER TABLE `popup_builders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `price_plans`
 --
 ALTER TABLE `price_plans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- AUTO_INCREMENT for table `price_plan_categories`
 --
 ALTER TABLE `price_plan_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `product_coupons`
 --
 ALTER TABLE `product_coupons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `product_orders`
 --
 ALTER TABLE `product_orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
-
 --
 -- AUTO_INCREMENT for table `product_ratings`
 --
 ALTER TABLE `product_ratings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `product_shippings`
 --
 ALTER TABLE `product_shippings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `publications`
 --
 ALTER TABLE `publications`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `publication_categories`
 --
 ALTER TABLE `publication_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
 --
 -- AUTO_INCREMENT for table `service_categories`
 --
 ALTER TABLE `service_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `social_icons`
 --
 ALTER TABLE `social_icons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `static_options`
 --
 ALTER TABLE `static_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1209;
-
 --
 -- AUTO_INCREMENT for table `team_categories`
 --
 ALTER TABLE `team_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `team_departments`
 --
 ALTER TABLE `team_departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
 --
 -- AUTO_INCREMENT for table `team_members`
 --
 ALTER TABLE `team_members`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
+--
+-- AUTO_INCREMENT for table `team_type`
+--
+ALTER TABLE `team_type`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
-
 --
 -- AUTO_INCREMENT for table `video_gallery`
 --
 ALTER TABLE `video_gallery`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `video_gallery_categories`
 --
 ALTER TABLE `video_gallery_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
 -- AUTO_INCREMENT for table `widgets`
 --
 ALTER TABLE `widgets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
 --
 -- AUTO_INCREMENT for table `works`
 --
 ALTER TABLE `works`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
 --
 -- AUTO_INCREMENT for table `works_categories`
 --
 ALTER TABLE `works_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
