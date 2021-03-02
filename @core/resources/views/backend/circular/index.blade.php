@@ -80,6 +80,7 @@
                                         <th>{{__('ID')}}</th>
                                         <th>{{__('Title')}}</th>
                                         <th>{{__('Category')}}</th>
+                                        <th>{{__('Sub Category')}}</th>
                                         <th>{{__('Image')}}</th>
 
                                         <th>{{__('Status')}}</th>
@@ -99,9 +100,9 @@
                                                 <td><a class="text-white"
                                                        href="{{route('frontend.circular.single',$data->id)}}">{{$data->id}}</a>
                                                 </td>
-
                                                 <td>{{$data->title}}</td>
                                                 <td>{{@$data->category->name}}</td>
+                                                <td>{{@$data->subCategory->name}}</td>
                                                 <td> @php
                                                         $testimonial_img = get_attachment_image_by_id($data->thumbnail,'thumbnail',true);
                                                     @endphp
@@ -187,20 +188,22 @@
                             </div>
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <select name="category" class="form-control" required>
+                                <select name="category" id="all_cat_id" onchange="getSubCat()" class="form-control"
+                                        required>
                                     @foreach($all_categories as $category)
                                         <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
-
                                 </select>
                             </div>
+                            <div class="form-group" id="sub-cat">
+                                <label for="category">Sub Category</label>
+                                    <select name="sub_category" id="sub_cat_id" class="form-control" required>
+                                        @foreach($all_sub_categories as $category)
+                                            <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
 
-
-                            {{--                            <div class="form-group">--}}
-                            {{--                                <label>{{__('Url')}}</label>--}}
-                            {{--                                <input type="url" name="url"  class="form-control" required placeholder="Youtube Url" value="{{old('description')}}">--}}
-
-                            {{--                            </div>--}}
                             <div class="form-group">
                                 <label>{{__('Description')}}</label>
                                 <input type="hidden" name="description">
@@ -274,18 +277,18 @@
                         </div>
                         <div class="form-group">
                             <label for="category">Category</label>
-                            <select name="category" class="form-control" required>
+                            <select name="category" onchange="getSubCatAtEdit()" class="form-control" id="main_cat_id" required>
                                 @foreach($all_categories as $category)
                                     <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
-
                             </select>
                         </div>
-                        {{--                        <div class="form-group">--}}
-                        {{--                            <label>{{__('Url')}}</label>--}}
-                        {{--                            <input type="url" name="url" class="form-control" required >--}}
-
-                        {{--                        </div>--}}
+                        <div class="form-group">
+                            <label for="subCategory">Sub Category</label>
+                            <select name="sub_cat_at_edit" id="sub_cat_at_edit" class="form-control" required>
+                              
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label>{{__('Description')}}</label>
                             <input type="hidden" name="description">
@@ -341,10 +344,10 @@
     {{--    @include('backend.partials.media-upload.media-file-markup')--}}
 @endsection
 @section('script')
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script>
         $(document).ready(function () {
-
             $(document).on('click', '#bulk_delete_btn', function (e) {
                 e.preventDefault();
 
@@ -457,6 +460,53 @@
                 });
             });
         });
+
+        function getSubCat() {
+            $('#sub-cat').css('display' , 'none')
+            let id = $('#all_cat_id').val();
+            let route = '{{route('admin.circular.sub-category.get',':id')}}'
+            route = route.replace(':id', id);
+            $.ajax({
+                url: route,
+                success: function (result) {
+                    $all_sub_categories = result
+                    // console.log(result)
+                    $('#sub_cat_id').empty();
+                    if(result.length > 0){
+                        $('#sub-cat').css('display' , '')
+                    }
+                    $.each(result, function (index , value) {
+                            console.log(index , 'valie',value , 'index')
+                            $("#sub_cat_id").append('<option value=' + value.id + '>' + value.name + '</option>');
+                    });
+                }, fail: function () {
+                    alert('fail')
+                }
+            })
+        }
+        function getSubCatAtEdit() {
+            $('#sub_cat_at_edit').css('display' , 'none');
+            let id = $('#main_cat_id').val();
+            let route = '{{route('admin.circular.sub-category.get',':id')}}'
+            route = route.replace(':id', id);
+            $.ajax({
+                url: route,
+                success: function (result) {
+                    $all_sub_categories = result;
+                    // console.log(result)
+                    $('#sub_cat_at_edit').empty();
+                    if(result.length > 0){
+                        $('#sub_cat_at_edit').css('display' , '')
+                    }
+                    $.each(result, function (index , value) {
+                        console.log(index , 'valie',value , 'index')
+                        $("#sub_cat_at_edit").append('<option value=' + value.id + '>' + value.name + '</option>');
+                    });
+                }, fail: function () {
+                    alert('fail')
+                }
+            })
+        }
     </script>
     <!-- Start datatable js -->
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>

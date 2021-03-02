@@ -753,8 +753,13 @@ Route::prefix('/admin-home/circular')->group(function () {
     Route::post('/circular/bulk-action', 'CircularController@bulk_action')->name('admin.circular.bulk.action');
 
     Route::get('/category', 'CircularController@category_index')->name('admin.circular.category');
+    Route::get('/sub-category', 'CircularController@sub_category_index')->name('admin.circular.sub-category');
     Route::post('/category/new', 'CircularController@category_store')->name('admin.circular.category.new');
+    Route::post('/sub-category/new', 'CircularController@sub_category_store')->name('admin.circular.sub-category.new');
+    Route::get('/get-sub-post/{id}','CircularController@getSubCat')->name('admin.circular.sub-category.get');
+    Route::get('/get-sub-post-at-edit/{id}','CircularController@getSubCatAtEdit')->name('admin.circular.sub-category.get.at.edit');
     Route::post('/category/update', 'CircularController@category_update')->name('admin.circular.category.update');
+    Route::post('/sub-category/update', 'CircularController@sub_category_update')->name('admin.circular.sub-category.update');
     Route::post('/category/delete/{id}', 'CircularController@category_delete')->name('admin.circular.category.delete');
     Route::post('/category/bulk-action', 'CircularController@category_bulk_action')->name('admin.circular.category.bulk.action');
     Route::post('/category-by-slug', 'CircularController@category_by_slug')->name('admin.circular.category.by.lang');
