@@ -79,8 +79,8 @@
                                                 </div>
                                             </th>
                                             <th>{{__('ID')}}</th>
-                                            <th>{{__('Name')}}</th>
-                                            <th>{{__('Parent Name')}}</th>
+                                            <th>{{__('Main Category')}}</th>
+                                            <th>{{__('Sub Category')}}</th>
                                             <th>{{__('Status')}}</th>
                                             <th>{{__('Action')}}</th>
                                             </thead>
@@ -154,7 +154,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="title">{{__('Title')}}</label>
+                                <label for="title">{{__('Sub Category')}}</label>
                                 <input type="text" name="name" class="form-control">
                             </div>
                             <div class="form-group">
@@ -193,7 +193,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="title">{{__('Title')}}</label>
+                            <label for="title">{{__('Sub Category')}}</label>
                             <input type="text" name="name" class="form-control">
                         </div>
                         <div class="form-group">
