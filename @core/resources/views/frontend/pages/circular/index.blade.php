@@ -36,16 +36,16 @@
                                     <h4 class="title mb-0">{{$data->title}}</h4>
                                 </a>
                                 <p class="font-weight-bold">{{@$data->subCategory->name}}</p>
-{{--                                <p>--}}
-{{--                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>--}}
-{{--                                </p>--}}
+                                {{--                                <p>--}}
+                                {{--                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>--}}
+                                {{--                                </p>--}}
                                 <div class="d-flex align-items-center">
                                     <a href="#" data-toggle="modal" data-target="#preview-modal"
                                        data-message="{{@$data->description}}">
-                                        <i class="fa fa-eye fa-3x"></i>
+                                        <i class="fa fa-eye fa-2x"></i>
                                     </a>
                                     <a href="{{asset('assets/uploads/circular/'.$data->url)}}" download target="_blank">
-                                        <i class="fa fa-file-pdf fa-3x"></i>
+                                        <i class="fa fa-file-pdf fa-2x"></i>
                                     </a>
                                 </div>
                             </div>
@@ -58,35 +58,31 @@
                         </div>
                     </div>
             @endforelse
-            {{--                <div class="col-lg-12">--}}
-            {{--                    <div class="pagination-wrapper">--}}
-            {{--                        {{$all_services->links()}}--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
 
 
-            <!-- Modal -->
-                <div class="modal fade" id="preview-modal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+    <!-- Modal -->
+    <div class="modal fade" id="preview-modal" tabindex="-1" role="dialog"
+         aria-labelledby="preview-modalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('after-script')
