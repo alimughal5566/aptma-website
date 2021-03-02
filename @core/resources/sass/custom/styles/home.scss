@@ -216,6 +216,8 @@
 
       .thumb {
         border-radius: 0.25rem;
+        @include mix.align-items-center;
+        @include mix.d-flex;
         min-height: 150px;
         max-height: 150px;
         overflow: hidden;
@@ -455,8 +457,8 @@
       }
 
       &.publication-img {
-        min-height: 300px;
-        max-height: 300px;
+        min-height: 350px;
+        max-height: 350px;
       }
 
       &.economic-img {

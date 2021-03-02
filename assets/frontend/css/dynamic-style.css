@@ -1509,6 +1509,12 @@ html {
 
 .common-area .common-grid-carousel .common-grid-carousel-item .thumb {
   border-radius: 0.25rem;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   min-height: 150px;
   max-height: 150px;
   overflow: hidden;
@@ -1743,8 +1749,8 @@ html {
 }
 
 .common-area .common-item .common-img.publication-img {
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 350px;
+  max-height: 350px;
 }
 
 .common-area .common-item .common-img.economic-img {
