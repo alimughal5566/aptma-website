@@ -1988,11 +1988,6 @@ html {
   justify-content: center;
 }
 
-.social-feeds .social-feeds-block {
-  min-height: 590px;
-  max-height: 590px;
-}
-
 .social-feeds .social-feeds-block .social-feed-item a {
   color: #439882;
 }

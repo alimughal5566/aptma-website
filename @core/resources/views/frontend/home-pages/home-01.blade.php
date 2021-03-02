@@ -146,7 +146,7 @@
                                                 </a>
                                             </span>
                                             <div>
-                                                <a class="twitter-timeline" data-height="400"
+                                                <a class="twitter-timeline" data-height="620"
                                                    href="https://twitter.com/aptmaofficial">APTMA</a>
                                                 <script async src="https://platform.twitter.com/widgets.js"
                                                         charset="utf-8"></script>
@@ -156,7 +156,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-12 mt-5">
                                 <div class="social-feeds bg-white rounded px-2 px-lg-3 py-3">
                                     <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center ">
                                         <div class="d-flex flex-column">
@@ -174,7 +174,7 @@
                                                 <!-- Your share button code -->
                                                 <div class="fb-page"
                                                      data-href="https://www.facebook.com/APTMAOfficial1"
-                                                     data-tabs="timeline" data-width="" data-height="400"
+                                                     data-tabs="timeline" data-width="" data-height="425"
                                                      data-small-header="false" data-adapt-container-width="true"
                                                      data-hide-cover="false" data-show-facepile="true">
                                                     <blockquote cite="https://www.facebook.com/APTMAOfficial1"
