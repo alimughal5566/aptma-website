@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9">
-                    <h2 class="font-weight-bold mb-3 text-center">
+                    <h2 class="font-weight-bold text-center">
                         Daily Economics Updates <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
                 </div>
                 <div class="col-12 col-md-3">
