@@ -12,7 +12,7 @@
 @endsection
 @section('content')
     @if(!empty(get_static_option('contact_page_contact_info_section_status')))
-        <div class="inner-contact-section padding-120">
+        <div class="inner-contact-section padding-100">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-lg-1"></div>
@@ -47,7 +47,7 @@
         </div>
     @endif
     @if(!empty(get_static_option('contact_page_contact_section_status')))
-        <div class="contact-section padding-bottom-100">
+        <div class="contact-section padding-bottom-80">
             <div class="container-fluid">
                 <div class="row no-gutters">
                     <div class="col-12 col-lg-1"></div>
