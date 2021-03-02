@@ -12,9 +12,7 @@
 @section('content')
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">
-                Circulars <?php echo ($category) ? "<small>($category->name)</small>" : "" ?>
-            </h2>
+            <h2 class="font-weight-bold mb-3 text-center"><?php echo ($category) ? "$category->name" : "" ?></h2>
 
             <div class="row">
                 @forelse($all_services as $data)
@@ -57,9 +55,7 @@
                             <h1 class="text-muted">Sorry,No data found</h1>
                         </div>
                     </div>
-            @endforelse
-
-
+                @endforelse
 
             </div>
         </div>
@@ -78,7 +74,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

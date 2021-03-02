@@ -361,6 +361,9 @@
                                         </ul>
                                     @endif
                                 </li>
+                                <li>
+                                    <a href="{{route('frontend.advertisement.index')}}">Advertisements</a>
+                                </li>
                             </ul>
                         </li>
 
