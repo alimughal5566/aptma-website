@@ -118,14 +118,30 @@
   z-index: 1;
 }
 
-.header-slider-one .header-area:before {
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.25);
+.header-slider-one {
+
+  .header-area {
+
+    &:before {
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+  }
+
+  .owl-nav {
+
+    div {
+      color: #fff;
+    }
+
+  }
+
 }
 
 .single-gallery-image {
