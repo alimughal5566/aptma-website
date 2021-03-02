@@ -866,6 +866,9 @@
                             <li class="{{active_menu('admin-home/circular/category')}}">
                                 <a href="{{route('admin.circular.category')}}" >{{__('Circular Category')}}</a>
                             </li>
+                            <li class="{{active_menu('admin-home/circular/sub-category')}}">
+                                <a href="{{route('admin.circular.sub-category')}}" >{{__('Circular Sub Category')}}</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="main_dropdown

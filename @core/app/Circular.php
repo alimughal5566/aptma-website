@@ -11,4 +11,7 @@ class Circular extends Model
     public function category(){
         return $this->belongsTo('App\CircularCategory','cat_id');
     }
+    public function subCategory(){
+        return $this->belongsTo(CircularSubCategory::class,'sub_cat_id','id');
+    }
 }
