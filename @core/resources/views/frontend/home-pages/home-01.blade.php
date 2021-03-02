@@ -287,8 +287,6 @@
                                             @endisset
 
                                             @isset($excel_sheets->nyc[0])
-                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$excel_sheets->published_at}}</div>
                                                 <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                                     <h3 class="text-white mb-0">
                                                         <span>NYC US cent/lb</span>
