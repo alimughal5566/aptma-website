@@ -126,7 +126,9 @@ class FrontendController extends Controller
 
         //Excel sheets
         $current_date = Carbon::parse(Carbon::now()->toDate())->format('Y-m-d');
-        $data = ExcelPublishedDate::where('date', $current_date)->with('exchange', 'china', 'cotlook', 'export', 'kca', 'nyc')->first();
+        $data = ExcelPublishedDate::with('exchange', 'china', 'cotlook', 'export', 'kca', 'nyc')->orderBy('date','ASC')->first();
+
+//        dd($data);
 
 //        dd($kca,$cotook);
         $daily_stat_categories = ExchangeRatesCategories::all();
