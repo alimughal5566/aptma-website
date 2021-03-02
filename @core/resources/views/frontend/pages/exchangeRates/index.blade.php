@@ -10,20 +10,24 @@
     <section
             class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <div>
-                <h2 class="font-weight-bold mb-3 text-center">Daily Exchange Rates</h2>
-                <div>
-                    <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
-                        <option value="" >Search with date</option>
-                        @foreach($dates as $date)
-                            <option value="{{$date->date}}">{{$date->date}}</option>
-                        @endforeach
-                    </select>
+            <div class="row">
+                <div class="col-12 col-md-9">
+                    <h2 class="font-weight-bold mb-3 text-center">Daily Exchange Rates</h2>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div>
+                        <label for="search_date" class="sr-only"></label>
+                        <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
+                            <option value="">Search with date</option>
+                            @foreach($dates as $date)
+                                <option value="{{$date->date}}">{{$date->date}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 @php $a = 1; @endphp
-                {{--                {{dd($dates)}}--}}
                 @if(isset($dates[0]))
                     @foreach($dates  as $date)
                         <div class="col-lg-3 col-md-6">
@@ -46,14 +50,14 @@
 @push('after-script')
     <script>
         function searchRecord() {
-            let date= $('#search_date').val();
+            let date = $('#search_date').val();
             let route = '{{route('frontend.daily.stats.with.date',':date')}}';
-            route = route.replace(':date',date)
+            route = route.replace(':date', date)
             $.ajax({
                 url: route,
-                success:function (result) {
+                success: function (result) {
                     window.location.href = route;
-                },fail:function () {
+                }, fail: function () {
                     alert('No record found')
                 }
             })
