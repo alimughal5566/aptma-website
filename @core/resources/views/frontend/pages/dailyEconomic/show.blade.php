@@ -35,9 +35,20 @@
                         {{--                        </div>--}}
                     </div>
                     <embed type="application/pdf" frameborder="0" scrolling="no" showcontrols="false"
-                           src="{{asset('assets/uploads/daily-economics/'.$service_item->url.'#toolbar=0&navpanes=0&scrollbar=0&view=fitH,100&zoom=100&view=Fit')}}"
+                           src="{{asset('assets/uploads/daily-economics/'.$service_item->url.'#embedded=true&page=1&toolbar=0&navpanes=0&scrollbar=0&view=fitH,100&zoom=100&view=Fit')}}"
                            height="800px" width="100%"/>
                 </div>
+<!--                --><?php //$pdfThumb = new imagick( 'test.jpg' );;
+//                $pdfThumb->setResolution(10, 10);
+//                $pdfThumb->readImage('http://localhost/aptma-website/assets/uploads/daily-economics/1614660385.pdf.png[0]');
+//                $pdfThumb->setImageFormat('jpg');
+//                header("Content-Type: image/jpeg");
+//                echo $pdfThumb;
+//                $fp = fopen('http://localhost/aptma-website/assets/uploads/daily-economics/1614660385.pdf.jpg', "x");
+//                $pdfThumb->writeImageFile($fp);
+//                fclose($fp);
+//                ?>
+
                 {{--                <div class="col-lg-6">--}}
                 {{--                    <div class="service-details-item common-single-item circular-single-item position-relative">--}}
                 {{--                        <div class="service-description common-single-description circular-description">--}}
