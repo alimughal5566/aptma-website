@@ -269,6 +269,7 @@
 </script>
 
 @yield('scripts')
+@stack('after-script')
 @if(!empty(get_static_option('tawk_api_key')))
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

@@ -10,7 +10,17 @@
     <section
             class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">Daily Exchange Rates</h2>
+            <div>
+                <h2 class="font-weight-bold mb-3 text-center">Daily Exchange Rates</h2>
+                <div>
+                    <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
+                        <option value="" >Search with date</option>
+                        @foreach($dates as $date)
+                            <option value="{{$date->date}}">{{$date->date}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <div class="row">
                 @php $a = 1; @endphp
                 {{--                {{dd($dates)}}--}}
@@ -29,12 +39,25 @@
                         </div>
                     @endforeach
                 @endif
-                {{--                <div class="col-lg-12">--}}
-                {{--                    <div class="pagination-wrapper">--}}
-                {{--                        --}}{{--                        {{$all_services->links()}}--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
             </div>
         </div>
     </section>
 @endsection
+@push('after-script')
+    <script>
+        function searchRecord() {
+            let date= $('#search_date').val();
+            let route = '{{route('frontend.daily.stats.with.date',':date')}}';
+            route = route.replace(':date',date)
+            $.ajax({
+                url: route,
+                success:function (result) {
+                    window.location.href = route;
+                },fail:function () {
+                    alert('No record found')
+                }
+            })
+        }
+    </script>
+
+@endpush

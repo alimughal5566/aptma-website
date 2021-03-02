@@ -227,10 +227,12 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/circulars/{cat?}', 'FrontendController@circular_page')->name('frontend.circular.index');
     Route::get('/circular/show/{slug}', 'FrontendController@circular_single_page')->name('frontend.circular.single');
     Route::get('/daily-economics-update/{cat?}', 'FrontendController@dailyEconomicsUpdate')->name('frontend.dailyEconomicsUpdate');
+    Route::get('/daily-economics/update/{date}', 'FrontendController@dailyEconomicsUpdateDate')->name('frontend.dailyEconomicsUpdate.with.date');
     Route::get('/economic-update/show/{slug}', 'FrontendController@economic_single_page')->name('frontend.economic.single');
 
     //frontend noman
-    Route::get('daily-exchange-cotton-rates', 'ImportController@frontDailyDtats')->name('frontend.daily.stats');
+    Route::get('daily-exchange-cotton-rates', 'ImportController@frontDailyStats')->name('frontend.daily.stats');
+    Route::get('daily-exchange-cotton-rates/{date}', 'ImportController@frontDailyStatsDate')->name('frontend.daily.stats.with.date');
     Route::get('exchange-rates/{date}', 'ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
 
 
