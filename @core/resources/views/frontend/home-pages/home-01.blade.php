@@ -146,7 +146,7 @@
                                                 </a>
                                             </span>
                                             <div>
-                                                <a class="twitter-timeline" data-height="450"
+                                                <a class="twitter-timeline" data-height="400"
                                                    href="https://twitter.com/aptmaofficial">APTMA</a>
                                                 <script async src="https://platform.twitter.com/widgets.js"
                                                         charset="utf-8"></script>
@@ -156,7 +156,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 mt-5">
+                            <div class="col-12">
                                 <div class="social-feeds bg-white rounded px-2 px-lg-3 py-3">
                                     <div class="social-feeds-block bg-white rounded d-flex flex-column justify-content-center ">
                                         <div class="d-flex flex-column">
