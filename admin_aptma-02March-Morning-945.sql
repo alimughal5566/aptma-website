@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 26, 2021 at 11:14 AM
+-- Generation Time: Mar 02, 2021 at 04:45 AM
 -- Server version: 5.7.32-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -288,6 +288,36 @@ INSERT INTO `brands` (`id`, `title`, `url`, `image`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `china_zce_cotton_no_1_rates`
+--
+
+CREATE TABLE `china_zce_cotton_no_1_rates` (
+  `id` int(11) NOT NULL,
+  `prod` varchar(255) NOT NULL,
+  `last` double NOT NULL,
+  `chg` double NOT NULL,
+  `vol` double NOT NULL,
+  `open_interest` double NOT NULL,
+  `published_at` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `china_zce_cotton_no_1_rates`
+--
+
+INSERT INTO `china_zce_cotton_no_1_rates` (`id`, `prod`, `last`, `chg`, `vol`, `open_interest`, `published_at`, `created_at`, `updated_at`) VALUES
+(84, 'CF103', 14885, 90, 6570, 11906, 1, '2021-02-26 09:11:01', '2021-02-26 09:11:01'),
+(85, 'CF105', 14965, 115, 251299, 481686, 1, '2021-02-26 09:11:01', '2021-02-26 09:11:01'),
+(86, 'CF107', 15025, 145, 1683, 7614, 1, '2021-02-26 09:11:01', '2021-02-26 09:11:01'),
+(87, 'CF109', 15135, 115, 28867, 79738, 1, '2021-02-26 09:11:01', '2021-02-26 09:11:01'),
+(88, 'CF111', 15230, 280, 9, 1195, 1, '2021-02-26 09:11:01', '2021-02-26 09:11:01'),
+(89, 'CF201', 15320, 65, 1922, 6518, 1, '2021-02-26 09:11:01', '2021-02-26 09:11:01');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `circulars`
 --
 
@@ -311,10 +341,10 @@ CREATE TABLE `circulars` (
 --
 
 INSERT INTO `circulars` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
-(4, 2, 'Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021', '<p>&nbsp;Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021</p>', '146', '1613303739.pdf', '2021-02-01', 1, 0, '2021-01-22 00:58:29.00000', '2021-02-14 12:39:09.00000', NULL),
-(11, 2, 'Textile & Economy News Bulletin – Feb 09th, 2021', 'Textile &amp; Economy News Bulletin – Feb 09th, 2021', '150', '1613304191.pdf', '2021-02-09', 1, 0, '2021-02-11 02:01:49.00000', '2021-02-14 12:03:56.00000', NULL),
-(13, 2, 'Meeting Of The Ministry Of Commerce Officials With The Ikea Management', '<p>Meeting Of The Ministry Of Commerce Officials With The Ikea Management</p>', '151', '1613305602.pdf', '2021-02-09', 1, 1, '2021-02-11 02:23:53.00000', '2021-02-14 12:26:42.00000', NULL),
-(14, 2, 'Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria', '<p>Ministry of Commerce - Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria</p>', '152', '1613306072.pdf', '2021-02-09', 1, 1, '2021-02-11 02:28:45.00000', '2021-02-14 12:34:55.00000', NULL);
+(4, 2, 'Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021', '<p>&nbsp;Country-wise import of Cotton Yarn and MMF yarn in the month of January 2021</p>', '146', '1613303739.pdf', '2021-02-01', 1, 0, '2021-01-22 00:58:29.00000', '2021-03-01 05:10:28.00000', 'country-wise-import-of-cotton-yarn-and-mmf-yarn-in-the-month-of-january-2021-2'),
+(11, 2, 'Textile & Economy News Bulletin – Feb 09th, 2021', 'Textile &amp; Economy News Bulletin – Feb 09th, 2021', '150', '1613304191.pdf', '2021-02-09', 1, 0, '2021-02-11 02:01:49.00000', '2021-03-01 05:10:36.00000', 'textile-economy-news-bulletin-feb-09th-2021-2'),
+(13, 2, 'Meeting Of The Ministry Of Commerce Officials With The Ikea Management', '<p>Meeting Of The Ministry Of Commerce Officials With The Ikea Management</p>', '151', '1613305602.pdf', '2021-02-09', 1, 1, '2021-02-11 02:23:53.00000', '2021-03-01 05:10:45.00000', 'meeting-of-the-ministry-of-commerce-officials-with-the-ikea-management-2'),
+(14, 2, 'Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria', '<p>Ministry of Commerce - Buying Inquiry Of Carded And Open End Yarn – Yana Ltd., Bulgaria</p>', '152', '1613306072.pdf', '2021-02-09', 1, 1, '2021-02-11 02:28:45.00000', '2021-03-01 05:10:57.00000', 'buying-inquiry-of-carded-and-open-end-yarn-yana-ltd-bulgaria-2');
 
 -- --------------------------------------------------------
 
@@ -337,7 +367,7 @@ CREATE TABLE `circular_categories` (
 --
 
 INSERT INTO `circular_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`, `slug`) VALUES
-(2, 'News', 'publish', 'en', '2020-07-20 23:47:11', '2021-02-22 14:01:24', NULL),
+(2, 'APTMA Circulars', 'publish', 'en', '2020-07-20 23:47:11', '2021-03-01 14:26:24', 'aptma-circulars'),
 (4, 'Compras', 'publish', 'sp', '2020-07-20 23:48:20', '2020-07-20 23:48:20', NULL),
 (6, 'Aksesuarlar', 'publish', 'tur', '2020-07-20 23:49:14', '2020-07-20 23:49:14', NULL),
 (7, 'Alışveriş yapmak', 'publish', 'tur', '2020-07-20 23:49:31', '2020-07-20 23:49:38', NULL),
@@ -347,7 +377,8 @@ INSERT INTO `circular_categories` (`id`, `name`, `status`, `lang`, `created_at`,
 (12, 'Modi error qui est', 'draft', 'ar', '2021-02-10 09:43:42', '2021-02-10 09:43:42', NULL),
 (13, 'In enim dignissimos', 'publish', 'tur', '2021-02-10 09:43:49', '2021-02-10 09:45:17', NULL),
 (14, 'Do ipsam dignissimos', 'publish', 'sp', '2021-02-10 09:44:04', '2021-02-10 09:44:04', NULL),
-(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05', NULL);
+(15, 'Voluptas laboriosam', 'publish', 'tur', '2021-02-10 09:45:05', '2021-02-10 09:45:05', NULL),
+(17, 'General Circulars', 'publish', 'en', '2021-03-01 14:26:17', '2021-03-01 14:26:30', 'general-circulars');
 
 -- --------------------------------------------------------
 
@@ -390,6 +421,28 @@ INSERT INTO `contact_info_items` (`id`, `title`, `lang`, `icon`, `description`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cotlook_a_index`
+--
+
+CREATE TABLE `cotlook_a_index` (
+  `id` int(11) NOT NULL,
+  `a_index` float NOT NULL,
+  `a_index_change` text NOT NULL,
+  `published_at` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cotlook_a_index`
+--
+
+INSERT INTO `cotlook_a_index` (`id`, `a_index`, `a_index_change`, `published_at`, `created_at`, `updated_at`) VALUES
+(4, 90.9, '(+ 3.20)', 1, '2021-02-26 09:18:55', '2021-02-26 09:18:55');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `counterups`
 --
 
@@ -425,6 +478,61 @@ INSERT INTO `counterups` (`id`, `icon`, `number`, `lang`, `title`, `extra_text`,
 (14, 'fas fa-exclamation-triangle', '4048', 'sp', 'Descargas totales', 'K+', '2020-07-27 05:35:50', '2020-07-27 05:35:59'),
 (15, 'fas fa-award', '387', 'sp', 'Premios ganados', NULL, '2020-07-27 05:36:28', '2020-07-27 05:36:28'),
 (16, 'fas fa-user', '20', 'sp', 'Agentes totales', NULL, '2020-07-27 05:37:00', '2020-07-27 05:37:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `daily_economics`
+--
+
+CREATE TABLE `daily_economics` (
+  `id` bigint(20) NOT NULL,
+  `cat_id` bigint(22) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  `thumbnail` varchar(111) DEFAULT NULL,
+  `url` varchar(99) DEFAULT NULL,
+  `publish_date` date DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `is_featured` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp(5) NULL DEFAULT NULL,
+  `updated_at` timestamp(5) NULL DEFAULT NULL,
+  `slug` varchar(555) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `daily_economics`
+--
+
+INSERT INTO `daily_economics` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
+(18, 2, 'Daily Economic Update - 2nd February 2021', NULL, NULL, '1614603243.pdf', '2021-02-02', 1, 1, '2021-03-01 12:54:03.00000', '2021-03-01 12:54:03.00000', 'daily-economic-update-2nd-february-2021-2'),
+(19, 2, 'Daily Economic Update - 3rd February 2021', NULL, NULL, '1614603294.pdf', '2021-02-03', 1, 1, '2021-03-01 12:54:54.00000', '2021-03-01 12:54:54.00000', 'daily-economic-update-3rd-february-2021-2'),
+(20, 2, 'Daily Economic Update - 4th February 2021', NULL, NULL, '1614603320.pdf', '2021-02-04', 1, 1, '2021-03-01 12:55:20.00000', '2021-03-01 12:55:20.00000', 'daily-economic-update-4th-february-2021-2'),
+(21, 2, 'Daily Economic Update - 7th  & 8th February 2021', NULL, NULL, '1614603367.pdf', '2021-02-08', 1, 1, '2021-03-01 12:56:07.00000', '2021-03-01 12:56:07.00000', 'daily-economic-update-7th-8th-february-2021-2'),
+(22, 2, 'Daily Economic Update - 9th February 2021', NULL, NULL, '1614603403.pdf', '2021-02-09', 1, 1, '2021-03-01 12:56:43.00000', '2021-03-01 12:56:43.00000', 'daily-economic-update-9th-february-2021-2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `daily_economic_categories`
+--
+
+CREATE TABLE `daily_economic_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lang` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `daily_economic_categories`
+--
+
+INSERT INTO `daily_economic_categories` (`id`, `name`, `status`, `lang`, `created_at`, `updated_at`, `slug`) VALUES
+(2, 'Updates', 'publish', 'en', '2020-07-20 23:47:11', '2021-03-01 12:53:23', 'updates');
 
 -- --------------------------------------------------------
 
@@ -1105,6 +1213,117 @@ INSERT INTO `event_payment_logs` (`id`, `email`, `name`, `event_name`, `event_co
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `excel_published_date`
+--
+
+CREATE TABLE `excel_published_date` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `excel_published_date`
+--
+
+INSERT INTO `excel_published_date` (`id`, `date`, `created_at`, `updated_at`) VALUES
+(1, '2021-02-26', '2021-02-26 09:11:01', '2021-02-26 09:11:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exchange_categories`
+--
+
+CREATE TABLE `exchange_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lang` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(555) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exchange_categories`
+--
+
+INSERT INTO `exchange_categories` (`id`, `name`, `title_description`, `lang`, `status`, `created_at`, `updated_at`, `slug`) VALUES
+(1, 'NYC US Cent/lb', 'NYC US Cent/lb', 'en', 'publish', '2020-07-22 00:30:13', '2021-02-25 05:18:08', 'nyc-us-centlb'),
+(13, 'Exchange Rates', 'Exchange Rates', 'en', 'publish', '2021-02-24 08:18:40', '2021-02-25 05:17:34', 'exchange-rates'),
+(14, 'Export Bills', 'Export Bills', 'en', 'publish', '2021-02-25 05:17:16', '2021-02-25 05:17:16', 'export-bills'),
+(15, 'China ZCE Cotton', 'China ZCE Cotton edited', 'en', 'publish', '2021-02-25 05:18:54', '2021-02-25 10:37:14', 'china-zce-cotton'),
+(17, 'Cotlook ‘A’ Index', 'Cotlook ‘A’ Index', 'en', 'publish', '2021-02-26 00:48:13', '2021-02-26 00:48:13', 'cotlook-a-index'),
+(18, 'KCA  Pak Rs / Maund 40 Kg', 'KCA  Pak Rs / Maund 40 Kg', 'en', 'publish', '2021-02-26 00:48:36', '2021-02-26 00:48:36', 'kca-pak-rs-maund-40-kg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exchange_rates`
+--
+
+CREATE TABLE `exchange_rates` (
+  `id` bigint(20) NOT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `selling` float DEFAULT NULL,
+  `buying` float DEFAULT NULL,
+  `published_at` int(11) NOT NULL,
+  `created_at` timestamp(5) NULL DEFAULT CURRENT_TIMESTAMP(5),
+  `updated_at` timestamp(5) NULL DEFAULT CURRENT_TIMESTAMP(5),
+  `slug` varchar(555) NOT NULL DEFAULT 'Exchange Rates'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `exchange_rates`
+--
+
+INSERT INTO `exchange_rates` (`id`, `country`, `currency`, `selling`, `buying`, `published_at`, `created_at`, `updated_at`, `slug`) VALUES
+(91, 'UNITED STATES OF AMERICA ', 'USD', 160.25, 159.75, 1, '2021-02-26 09:21:09.00000', '2021-02-26 09:21:09.00000', 'Exchange Rates'),
+(92, 'UNITED KINGDOM ', 'GBP', 220.09, 219.4, 1, '2021-02-26 09:21:09.00000', '2021-02-26 09:21:09.00000', 'Exchange Rates'),
+(93, 'EUROPE', 'EUR', 194.21, 193.61, 1, '2021-02-26 09:21:09.00000', '2021-02-26 09:21:09.00000', 'Exchange Rates'),
+(94, 'JAPAN', 'JPY', 1.5334, 1.5291, 2, '2021-02-26 09:21:09.00000', '2021-02-26 09:21:09.00000', 'Exchange Rates');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `export_bills`
+--
+
+CREATE TABLE `export_bills` (
+  `id` int(11) NOT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `spot` double DEFAULT NULL,
+  `sight_od` double DEFAULT NULL,
+  `first_month` double DEFAULT NULL,
+  `second_month` double DEFAULT NULL,
+  `third_month` double DEFAULT NULL,
+  `fourth_month` double DEFAULT NULL,
+  `fifth_month` double DEFAULT NULL,
+  `sixth_month` double DEFAULT NULL,
+  `published_at` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `export_bills`
+--
+
+INSERT INTO `export_bills` (`id`, `currency`, `spot`, `sight_od`, `first_month`, `second_month`, `third_month`, `fourth_month`, `fifth_month`, `sixth_month`, `published_at`, `created_at`, `updated_at`) VALUES
+(65, 'USD', 159.2, 159.02, 158.81, 158.64, 158.54, 158.28, 158.28, 157.92, 1, '2021-02-26 09:22:21', '2021-02-26 09:22:21'),
+(66, 'USD', 159.2, 159.02, 158.81, 158.64, 158.54, 158.28, 158.28, 157.92, 1, '2021-02-26 09:22:21', '2021-02-26 09:22:21'),
+(67, 'USD', 159.2, 159.02, 158.81, 158.64, 158.54, 158.28, 158.28, 157.92, 1, '2021-02-26 09:22:21', '2021-02-26 09:22:21'),
+(68, 'USD', 159.2, 159.02, 158.81, 158.64, 158.54, 158.28, 158.28, 157.92, 1, '2021-02-26 09:22:21', '2021-02-26 09:22:21'),
+(69, 'USD', 159.2, 159.02, 158.81, 158.64, 158.54, 158.28, 158.28, 157.92, 1, '2021-02-26 09:22:21', '2021-02-26 09:22:21'),
+(70, 'USD', 159.2, 159.02, 158.81, 158.64, 158.54, 158.28, 158.28, 157.92, 1, '2021-02-26 09:22:21', '2021-02-26 09:22:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -1321,7 +1540,7 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `title`, `position`, `company_name`, `category_id`, `vacancy`, `job_responsibility`, `employment_status`, `education_requirement`, `job_context`, `experience_requirement`, `additional_requirement`, `job_location`, `salary`, `other_benefits`, `email`, `status`, `lang`, `deadline`, `meta_tags`, `slug`, `meta_description`, `created_at`, `updated_at`, `application_fee`, `application_fee_status`) VALUES
-(4, 'Sr. Executive (Accounts)', 'Junior Accounts', 'APTMA', '1', '6', 'Ensures the integrity of accounting information by recording, verifying, consolidating, and entering transactions.\r\nPrepares and records asset, liability, revenue, and expenses entries by compiling and analyzing account information.\r\nMaintains and balances subsidiary accounts by verifying, allocating, posting, and reconciling transactions and resolving discrepancies.\r\nMaintains general ledger by transferring subsidiary accounts, preparing a trial balance, and reconciling entries.Overall responsible for Accounts & Finance.\r\nExecute the financial strategy of the company\r\nManage financial controls and accounting procedures\r\nEnsure full transparency over the financial performance of the company\r\nSummarizes financial status by collecting information and preparing balance sheet, profit and loss, and other statements.\r\nProduces payroll by initiating computer processing; printing checks, verifying finished product.\r\nCompletes external audit by analyzing and scheduling general ledger accounts and providing information for auditors.\r\nAvoids legal challenges by complying with legal requirements.\r\nSecures financial information by completing database backups.\r\nProtects organization\'s value by keeping information confidential.To carry out any other assignment given by the company or immediate superior.\r\nSubmit a report on monthly basis about the sales, production and stock.\r\nMonitoring of all the necessary paperwork by all departments.\r\nResponsible for overall Accounts & Finance related mater in plant.\r\nOthers task assign by the departmental head / management.', 'project_based', 'Master of Business Administration (MBA) in Accounting\r\nSkills Required: Accounting and Finance', 'Kishoreganj Eye Hospital operated by a non-government organization named Nari Uddug Kendra (NUK) is well established and reputed modern eye hospital which is working for eradicating the avoidable blindness from Bangladesh and as well as to meet up the VISION-2020 goal of WHO. Kishoreganj Eye Hospital here noticed to recruit for the Post of Senior Accounts Officer as full-time basis.', 'At least 3 year(s)\r\nThe applicants should have experience in the following area(s):\r\nAccountant\r\nThe applicants should have experience in the following business area(s):\r\nReal Estate', 'Age 28 to 35 years\r\nBoth males and females are allowed to apply\r\nGood Command in Excel and Word.\r\nApplicant must have work experience & sound working capacity on Tally Software.\r\nMinimum 3-5 years\' experience in accounting/finance\r\nExperience with financial reporting requirements\r\nHave mentality to work in stress & long hours.\r\nGood computer knowledge must be required (with tally software).', 'Islamabad', 'Negotiable', 'According to Company Policy', NULL, 'publish', 'en', '2021-03-01', NULL, 'sr-executive-accounts', NULL, '2020-07-20 09:22:14', '2021-02-25 15:08:44', NULL, NULL);
+(4, 'Marketing/Media Manager and Staff Officer to Executive Director', 'Marketing/Media Manager and Staff Officer to Executive Director', 'APTMA', '1', '1', '<p>•	Proficiency in English language is a must. Able to speak fluently, attend seminars and meetings, articulately voice APTMA’s opinion/concerns/feedback at various government and non-government organizations. </p><p>\r\n•	Good communication skills as working with internal teams and external providers are central to the success of the role.\r\n</p><p>•	A person who is comfortable with multiple projects and deadlines and who is able to prioritize.\r\n</p><p>•	Record minutes and draft them into summarized notes.\r\n</p><p>•	A person who is happy to challenge the norm and generate ideas to enhance APTMA’s media footprint and market them excessively. </p><p>\r\n•	Willing to learn and grow within our awesome team.\r\n</p>', 'full_time', '<p>•	Masters degree in Mass Communication from highly ranked International University. </p><p>\r\n•	High proficiency in English language (speaking, writing, reading), close to a native speaker. </p><p>\r\n•	Meticulous attention to details, and able to work independently with minimal supervision. </p><p>\r\n•	Able to represent APTMA along with Executive Director at seminars, high-profile meetings etc.\r\n</p>', '<p>We are looking for smart, energetic, and entrepreneurial individuals who are passionate about media/marketing and making a difference.<br></p><p>\r\nAs a Media/Marketing Manager at APTMA, you’ll be working within our Research team to plan, create and optimize our media/marketing campaigns across our existing platforms. As we enter an exciting new stage in our journey you’ll also have the opportunity to test, evaluate and introduce new platforms. \r\n</p>', '<p>A Mass Communication graduate (preferably female) of a highly reputable institution with 2+ years experience in creating, managing, and optimizing campaigns across mainstream platforms i.e., Twitter, Facebook, Website, and Instagram (including paid campaigns). The selected candidate will assist the Executive Director in day-to-day tasks ensuring complete coverage of his meetings/webinars, media appearances, article, and publications, etc.<br></p><p>\r\nReporting to the Executive Director, the Manager will provide technical and media management support (SMS, Website, Articles, Social Media etc.) to APTMA. The Manager will act as the first point of contact for all media-related issues, will actively improve and maintain APTMA’s workflows, offer creative solutions to archive research briefs as well as comprehensive breakdowns for archiving, logging, reporting, and managing digital assets.\r\n</p>', '<p>We continue to build an inclusive culture where everyone can be their whole selves and produce their best work. Our focus on inclusion is intended to build greater diversity in order to reflect the society we serve and be an employer of choice.<br></p><p><br>\r\nPlease apply with CV and Cover Letter at <a href=\"mailto:careers@aptma.org.pk\" target=\"_blank\">careers@aptma.org.pk</a></p>', 'APTMA Head Office, Islamabad, Pakistan', 'Negotiable', '<p>APTMA offers highly competitive salary and benefits.<br></p>', NULL, 'publish', 'en', '2021-03-14', NULL, 'Marketing/Media Manager and Staff Officer to Executive Director', NULL, '2020-07-20 09:22:14', '2021-03-01 22:48:19', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1376,6 +1595,27 @@ INSERT INTO `job_applicants` (`id`, `jobs_id`, `form_content`, `attachment`, `cr
 (3, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:7:\"stewart\";s:10:\"your-email\";s:15:\"admin@gmail.com\";s:20:\"your-expected-salary\";s:5:\"20000\";s:20:\"your-additional-info\";s:12:\"yunhiojhj8iu\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.pdf\";}', '2020-08-20 13:08:55', '2020-08-20 13:08:55', NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:7:\"gfcghxd\";s:10:\"your-email\";s:17:\"sarty2k@gmail.com\";s:20:\"your-expected-salary\";s:5:\"20000\";s:20:\"your-additional-info\";s:9:\"zsfdf\\azd\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.txt\";}', '2020-08-23 05:19:02', '2020-08-23 05:19:02', NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:4:\"test\";s:10:\"your-email\";s:15:\"fdfdf@gmail.com\";s:20:\"your-expected-salary\";s:6:\"dsdsds\";s:20:\"your-additional-info\";s:6:\"sdsdsd\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.txt\";}', '2020-08-23 17:08:33', '2020-08-23 17:08:33', NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kca_pak_rs_muand_fourty_kg`
+--
+
+CREATE TABLE `kca_pak_rs_muand_fourty_kg` (
+  `id` int(11) NOT NULL,
+  `kca_grade_3_spot` float NOT NULL,
+  `published_at` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kca_pak_rs_muand_fourty_kg`
+--
+
+INSERT INTO `kca_pak_rs_muand_fourty_kg` (`id`, `kca_grade_3_spot`, `published_at`, `created_at`, `updated_at`) VALUES
+(4, 11767, 1, '2021-02-26 09:23:33', '2021-02-26 09:23:33');
 
 -- --------------------------------------------------------
 
@@ -1735,7 +1975,10 @@ INSERT INTO `media_uploads` (`id`, `title`, `path`, `alt`, `size`, `dimensions`,
 (190, 'JSS_3055.jpg', 'jss-30551614146928.jpg', NULL, '299.08 KB', '1920 x 1280 pixels', '2021-02-24 06:08:48', '2021-02-24 06:08:48'),
 (191, 'JSS_3057.jpg', 'jss-30571614146933.jpg', NULL, '335.63 KB', '1920 x 1280 pixels', '2021-02-24 06:08:54', '2021-02-24 06:08:54'),
 (192, 'JSS_3066.jpg', 'jss-30661614146934.jpg', NULL, '353.89 KB', '1920 x 1280 pixels', '2021-02-24 06:08:54', '2021-02-24 06:08:54'),
-(193, 'JSS_3086.jpg', 'jss-30861614146937.jpg', NULL, '303.18 KB', '1920 x 1280 pixels', '2021-02-24 06:08:58', '2021-02-24 06:08:58');
+(193, 'JSS_3086.jpg', 'jss-30861614146937.jpg', NULL, '303.18 KB', '1920 x 1280 pixels', '2021-02-24 06:08:58', '2021-02-24 06:08:58'),
+(194, 'Anti-Export-Bias.jpg', 'anti-export-bias1614583157.jpg', NULL, '130.89 KB', '800 x 1200 pixels', '2021-03-01 07:19:17', '2021-03-01 07:19:17'),
+(195, 'Export-led-Growth-Takeoff.jpg', 'export-led-growth-takeoff1614583157.jpg', NULL, '163.94 KB', '800 x 1200 pixels', '2021-03-01 07:19:17', '2021-03-01 07:19:17'),
+(196, 'Pakistan_s-Gas-Shortage.jpg', 'pakistan-s-gas-shortage1614583158.jpg', NULL, '81.73 KB', '800 x 1200 pixels', '2021-03-01 07:19:18', '2021-03-01 07:19:18');
 
 -- --------------------------------------------------------
 
@@ -1767,7 +2010,7 @@ INSERT INTO `menus` (`id`, `title`, `lang`, `content`, `status`, `created_at`, `
 (8, 'Primary Menu [AR]', 'ar', '[{\"pname\":\"Home\",\"purl\":\"@url\",\"ptype\":\"custom\",\"id\":1},{\"pslug\":\"about_page_slug\",\"pname\":\"about_page_ar_name\",\"ptype\":\"static\",\"id\":2,\"children\":[{\"pslug\":\"about_page_slug\",\"pname\":\"about_page_ar_name\",\"ptype\":\"static\",\"id\":3},{\"pslug\":\"clients_feedback_page_slug\",\"pname\":\"clients_feedback_page_ar_name\",\"ptype\":\"static\",\"id\":4},{\"pslug\":\"image_gallery_page_slug\",\"pname\":\"image_gallery_page_ar_name\",\"ptype\":\"static\",\"id\":5},{\"pslug\":\"team_page_slug\",\"pname\":\"team_page_ar_name\",\"ptype\":\"static\",\"id\":6},{\"pslug\":\"testimonial_page_slug\",\"pname\":\"testimonial_page_ar_name\",\"ptype\":\"static\",\"id\":7}]},{\"icon\":\"2,3,5\",\"items_id\":\"24,26,27,28,29,30\",\"ptype\":\"service_mega_menu\",\"id\":3},{\"items_id\":\"18,27,28,29,30,31,32\",\"ptype\":\"work_mega_menu\",\"id\":4},{\"pname\":\"Pages\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":5,\"children\":[{\"pname\":\"Inner Pages\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":6,\"children\":[{\"pslug\":\"work_page_slug\",\"pname\":\"work_page_ar_name\",\"ptype\":\"static\",\"id\":7},{\"pslug\":\"blog_page_slug\",\"pname\":\"blog_page_ar_name\",\"ptype\":\"static\",\"id\":8},{\"pslug\":\"product_page_slug\",\"pname\":\"product_page_ar_name\",\"ptype\":\"static\",\"id\":9},{\"pslug\":\"service_page_slug\",\"pname\":\"service_page_ar_name\",\"ptype\":\"static\",\"id\":10},{\"pslug\":\"price_plan_page_slug\",\"pname\":\"price_plan_page_ar_name\",\"ptype\":\"static\",\"id\":11}]},{\"pslug\":\"knowledgebase_page_slug\",\"pname\":\"knowledgebase_page_ar_name\",\"ptype\":\"static\",\"id\":7},{\"pslug\":\"events_page_slug\",\"pname\":\"events_page_ar_name\",\"ptype\":\"static\",\"id\":8},{\"pslug\":\"donation_page_slug\",\"pname\":\"donation_page_ar_name\",\"ptype\":\"static\",\"id\":9},{\"pslug\":\"career_with_us_page_slug\",\"pname\":\"career_with_us_page_ar_name\",\"ptype\":\"static\",\"id\":10},{\"pname\":\"Others Pages\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":11,\"children\":[{\"pslug\":\"feedback_page_slug\",\"pname\":\"feedback_page_ar_name\",\"ptype\":\"static\",\"id\":12},{\"pslug\":\"faq_page_slug\",\"pname\":\"faq_page_ar_name\",\"ptype\":\"static\",\"id\":13},{\"pslug\":\"quote_page_slug\",\"pname\":\"quote_page_ar_name\",\"ptype\":\"static\",\"id\":14}]}]},{\"items_id\":\"17,18,19,20\",\"ptype\":\"product_mega_menu\",\"id\":6},{\"items_id\":\"8,12,13,14\",\"ptype\":\"donation_mega_menu\",\"id\":7},{\"pslug\":\"contact_page_slug\",\"pname\":\"contact_page_ar_name\",\"ptype\":\"static\",\"id\":8}]', 'default', '2020-07-27 08:43:13', '2020-07-27 23:41:26'),
 (9, 'Primary Menu [SPA]', 'sp', '[{\"pname\":\"Home\",\"purl\":\"@url\",\"ptype\":\"custom\",\"id\":1},{\"pslug\":\"about_page_slug\",\"pname\":\"about_page_sp_name\",\"ptype\":\"static\",\"id\":2,\"children\":[{\"pslug\":\"about_page_slug\",\"pname\":\"about_page_sp_name\",\"ptype\":\"static\",\"id\":3},{\"pslug\":\"clients_feedback_page_slug\",\"pname\":\"clients_feedback_page_sp_name\",\"ptype\":\"static\",\"id\":4},{\"pslug\":\"image_gallery_page_slug\",\"pname\":\"image_gallery_page_sp_name\",\"ptype\":\"static\",\"id\":5},{\"pslug\":\"team_page_slug\",\"pname\":\"team_page_sp_name\",\"ptype\":\"static\",\"id\":6},{\"pslug\":\"testimonial_page_slug\",\"pname\":\"testimonial_page_sp_name\",\"ptype\":\"static\",\"id\":7}]},{\"icon\":\"2,3,5\",\"items_id\":\"18,19,20,21,22,23,25\",\"ptype\":\"service_mega_menu\",\"id\":3},{\"items_id\":\"19,20,21,22,23,24,25,26\",\"ptype\":\"work_mega_menu\",\"id\":4},{\"pname\":\"Pages\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":5,\"children\":[{\"pname\":\"Inner Pages\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":6,\"children\":[{\"pslug\":\"work_page_slug\",\"pname\":\"work_page_sp_name\",\"ptype\":\"static\",\"id\":7},{\"pslug\":\"blog_page_slug\",\"pname\":\"blog_page_sp_name\",\"ptype\":\"static\",\"id\":8},{\"pslug\":\"product_page_slug\",\"pname\":\"product_page_sp_name\",\"ptype\":\"static\",\"id\":9},{\"pslug\":\"service_page_slug\",\"pname\":\"service_page_sp_name\",\"ptype\":\"static\",\"id\":10},{\"pslug\":\"price_plan_page_slug\",\"pname\":\"price_plan_page_sp_name\",\"ptype\":\"static\",\"id\":11}]},{\"pslug\":\"knowledgebase_page_slug\",\"pname\":\"knowledgebase_page_sp_name\",\"ptype\":\"static\",\"id\":7},{\"pslug\":\"events_page_slug\",\"pname\":\"events_page_sp_name\",\"ptype\":\"static\",\"id\":8},{\"pslug\":\"donation_page_slug\",\"pname\":\"donation_page_sp_name\",\"ptype\":\"static\",\"id\":9},{\"pslug\":\"career_with_us_page_slug\",\"pname\":\"career_with_us_page_sp_name\",\"ptype\":\"static\",\"id\":10},{\"pname\":\"Others Pages\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":11,\"children\":[{\"pslug\":\"feedback_page_slug\",\"pname\":\"feedback_page_sp_name\",\"ptype\":\"static\",\"id\":12},{\"pslug\":\"faq_page_slug\",\"pname\":\"faq_page_sp_name\",\"ptype\":\"static\",\"id\":13},{\"pslug\":\"quote_page_slug\",\"pname\":\"quote_page_sp_name\",\"ptype\":\"static\",\"id\":14}]},{\"pid\":1,\"ptype\":\"dynamic\",\"id\":12}]},{\"items_id\":\"21,22,23\",\"ptype\":\"product_mega_menu\",\"id\":6},{\"items_id\":\"15,16,17,18\",\"ptype\":\"donation_mega_menu\",\"id\":7},{\"pslug\":\"contact_page_slug\",\"pname\":\"contact_page_sp_name\",\"ptype\":\"static\",\"id\":8}]', 'default', '2020-07-27 08:44:49', '2020-07-27 08:58:24'),
 (10, 'Data', 'en', '[{\"pname\":\"PBS\",\"purl\":\"https://www.pbs.gov.pk/\",\"ptype\":\"custom\",\"id\":2},{\"pname\":\"BOI\",\"purl\":\"https://invest.gov.pk/home\",\"ptype\":\"custom\",\"id\":1},{\"pname\":\"World Data Bank (WDI)\",\"purl\":\"http://databank.worldbank.org/ddp/home.do\",\"ptype\":\"custom\",\"id\":3},{\"pname\":\"World Bank Data\",\"purl\":\"http://data.worldbank.org/\",\"ptype\":\"custom\",\"id\":4},{\"pname\":\"Trading Economics Data\",\"purl\":\"http://www.tradingeconomics.com/\",\"ptype\":\"custom\",\"id\":5},{\"pname\":\"SBP\",\"purl\":\"https://www.sbp.org.pk/\",\"ptype\":\"custom\",\"id\":6}]', NULL, '2021-02-18 10:15:07', '2021-02-19 12:20:28'),
-(11, 'Careers', 'en', '[{\"pname\":\"Tenders & Advertisements\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":1},{\"ptype\":\"static\",\"pslug\":\"career_with_us_page_slug\",\"pname\":\"career_with_us_page_en_name\",\"id\":2}]', NULL, '2021-02-18 10:15:13', '2021-02-25 15:04:37');
+(11, 'Careers', 'en', '[{\"pname\":\"Tenders & Advertisements\",\"purl\":\"#\",\"ptype\":\"custom\",\"id\":1},{\"pname\":\"Jobs at APTMA\",\"purl\":\"/career\",\"ptype\":\"custom\",\"id\":3}]', NULL, '2021-02-18 10:15:13', '2021-03-01 09:49:24');
 
 -- --------------------------------------------------------
 
@@ -1894,6 +2137,31 @@ INSERT INTO `newsletters` (`id`, `email`, `created_at`, `updated_at`) VALUES
 (36, 'twumfrank2012@gmail.com', '2020-12-24 18:48:34', '2020-12-24 18:48:34'),
 (37, 'gorerazasandy10@gmail.com', '2020-12-25 01:12:18', '2020-12-25 01:12:18'),
 (38, 'info.po@aptma.org.pk', '2021-02-12 10:11:38', '2021-02-12 10:11:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nyc_us_cent_lb`
+--
+
+CREATE TABLE `nyc_us_cent_lb` (
+  `id` int(11) NOT NULL,
+  `contract` varchar(500) DEFAULT NULL,
+  `close` double DEFAULT NULL,
+  `changes` double DEFAULT NULL,
+  `published_at` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nyc_us_cent_lb`
+--
+
+INSERT INTO `nyc_us_cent_lb` (`id`, `contract`, `close`, `changes`, `published_at`, `created_at`, `updated_at`) VALUES
+(41, 'CTH21 Mar-2021', 80.03, -0.61, 1, '2021-02-26 09:24:32', '2021-02-26 09:24:32'),
+(42, 'CTK21 May-2021', 81.36, -0.48, 1, '2021-02-26 09:24:32', '2021-02-26 09:24:32'),
+(43, 'CTK21 Jul-2021', 82.33, -0.45, 1, '2021-02-26 09:24:32', '2021-02-26 09:24:32');
 
 -- --------------------------------------------------------
 
@@ -3155,9 +3423,9 @@ CREATE TABLE `publications` (
 --
 
 INSERT INTO `publications` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `pdf_url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
-(3, 1, 'Anti Export Bias', 'Anti Export Bias', '153', '1613311384.pdf', '2020-08-02', 1, 0, '2021-02-10 00:24:13.00000', '2021-02-22 14:13:28.00000', 'anti-export-bias-3g'),
-(4, 1, 'Export-led Growth Takeoff', '<p>Export-led Growth Takeoff</p>', '156', '1613311433.pdf', '2021-02-18', 1, 0, '2021-02-10 00:58:29.00000', '2021-02-22 14:13:21.00000', 'export-led-growth-takeoff-Wa'),
-(5, 1, 'Pakistan\'s Gas Shortage', '<p><span style=\"font-size: 15px;\">Pakistan\'s Gas Shortage</span><br></p>', '155', '1613311494.pdf', '2021-01-24', 1, 0, '2021-02-10 01:01:39.00000', '2021-02-22 14:13:16.00000', 'pakistans-gas-shortage-Lf'),
+(3, 1, 'Anti Export Bias', 'Anti Export Bias', '194', '1613311384.pdf', '2020-08-02', 1, 0, '2021-02-10 00:24:13.00000', '2021-03-01 07:19:33.00000', 'anti-export-bias-tX'),
+(4, 1, 'Export-led Growth Takeoff', '<p>Export-led Growth Takeoff</p>', '195', '1613311433.pdf', '2021-02-18', 1, 0, '2021-02-10 00:58:29.00000', '2021-03-01 07:19:49.00000', 'export-led-growth-takeoff-3B'),
+(5, 1, 'Pakistan\'s Gas Shortage', '<p><span style=\"font-size: 15px;\">Pakistan\'s Gas Shortage</span><br></p>', '196', '1613311494.pdf', '2021-01-24', 1, 0, '2021-02-10 01:01:39.00000', '2021-03-01 07:20:02.00000', 'pakistans-gas-shortage-6r'),
 (10, 1, 'APTMA urges FBR to stop ‘harassing taxpayers’', '<p class=\"story-excerpt\" style=\"font-family: &quot;Nunito Sans&quot;, sans-serif; font-size: 16px; line-height: 21px; opacity: 1; margin-top: 10px; color: rgb(70, 68, 68); width: 832.474px;\">Demands withdrawal of FIRs lodged against manufacturers and exporters</p><div><br></div>', '186', '1613992860.pdf', '2020-12-20', 1, 0, '2021-02-22 11:21:00.00000', '2021-02-22 14:13:09.00000', 'aptma-urges-fbr-to-stop-harassing-taxpayers-vU');
 
 -- --------------------------------------------------------
@@ -4294,14 +4562,14 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (916, 'site_google_map_api', NULL, '2020-07-24 11:41:07', '2020-07-24 11:41:33'),
 (917, 'site_google_captcha_v3_site_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
 (918, 'site_google_captcha_v3_secret_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
-(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-25 15:13:55'),
-(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-02-25 15:13:55'),
-(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-02-25 15:13:55'),
-(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-02-25 15:13:55'),
+(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-01 22:37:10'),
+(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-03-01 22:37:10'),
+(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-01 22:37:10'),
+(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-03-01 22:37:10'),
 (923, 'item_purchase_key', 'dfgdfgdfgdfgdfg', '2020-07-25 00:27:03', '2020-10-04 11:00:51'),
-(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-25 15:04:08'),
-(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-25 15:04:08'),
-(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-02-25 15:13:55'),
+(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-26 17:38:42'),
+(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-26 17:38:42'),
+(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-03-01 22:37:10'),
 (927, 'site_sticky_navbar_enabled', 'on', '2020-07-25 07:32:50', '2021-02-19 15:09:30'),
 (928, 'popup_enable_status', NULL, '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (929, 'popup_delay_time', '10000', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
@@ -5145,6 +5413,12 @@ ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `china_zce_cotton_no_1_rates`
+--
+ALTER TABLE `china_zce_cotton_no_1_rates`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `circulars`
 --
 ALTER TABLE `circulars`
@@ -5163,9 +5437,27 @@ ALTER TABLE `contact_info_items`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cotlook_a_index`
+--
+ALTER TABLE `cotlook_a_index`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `counterups`
 --
 ALTER TABLE `counterups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `daily_economics`
+--
+ALTER TABLE `daily_economics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `daily_economic_categories`
+--
+ALTER TABLE `daily_economic_categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5202,6 +5494,30 @@ ALTER TABLE `event_attendances`
 -- Indexes for table `event_payment_logs`
 --
 ALTER TABLE `event_payment_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `excel_published_date`
+--
+ALTER TABLE `excel_published_date`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exchange_categories`
+--
+ALTER TABLE `exchange_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exchange_rates`
+--
+ALTER TABLE `exchange_rates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `export_bills`
+--
+ALTER TABLE `export_bills`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5259,6 +5575,12 @@ ALTER TABLE `job_applicants`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kca_pak_rs_muand_fourty_kg`
+--
+ALTER TABLE `kca_pak_rs_muand_fourty_kg`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `key_features`
 --
 ALTER TABLE `key_features`
@@ -5306,6 +5628,12 @@ ALTER TABLE `migrations`
 ALTER TABLE `newsletters`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `newsletters_email_unique` (`email`);
+
+--
+-- Indexes for table `nyc_us_cent_lb`
+--
+ALTER TABLE `nyc_us_cent_lb`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `orders`
@@ -5544,6 +5872,11 @@ ALTER TABLE `book_categories`
 ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `china_zce_cotton_no_1_rates`
+--
+ALTER TABLE `china_zce_cotton_no_1_rates`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+--
 -- AUTO_INCREMENT for table `circulars`
 --
 ALTER TABLE `circulars`
@@ -5552,17 +5885,32 @@ ALTER TABLE `circulars`
 -- AUTO_INCREMENT for table `circular_categories`
 --
 ALTER TABLE `circular_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `contact_info_items`
 --
 ALTER TABLE `contact_info_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
+-- AUTO_INCREMENT for table `cotlook_a_index`
+--
+ALTER TABLE `cotlook_a_index`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `counterups`
 --
 ALTER TABLE `counterups`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `daily_economics`
+--
+ALTER TABLE `daily_economics`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `daily_economic_categories`
+--
+ALTER TABLE `daily_economic_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `donations`
 --
@@ -5593,6 +5941,26 @@ ALTER TABLE `event_attendances`
 --
 ALTER TABLE `event_payment_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+--
+-- AUTO_INCREMENT for table `excel_published_date`
+--
+ALTER TABLE `excel_published_date`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `exchange_categories`
+--
+ALTER TABLE `exchange_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `exchange_rates`
+--
+ALTER TABLE `exchange_rates`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+--
+-- AUTO_INCREMENT for table `export_bills`
+--
+ALTER TABLE `export_bills`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
@@ -5639,6 +6007,11 @@ ALTER TABLE `jobs_categories`
 ALTER TABLE `job_applicants`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `kca_pak_rs_muand_fourty_kg`
+--
+ALTER TABLE `kca_pak_rs_muand_fourty_kg`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `key_features`
 --
 ALTER TABLE `key_features`
@@ -5662,7 +6035,7 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `media_uploads`
 --
 ALTER TABLE `media_uploads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 --
 -- AUTO_INCREMENT for table `menus`
 --
@@ -5678,6 +6051,11 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `newsletters`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+--
+-- AUTO_INCREMENT for table `nyc_us_cent_lb`
+--
+ALTER TABLE `nyc_us_cent_lb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `orders`
 --

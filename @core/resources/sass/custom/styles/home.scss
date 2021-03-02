@@ -888,3 +888,23 @@
   }
 
 }
+
+.single-job-list-item {
+
+  .jobs-meta {
+    @include mix.d-flex;
+    @include mix.flex-wrap;
+
+    li {
+
+      & + li {
+        margin-left: 0;
+      }
+
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+
+    }
+  }
+
+}
