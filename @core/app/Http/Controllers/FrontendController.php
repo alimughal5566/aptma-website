@@ -404,7 +404,7 @@ class FrontendController extends Controller
         $service_item = Circular::where('slug', $slug)->with('category')->first();
         $service_category = CircularCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
-        return view('frontend.pages.dailyEconomic.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
+        return view('frontend.pages.circular.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
     }
     public function economic_single_page($slug)
     {
