@@ -31,6 +31,7 @@ class DailyEconomicController extends Controller
             'is_featured' => 'required|string',
             'category' => 'required|string',
             'pdf_file' => 'required|file',
+            'thumbnail' => 'required',
 
         ]);
         $name=time();
@@ -53,6 +54,7 @@ class DailyEconomicController extends Controller
             'cat_id' => $request->category,
             'publish_date' => $request->publish_date,
             'slug' =>Str::slug($request->title.'-'.$request->category),
+            'thumbnail' =>$request->thumbnail,
         ]);
         return redirect()->back()->with(['msg' => __('Data added...'),'type' => 'success']);
     }
@@ -61,6 +63,7 @@ class DailyEconomicController extends Controller
             'title' => 'required|string',
             'is_featured' => 'required|string',
             'category' => 'required|string',
+            'thumbnail' => 'required|string',
         ]);
 
         $name=time();
@@ -94,6 +97,7 @@ class DailyEconomicController extends Controller
           $data->title=$request->title;
           $data->publish_date=$request->publish_date;
           $data->cat_id=$request->category;
+          $data->thumbnail=$request->thumbnail;
           $data->slug=Str::slug($request->title.' '.$data->cat_id);
           $data->save();
         return redirect()->back()->with(['msg' => __('Data Updated...'),'type' => 'success']);

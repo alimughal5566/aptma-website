@@ -16,7 +16,7 @@
                 Daily Economics Updates <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
             <div>
                 <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
-                    <option value="" >Search with date</option>
+                    <option value="">Search with date</option>
                     @foreach($all_services as $date)
                         <option value="{{$date->publish_date}}">{{$date->publish_date}}</option>
                     @endforeach
@@ -41,6 +41,8 @@
                             {{--                                <a href="{{route('frontend.circular.single',$data->slug)}}">{!! render_image_markup_by_attachment_id($pdf) !!}</a>--}}
                             {{--                            </div>--}}
                             <div class="common-content content">
+                                <a href="{{route('frontend.economic.single',$data->slug)}}">
+                                    {!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                                 <a href="{{route('frontend.economic.single',$data->slug)}}">
                                     <h4 class="title mb-0">{{$data->title}}</h4>
                                 </a>
@@ -72,14 +74,14 @@
 @push('after-script')
     <script>
         function searchRecord() {
-            let date= $('#search_date').val();
+            let date = $('#search_date').val();
             let route = '{{route('frontend.dailyEconomicsUpdate.with.date',':date')}}';
-            route = route.replace(':date',date)
+            route = route.replace(':date', date)
             $.ajax({
                 url: route,
-                success:function (result) {
+                success: function (result) {
                     window.location.href = route;
-                },fail:function () {
+                }, fail: function () {
                     alert('No result found')
                 }
             })

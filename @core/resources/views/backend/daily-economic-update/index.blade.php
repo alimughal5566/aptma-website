@@ -78,6 +78,7 @@
                                             </div>
                                         </th>
                                         <th>{{__('ID')}}</th>
+                                        <th>{{__('Image')}}</th>
                                         <th>{{__('Title')}}</th>
                                         <th>{{__('Category')}}</th>
                                         <th>{{__('Publish date')}}</th>
@@ -96,12 +97,33 @@
                                                                name="bulk_delete[]" value="{{$data->id}}">
                                                     </div>
                                                 </td>
+
                                                 <td><a class="text-white"
                                                       >{{$data->id}}</a>
+                                                </td>
+                                                <td> @php
+                                                        $testimonial_img = get_attachment_image_by_id($data->thumbnail,'thumbnail',true);
+                                                    @endphp
+                                                    @if (!empty($testimonial_img))
+                                                        <div class="attachment-preview">
+                                                            <div class="thumbnail">
+                                                                <div class="centered">
+                                                                    <a href="{{$data->description}}" target="_blank"
+                                                                       class="float-right text-right">
+                                                                        <img class="avatar user-thumb"
+                                                                             src="{{$testimonial_img['img_url']}}"
+                                                                             alt="">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    @endif
                                                 </td>
 
                                                 <td>{{$data->title}}</td>
                                                 <td>{{$data->category->name}}</td>
+
                                                 <td>{{$data->publish_date}}</td>
                                                 <td>{{($data->status=='1')?'Active':'Not active'}}</td>
                                                 <td>{{($data->is_featured=='1')?'Yes':'No'}}</td>
@@ -136,7 +158,8 @@
                                                        data-is_featured="{{$data->is_featured}}"
                                                        data-publish_date="{{$data->publish_date}}"
                                                        data-category="{{$data->cat_id}}"
-                                                       data-url="{{$data->url}}">
+                                                       data-url="{{$data->url}}"
+                                                       data-thumbnail="{{$data->thumbnail}}">
                                                         <i class="ti-pencil"></i>
                                                     </a>
                                                 </td>
@@ -192,19 +215,19 @@
                                 <input type="date" class="form-control datepicker" name="publish_date"
                                        placeholder="Date" value="{{old('publish_date')}}">
                             </div>
-{{--                            <div class="form-group">--}}
-{{--                                <label class="mb-0" for="image">{{__('Thumbnail')}}</label>--}}
-{{--                                <div class="media-upload-btn-wrapper">--}}
-{{--                                    <div class="img-wrap"></div>--}}
-{{--                                    <input type="hidden" name="thumbnail" value="{{old('thumbnail')}}" )>--}}
-{{--                                    <button type="button" class="btn btn-info media_upload_form_btn"--}}
-{{--                                            data-btntitle="Select Image" data-modaltitle="Upload Image"--}}
-{{--                                            data-toggle="modal" data-target="#media_upload_modal">--}}
-{{--                                        {{__('Placeholder Image')}}--}}
-{{--                                    </button>--}}
-{{--                                </div>--}}
-{{--                                <small>{{__('1000x1000 px image recommended')}}</small>--}}
-{{--                            </div>--}}
+                            <div class="form-group">
+                                <label class="mb-0" for="image">{{__('Thumbnail')}}</label>
+                                <div class="media-upload-btn-wrapper">
+                                    <div class="img-wrap"></div>
+                                    <input type="hidden" name="thumbnail" value="{{old('thumbnail')}}" )>
+                                    <button type="button" class="btn btn-info media_upload_form_btn"
+                                            data-btntitle="Select Image" data-modaltitle="Upload Image"
+                                            data-toggle="modal" data-target="#media_upload_modal">
+                                        {{__('Placeholder Image')}}
+                                    </button>
+                                </div>
+                                <small>{{__('1000x1000 px image recommended')}}</small>
+                            </div>
                             <div class="form-group ">
                                 <label for="date">File</label>
                                 <input type="file" class="form-control" name="pdf_file" placeholder="Pdf File"
@@ -289,19 +312,19 @@
                                 <option value="0">No</option>
                             </select>
                         </div>
-{{--                        <div class="form-group">--}}
-{{--                            <label for="image">{{__('Image')}}</label>--}}
-{{--                            <div class="media-upload-btn-wrapper">--}}
-{{--                                <div class="img-wrap"></div>--}}
-{{--                                <input type="hidden" id="edit_image" name="edit_image" value="">--}}
-{{--                                <button type="button" class="btn btn-info media_upload_form_btn"--}}
-{{--                                        data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal"--}}
-{{--                                        data-target="#media_upload_modal">--}}
-{{--                                    {{__('Upload Image')}}--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                            <small>{{__('1000x1000 px image recommended')}}</small>--}}
-{{--                        </div>--}}
+                        <div class="form-group">
+                            <label for="image">{{__('Image')}}</label>
+                            <div class="media-upload-btn-wrapper">
+                                <div class="img-wrap"></div>
+                                <input type="hidden" id="edit_image" name="thumbnail" value="">
+                                <button type="button" class="btn btn-info media_upload_form_btn"
+                                        data-btntitle="Select Image" data-modaltitle="Upload Image" data-toggle="modal"
+                                        data-target="#media_upload_modal">
+                                    {{__('Upload Image')}}
+                                </button>
+                            </div>
+                            <small>{{__('1000x1000 px image recommended')}}</small>
+                        </div>
                         <div class="form-group ">
                             <label for="date">File</label>
                             <input type="file" class="form-control" name="pdf_file" placeholder="Pdf File"
@@ -379,6 +402,7 @@
                 var id = el.data('id');
                 var image = el.data('image');
                 var imageid = el.data('imageid');
+                var edit_image = el.data('thumbnail');
 
                 var status = el.data('status');
                 var is_featured = el.data('is_featured');
@@ -391,6 +415,7 @@
 
                 form.find('input[name="url"]').val(url);
                 form.find('input[name="publish_date"]').val(el.data('publish_date'));
+                form.find('input[name="thumbnail"]').val(edit_image);
 
                 form.find('select[name="is_featured"] option[value="' + is_featured + '"]').attr('selected', true);
                 form.find('select[name="status"] option[value="' + status + '"]').attr('selected', true);
