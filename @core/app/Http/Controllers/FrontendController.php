@@ -67,7 +67,6 @@ use App\VideoGallery;
 use App\VideoGalleryCategory;
 use App\Works;
 use App\WorksCategory;
-use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,6 +74,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Org_Heigl\Ghostscript\Ghostscript;
 
 class FrontendController extends Controller
 {
@@ -411,7 +411,16 @@ class FrontendController extends Controller
         $service_item = DailyEconomic::where('slug', $slug)->orderBy('is_featured','desc')->with('category')->first();
 //        $pdf= PDF::loadView('http://localhost/aptma-website/assets/uploads/daily-economics/1614587877.pdf');
 //        dd($pdf)
-        $service_category = CircularCategory::where(['status' => 'publish', 'lang' => $lang])->get();
+
+
+        Ghostscript::setGsPath('C:\Program Files (x86)\gs\gs9.53.3\bin\gswin32c.exe');
+        $path=public_path().'\abc\img%d';
+//       $pdf = new Spatie\PdfToImage\Pdf('http://localhost/aptma-website/assets/uploads/daily-economics/1614587877.pdf');
+        $pdf = new \Spatie\PdfToImage\Pdf('http://localhost/aptma-website/assets/uploads/daily-economics/1614591860.pdf');
+        $pdf->setOutputFormat('png')->saveImage($path);
+//dd($pdf);
+
+        $service_category = DailyEconomicCategory::where(['status' => 'publish', 'lang' => $lang])->get();
         $price_plan = !empty($service_item) && !empty($service_item->price_plan) ? PricePlan::find(unserialize($service_item->price_plan)) : '';
         return view('frontend.pages.dailyEconomic.show')->with(['service_item' => $service_item, 'service_category' => $service_category, 'price_plan' => $price_plan]);
     }
