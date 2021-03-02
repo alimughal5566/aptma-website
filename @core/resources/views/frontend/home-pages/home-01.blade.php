@@ -320,68 +320,71 @@
                                             @endisset
                                             <br>
                                             <br>
-                                            @isset($excel_sheets->kca[0])
-                                                <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
-                                                    <h3 class="text-white mb-0 d-flex flex-column align-items-center">
-                                                        <span>KCA Pak Rs / Maund 40 Kg</span>
-                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->addDays(-1)->format('M d, Y')}}</span>
-                                                    </h3>
-                                                </div>
+                                            <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                    @isset($excel_sheets->kca[0])
+                                                        <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
+                                                            <h3 class="text-white mb-0 d-flex flex-column align-items-center">
+                                                                <span>KCA Pak Rs / Maund 40 Kg</span>
+                                                                <span>{{Carbon\Carbon::parse($excel_sheets->date)->addDays(-1)->format('M d, Y')}}</span>
+                                                            </h3>
+                                                        </div>
 
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped">
-                                                        <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">KCA Grafe 3 Spot</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <?php $counter = 1 ?>
-                                                        @foreach($excel_sheets->kca as $kc)
-                                                            <tr>
-                                                                <th scope="row">{{$counter}}</th>
-                                                                <td>{{$kc->kca_grade_3_spot}}</td>
-                                                            </tr>
-                                                            <?php $counter = ++$counter?>
-                                                        @endforeach
-                                                        </tbody>
-                                                    </table>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">KCA Grafe 3 Spot</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <?php $counter = 1 ?>
+                                                                @foreach($excel_sheets->kca as $kc)
+                                                                    <tr>
+                                                                        <th scope="row">{{$counter}}</th>
+                                                                        <td>{{$kc->kca_grade_3_spot}}</td>
+                                                                    </tr>
+                                                                    <?php $counter = ++$counter?>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    @endisset
                                                 </div>
-                                            @endisset
-                                            <br>
-                                            <br>
-                                            {{--                                                                                        {{dd($daily_state_categories)}}--}}
-                                            @isset($excel_sheets->cotlook[0])
-                                                <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
-                                                    <h3 class="text-white mb-0 d-flex flex-column align-items-center">
-                                                        <span>Cotlook ‘A’ Index</span>
-                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->addDays(-2)->format('M d, Y')}}</span>
-                                                    </h3>
+                                                <div class="col-12 col-md-6">
+                                                    @isset($excel_sheets->cotlook[0])
+                                                        <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
+                                                            <h3 class="text-white mb-0 d-flex flex-column align-items-center">
+                                                                <span>Cotlook ‘A’ Index</span>
+                                                                <span>{{Carbon\Carbon::parse($excel_sheets->date)->addDays(-2)->format('M d, Y')}}</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">A Index</th>
+                                                                    <th scope="col">A Index Change</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <?php $counter = 1 ?>
+                                                                @foreach($excel_sheets->cotlook as $cot)
+                                                                    <tr>
+                                                                        <th scope="row">{{$counter}}</th>
+                                                                        <td>{{$cot->a_index}}</td>
+                                                                        <td>{{$cot->a_index_change}}</td>
+                                                                    </tr>
+                                                                    <?php $counter = ++$counter?>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    @endisset
                                                 </div>
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped">
-                                                        <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">A Index</th>
-                                                            <th scope="col">A Index Change</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <?php $counter = 1 ?>
-                                                        @foreach($excel_sheets->cotlook as $cot)
-                                                            <tr>
-                                                                <th scope="row">{{$counter}}</th>
-                                                                <td>{{$cot->a_index}}</td>
-                                                                <td>{{$cot->a_index_change}}</td>
-                                                            </tr>
-                                                            <?php $counter = ++$counter?>
-                                                        @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            @endisset
+                                            </div>
                                         </div>
                                         <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
                                              aria-labelledby="pills-export-bill-tab">
@@ -568,20 +571,20 @@ This Section will be displayed to only Members & When code for that then we will
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item economic-item single-what-we-cover-item-02 ">
 
-                                                {{--                                                <div class="common-img economic-img single-what-img position-relative">--}}
-                                                {{--                                                    @php--}}
-                                                {{--                                                        $now = Carbon\Carbon::now();--}}
-                                                {{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
-                                                {{--                                                        $diff = $datework->diffInDays($now); @endphp--}}
-                                                {{--                                                    @if($diff<15)--}}
-                                                {{--                                                        <small class=" font-italic badge ">New</small>--}}
-                                                {{--                                                    @endif--}}
+                                                <div class="common-img economic-img single-what-img position-relative">
+                                                    @php
+                                                        $now = Carbon\Carbon::now();
+                                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                                        $diff = $datework->diffInDays($now); @endphp
+                                                    @if($diff<15)
+                                                        <small class=" font-italic badge ">New</small>
+                                                    @endif
 
-                                                {{--                                                    <a class="align-items-center"--}}
-                                                {{--                                                       href="{{route('frontend.economic.single', $data->slug)}}">--}}
-                                                {{--                                                        --}}{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
-                                                {{--                                                    </a>--}}
-                                                {{--                                                </div>--}}
+                                                    <a class="align-items-center"
+                                                       href="{{route('frontend.economic.single', $data->slug)}}">
+                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
+                                                    </a>
+                                                </div>
 
                                                 <div class="common-content content">
                                                     <a href="{{route('frontend.economic.single', $data->slug)}}">
