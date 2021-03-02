@@ -1747,6 +1747,7 @@ html {
   max-height: 200px;
 }
 
+.common-area .common-item .common-img.economic-img,
 .common-area .common-item .common-img.advertise-img {
   min-height: 250px;
   max-height: 250px;
@@ -1755,11 +1756,6 @@ html {
 .common-area .common-item .common-img.publication-img {
   min-height: 350px;
   max-height: 350px;
-}
-
-.common-area .common-item .common-img.economic-img {
-  min-height: 450px;
-  max-height: 450px;
 }
 
 .common-area .common-item .common-content {

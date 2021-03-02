@@ -454,7 +454,7 @@
         min-height: 200px;
         max-height: 200px;
       }
-
+      &.economic-img,
       &.advertise-img {
         min-height: 250px;
         max-height: 250px;
@@ -465,10 +465,10 @@
         max-height: 350px;
       }
 
-      &.economic-img {
-        min-height: 450px;
-        max-height: 450px;
-      }
+      //&.economic-img {
+      //  min-height: 450px;
+      //  max-height: 450px;
+      //}
 
     }
 
