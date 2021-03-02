@@ -30,8 +30,6 @@
 
                         @php $a = 1; @endphp
                         @isset($data->exchange[0])
-                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>--}}
-                            {{--                            <div class="w-100 background-gray-light">{{$exchange_rates[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
                                     <span>Exchange Rates</span>
@@ -66,8 +64,6 @@
                         <br>
                         <br>
                         @isset($data->export[0])
-                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>--}}
-                            {{--                            <div class="w-100 background-gray-light">{{$export[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
                                     <span>Export Bill Discounting Rate</span>
@@ -112,8 +108,6 @@
                         <br>
                         <br>
                         @isset($data->cotlook[0])
-                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>--}}
-                            {{--                            <div class="w-100 background-gray-light">{{$cotlook[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
                                 <h3 class="text-white mb-0 d-flex flex-column align-items-center">
                                     <span>Cotlook ‘A’ Index</span>
@@ -144,8 +138,6 @@
                         <br>
                         <br>
                         @isset($data->nyc[0])
-                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>--}}
-                            {{--                            <div class="w-100 background-gray-light">{{$nyc[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
                                 <h3 class="text-white mb-0 d-flex flex-column align-items-center">
                                     <span>NYC US cent/lb</span>
@@ -179,8 +171,6 @@
                         <br>
                         <br>
                         @isset($data->kca[0])
-                            {{--                            <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>--}}
-                            {{--                            <div class="w-100 background-gray-light">{{$kca[0]->published_at}}</div>--}}
                             <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
                                 <h3 class="text-white mb-0 d-flex flex-column align-items-center">
                                     <span>KCA Pak Rs / Maund 40 Kg</span>

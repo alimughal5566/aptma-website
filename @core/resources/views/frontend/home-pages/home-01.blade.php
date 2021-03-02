@@ -253,187 +253,226 @@
                                             @php $a = 1; @endphp
                                             {{--                                            {{dd($excel_sheets->nyc)}}--}}
                                             @isset($excel_sheets->exchange[0])
-                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[1]){{$daily_state_categories[1]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Country</th>
-                                                        <th scope="col">Currency</th>
-                                                        <th scope="col">Selling</th>
-                                                        <th scope="col">Buying</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php $counter = 1 ?>
-                                                    @foreach($excel_sheets->exchange as $exchange_rate)
+                                                <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
+                                                    <h3 class="text-white mb-0">
+                                                        <span>Exchange Rates</span>
+                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->format('M d, Y')}}</span>
+                                                    </h3>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
                                                         <tr>
-                                                            <th scope="row">{{$counter}}</th>
-                                                            <td>{{$exchange_rate->country}}</td>
-                                                            <td>{{$exchange_rate->currency}}</td>
-                                                            <td>{{$exchange_rate->selling}}</td>
-                                                            <td>{{$exchange_rate->buying}}</td>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Country</th>
+                                                            <th scope="col">Currency</th>
+                                                            <th scope="col">Selling</th>
+                                                            <th scope="col">Buying</th>
                                                         </tr>
-                                                        <?php $counter = ++$counter?>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?php $counter = 1 ?>
+                                                        @foreach($excel_sheets->exchange as $exchange_rate)
+                                                            <tr>
+                                                                <th scope="row">{{$counter}}</th>
+                                                                <td>{{$exchange_rate->country}}</td>
+                                                                <td>{{$exchange_rate->currency}}</td>
+                                                                <td>{{$exchange_rate->selling}}</td>
+                                                                <td>{{$exchange_rate->buying}}</td>
+                                                            </tr>
+                                                            <?php $counter = ++$counter?>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             @endisset
 
                                             @isset($excel_sheets->nyc[0])
                                                 <div class="w-100 background-gray-light">@isset($daily_state_categories[0]){{$daily_state_categories[0]->title_description}}@endisset</div>
                                                 <div class="w-100 background-gray-light">{{$excel_sheets->published_at}}</div>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Contract</th>
-                                                        <th scope="col">Close</th>
-                                                        <th scope="col">Changes</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php $counter = 1 ?>
-                                                    @foreach($excel_sheets->nyc as $ny)
+                                                <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
+                                                    <h3 class="text-white mb-0">
+                                                        <span>NYC US cent/lb</span>
+                                                        <span>{{Carbon\Carbon::parse($excel_sheets->published_at)->format('M d, Y')}}</span>
+                                                    </h3>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
                                                         <tr>
-                                                            <th scope="row">{{$counter}}</th>
-                                                            <td>{{$ny->contract}}</td>
-                                                            <td>{{$ny->close}}</td>
-                                                            <td>{{$ny->changes}}</td>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Contract</th>
+                                                            <th scope="col">Close</th>
+                                                            <th scope="col">Changes</th>
                                                         </tr>
-                                                        <?php $counter = ++$counter?>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?php $counter = 1 ?>
+                                                        @foreach($excel_sheets->nyc as $ny)
+                                                            <tr>
+                                                                <th scope="row">{{$counter}}</th>
+                                                                <td>{{$ny->contract}}</td>
+                                                                <td>{{$ny->close}}</td>
+                                                                <td>{{$ny->changes}}</td>
+                                                            </tr>
+                                                            <?php $counter = ++$counter?>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             @endisset
                                             <br>
                                             <br>
-                                            {{--                                            {{dd($kca)}}--}}
                                             @isset($excel_sheets->kca[0])
-                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[5]){{$daily_state_categories[5]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">KCA Grafe 3 Spot</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php $counter = 1 ?>
-                                                    @foreach($excel_sheets->kca as $kc)
+                                                <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
+                                                    <h3 class="text-white mb-0 d-flex flex-column align-items-center">
+                                                        <span>KCA Pak Rs / Maund 40 Kg</span>
+                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->addDays(-1)->format('M d, Y')}}</span>
+                                                    </h3>
+                                                </div>
+
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
                                                         <tr>
-                                                            <th scope="row">{{$counter}}</th>
-                                                            <td>{{$kc->kca_grade_3_spot}}</td>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">KCA Grafe 3 Spot</th>
                                                         </tr>
-                                                        <?php $counter = ++$counter?>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?php $counter = 1 ?>
+                                                        @foreach($excel_sheets->kca as $kc)
+                                                            <tr>
+                                                                <th scope="row">{{$counter}}</th>
+                                                                <td>{{$kc->kca_grade_3_spot}}</td>
+                                                            </tr>
+                                                            <?php $counter = ++$counter?>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             @endisset
                                             <br>
                                             <br>
                                             {{--                                                                                        {{dd($daily_state_categories)}}--}}
                                             @isset($excel_sheets->cotlook[0])
-                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[4]){{$daily_state_categories[4]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">A Index</th>
-                                                        <th scope="col">A Index Change</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php $counter = 1 ?>
-                                                    @foreach($excel_sheets->cotlook as $cot)
+                                                <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
+                                                    <h3 class="text-white mb-0 d-flex flex-column align-items-center">
+                                                        <span>Cotlook ‘A’ Index</span>
+                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->addDays(-2)->format('M d, Y')}}</span>
+                                                    </h3>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
                                                         <tr>
-                                                            <th scope="row">{{$counter}}</th>
-                                                            <td>{{$cot->a_index}}</td>
-                                                            <td>{{$cot->a_index_change}}</td>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">A Index</th>
+                                                            <th scope="col">A Index Change</th>
                                                         </tr>
-                                                        <?php $counter = ++$counter?>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?php $counter = 1 ?>
+                                                        @foreach($excel_sheets->cotlook as $cot)
+                                                            <tr>
+                                                                <th scope="row">{{$counter}}</th>
+                                                                <td>{{$cot->a_index}}</td>
+                                                                <td>{{$cot->a_index_change}}</td>
+                                                            </tr>
+                                                            <?php $counter = ++$counter?>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             @endisset
                                         </div>
                                         <div class="tab-pane fade" id="pills-export-bill" role="tabpanel"
                                              aria-labelledby="pills-export-bill-tab">
                                             {{--                                            Export Bill--}}
                                             @isset($excel_sheets->export[0])
-                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[2]){{$daily_state_categories[2]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Currency</th>
-                                                        <th scope="col">Spot</th>
-                                                        <th scope="col">Sight/OD</th>
-                                                        <th scope="col">1 Month</th>
-                                                        <th scope="col">2 Month</th>
-                                                        <th scope="col">3 Month</th>
-                                                        <th scope="col">4 Month</th>
-                                                        <th scope="col">5 Month</th>
-                                                        <th scope="col">6 Month</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php $counter = 1 ?>
-                                                    @foreach($excel_sheets->export as $exp)
+                                                <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
+                                                    <h3 class="text-white mb-0">
+                                                        <span>Export Bill Discounting Rate</span>
+                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->format('M d, Y')}}</span>
+                                                    </h3>
+                                                </div>
+
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
                                                         <tr>
-                                                            <th scope="row">{{$counter}}</th>
-                                                            <td>{{$exp->currency}}</td>
-                                                            <td>{{$exp->spot}}</td>
-                                                            <td>{{$exp->sight_od}}</td>
-                                                            <td>{{$exp->first_month}}</td>
-                                                            <td>{{$exp->second_month}}</td>
-                                                            <td>{{$exp->thirs_month}}</td>
-                                                            <td>{{$exp->fourth_month}}</td>
-                                                            <td>{{$exp->fifth_month}}</td>
-                                                            <td>{{$exp->sixth_month}}</td>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Currency</th>
+                                                            <th scope="col">Spot</th>
+                                                            <th scope="col">Sight/OD</th>
+                                                            <th scope="col">1 Month</th>
+                                                            <th scope="col">2 Month</th>
+                                                            <th scope="col">3 Month</th>
+                                                            <th scope="col">4 Month</th>
+                                                            <th scope="col">5 Month</th>
+                                                            <th scope="col">6 Month</th>
                                                         </tr>
-                                                        <?php $counter = ++$counter?>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?php $counter = 1 ?>
+                                                        @foreach($excel_sheets->export as $exp)
+                                                            <tr>
+                                                                <th scope="row">{{$counter}}</th>
+                                                                <td>{{$exp->currency}}</td>
+                                                                <td>{{$exp->spot}}</td>
+                                                                <td>{{$exp->sight_od}}</td>
+                                                                <td>{{$exp->first_month}}</td>
+                                                                <td>{{$exp->second_month}}</td>
+                                                                <td>{{$exp->thirs_month}}</td>
+                                                                <td>{{$exp->fourth_month}}</td>
+                                                                <td>{{$exp->fifth_month}}</td>
+                                                                <td>{{$exp->sixth_month}}</td>
+                                                            </tr>
+                                                            <?php $counter = ++$counter?>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             @endisset
                                         </div>
                                         <div class="tab-pane fade" id="pills-china-zce" role="tabpanel"
                                              aria-labelledby="pills-china-zce-tab">
                                             {{--                                            China ZCE--}}
                                             @isset($excel_sheets->china[0])
-                                                <div class="w-100 background-gray-light">@isset($daily_state_categories[3]){{$daily_state_categories[3]->title_description}}@endisset</div>
-                                                <div class="w-100 background-gray-light">{{$excel_sheets->date}}</div>
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">Prod</th>
-                                                        <th scope="col">Last</th>
-                                                        <th scope="col">Chg</th>
-                                                        <th scope="col">Vol</th>
-                                                        <th scope="col">Open Interest</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php $counter = 1 ?>
-                                                    @foreach($excel_sheets->china as $china)
+                                                <div class="px-3 py-2 background-primary2 text-white text-center font-weight-bold">
+                                                    <h3 class="text-white mb-0">
+                                                        <span>China ZCE Cotton No. 1 Rates</span>
+                                                        <span>{{Carbon\Carbon::parse($excel_sheets->date)->format('M d, Y')}}</span>
+                                                    </h3>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
                                                         <tr>
-                                                            <th scope="row">{{$counter}}</th>
-                                                            <td>{{$china->prod}}</td>
-                                                            <td>{{$china->last}}</td>
-                                                            <td>{{$china->chg}}</td>
-                                                            <td>{{$china->vol}}</td>
-                                                            <td>{{$china->open_interest}}</td>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Prod</th>
+                                                            <th scope="col">Last</th>
+                                                            <th scope="col">Chg</th>
+                                                            <th scope="col">Vol</th>
+                                                            <th scope="col">Open Interest</th>
                                                         </tr>
-                                                        <?php $counter = ++$counter?>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                        <?php $counter = 1 ?>
+                                                        @foreach($excel_sheets->china as $china)
+                                                            <tr>
+                                                                <th scope="row">{{$counter}}</th>
+                                                                <td>{{$china->prod}}</td>
+                                                                <td>{{$china->last}}</td>
+                                                                <td>{{$china->chg}}</td>
+                                                                <td>{{$china->vol}}</td>
+                                                                <td>{{$china->open_interest}}</td>
+                                                            </tr>
+                                                            <?php $counter = ++$counter?>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             @endisset
                                         </div>
                                     </div>
@@ -532,20 +571,20 @@ This Section will be displayed to only Members & When code for that then we will
                                         <div class="common-grid-carousel-item">
                                             <div class="common-item economic-item single-what-we-cover-item-02 ">
 
-{{--                                                <div class="common-img economic-img single-what-img position-relative">--}}
-{{--                                                    @php--}}
-{{--                                                        $now = Carbon\Carbon::now();--}}
-{{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
-{{--                                                        $diff = $datework->diffInDays($now); @endphp--}}
-{{--                                                    @if($diff<15)--}}
-{{--                                                        <small class=" font-italic badge ">New</small>--}}
-{{--                                                    @endif--}}
+                                                {{--                                                <div class="common-img economic-img single-what-img position-relative">--}}
+                                                {{--                                                    @php--}}
+                                                {{--                                                        $now = Carbon\Carbon::now();--}}
+                                                {{--                                                        $datework = Carbon\Carbon::parse($data->created_at);--}}
+                                                {{--                                                        $diff = $datework->diffInDays($now); @endphp--}}
+                                                {{--                                                    @if($diff<15)--}}
+                                                {{--                                                        <small class=" font-italic badge ">New</small>--}}
+                                                {{--                                                    @endif--}}
 
-{{--                                                    <a class="align-items-center"--}}
-{{--                                                       href="{{route('frontend.economic.single', $data->slug)}}">--}}
-{{--                                                        --}}{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
-{{--                                                    </a>--}}
-{{--                                                </div>--}}
+                                                {{--                                                    <a class="align-items-center"--}}
+                                                {{--                                                       href="{{route('frontend.economic.single', $data->slug)}}">--}}
+                                                {{--                                                        --}}{{--                                                        {!! render_image_markup_by_attachment_id($data->thumbnail) !!}--}}
+                                                {{--                                                    </a>--}}
+                                                {{--                                                </div>--}}
 
                                                 <div class="common-content content">
                                                     <a href="{{route('frontend.economic.single', $data->slug)}}">
