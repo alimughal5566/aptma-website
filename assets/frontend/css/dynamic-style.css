@@ -1446,6 +1446,10 @@ html {
   background: rgba(0, 0, 0, 0.25);
 }
 
+.header-slider-one .owl-nav div {
+  color: #fff;
+}
+
 .single-gallery-image {
   margin-bottom: 0 !important;
   min-height: 230px;
@@ -1743,6 +1747,11 @@ html {
   max-height: 300px;
 }
 
+.common-area .common-item .common-img.economic-img {
+  min-height: 450px;
+  max-height: 450px;
+}
+
 .common-area .common-item .common-content {
   padding: 1.25rem 1rem;
   z-index: 999;
@@ -1973,6 +1982,11 @@ html {
   justify-content: center;
 }
 
+.social-feeds .social-feeds-block {
+  min-height: 590px;
+  max-height: 590px;
+}
+
 .social-feeds .social-feeds-block .social-feed-item a {
   color: #439882;
 }
@@ -2077,6 +2091,24 @@ html {
 .tab-content-section .nav-pills .nav-link.active,
 .tab-content-section .nav-pills .show > .nav-link {
   background: #439882;
+  font-weight: bold;
+}
+
+.single-job-list-item .jobs-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.single-job-list-item .jobs-meta li {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.single-job-list-item .jobs-meta li + li {
+  margin-left: 0;
 }
 
 /*      VARIABLES      */

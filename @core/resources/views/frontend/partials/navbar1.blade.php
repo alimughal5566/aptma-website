@@ -310,7 +310,7 @@
                         </li>
 
                         <li class=" menu-item-has-children ">
-                            <a href="javascript:void(0);">Events</a>
+                            <a href="javascript:void(0);">News & Events</a>
                             <ul class="sub-menu">
                                 @php $eventCategories= \App\EventsCategory::where(['status' =>'publish','lang'=>'en'])->withCount('events')->orderBy('id','desc')->get(); @endphp
                                 <li class="  {{$eventCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
