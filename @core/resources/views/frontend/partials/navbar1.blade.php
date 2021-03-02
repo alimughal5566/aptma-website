@@ -348,7 +348,7 @@
                                 @php $videoCategories= \App\VideoGalleryCategory::where(['status' =>'publish','lang'=>'en'])->withCount('videos')->orderBy('id','desc')->get(); @endphp
                                 <li class=" {{$videoCategories->count()>0 ? 'menu-item-has-children ' : ' '}}  ">
                                     {{--                                    <a href="{{route('frontend.gallery.video.index')}}">Video Gallery</a>--}}
-                                    <a href="javascript:void(0);">Video Gallery</a>
+                                    <a href="javascript:void(0);">Videos Gallery</a>
                                     @if($videoCategories->count()>0)
                                         <ul class="sub-menu">
                                             @foreach($videoCategories as $category)
