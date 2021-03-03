@@ -34,9 +34,7 @@
                                     <h4 class="title mb-0">{{$data->title}}</h4>
                                 </a>
                                 <p class="font-weight-bold">{{@$data->subCategory->name}}</p>
-                                {{--                                <p>--}}
-                                {{--                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>--}}
-                                {{--                                </p>--}}
+
                                 <div class="d-flex align-items-center">
                                     <a href="#" data-toggle="modal" data-target="#preview-modal"
                                        data-message="{{@$data->description}}">

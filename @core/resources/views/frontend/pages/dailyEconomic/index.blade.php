@@ -23,10 +23,10 @@
                         <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
                             <option value="">Search with date</option>
                             @isset($all_dates)
-                            @foreach($all_dates as $date)
-                                <option value="{{$date->publish_date}}">{{$date->publish_date}}</option>
-                            @endforeach
-                                @endisset
+                                @foreach($all_dates as $date)
+                                    <option value="{{$date->publish_date}}">{{$date->publish_date}}</option>
+                                @endforeach
+                            @endisset
                         </select>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                                 @if($diff<15)
                                     <small class="font-italic badge">New</small>
                                 @endif
-                                <a href="{{route('frontend.circular.single',$data->slug)}}">{!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
+                                <a href="{{route('frontend.economic.single',$data->slug)}}">{!! render_image_markup_by_attachment_id($data->thumbnail) !!}</a>
                             </div>
                             <div class="common-content content">
                                 <a href="{{route('frontend.economic.single',$data->slug)}}">
@@ -62,11 +62,7 @@
                         </div>
                     </div>
                 @endforelse
-                {{--                <div class="col-lg-12">--}}
-                {{--                    <div class="pagination-wrapper">--}}
-                {{--                        {{$all_services->links()}}--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
+
             </div>
         </div>
     </section>
