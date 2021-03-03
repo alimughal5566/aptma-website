@@ -19,9 +19,11 @@
                         <label for="search_date" class="sr-only"></label>
                         <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
                             <option value="">Search with date</option>
-                            @foreach($dates as $date)
-                                <option value="{{$date->date}}">{{$date->date}}</option>
-                            @endforeach
+                            @isset($all_dates)
+                                @foreach( $all_dates as $date)
+                                    <option value="{{$date->date}}">{{$date->date}}</option>
+                                @endforeach
+                            @endisset
                         </select>
                     </div>
                 </div>
