@@ -19,7 +19,7 @@
 @section('content')
 
 
-    <div class="page-content service-details economic-single economic-single padding-top-50 padding-bottom-100">
+    <div class="page-content service-details common-single economic-single economic-single padding-top-50 padding-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
