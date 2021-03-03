@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','email_verified','email_verify_token','phone','address','state','city','zipcode','country','username'
+        'name', 'email', 'password','email_verified','email_verify_token','phone','address','state','city','zipcode','country','username','fax','zone_id'
     ];
 
     /**
@@ -36,4 +36,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function zone(){
+        return $this->hasOne(Zone::class,'id','zone_id');
+    }
 }

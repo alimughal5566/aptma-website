@@ -13,6 +13,7 @@ use App\Imports\ExchangeRatesImports;
 use App\Imports\ExportBillsImports;
 use App\Imports\KcaPakRupeesPerFourtyKgImports;
 use App\Imports\NycUSImports;
+use App\Imports\UserImport;
 use App\KcaPakRupeesPerFourtyKg;
 use App\Language;
 use App\NycUS;
@@ -37,19 +38,12 @@ class ImportController extends Controller
 //            $excel_sheet =  $name. '.' . $request->file->extension();
             $file = $request->file('file');
             if ($request->category=='Export Bills'){
-//                $profile_pic =  time(). '.' . $request->file->extension();
-//                dd($profile_pic.$request->file);
-//                $request->file->move('assets/uploads/export/', $profile_pic);
                 Excel::import(new ExportBillsImports, $file);
             }elseif ($request->category=='China ZCE Cotton'){
-//                $profile_pic =  time(). '.' . $request->file->extension();
-//                $request->file->move('assets/uploads/china/', $profile_pic);
                 Excel::import(new ChinaZceImports, $file);
             }elseif ($request->category=='Exchange Rates'){
-//                $request->file->move('assets/uploads/exchangeratess/excels', $file);
                 Excel::import(new ExchangeRatesImports, $file);
             }elseif ($request->category=='NYC US Cent/lb'){
-//                $request->file->move('assets/uploads/nycUS/excels', $file);
                 Excel::import(new NycUSImports, $file);
             }elseif ($request->category=='Cotlook ‘A’ Index'){
                 Excel::import(new CotlookAIndexImports, $file);
@@ -102,13 +96,6 @@ class ImportController extends Controller
     {
         $all_dates = ExcelPublishedDate::all();
         $dates = ExcelPublishedDate::all();
-//        $default_lang = Language::where('default', 1)->first();
-//        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-//        $user_select_lang_slug =$lang;
-//
-//        $footer_widgets = null;
-//        ,'user_select_lang_slug','footer_widgets'
-
         return view('frontend.pages.exchangeRates.index',compact('dates','all_dates'));
     }
     public function frontDailyStatsDate($date)
@@ -116,5 +103,16 @@ class ImportController extends Controller
         $all_dates = ExcelPublishedDate::all();
         $dates = ExcelPublishedDate::where('date',$date)->get();
         return view('frontend.pages.exchangeRates.index',compact('dates','all_dates'));
+    }
+    public function importUserView (){
+        return redirect()->back()->with(['msg' => __('New User Created..'), 'type' => 'success']);
+    }
+    public function import_user(Request $request){
+        $this->validate($request,[
+            "file" => "required|mimes:csv,xlsx,xls",
+        ]);
+        $file = $request->file('file');
+        Excel::import(new UserImport, $file);
+        return redirect()->back()->with(['msg' => __('Import Successful'), 'type' => 'success']);
     }
 }

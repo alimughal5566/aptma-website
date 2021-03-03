@@ -55,6 +55,8 @@
                                     href="{{route('admin.all.frontend.user')}}">{{__('All Users')}}</a></li>
                             <li class="{{active_menu('admin-home/frontend/new-user')}}"><a
                                     href="{{route('admin.frontend.new.user')}}">{{__('Add New User')}}</a></li>
+                            <li class="{{active_menu('frontend/import-user-view')}}"><a
+                                    href="{{route('admin.frontend.import.users.view')}}">{{__('Import User')}}</a></li>
                         </ul>
                     </li>
                     @endif

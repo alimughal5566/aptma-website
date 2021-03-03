@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\EventAttendance;
 use App\ProductOrder;
 use App\User;
+use App\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -78,7 +79,8 @@ class FrontendUserManageController extends Controller
 
     public function new_user()
     {
-        return view('backend.frontend-user.add-new-user');
+        $zones = Zone::all();
+        return view('backend.frontend-user.add-new-user',compact('zones'));
     }
 
     public function new_user_add(Request $request)
@@ -126,4 +128,5 @@ class FrontendUserManageController extends Controller
         ]);
         return redirect()->back()->with(['msg' => __('Email Verify Status Changed..'), 'type' => 'success']);
     }
+
 }
