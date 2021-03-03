@@ -1871,12 +1871,6 @@ html {
   border: 1px solid #439882;
 }
 
-.common-single .economic-single-title-wrap a {
-  position: relative;
-  display: block;
-  height: 100%;
-}
-
 .common-single .economic-single-title-wrap a.btn {
   background: #439882;
   display: inline-block;

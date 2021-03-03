@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="economic-single-title-wrap d-flex align-items-center justify-content-between">
-                        <h3 class="common-single-title economic-single-title margin-bottom-15">{{$service_item->title}}</h3>
+                        <h3 class="common-single-title economic-single-title mb-0">{{$service_item->title}}</h3>
                         <a href="{{asset('assets/uploads/daily-economics/'.$service_item->url)}}" download
                            class="btn">Download</a>
                     </div>
