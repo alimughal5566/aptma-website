@@ -18,7 +18,7 @@
                         Daily Economics Updates <?php echo ($category) ? "<small>($category->name)</small>" : "" ?>
                     </h2>
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-3 align-self-center">
                     <div>
                         <label for="search_date" class="sr-only"></label>
                         <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
