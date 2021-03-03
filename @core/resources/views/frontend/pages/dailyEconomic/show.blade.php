@@ -19,45 +19,24 @@
 @section('content')
 
 
-    <div class="page-content service-details common-single circular-single padding-top-50 padding-bottom-100">
+    <div class="page-content service-details economic-single economic-single padding-top-50 padding-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="common-single-title circular-single-title margin-bottom-15">{{$service_item->title}}</h3>
+                    <div class="economic-single-title-wrap d-flex align-items-center justify-content-between">
+                        <h3 class="common-single-title economic-single-title margin-bottom-15">{{$service_item->title}}</h3>
+                        <a href="{{asset('assets/uploads/daily-economics/'.$service_item->url)}}" download
+                           class="btn">Download</a>
+                    </div>
                 </div>
 
                 <div class="col-lg-12">
-                    <div class="service-details-item common-single-item circular-single-item position-relative">
-                        <a href="{{asset('assets/uploads/daily-economics/'.$service_item->url)}}" download
-                           class="btn">Download</a>
-                        {{--                        <div class="thumb">--}}
-                        {{--                            {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}--}}
-                        {{--                        </div>--}}
+                    <div class="service-details-item common-single-item economic-single-item position-relative">
+                        <embed type="application/pdf" frameborder="0" scrolling="no" showcontrols="false"
+                               src="{{asset('assets/uploads/daily-economics/'.$service_item->url.'#embedded=true&page=1&toolbar=0&navpanes=0&scrollbar=0&view=fitH,100&zoom=100&view=Fit')}}"
+                               height="800px" width="100%"/>
                     </div>
-                    <embed type="application/pdf" frameborder="0" scrolling="no" showcontrols="false"
-                           src="{{asset('assets/uploads/daily-economics/'.$service_item->url.'#embedded=true&page=1&toolbar=0&navpanes=0&scrollbar=0&view=fitH,100&zoom=100&view=Fit')}}"
-                           height="800px" width="100%"/>
                 </div>
-<!--                --><?php //$pdfThumb = new imagick( 'test.jpg' );;
-//                $pdfThumb->setResolution(10, 10);
-//                $pdfThumb->readImage('http://localhost/aptma-website/assets/uploads/daily-economics/1614660385.pdf.png[0]');
-//                $pdfThumb->setImageFormat('jpg');
-//                header("Content-Type: image/jpeg");
-//                echo $pdfThumb;
-//                $fp = fopen('http://localhost/aptma-website/assets/uploads/daily-economics/1614660385.pdf.jpg', "x");
-//                $pdfThumb->writeImageFile($fp);
-//                fclose($fp);
-//                ?>
-
-                {{--                <div class="col-lg-6">--}}
-                {{--                    <div class="service-details-item common-single-item circular-single-item position-relative">--}}
-                {{--                        <div class="service-description common-single-description circular-description">--}}
-                {{--                            <p class="margin-bottom-15">{{$service_item->category->name}}</p>--}}
-                {{--                            <p>{{@$data->publish_date}}</p>--}}
-                {{--                            <p>{!! $service_item->description !!}</p>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
 
             </div>
         </div>

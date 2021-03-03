@@ -118,7 +118,11 @@
   z-index: 1;
 }
 
-.modal-backdrop, #preview-modal {
+.modal-backdrop {
+  z-index: 9999;
+}
+
+#preview-modal {
   z-index: 99999;
 }
 
@@ -454,8 +458,8 @@
         min-height: 200px;
         max-height: 200px;
       }
-      &.economic-img,
-      &.advertise-img {
+
+      &.economic-img, &.advertise-img {
         min-height: 250px;
         max-height: 250px;
       }
@@ -464,11 +468,6 @@
         min-height: 350px;
         max-height: 350px;
       }
-
-      //&.economic-img {
-      //  min-height: 450px;
-      //  max-height: 450px;
-      //}
 
     }
 
@@ -598,30 +597,6 @@
 
       }
 
-      .table-responsive {
-
-        .table {
-          border-left: 1px solid #dee2e6;
-          border-right: 1px solid #dee2e6;
-          border-bottom: 1px solid #dee2e6;
-
-          thead {
-
-            th {
-              border-bottom: 1px solid #dee2e6;
-            }
-
-          }
-
-          td, th {
-            padding: .5rem;
-            vertical-align: middle;
-          }
-
-        }
-
-      }
-
     }
 
     &:hover, &:focus, &:active {
@@ -640,8 +615,50 @@
 
   }
 
+  .economic-single-title-wrap {
+
+    a {
+      position: relative;
+      display: block;
+      height: 100%;
+      
+      &.btn {
+        background: color.$primary2;
+        display: inline-block;
+        margin: auto;
+        color: #fff;
+        width: auto;
+      }
+
+    }
+
+  }
+
 }
 
+.table-responsive {
+
+  .table {
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+
+    thead {
+
+      th {
+        border-bottom: 1px solid #dee2e6;
+      }
+
+    }
+
+    td, th {
+      padding: .5rem;
+      vertical-align: middle;
+    }
+
+  }
+
+}
 
 .single-case-studies-item {
 

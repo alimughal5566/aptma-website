@@ -1436,7 +1436,10 @@ html {
   z-index: 1;
 }
 
-.modal-backdrop,
+.modal-backdrop {
+  z-index: 9999;
+}
+
 #preview-modal {
   z-index: 99999;
 }
@@ -1860,28 +1863,42 @@ html {
   right: unset;
 }
 
-.common-single .common-single-item.exchange-rate-single-item .table-responsive .table {
-  border-left: 1px solid #dee2e6;
-  border-right: 1px solid #dee2e6;
-  border-bottom: 1px solid #dee2e6;
-}
-
-.common-single .common-single-item.exchange-rate-single-item .table-responsive .table thead th {
-  border-bottom: 1px solid #dee2e6;
-}
-
-.common-single .common-single-item.exchange-rate-single-item .table-responsive .table td,
-.common-single .common-single-item.exchange-rate-single-item .table-responsive .table th {
-  padding: 0.5rem;
-  vertical-align: middle;
-}
-
 .common-single .common-single-item:hover a.btn,
 .common-single .common-single-item:focus a.btn,
 .common-single .common-single-item:active a.btn {
   background: #fff;
   color: #439882;
   border: 1px solid #439882;
+}
+
+.common-single .economic-single-title-wrap a {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+.common-single .economic-single-title-wrap a.btn {
+  background: #439882;
+  display: inline-block;
+  margin: auto;
+  color: #fff;
+  width: auto;
+}
+
+.table-responsive .table {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table-responsive .table thead th {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table-responsive .table td,
+.table-responsive .table th {
+  padding: 0.5rem;
+  vertical-align: middle;
 }
 
 .single-case-studies-item::before,
