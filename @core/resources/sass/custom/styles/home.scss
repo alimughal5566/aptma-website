@@ -118,7 +118,7 @@
   z-index: 1;
 }
 
-#preview-modal {
+.modal-backdrop, #preview-modal {
   z-index: 99999;
 }
 
