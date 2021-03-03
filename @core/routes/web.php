@@ -234,6 +234,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('daily-exchange-cotton-rates', 'ImportController@frontDailyStats')->name('frontend.daily.stats');
     Route::get('daily-exchange-cotton-rates/{date}', 'ImportController@frontDailyStatsDate')->name('frontend.daily.stats.with.date');
     Route::get('exchange-rates/{date}', 'ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
+    Route::get('export/exchange-rates/{date}','ExportController@exportExchangeRates')->name('frontend.export.excel.exchange-rates');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');

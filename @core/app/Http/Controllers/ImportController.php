@@ -115,13 +115,6 @@ class ImportController extends Controller
     {
         $all_dates = ExcelPublishedDate::all();
         $dates = ExcelPublishedDate::where('date',$date)->get();
-//        $default_lang = Language::where('default', 1)->first();
-//        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $default_lang->slug;
-//        $user_select_lang_slug =$lang;
-//
-//        $footer_widgets = null;
-//        ,'user_select_lang_slug','footer_widgets'
-
         return view('frontend.pages.exchangeRates.index',compact('dates','all_dates'));
     }
 }
