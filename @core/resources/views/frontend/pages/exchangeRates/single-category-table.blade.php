@@ -15,7 +15,6 @@
 @section('site-title','Daily Exchange Rates')
 
 @section('content')
-
     <div class="page-content service-details common-single exchange-rate-single padding-top-50 padding-bottom-80">
         <div class="container">
             <div class="row">
@@ -25,7 +24,7 @@
                         <div class="d-flex flex-column align-items-center justify-content-lg-between flex-lg-row mb-3">
                             <h2 class="common-single-title exchange-rate-single-title mb-0">Daily Exchange Rates
                                 <span>{{Carbon\Carbon::parse($date)->format('d M Y')}}</span></h2>
-                            <a href="#" class="btn" target="_blank">Download</a>
+                            <a class="btn" href="{{route('frontend.export.excel.exchange-rates',['date'=>$date])}}">Download</a>
                         </div>
 
                         @php $a = 1; @endphp
