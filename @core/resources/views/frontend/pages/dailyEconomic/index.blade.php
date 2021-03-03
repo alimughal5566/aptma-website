@@ -22,9 +22,11 @@
                         <label for="search_date" class="sr-only"></label>
                         <select class="form-control" onchange="searchRecord()" name="search_date" id="search_date">
                             <option value="">Search with date</option>
-                            @foreach($all_services as $date)
+                            @isset($all_dates)
+                            @foreach($all_dates as $date)
                                 <option value="{{$date->publish_date}}">{{$date->publish_date}}</option>
                             @endforeach
+                                @endisset
                         </select>
                     </div>
                 </div>
