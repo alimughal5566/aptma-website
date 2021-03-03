@@ -24,7 +24,7 @@
                         <div class="d-flex flex-column align-items-center justify-content-lg-between flex-lg-row mb-3">
                             <h2 class="common-single-title exchange-rate-single-title mb-0">Daily Exchange Rates
                                 <span>{{Carbon\Carbon::parse($date)->format('d M Y')}}</span></h2>
-                            <a class="btn" href="{{route('frontend.export.excel.exchange-rates',['date'=>Carbon\Carbon::parse($date)->format('d M Y')])}}">Download</a>
+                            <a class="btn" href="{{route('frontend.export.excel.exchange-rates',['date'=>$date])}}">Download</a>
                         </div>
 
                         @php $a = 1; @endphp

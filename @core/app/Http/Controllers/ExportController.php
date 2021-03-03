@@ -10,6 +10,6 @@ class ExportController extends Controller
 {
     public function exportExchangeRates($date)
     {
-        return \Maatwebsite\Excel\Facades\Excel::download(new ExchangeRatesExports, 'exchange-rates.xlsx');
+        return \Maatwebsite\Excel\Facades\Excel::download(new ExchangeRatesExports($date), 'exchange-rates.xlsx');
     }
 }

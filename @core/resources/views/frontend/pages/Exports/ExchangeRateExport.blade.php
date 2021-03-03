@@ -3,6 +3,7 @@
     <table class="table table-striped mb-0">
         <thead>
         <tr>
+            <th scope="col">#</th>
             <th scope="col">Country</th>
             <th scope="col">Currency</th>
             <th scope="col">Selling</th>
@@ -12,7 +13,6 @@
         <tbody>
         @foreach($data as $key=>$exchange_rate)
             <tr>
-                <th scope="col">#</th>
                 <th scope="row">{{$key+1}}</th>
                 <td>{{$exchange_rate->country}}</td>
                 <td>{{$exchange_rate->currency}}</td>
