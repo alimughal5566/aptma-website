@@ -12,8 +12,11 @@
 @section('content')
     <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center"><?php echo ($category) ? "$category->name" : "" ?></h2>
-
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold mb-3 text-center"><?php echo ($category) ? "$category->name" : "" ?></h2>
+                </div>
+            </div>
             <div class="row">
                 @forelse($all_services as $data)
                     <div class="col-lg-4 col-md-6">
@@ -38,10 +41,10 @@
                                 <div class="d-flex align-items-center">
                                     <a href="#" data-toggle="modal" data-target="#preview-modal"
                                        data-message="{{@$data->description}}">
-                                        <i class="fa fa-eye fa-2x"></i>
+                                        <i class="fa fa-eye"></i>
                                     </a>
                                     <a href="{{asset('assets/uploads/circular/'.$data->url)}}" download target="_blank">
-                                        <i class="fa fa-file-pdf fa-2x"></i>
+                                        <i class="fa fa-file-pdf"></i>
                                     </a>
                                 </div>
                             </div>
