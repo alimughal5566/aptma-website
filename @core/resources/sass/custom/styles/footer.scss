@@ -8,45 +8,11 @@ footer {
   .footer-top {
     background-image: linear-gradient(0deg, colorVar.$primary2, colorVar.$primary2, colorVar.$primary2-lighter);
 
-    //.counterup-area {
-    //  background-color: transparent;
-    //  position: relative;
-    //  top: -30px;
-    //
-    //  .counter-container {
-    //    border-radius: 0.5rem;
-    //    box-shadow: 0 0 0.3rem 0.05rem rgba(0, 0, 0, 0.5);
-    //
-    //    .singler-counterup-item {
-    //
-    //      .icon {
-    //        margin-right: 15px;
-    //        @include mix.d-flex;
-    //        @include mix.align-items-center;
-    //      }
-    //
-    //      .content {
-    //
-    //        .count-wrap {
-    //          font-size: 45px;
-    //          line-height: 50px;
-    //          @include mix.d-flex;
-    //          @include mix.align-items-center;
-    //        }
-    //
-    //      }
-    //
-    //    }
-    //
-    //  }
-    //
-    //}
-
     .footer-widget {
       margin-bottom: 1rem;
 
       .widget-title {
-
+        margin-bottom: 10px;
       }
 
       ul {

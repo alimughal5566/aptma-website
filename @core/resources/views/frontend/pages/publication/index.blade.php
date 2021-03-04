@@ -17,22 +17,22 @@
                 @forelse($all_services as $data)
                     <div class="col-lg-3 col-md-6">
                         <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
-                            <div class="common-img publication-img single-what-img position-relative">
-                                @php
-                                    $now = Carbon\Carbon::now();
-                                    $datework = Carbon\Carbon::parse($data->created_at);
-                                    $diff = $datework->diffInDays($now);
-                                @endphp
-                                @if($diff<15)
-                                    <small class="font-italic badge ">New</small>
-                                @endif
-                                <a href="{{route('frontend.publication.single',$data->slug)}}">
+                            <a href="{{route('frontend.publication.single',$data->slug)}}">
+                                <div class="common-img publication-img single-what-img position-relative">
+                                    @php
+                                        $now = Carbon\Carbon::now();
+                                        $datework = Carbon\Carbon::parse($data->created_at);
+                                        $diff = $datework->diffInDays($now);
+                                    @endphp
+                                    @if($diff<15)
+                                        <small class="font-italic badge ">New</small>
+                                    @endif
                                     {!! render_image_markup_by_attachment_id($data->thumbnail) !!}
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                             <div class="common-content content">
                                 <p class="">
-                                    <span>{{date('M d Y', strtotime(@$data->publish_date))}}</span>
+                                    <span>{{date('M d, Y', strtotime(@$data->publish_date))}}</span>
                                 </p>
                                 <a href="{{route('frontend.publication.single',$data->slug)}}">
                                     <h4 class="title">{{$data->title}}</h4>

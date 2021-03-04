@@ -20,7 +20,7 @@
 
     <div class="page-content service-details common-single publication-single padding-top-50 padding-bottom-100">
         <div class="container">
-{{--            <h2 class="font-weight-bold mb-3 text-center">Books<?php echo ($category)? "<small>($category)<small>":"" ?></h2>--}}
+            {{--            <h2 class="font-weight-bold mb-3 text-center">Books<?php echo ($category)? "<small>($category)<small>":"" ?></h2>--}}
 
             <div class="row">
                 <div class="col-lg-12">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
-                        <a href="{{$service_item->url}}" target="_blank" class="btn">View video</a>
+
                         <div class="thumb margin-bottom-40">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>
@@ -36,8 +36,16 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
+                        <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-lg-center mb-3">
+                            <div class="service-meta">
+                                <h6 class="mb-0">Published On: <span
+                                            class="text-muted">{{$service_item->created_at->format('d M Y')}}</span>
+                                </h6>
+                            </div>
+                            <a href="{{asset('assets/uploads/publications/pdf/'.$service_item->pdf_url)}}"
+                               class="btn" target="_blank">Download</a>
+                        </div>
                         <div class="service-description">
-                            <h6>Published On: <span class="text-muted">{{$service_item->created_at->format('d M Y')}}</span></h6>
                             <div>
                                 {!! $service_item->description !!}
                             </div>

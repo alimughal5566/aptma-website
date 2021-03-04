@@ -421,12 +421,13 @@
   .common-item {
 
     .common-img {
-      @include mix.d-flex;
       @include mix.align-items-center;
+      @include mix.d-flex;
       border-radius: 0.25rem;
-      overflow: hidden;
+      position: relative;
       min-height: 150px;
       max-height: 150px;
+      overflow: hidden;
       height: 100%;
       width: 100%;
 
@@ -472,21 +473,22 @@
     }
 
     .common-content {
-      padding: 1.25rem 1rem;
+      padding: 1rem;
       z-index: 999;
 
       .title {
         @include mix.align-items-center;
         display: inline-flex;
         text-overflow: ellipsis;
+        color: color.$primary2;
         //white-space: nowrap;
-        overflow: hidden;
         line-height: 20px;
         max-height: 75px;
         font-weight: 600;
+        overflow: hidden;
         text-align: left;
+        margin-bottom: 0;
         font-size: 14px;
-        color: color.$primary2;
         height: 75px;
       }
 
@@ -578,9 +580,6 @@
       &.btn {
         background: color.$primary2;
         color: #fff;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
       }
 
     }
@@ -618,7 +617,7 @@
   .economic-single-title-wrap {
 
     a {
-      
+
       &.btn {
         background: color.$primary2;
         color: #fff;
@@ -682,10 +681,10 @@
 }
 
 .single-contact-item {
-  padding: 20px;
   height: 100%;
-  //@include mix.align-items-start;
+  padding: 20px;
   @include mix.flex-column;
+  //@include mix.align-items-start;
 
   .icon {
     @include mix.d-flex;

@@ -27,8 +27,6 @@
 
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item circular-single-item position-relative">
-                        <a href="{{asset('assets/uploads/circular/'.$service_item->url)}}"
-                           class="btn">Download</a>
                         <div class="thumb">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>
@@ -36,9 +34,16 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item circular-single-item position-relative">
+                        <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-lg-center">
+                            <div class="service-meta">
+                                <h4 class="mb-2 font-weight-bold">{{$service_item->category->name}}</h4>
+                                <p>{{@$data->publish_date}}</p>
+                            </div>
+                            <a href="{{asset('assets/uploads/circular/'.$service_item->url)}}"
+                               class="btn">Download</a>
+                        </div>
+
                         <div class="service-description common-single-description circular-description">
-                            <p class="margin-bottom-15">{{$service_item->category->name}}</p>
-                            <p>{{@$data->publish_date}}</p>
                             <p>{!! $service_item->description !!}</p>
                         </div>
                     </div>

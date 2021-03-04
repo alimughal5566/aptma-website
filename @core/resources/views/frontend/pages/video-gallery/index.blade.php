@@ -12,12 +12,14 @@
 @endsection
 @section('content')
 
-    <section
-            class="service-area service-page common-area video-area publication-page padding-top-40 padding-bottom-60">
+    <section class="service-area service-page common-area video-area publication-page padding-top-40 padding-bottom-60">
         <div class="container">
-            <h2 class="font-weight-bold mb-3 text-center">
-                Videos <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>
             <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold mb-3 text-center">
+                        Videos <?php echo ($category) ? "<small>($category->name)</small>" : "" ?>
+                    </h2>
+                </div>
 
                 @forelse($all_services as $data)
                     <div class="col-lg-3 col-md-6">
@@ -48,11 +50,7 @@
                         </div>
                     </div>
                 @endforelse
-                <div class="col-lg-12">
-                    <div class="pagination-wrapper">
-                        {{$all_services->links()}}
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>

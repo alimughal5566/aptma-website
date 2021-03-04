@@ -22,12 +22,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="common-single-title publication-single-title margin-bottom-15">{{$service_item->title}}</h3>
+                    <h3 class="common-single-title publication-single-title mb-3">{{$service_item->title}}</h3>
                 </div>
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
-                        <a href="{{asset('assets/uploads/publications/pdf/'.$service_item->pdf_url)}}"
-                           class="btn" target="_blank">Download</a>
                         <div class="thumb">
                             {!! render_image_markup_by_attachment_id($service_item->thumbnail) !!}
                         </div>
@@ -35,8 +33,14 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item publication-single-item position-relative">
-                        <h5>Published On</h5>
-                        <h6 class="publish-date font-weight-bold">{{$service_item->publish_date}}</h6>
+                        <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-lg-center">
+                            <div class="service-meta">
+                                <h5>Published On</h5>
+                                <h6 class="publish-date font-weight-bold">{{$service_item->publish_date}}</h6>
+                            </div>
+                            <a href="{{asset('assets/uploads/publications/pdf/'.$service_item->pdf_url)}}"
+                               class="btn" target="_blank">Download</a>
+                        </div>
                         <div class="service-description publication-description">
                             {!! $service_item->description !!}
                         </div>

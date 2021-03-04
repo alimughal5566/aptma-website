@@ -1706,16 +1706,17 @@ html {
 }
 
 .common-area .common-item .common-img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border-radius: 0.25rem;
-  overflow: hidden;
+  position: relative;
   min-height: 150px;
   max-height: 150px;
+  overflow: hidden;
   height: 100%;
   width: 100%;
 }
@@ -1763,7 +1764,7 @@ html {
 }
 
 .common-area .common-item .common-content {
-  padding: 1.25rem 1rem;
+  padding: 1rem;
   z-index: 999;
 }
 
@@ -1776,13 +1777,14 @@ html {
   display: inline-flex;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
-  overflow: hidden;
+  color: #439882;
   line-height: 20px;
   max-height: 75px;
   font-weight: 600;
+  overflow: hidden;
   text-align: left;
+  margin-bottom: 0;
   font-size: 14px;
-  color: #439882;
   height: 75px;
 }
 
@@ -1852,9 +1854,6 @@ html {
 .common-single .common-single-item a.btn {
   background: #439882;
   color: #fff;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
 }
 
 .common-single .common-single-item.exchange-rate-single-item a.btn {
@@ -1920,8 +1919,8 @@ html {
 }
 
 .single-contact-item {
-  padding: 20px;
   height: 100%;
+  padding: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -2136,6 +2135,10 @@ footer .footer-top {
 
 footer .footer-top .footer-widget {
   margin-bottom: 1rem;
+}
+
+footer .footer-top .footer-widget .widget-title {
+  margin-bottom: 10px;
 }
 
 footer .footer-top .footer-widget ul li {
