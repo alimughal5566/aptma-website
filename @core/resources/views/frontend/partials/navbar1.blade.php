@@ -187,6 +187,9 @@
                                                     <a href="{{route('frontend.team',[$team->slug])}}">{{$team->name}}</a>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="{{route('frontend.members')}}">Member List</a>
+                                            </li>
                                         </ul>
                                     @endif
                                 </li>
@@ -287,6 +290,9 @@
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('frontend.statistics')}}">Statistics</a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);">Production</a>

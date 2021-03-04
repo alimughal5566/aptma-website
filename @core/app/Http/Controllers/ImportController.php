@@ -7,16 +7,24 @@ use App\CotlookAIndex;
 use App\ExcelPublishedDate;
 use App\ExchangeRates;
 use App\ExportBills;
+use App\ExportOfRawCotton;
+use App\GlobalImpact;
 use App\Imports\ChinaZceImports;
 use App\Imports\CotlookAIndexImports;
 use App\Imports\ExchangeRatesImports;
 use App\Imports\ExportBillsImports;
+use App\Imports\ExportOfRawCottonImports;
+use App\Imports\GlobalImportImport;
 use App\Imports\KcaPakRupeesPerFourtyKgImports;
+use App\Imports\MonthWiseDistrictWiseArivalOfCotonImport;
 use App\Imports\NycUSImports;
+use App\Imports\ProductionsExportsAndDomesticRequirementsOfYarnImports;
 use App\Imports\UserImport;
 use App\KcaPakRupeesPerFourtyKg;
 use App\Language;
+use App\MonthWiseDistrictWiseArivalOfCoton;
 use App\NycUS;
+use App\ProductionsExportsAndDomesticRequirementsOfYarn;
 use App\Publication;
 use App\PublicationCategory;
 use Carbon\Carbon;
@@ -49,6 +57,14 @@ class ImportController extends Controller
                 Excel::import(new CotlookAIndexImports, $file);
             }elseif ($request->category=='KCA  Pak Rs / Maund 40 Kg'){
                 Excel::import(new KcaPakRupeesPerFourtyKgImports, $file);
+            }elseif ($request->category=='Month Wise District Wise Arival Of Cotton'){
+                Excel::import(new MonthWiseDistrictWiseArivalOfCotonImport, $file);
+            }elseif ($request->category=='Productions, Exports And Domestic Requirements Of YARN'){
+                Excel::import(new ProductionsExportsAndDomesticRequirementsOfYarnImports, $file);
+            }elseif ($request->category=='Export Of Raw Cotton'){
+                Excel::import(new ExportOfRawCottonImports, $file);
+            }elseif ($request->category=='Global Impact Of Cotton'){
+                Excel::import(new GlobalImportImport, $file);
             }
             else{
                 return redirect()->back()->withErrors(['msg' => __('Undefined Category...'),'type' => 'danger']);
@@ -114,5 +130,24 @@ class ImportController extends Controller
         $file = $request->file('file');
         Excel::import(new UserImport, $file);
         return redirect()->back()->with(['msg' => __('Import Successful'), 'type' => 'success']);
+    }
+    public function statistics(){
+        return view('frontend.pages.statistics.index');
+    }
+    public function statisticsTables($type){
+//        dd('adsad');
+        if ($type=='month_wise_district_wise'){
+        $month_wise =  MonthWiseDistrictWiseArivalOfCoton::paginate(20);
+            return view('frontend.pages.statistics.table',compact('month_wise'));
+        }if ($type=='export_of_raw_cotton'){
+        $export_of_raw =  ExportOfRawCotton::paginate(20);
+            return view('frontend.pages.statistics.table',compact('export_of_raw'));
+        }if ($type=='production_export'){
+        $production_export =  ProductionsExportsAndDomesticRequirementsOfYarn::paginate(20);
+            return view('frontend.pages.statistics.table',compact('production_export'));
+        }if ($type=='global_impact'){
+        $global_impact =  GlobalImpact::paginate(20);
+            return view('frontend.pages.statistics.table',compact('global_impact'));
+        }
     }
 }

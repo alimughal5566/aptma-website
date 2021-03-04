@@ -7,6 +7,7 @@ use App\TeamCategory;
 use App\TeamDepartment;
 use App\TeamMember;
 use App\TeamType;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -32,6 +33,11 @@ class TeamMemberController extends Controller
     {
         $teams = TeamCategory::where(['status' => 'publish', 'lang' => get_default_language()])->get();
         return view('frontend.pages.teams')->with(['teams' => $teams]);
+    }
+    public function members()
+    {
+        $teams = User::paginate(20);
+        return view('frontend.pages.members')->with(['teams' => $teams]);
     }
 
     public function store(Request $request)

@@ -237,6 +237,8 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('export/exchange-rates/{date}','ExportController@exportExchangeRates')->name('frontend.export.excel.exchange-rates');
     Route::get('/frontend/import-user-view', 'ImportController@importUserView')->name('admin.frontend.import.users.view');
     Route::post('/frontend/import-user', 'ImportController@import_user')->name('admin.frontend.import.users');
+    Route::get('/frontend/statistics', 'ImportController@statistics')->name('frontend.statistics');
+    Route::get('/frontend/statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
@@ -268,6 +270,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
 
     Route::get('/' . $team_page_slug . '/member/{slug}', 'FrontendController@team_member')->name('frontend.team.member');
     Route::get('/teams', 'TeamMemberController@teams')->name('frontend.teams');
+    Route::get('/members', 'TeamMemberController@members')->name('frontend.members');
     //testimonials
     Route::get('/' . $testimonial_page_slug, 'FrontendController@testimonials')->name('frontend.testimonials');
     Route::get('/' . $feedback_page_slug, 'FrontendController@feedback_page')->name('frontend.feedback');
