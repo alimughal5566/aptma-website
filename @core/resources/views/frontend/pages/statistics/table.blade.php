@@ -51,6 +51,16 @@
                                         <th scope="col">value</th>
                                         <th scope="col">Month</th>
                                         <th scope="col">value</th>
+                                        <th scope="col">Month</th>
+                                        <th scope="col">value</th>
+                                        <th scope="col">Month</th>
+                                        <th scope="col">value</th>
+                                        <th scope="col">Month</th>
+                                        <th scope="col">value</th>
+                                        <th scope="col">Month</th>
+                                        <th scope="col">value</th>
+                                        <th scope="col">Month</th>
+                                        <th scope="col">value</th>
 {{--                                        <th scope="col">Month</th>--}}
 {{--                                        <th scope="col">value</th>--}}
 {{--                                        <th scope="col">Month</th>--}}
@@ -72,6 +82,16 @@
                                             <td>{{$data->month3_value}}</td>
                                             <td>{{\Carbon\Carbon::parse($data->month_4)->format('d-m-Y')}}</td>
                                             <td>{{$data->month4_value}}</td>
+                                            <td>{{\Carbon\Carbon::parse($data->month_5)->format('d-m-Y')}}</td>
+                                            <td>{{$data->month5_value}}</td>
+                                            <td>{{\Carbon\Carbon::parse($data->month_6)->format('d-m-Y')}}</td>
+                                            <td>{{$data->month6_value}}</td>
+                                            <td>{{\Carbon\Carbon::parse($data->month_7)->format('d-m-Y')}}</td>
+                                            <td>{{$data->month7_value}}</td>
+                                            <td>{{\Carbon\Carbon::parse($data->month_8)->format('d-m-Y')}}</td>
+                                            <td>{{$data->month8_value}}</td>
+                                            <td>{{\Carbon\Carbon::parse($data->month_9)->format('d-m-Y')}}</td>
+                                            <td>{{$data->month9_value}}</td>
 {{--                                            <td>{{\Carbon\Carbon::parse($data->month_5)->format('d-m-Y')}}</td>--}}
 {{--                                            <td>{{$data->month5_value}}</td>--}}
 {{--                                            <td>{{\Carbon\Carbon::parse($data->month_6)->format('d-m-Y')}}</td>--}}
