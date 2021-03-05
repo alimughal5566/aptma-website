@@ -61,10 +61,6 @@
                                         <th scope="col">value</th>
                                         <th scope="col">Month</th>
                                         <th scope="col">value</th>
-{{--                                        <th scope="col">Month</th>--}}
-{{--                                        <th scope="col">value</th>--}}
-{{--                                        <th scope="col">Month</th>--}}
-{{--                                        <th scope="col">value</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -92,10 +88,6 @@
                                             <td>{{$data->month8_value}}</td>
                                             <td>{{\Carbon\Carbon::parse($data->month_9)->format('d-m-Y')}}</td>
                                             <td>{{$data->month9_value}}</td>
-{{--                                            <td>{{\Carbon\Carbon::parse($data->month_5)->format('d-m-Y')}}</td>--}}
-{{--                                            <td>{{$data->month5_value}}</td>--}}
-{{--                                            <td>{{\Carbon\Carbon::parse($data->month_6)->format('d-m-Y')}}</td>--}}
-{{--                                            <td>{{$data->month6_value}}</td>--}}
                                         </tr>
                                     @endforeach
                                     </tbody>
