@@ -1,5 +1,5 @@
 @extends('frontend.frontend-page-master')
-@section('site-title','Daily Exchange Rates')
+@section('site-title','Statistics')
 
 @section('page-meta-data')
     <meta name="description"
@@ -57,7 +57,7 @@
                     <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
                         <div class="common-content content">
                             <p class="">
-                                <span>Product Export And Domestic Re</span>
+                                <span>Product Export &amp; Domestic Re</span>
                             </p>
                             <a href="{{route('frontend.statistics.get.table',['type'=>'production_export'])}}"
                                class="btn text-center">View</a>

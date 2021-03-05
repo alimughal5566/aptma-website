@@ -292,13 +292,20 @@
                                     <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('frontend.statistics')}}">Statistics</a>
+                                    <a href="{{route('frontend.statistics.get.table',['type'=>'month_wise_district_wise'])}}">Month
+                                        Wise District Wise</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">Production</a>
+                                    <a href="{{route('frontend.statistics.get.table',['type'=>'global_impact'])}}">Global
+                                        Impact</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">Exports</a>
+                                    <a href="{{route('frontend.statistics.get.table',['type'=>'production_export'])}}">Production
+                                        & Exports</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('frontend.statistics.get.table',['type'=>'export_of_raw_cotton'])}}">Export
+                                        Of Raw Cotton</a>
                                 </li>
                             </ul>
                         </li>

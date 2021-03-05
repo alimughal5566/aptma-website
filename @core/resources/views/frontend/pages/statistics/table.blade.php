@@ -1,18 +1,9 @@
 @extends('frontend.frontend-page-master')
-@section('og-meta')
-    {{--    <meta property="og:url" content="{{route('frontend.services.single',$service_item->id)}}"/>--}}
-    {{--    <meta property="og:type" content="article"/>--}}
-    {{--    <meta property="og:title" content="{{$service_item->title}}"/>--}}
-    {{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
-@endsection
+@section('og-meta') @endsection
 
-@section('meta-tags')
-    {{--    <meta name="description" content="{{$service_item->meta_description}}">--}}
-    {{--    <meta name="tags" content="{{$service_item->meta_tag}}">--}}
-    {{--    {!! render_og_meta_image_by_attachment_id($service_item->image) !!}--}}
-@endsection
+@section('meta-tags')   @endsection
 
-@section('site-title','Daily Exchange Rates')
+@section('site-title', 'Statistics')
 
 @section('content')
     <div class="page-content service-details common-single exchange-rate-single padding-top-50 padding-bottom-80">
@@ -22,9 +13,7 @@
                     <div class="service-details-item common-single-item exchange-rate-single-item position-relative">
 
                         <div class="d-flex flex-column align-items-center justify-content-lg-between flex-lg-row mb-3">
-                            <h2 class="common-single-title exchange-rate-single-title mb-0">Statistics
-{{--                                <span>{{Carbon\Carbon::parse($date)->format('d M Y')}}</span></h2>--}}
-{{--                            <a class="btn" href="{{route('frontend.export.excel.exchange-rates',['date'=>$date])}}">Download</a>--}}
+                            <h2 class="common-single-title exchange-rate-single-title mb-0">Statistics</h2>
                         </div>
                         @php $a = 1; @endphp
 
@@ -32,7 +21,7 @@
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
                                     <span>Month Wise & District Wise Arrival of Cotton</span>
-{{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
+                                    {{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
                                 </h3>
                             </div>
                             <div class="table-responsive">
@@ -99,7 +88,7 @@
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
                                     <span>Export Of Raw Cotton</span>
-{{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
+                                    {{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
                                 </h3>
                             </div>
                             <div class="table-responsive">
@@ -136,7 +125,7 @@
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
                                     <span>PRODUCTION, EXPORTS AND DOMESTIC REQUIREMENT OF YARN</span>
-{{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
+                                    {{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
                                 </h3>
                             </div>
                             <div class="table-responsive">
@@ -177,7 +166,7 @@
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
                                     <span>PRODUCTION, EXPORTS AND DOMESTIC REQUIREMENT OF YARN</span>
-{{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
+                                    {{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
                                 </h3>
                             </div>
                             <div class="table-responsive">

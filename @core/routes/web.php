@@ -234,11 +234,11 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('daily-exchange-cotton-rates', 'ImportController@frontDailyStats')->name('frontend.daily.stats');
     Route::get('daily-exchange-cotton-rates/{date}', 'ImportController@frontDailyStatsDate')->name('frontend.daily.stats.with.date');
     Route::get('exchange-rates/{date}', 'ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
-    Route::get('export/exchange-rates/{date}','ExportController@exportExchangeRates')->name('frontend.export.excel.exchange-rates');
-    Route::get('/frontend/import-user-view', 'ImportController@importUserView')->name('admin.frontend.import.users.view');
-    Route::post('/frontend/import-user', 'ImportController@import_user')->name('admin.frontend.import.users');
-    Route::get('/frontend/statistics', 'ImportController@statistics')->name('frontend.statistics');
-    Route::get('/frontend/statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
+    Route::get('export/exchange-rates/{date}', 'ExportController@exportExchangeRates')->name('frontend.export.excel.exchange-rates');
+    Route::get('import-user-view', 'ImportController@importUserView')->name('admin.frontend.import.users.view');
+    Route::post('import-user', 'ImportController@import_user')->name('admin.frontend.import.users');
+    Route::get('statistics', 'ImportController@statistics')->name('frontend.statistics');
+    Route::get('statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
@@ -762,8 +762,8 @@ Route::prefix('/admin-home/circular')->group(function () {
     Route::get('/sub-category', 'CircularController@sub_category_index')->name('admin.circular.sub-category');
     Route::post('/category/new', 'CircularController@category_store')->name('admin.circular.category.new');
     Route::post('/sub-category/new', 'CircularController@sub_category_store')->name('admin.circular.sub-category.new');
-    Route::get('/get-sub-post/{id}','CircularController@getSubCat')->name('admin.circular.sub-category.get');
-    Route::get('/get-sub-post-at-edit/{id}','CircularController@getSubCatAtEdit')->name('admin.circular.sub-category.get.at.edit');
+    Route::get('/get-sub-post/{id}', 'CircularController@getSubCat')->name('admin.circular.sub-category.get');
+    Route::get('/get-sub-post-at-edit/{id}', 'CircularController@getSubCatAtEdit')->name('admin.circular.sub-category.get.at.edit');
     Route::post('/category/update', 'CircularController@category_update')->name('admin.circular.category.update');
     Route::post('/sub-category/update', 'CircularController@sub_category_update')->name('admin.circular.sub-category.update');
     Route::post('/category/delete/{id}', 'CircularController@category_delete')->name('admin.circular.category.delete');
