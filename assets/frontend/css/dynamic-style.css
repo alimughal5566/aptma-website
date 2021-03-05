@@ -1231,6 +1231,10 @@ html {
   color: #002a00;
 }
 
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children .sub-menu li a {
+  padding: 0.75rem 1rem;
+}
+
 .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children .sub-menu .sub-menu li a {
   max-width: 275px;
   white-space: normal;
