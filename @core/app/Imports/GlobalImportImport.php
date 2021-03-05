@@ -30,6 +30,7 @@ class GlobalImportImport implements ToCollection, WithStartRow
         unset($date_range[0]);
         unset($date_range[14]);
         foreach ($rows as $key => $row) {
+//            dd($row);
             if ($key > 1) {
 //                dd($date_range, $row);
                 if (!empty($row[0])) {
@@ -54,6 +55,6 @@ class GlobalImportImport implements ToCollection, WithStartRow
      */
     public function startRow(): int
     {
-        return 4;
+        return 5;
     }
 }
