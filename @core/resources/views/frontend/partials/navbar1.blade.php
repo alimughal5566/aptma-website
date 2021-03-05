@@ -291,22 +291,279 @@
                                 <li>
                                     <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
                                 </li>
-                                <li>
-                                    <a href="{{route('frontend.statistics.get.table',['type'=>'month_wise_district_wise'])}}">Month
-                                        Wise District Wise</a>
+
+                                <li class=" menu-item-has-children ">
+                                    <a href="#">Textile Industry</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">Growth of Cotton Textile Industry in Pakistan</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Growth of Textile Industry in Pakistan: Province - Wise</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Consumption of Raw Material</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="{{route('frontend.statistics.get.table',['type'=>'global_impact'])}}">Global
-                                        Impact</a>
+
+                                <li class=" menu-item-has-children ">
+                                    <a href="#">Raw Material</a>
+                                    <ul class="sub-menu">
+                                        <li class=" menu-item-has-children ">
+                                            <a href="#">Cotton</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Supply &amp; Distribution of Cotton</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Upland Area, Production &amp; Yield of Cotton</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Staple - wise Production of Cotton</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Arrival of Cotton: (District - wise)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Arrival of Seed Cotton (Month-wise)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{route('frontend.statistics.get.table',['type'=>'month_wise_district_wise'])}}">Arrival
+                                                        of Cotton: (Month-wise & District wise)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Seed Cotton Market Price</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Raw Cotton (Fine Machine Gin) Price at Karachi (Annual
+                                                        Average)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">KCA Spot Rate of Sawgin Cotton Month-Wise Average</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class=" menu-item-has-children ">
+                                            <a href="#">Man-Made Fibre</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Local Market Price of Man-Made Staple Fibre at Karachi
+                                                        (With Sales Tax)</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="{{route('frontend.statistics.get.table',['type'=>'production_export'])}}">Production
-                                        & Exports</a>
+
+                                <li class=" menu-item-has-children ">
+                                    <a href="#">Textile Products</a>
+                                    <ul class="sub-menu">
+                                        <li class=" menu-item-has-children ">
+                                            <a href="#">Yarn</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Production of Yarn: Province-wise</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Production of Yarn: Province-wise</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Production of Yarn: Category-wise</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{route('frontend.statistics.get.table',['type'=>'production_export'])}}">Production,
+                                                        Export &amp; Domestic Requirement of Yarn</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Production of Yarn: Category-wise</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Cloth</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Production of Cloth: Province-wise (Mill Sector)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Production of Cloth: Category-wise & Variety-wise</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Production, Export and Domestic Requirement of Cloth</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="{{route('frontend.statistics.get.table',['type'=>'export_of_raw_cotton'])}}">Export
-                                        Of Raw Cotton</a>
+
+                                <li class=" menu-item-has-children ">
+                                    <a href="#">International Trade</a>
+                                    <ul class="sub-menu">
+                                        <li class=" menu-item-has-children ">
+                                            <a href="#">Export</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Pakistan Principal Exports (July - June)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{route('frontend.statistics.get.table',['type'=>'export_of_raw_cotton'])}}">Export
+                                                        Of Raw Cotton</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country - wise Export of Raw Cotton</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Export of Cotton Yarn</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Cotton Yarn</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Market Share Position of Cotton Yarn</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Export of Cotton Cloth</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Cotton Cloth</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Market Share Position of Cotton Cloth</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Export of Cotton &amp; Cotton Manufactures</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Export of Textile (Qty, Value &amp; Unit Value)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Ready-Made Garments (Excluding
+                                                        Hosiery)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Knitwear</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Other Made-ups (Exluding Towels
+                                                        &amp; Bedwear)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Bedwear</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Towels</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Country-wise Export of Synthetic</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Pakistan Textile Principal Buyers</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Pakistan's Export to EU</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class=" menu-item-has-children ">
+                                            <a href="#">Import</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="#">Cotton Imports</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Import of Man-Made Fibre</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Import of Textile Machinery</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
+
+                                <li class=" menu-item-has-children ">
+                                    <a href="#">Global Statistics</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">Pakistan Share of Textiles in World Trade</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Global Raw Material Consumption</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Global Production of Cotton</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Global Consumption of Cotton</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Global Export of Cotton</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('frontend.statistics.get.table',['type'=>'global_impact'])}}">Global
+                                                Import of Cotton</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Global Production of Yarn</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Global Production of Cloth</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Supply, Usage & Trade of Cotton</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Consumption of Cotton, Fibre & Wool</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World General Economic Data</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World General Economic Data</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Basic Structure Data (World Installed Capacity)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Basic Structure Data (Labour)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Activity Level (Fibre Consumption)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Activity Level (Spun- Yarn Production)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Activity Level (Fibric Production)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Activity Level (Capacity Utilization)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Textile &amp; Apparel Trade (Imports)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Textile &amp; Apparel Trade (Imports in value Terms)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Textile &amp; Apparel Trade (Imports in value Terms)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Textile &amp; Apparel Trade (Exports in value Terms)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Textile &amp; Apparel Trade (Exports value of all Textile
+                                                &amp; Apparel)</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">World Cotton and Non Cotton Textile Fiber Consumption</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
                             </ul>
                         </li>
 

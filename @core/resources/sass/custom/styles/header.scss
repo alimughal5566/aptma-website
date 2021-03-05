@@ -125,6 +125,44 @@
 
                   }
 
+                  .sub-menu {
+
+                    li {
+
+                      a {
+
+                      }
+
+                    }
+
+                    .sub-menu {
+
+                      li {
+
+                        a {
+                          max-width: 275px;
+                          white-space: normal;
+                        }
+
+                      }
+
+                      .sub-menu {
+
+                        li {
+
+                          a {
+                            max-width: 375px;
+                            white-space: normal;
+                          }
+
+                        }
+
+                      }
+
+                    }
+
+                  }
+
                 }
 
                 &.menu-item-has-mega-menu {

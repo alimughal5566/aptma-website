@@ -1231,6 +1231,16 @@ html {
   color: #002a00;
 }
 
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children .sub-menu .sub-menu li a {
+  max-width: 275px;
+  white-space: normal;
+}
+
+.navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-children .sub-menu .sub-menu .sub-menu li a {
+  max-width: 375px;
+  white-space: normal;
+}
+
 .navigation-wrap .header .navbar-area .nav-container .navbar-collapse ul.navbar-nav li.menu-item-has-mega-menu:before {
   color: #439882;
 }
