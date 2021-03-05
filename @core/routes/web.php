@@ -235,6 +235,10 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('daily-exchange-cotton-rates/{date}', 'ImportController@frontDailyStatsDate')->name('frontend.daily.stats.with.date');
     Route::get('exchange-rates/{date}', 'ImportController@frontRableExchangeRates')->name('frontend.view.excel.record');
     Route::get('export/exchange-rates/{date}','ExportController@exportExchangeRates')->name('frontend.export.excel.exchange-rates');
+    Route::get('/frontend/import-user-view', 'ImportController@importUserView')->name('admin.frontend.import.users.view');
+    Route::post('/frontend/import-user', 'ImportController@import_user')->name('admin.frontend.import.users');
+    Route::get('/frontend/statistics', 'ImportController@statistics')->name('frontend.statistics');
+    Route::get('/frontend/statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
@@ -266,6 +270,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
 
     Route::get('/' . $team_page_slug . '/member/{slug}', 'FrontendController@team_member')->name('frontend.team.member');
     Route::get('/teams', 'TeamMemberController@teams')->name('frontend.teams');
+    Route::get('/members', 'TeamMemberController@members')->name('frontend.members');
     //testimonials
     Route::get('/' . $testimonial_page_slug, 'FrontendController@testimonials')->name('frontend.testimonials');
     Route::get('/' . $feedback_page_slug, 'FrontendController@feedback_page')->name('frontend.feedback');
@@ -1178,6 +1183,7 @@ Route::prefix('admin-home')->middleware(['menus_manage_check'])->group(function 
 });
 
 //frontend user manage
+//Route::prefix('admin-home')->middleware(['users_manage_check'])->group(function () {
 Route::prefix('admin-home')->middleware(['users_manage_check'])->group(function () {
     //user role management
     Route::get('/frontend/new-user', 'FrontendUserManageController@new_user')->name('admin.frontend.new.user');

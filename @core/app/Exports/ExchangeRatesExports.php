@@ -26,7 +26,7 @@ class ExchangeRatesExports implements FromView
 
     public function view(): View
     {
-        $searchedResult = ExcelPublishedDate::where('date',$this->datea)->first();  
+        $searchedResult = ExcelPublishedDate::where('date',$this->datea)->first();
         $date = $searchedResult->id;
         return view('frontend.pages.Exports.ExchangeRateExport', [
             'data' => ExchangeRates::where('published_at',$date)->get(['country','currency','selling','buying']),
