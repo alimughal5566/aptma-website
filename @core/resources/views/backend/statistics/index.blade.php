@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Daily Stats')}}
+    {{__('Statistics')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -40,23 +40,31 @@
             <div class="col-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Remove Daily Stats')}}</h4>
-                        <form action="{{route('admin.remove.daily.stats')}}" method="post" enctype="multipart/form-data">
+                        <h4 class="header-title">{{__('Remove Stats')}}</h4>
+                        <form action="{{route('admin.statistics.import')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select name="category" class="form-control" required>
                                     @foreach($all_categories as $category)
-                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->name}}">{{$category->title_description}}</option>
+                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->title}}">{{$category->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="sub_category">Sub Category</label>
+                                <select name="sub_category" class="form-control" required>
+                                    @foreach($all_sub_categories as $category)
+                                        <option {{(old('sub_category')==$category->id)?'selected':''}} value="{{$category->title}}">{{$category->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group ">
                                 <label for="date">File</label>
                                 <input type="date" class="form-control"  name="remove_date" placeholder="Pick Date">
                                 <small>{{__('Pick a date to remove data')}}</small>
                             </div>
-
                             <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">{{__('Remove')}}</button>
                         </form>
                     </div>
@@ -65,15 +73,22 @@
             <div class="col-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Add Daily Stats')}}</h4>
-                        <form action="{{route('admin.exchnage.new')}}" method="post" enctype="multipart/form-data">
+                        <h4 class="header-title">{{__('Add Stats')}}</h4>
+                        <form action="{{route('admin.statistics.import')}}" method="post" enctype="multipart/form-data">
                             @csrf
-
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select name="category" class="form-control" required>
                                     @foreach($all_categories as $category)
-                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->name}}">{{$category->title_description}}</option>
+                                        <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sub_category">Sub Category</label>
+                                <select name="sub_category" class="form-control" required>
+                                    @foreach($all_sub_categories as $category)
+                                        <option {{(old('sub_category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -114,6 +129,14 @@
                                     <option {{(old('category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
 
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sub_category">Category</label>
+                            <select name="sub_category" class="form-control" required>
+                                @foreach($all_sub_categories as $category)
+                                    <option {{(old('sub_category')==$category->id)?'selected':''}} value="{{$category->title}}">{{$category->title}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">

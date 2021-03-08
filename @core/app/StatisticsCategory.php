@@ -13,4 +13,7 @@ class StatisticsCategory extends Model
         'status',
         'slug'
     ];
+    public function subCategories(){
+        return $this->hasMany(StatisticsSubCategory::class,'cat_id','id');
+    }
 }

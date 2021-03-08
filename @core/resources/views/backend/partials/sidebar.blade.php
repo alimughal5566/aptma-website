@@ -911,7 +911,7 @@
                             <span>{{__('Statistics')}}</span></a>
                         <ul class="collapse">
                             <li class="{{active_menu('admin-home/advertisement')}}">
-                                <a href="{{route('admin.advertisement.all')}}" >{{__('Index')}}</a>
+                                <a href="{{route('admin.statistics.index')}}" >{{__('Index')}}</a>
                             </li>
                             <li class="{{active_menu('admin-home/advertisement/category')}}">
                                 <a href="{{route('admin.statistics.categories.index')}}" >{{__('Category')}}</a>
