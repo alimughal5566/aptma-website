@@ -94,14 +94,19 @@
                 </div>
                 <div class="col-sm-6 clearfix">
                     <div class="user-profile pull-right">
+                        @isset(auth()->user()->image)
                         @php
                         $profile_img = get_attachment_image_by_id(auth()->user()->image,null,true);
                         @endphp
+                        @endisset
+                        @isset(auth()->user()->name)
                         @if (!empty($profile_img))
                             <img class="avatar user-thumb" src="{{$profile_img['img_url']}}" alt="{{auth()->user()->name}}">
                         @endif
-
+                            @endif
+                            @isset(auth()->user()->name)
                         <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }} <i class="fa fa-angle-down"></i></h4>
+                            @endisset
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route('admin.profile.update')}}">{{__('Edit Profile')}}</a>
                             <a class="dropdown-item" href="{{route('admin.password.change')}}">{{__('Password Change')}}</a>

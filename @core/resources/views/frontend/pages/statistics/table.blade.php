@@ -14,6 +14,15 @@
 
 @section('site-title','Daily Exchange Rates')
 
+<style>
+    .common-single .common-single-item.exchange-rate-single-item .table-responsive .table thead th {
+        min-width: 115px;
+    }
+    .common-single .common-single-item.exchange-rate-single-item .table-responsive .table thead th:first-child {
+        min-width: 35px;
+    }
+</style>
+
 @section('content')
     <div class="page-content service-details common-single exchange-rate-single padding-top-50 padding-bottom-80">
         <div class="container">

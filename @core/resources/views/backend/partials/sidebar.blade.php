@@ -903,6 +903,24 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="main_dropdown
+                        {{active_menu('admin-home/advertisement')}}
+                    @if(request()->is('admin-home/advertisement/*')) active @endif
+                            ">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-write"></i>
+                            <span>{{__('Statistics')}}</span></a>
+                        <ul class="collapse">
+                            <li class="{{active_menu('admin-home/advertisement')}}">
+                                <a href="{{route('admin.advertisement.all')}}" >{{__('Index')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/advertisement/category')}}">
+                                <a href="{{route('admin.statistics.categories.index')}}" >{{__('Category')}}</a>
+                            </li>
+                            <li class="{{active_menu('admin-home/advertisement/category')}}">
+                                <a href="{{route('admin.statistics.sub_categories.index')}}" >{{__('Sub Category')}}</a>
+                            </li>
+                        </ul>
+                    </li>
 
 
                     @if(check_page_permission('languages'))

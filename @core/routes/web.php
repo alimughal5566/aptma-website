@@ -717,6 +717,15 @@ Route::prefix('/admin-home/daily-stats')->group(function () {
 //    Route::post('import','ImportController@importExcelSheets')->name('admin.import..category.by.lang');
 });
 
+Route::prefix('/admin-home/statistics')->group(function () {
+    Route::get('categories','StatisticsController@categoriesIndex')->name('admin.statistics.categories.index');
+    Route::post('categories/store','StatisticsController@categoriesStore')->name('admin.statistics.categories.store');
+    Route::post('categories/update','StatisticsController@categoriesUpdate')->name('admin.statistics.categories.update');
+    Route::get('sub-categories','StatisticsController@subCategoriesIndex')->name('admin.statistics.sub_categories.index');
+    Route::post('sub-categories/store','StatisticsController@subCategoriesStore')->name('admin.statistics.sub_categories.store');
+    Route::post('sub-categories/update','StatisticsController@subCategoriesUpdate')->name('admin.statistics.sub_categories.update');
+});
+
 //Front end economic updates
 
 
