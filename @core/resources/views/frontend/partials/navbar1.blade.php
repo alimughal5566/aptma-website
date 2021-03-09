@@ -284,7 +284,10 @@
                         <li class=" menu-item-has-children ">
                             <a href="javascript:void(0);">Statistics</a>
                             <ul class="sub-menu">
-                                @isset($all_stats_categoties)
+                                <li>
+                                    <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
+                                </li>
+                            @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
                                         <li class=" menu-item-has-children ">
                                             <a href="{{route('frontend.statistics.get.statistics.for.category',['id'=>$category->id])}}">{{$category->title}}</a>
@@ -300,9 +303,7 @@
                                         </li>
                                     @endforeach
                                 @endisset
-                                {{--                                <li>--}}
-                                {{--                                    <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>--}}
-                                {{--                                </li>--}}
+
                                 {{--                                <li>--}}
                                 {{--                                    <a href="{{route('frontend.statistics')}}">Statistics</a>--}}
                                 {{--                                </li>--}}
