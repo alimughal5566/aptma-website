@@ -195,7 +195,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework/cache/data',
+        'path' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -358,10 +358,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\fonts/',
-      'font_cache' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\DELL\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\xampp\\htdocs\\aptma\\@core',
+      'font_dir' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\fonts/',
+      'font_cache' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\fonts/',
+      'temp_dir' => 'C:\\Users\\MUAZZAM\\AppData\\Local\\Temp',
+      'chroot' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -475,7 +475,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework/laravel-excel',
+      'local_path' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework/laravel-excel',
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
@@ -506,12 +506,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\app',
+        'root' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\app/public',
+        'root' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\app/public',
         'url' => 'http://localhost/aptma/storage',
         'visibility' => 'public',
       ),
@@ -528,7 +528,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\aptma\\@core\\public\\storage' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\app/public',
+      'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\public\\storage' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -566,13 +566,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\logs/laravel.log',
+        'path' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\logs/laravel.log',
+        'path' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -622,7 +622,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\logs/laravel.log',
+        'path' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -678,7 +678,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\aptma\\@core\\resources\\views/vendor/mail',
+        0 => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -774,7 +774,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework/sessions',
+    'files' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -807,9 +807,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\aptma\\@core\\resources\\views',
+      0 => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\aptma\\@core\\storage\\framework\\views',
+    'compiled' => 'E:\\Installation\\xampp\\htdocs\\aptma-website\\@core\\storage\\framework\\views',
   ),
   'flare' => 
   array (

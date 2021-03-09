@@ -45,15 +45,10 @@
                 @empty
                     <div class="col-md-12 card border-0 thumb margin-bottom-40">
                         <div class="text center px-5 card-body ">
-                            <h1 class="text-muted">Sorry,No data found</h1>
+                            <h2 class="text-muted">Sorry,No data found</h2>
                         </div>
                     </div>
                 @endforelse
-{{--                <div class="col-lg-12">--}}
-{{--                    <div class="pagination-wrapper">--}}
-{{--                        {{$all_services->links()}}--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
         </div>
     </section>

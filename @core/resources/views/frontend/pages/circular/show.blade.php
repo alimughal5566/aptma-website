@@ -46,6 +46,7 @@
                         <div class="service-description common-single-description circular-description">
                             <p>{!! $service_item->description !!}</p>
                         </div>
+
                     </div>
                 </div>
 
