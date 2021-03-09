@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Clear all views,cache, config, storage
+Route::get('test',function (){
+   $cat = \App\StatisticsCategory::with('subCategories')->get();
+   $sub = \App\StatisticsSubCategory::all();
+   $excel = \App\ExcelSheet::with('getCategory')->get();
+   dd($excel);
+});
 
 Route::get('/clear', function () {
     Artisan::call('cache:clear');
@@ -239,6 +245,10 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::post('import-user', 'ImportController@import_user')->name('admin.frontend.import.users');
     Route::get('statistics', 'ImportController@statistics')->name('frontend.statistics');
     Route::get('statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
+
+    Route::get('statistics/category/{id}','StatisticsController@getStatisticsCategoryData')->name('frontend.statistics.get.statistics.for.category');
+    Route::get('statistics/subcategory/{id}','StatisticsController@getStatisticsSubCategoryData')->name('frontend.statistics.get.statistics.for.sub_category');
+    Route::get('statistics/data/{id}','StatisticsController@getData')->name('frontend.statistics.get.statistics.data');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
@@ -715,6 +725,17 @@ Route::prefix('/admin-home/daily-stats')->group(function () {
 
     // Imports
 //    Route::post('import','ImportController@importExcelSheets')->name('admin.import..category.by.lang');
+});
+
+Route::prefix('/admin-home/statistics')->group(function () {
+    Route::get('/','StatisticsController@index')->name('admin.statistics.index');
+    Route::post('/import','StatisticsController@import')->name('admin.statistics.import');
+    Route::get('categories','StatisticsController@categoriesIndex')->name('admin.statistics.categories.index');
+    Route::post('categories/store','StatisticsController@categoriesStore')->name('admin.statistics.categories.store');
+    Route::post('categories/update','StatisticsController@categoriesUpdate')->name('admin.statistics.categories.update');
+    Route::get('sub-categories','StatisticsController@subCategoriesIndex')->name('admin.statistics.sub_categories.index');
+    Route::post('sub-categories/store','StatisticsController@subCategoriesStore')->name('admin.statistics.sub_categories.store');
+    Route::post('sub-categories/update','StatisticsController@subCategoriesUpdate')->name('admin.statistics.sub_categories.update');
 });
 
 //Front end economic updates
