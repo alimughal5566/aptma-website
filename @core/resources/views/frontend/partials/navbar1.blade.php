@@ -287,17 +287,18 @@
                                 <li>
                                     <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
                                 </li>
-                            @isset($all_stats_categoties)
+
+                                @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
                                         <li class=" menu-item-has-children ">
                                             <a href="{{route('frontend.statistics.get.statistics.for.category',['id'=>$category->id])}}">{{$category->title}}</a>
                                             @isset($category->subCategories)
                                                 <ul class="sub-menu">
-                                                        @foreach($category->subCategories as $sub_category)
-                                                            <li>
-                                                                <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_category->id])}}">{{$sub_category->title}}</a>
-                                                            </li>
-                                                        @endforeach
+                                                    @foreach($category->subCategories as $sub_category)
+                                                        <li>
+                                                            <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_category->id])}}">{{$sub_category->title}}</a>
+                                                        </li>
+                                                    @endforeach
                                                 </ul>
                                             @endisset
                                         </li>
