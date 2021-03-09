@@ -75,7 +75,7 @@ class StatisticsController extends Controller
     public function subCategoriesStore(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|string',
+            'name' => 'required|string',
             'status' => 'required',
             'lang' => 'required',
             'category' => 'integer',
