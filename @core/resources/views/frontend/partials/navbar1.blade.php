@@ -290,7 +290,7 @@
 
                                 @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
-                                        <li class=" menu-item-has-children ">
+                                        <li class=" @if($category->subCategories->count()>0) menu-item-has-children @else @endif  ">
                                             <a href="{{route('frontend.statistics.get.statistics.for.category',['id'=>$category->id])}}">{{$category->title}}</a>
                                             @isset($category->subCategories)
                                                 <ul class="sub-menu">
