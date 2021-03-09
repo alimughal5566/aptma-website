@@ -1,6 +1,6 @@
 @extends('backend.admin-master')
 @section('site-title')
-    {{__('Statistic Categories')}}
+    {{__('Statistic Sub Categories')}}
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{asset('assets/backend/css/dropzone.css')}}">
@@ -149,7 +149,7 @@
             <div class="col-lg-6 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('Add New Category')}}</h4>
+                        <h4 class="header-title">{{__('Add New Sub Category')}}</h4>
                         <form action="{{route('admin.statistics.sub_categories.store')}}" method="post"
                               enctype="multipart/form-data">
                             @csrf
@@ -184,7 +184,7 @@
                                 </select>
                             </div>
                             <button type="submit"
-                                    class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New category')}}</button>
+                                    class="btn btn-primary mt-4 pr-4 pl-4">{{__('Add New Sub Category')}}</button>
                         </form>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                             <select class="form-control" name="main_category">
                                 @isset($all_main_categories)
                                     @foreach($all_main_categories as $categ)
-                                    <option value="{{$categ->id}}">{{$categ->title}}</option>
+                                        <option value="{{$categ->id}}">{{$categ->title}}</option>
                                     @endforeach
                                 @endisset
                             </select>
