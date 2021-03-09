@@ -169,8 +169,8 @@
                             <div class="form-group">
                                 <label for="title">{{__('Categories')}}</label>
                                 <select class="form-control" name="category">
-                                    @isset($all_category)
-                                        @foreach($all_category as $category)
+                                    @isset($all_main_categories)
+                                        @foreach($all_main_categories as $category)
                                             <option value="{{$category->id}}">{{$category->title}}</option>
                                         @endforeach
                                     @endisset

@@ -15,7 +15,7 @@
 </style>
 
 @section('content')
-    <div class="page-content service-details common-single exchange-rate-single padding-top-50 padding-bottom-80">
+    <div class="page-content service-details common-single exchange-rate-single padding-top-100 padding-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-12">

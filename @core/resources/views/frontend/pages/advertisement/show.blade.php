@@ -17,7 +17,8 @@
     {{$service_item->title}}
 @endsection
 @section('content')
-    <div class="page-content service-details common-single advertise-single padding-top-50 padding-bottom-80">
+
+    <div class="page-content service-details common-single advertise-single padding-top-100 padding-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -36,9 +37,9 @@
                 <div class="col-lg-6">
                     <div class="service-details-item common-single-item advertise-single-item position-relative">
                         <div class="service-description common-single-description advertise-description">
-                            <div class="margin-bottom-15"><strong>Category:</strong> {{$service_item->category->name}}
-                            </div>
-                            {{--                            <p>Last updated: {{$service_item->updated_at->format('d M Y')}}</p>--}}
+                            <div class="margin-bottom-15">
+                                <strong>Category:</strong> {{$service_item->category->name}}</div>
+{{--                            <p>Last updated: {{$service_item->updated_at->format('d M Y')}}</p>--}}
                             <div>{!! $service_item->description !!}</div>
                         </div>
                     </div>

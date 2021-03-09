@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     <section
-            class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
+            class="service-area service-page common-area publication-area publication-page padding-top-50 padding-bottom-60">
         <div class="container">
 
             <div class="row">
