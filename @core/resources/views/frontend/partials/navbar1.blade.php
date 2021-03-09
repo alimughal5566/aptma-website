@@ -187,9 +187,6 @@
                                                     <a href="{{route('frontend.team',[$team->slug])}}">{{$team->name}}</a>
                                                 </li>
                                             @endforeach
-                                            <li>
-                                                <a href="{{route('frontend.members')}}">Member List</a>
-                                            </li>
                                         </ul>
                                     @endif
                                 </li>
