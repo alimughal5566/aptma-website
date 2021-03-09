@@ -21,7 +21,8 @@
                         <li><strong>{{__('Applicant ID')}}:</strong> #{{$applicant_details->id}}</li>
                         <li><strong>{{__('Name')}}:</strong> {{$applicant_details->name}}</li>
                         <li><strong>{{__('Email')}}:</strong> {{$applicant_details->email}}</li>
-                        <li><strong>{{__('Payment Method')}}:</strong> {{str_replace('_',' ',$applicant_details->payment_gateway)}}</li>
+                        <li><strong>{{__('Payment Method')}}
+                                :</strong> {{str_replace('_',' ',$applicant_details->payment_gateway)}}</li>
                         <li><strong>{{__('Payment Status')}}:</strong> {{$applicant_details->payment_status}}</li>
                         <li><strong>{{__('Transaction id')}}:</strong> {{$applicant_details->transaction_id}}</li>
                     </ul>
@@ -33,7 +34,8 @@
                     <div class="job-single-wrap">
                         <div class="single-job-list-item">
                             <span class="job_type"><i class="far fa-clock"></i> {{str_replace('_',' ',__($job_details->employment_status))}}</span>
-                            <a href="{{route('frontend.jobs.single',$job_details->slug)}}"><h3 class="title">{{$job_details->title}}</h3></a>
+                            <a href="{{route('frontend.jobs.single',$job_details->slug)}}"><h3
+                                        class="title">{{$job_details->title}}</h3></a>
                             <span class="company_name"><strong>{{__('Company:')}}</strong> {{$job_details->company_name}}</span>
                             <span class="deadline"><strong>{{__('Deadline:')}}</strong> {{date("d M Y", strtotime($job_details->deadline))}}</span>
                             <ul class="jobs-meta">

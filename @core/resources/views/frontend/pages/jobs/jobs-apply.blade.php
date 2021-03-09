@@ -14,30 +14,33 @@
                         @include('backend.partials.message')
                         @if($errors->any())
                             <ul class="alert alert-danger">
-                            @foreach($errors->all() as $message)
-                                <li>{{$message}}</li>
-                            @endforeach
+                                @foreach($errors->all() as $message)
+                                    <li>{{$message}}</li>
+                                @endforeach
                             </ul>
                         @endif
                         <h2 class="job-apply-title"> {{__('Apply To').' '}}{{$job->title}}</h2>
-                        <form action="{{route('frontend.jobs.apply.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('frontend.jobs.apply.store')}}" method="post"
+                              enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="job_id" value="{{$job->id}}">
                             <div class="form-group">
                                 <input type="text" name="name" placeholder="{{__('Your Name')}}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="{{__('Your Email')}}" class="form-control">
+                                <input type="email" name="email" placeholder="{{__('Your Email')}}"
+                                       class="form-control">
                             </div>
                             {!! render_form_field_for_frontend(get_static_option('apply_job_page_form_fields')) !!}
                             @if(!empty($job->application_fee_status) && $job->application_fee > 0)
                                 <input type="hidden" name="application_fee" value="{{$job->application_fee}}">
-                            {!! render_payment_gateway_for_form()!!}
+                                {!! render_payment_gateway_for_form()!!}
                             @endif
                             @if(!empty(get_static_option('manual_payment_gateway')))
                                 <div class="form-group manual_payment_transaction_field">
                                     <div class="label">{{__('Transaction ID')}}</div>
-                                    <input type="text" name="transaction_id" placeholder="{{__('transaction')}}" class="form-control">
+                                    <input type="text" name="transaction_id" placeholder="{{__('transaction')}}"
+                                           class="form-control">
                                     <span class="help-info">{!! get_manual_payment_description() !!}</span>
                                 </div>
                             @endif
@@ -53,17 +56,17 @@
 @endsection
 @section('scripts')
     <script>
-        $(document).ready(function (){
+        $(document).ready(function () {
             "use strict";
 
-            $(document).on('click','.payment-gateway-wrapper > ul > li',function (e) {
+            $(document).on('click', '.payment-gateway-wrapper > ul > li', function (e) {
                 e.preventDefault();
                 var gateway = $(this).data('gateway');
                 $(this).addClass('selected').siblings().removeClass('selected');
                 $('input[name="selected_payment_gateway"]').val(gateway);
-                if(gateway == 'manual_payment'){
+                if (gateway == 'manual_payment') {
                     $('.manual_payment_transaction_field').addClass('show');
-                }else{
+                } else {
                     $('.manual_payment_transaction_field').removeClass('show');
                 }
                 $('.payment-gateway-wrapper').find(('input')).val(gateway);
