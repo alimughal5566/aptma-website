@@ -25,7 +25,7 @@
                                 <li>
                                     <div class="single-job-meta-block">
                                         <h4 class="title"> {{get_static_option('job_single_page_'.$user_select_lang_slug.'_job_context_label')}}</h4>
-                                        <p>{{!! $job->job_context !!}}</p>
+                                        <p>{!! $job->job_context !!}</p>
                                     </div>
                                 </li>
                             @endif
