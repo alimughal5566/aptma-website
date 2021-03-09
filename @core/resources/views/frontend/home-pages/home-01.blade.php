@@ -69,7 +69,7 @@
                                                             <h4 class="title">{{$data->title}}</h4>
                                                         </a>
                                                         <p>{{@$data->category->name}}</p>
-                                                        <a href="{{asset('assets/uploads/publications/'.$data->pdf_url)}}"
+                                                        <a href="{{asset('assets/uploads/publications/pdf/'.$data->pdf_url)}}"
                                                            class="btn" download>Download</a>
                                                     </div>
                                                 </div>
