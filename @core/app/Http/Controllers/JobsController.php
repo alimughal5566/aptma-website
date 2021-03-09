@@ -66,7 +66,6 @@ class JobsController extends Controller
             'meta_description' => 'nullable|string|max:191',
             'slug' => 'nullable|string|max:191',
         ]);
-
         Jobs::create([
             'title' => $request->title,
             'position' => $request->position,
