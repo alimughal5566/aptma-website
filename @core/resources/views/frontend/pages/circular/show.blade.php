@@ -18,7 +18,7 @@
 @endsection
 @section('content')
 
-    <div class="page-content service-details common-single circular-single padding-top-100 padding-bottom-100">
+    <div class="page-content service-details common-single circular-single padding-120">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

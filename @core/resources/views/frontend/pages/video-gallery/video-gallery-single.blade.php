@@ -18,7 +18,7 @@
 @endsection
 @section('content')
 
-    <div class="page-content service-details common-single publication-single padding-top-50 padding-bottom-100">
+    <div class="page-content service-details common-single publication-single padding-top-100 padding-bottom-100">
         <div class="container">
             {{--            <h2 class="font-weight-bold mb-3 text-center">Books<?php echo ($category)? "<small>($category)<small>":"" ?></h2>--}}
 

@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <section class="service-area service-page common-area circular-area circular-page padding-top-40 padding-bottom-60">
+    <section class="service-area service-page common-area circular-area circular-page padding-120">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center">
                 Advertisements <?php echo ($category) ? "<small>($category->name)</small>" : "" ?></h2>

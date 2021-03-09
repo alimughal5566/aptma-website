@@ -8,8 +8,9 @@
 @endsection
 @section('content')
     <section
-            class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
+            class="service-area service-page common-area statistics-area statistics-page padding-120">
         <div class="container">
+
             {{--            <div class="row">--}}
             {{--                <div class="col-12 col-md-9">--}}
             {{--                    <h2 class="font-weight-bold text-center">Daily Exchange Rates</h2>--}}
@@ -28,11 +29,12 @@
             {{--                    </div>--}}
             {{--                </div>--}}
             {{--            </div>--}}
+
             <div class="row">
                 @php $a = 1; @endphp
 
                 <div class="col-lg-3 col-md-6">
-                    <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                    <div class="common-item statistics-item single-what-we-cover-item-02 margin-bottom-30">
                         <div class="common-content content">
                             <p class="">
                                 <span>Month Wise District Wise</span>
@@ -43,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                    <div class="common-item statistics-item single-what-we-cover-item-02 margin-bottom-30">
                         <div class="common-content content">
                             <p class="">
                                 <span>Global Impact</span>
@@ -54,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                    <div class="common-item statistics-item single-what-we-cover-item-02 margin-bottom-30">
                         <div class="common-content content">
                             <p class="">
                                 <span>Product Export &amp; Domestic Re</span>
@@ -65,7 +67,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                    <div class="common-item statistics-item single-what-we-cover-item-02 margin-bottom-30">
                         <div class="common-content content">
                             <p class="">
                                 <span>Export Of Raw Cotton</span>

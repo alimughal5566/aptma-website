@@ -10,7 +10,7 @@
     <meta name="tags" content="{{get_static_option('service_page_'.$user_select_lang_slug.'_meta_tags')}}">
 @endsection
 @section('content')
-    <section class="service-area service-page common-area economic-area economic-page padding-top-40 padding-bottom-60">
+    <section class="service-area service-page common-area economic-area economic-page padding-120">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9">

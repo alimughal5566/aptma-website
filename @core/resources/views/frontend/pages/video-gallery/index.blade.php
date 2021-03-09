@@ -12,7 +12,7 @@
 @endsection
 @section('content')
 
-    <section class="service-area service-page common-area video-area publication-page padding-top-40 padding-bottom-60">
+    <section class="service-area service-page common-area video-area video-page padding-120">
         <div class="container">
             <div class="row">
                 <div class="col-12">

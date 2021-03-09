@@ -15,7 +15,7 @@
     <meta property="og:title" content="{{$job->title}}"/>
 @endsection
 @section('content')
-    <section class="blog-content-area padding-120">
+    <section class="blog-content-area job-content-area padding-120">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">

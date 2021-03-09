@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     <section
-            class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
+            class="service-area service-page common-area publication-area publication-page padding-top-100 padding-bottom-100">
         <div class="container">
             <h2 class="font-weight-bold mb-3 text-center"><?php echo ($category) ? "$category->name" : "" ?></h2>
 

@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     <section
-            class="service-area service-page common-area publication-area publication-page padding-top-40 padding-bottom-60">
+            class="service-area service-page common-area daily-exchange-area daily-exchange-page padding-120">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9">
@@ -33,7 +33,7 @@
                 @if(isset($dates[0]))
                     @foreach($dates  as $date)
                         <div class="col-lg-3 col-md-6">
-                            <div class="common-item publication-item single-what-we-cover-item-02 margin-bottom-30">
+                            <div class="common-item daily-exchange-item single-what-we-cover-item-02 margin-bottom-30">
                                 <div class="common-content content">
                                     <p class="">
                                         <span>{{date('M d Y', strtotime(@$date->date))}}</span>
