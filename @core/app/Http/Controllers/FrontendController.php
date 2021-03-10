@@ -141,12 +141,12 @@ class FrontendController extends Controller
 
         $footer_widgets = null;
 
-        $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
-        $all_stats_sub_categoties = StatisticsSubCategory::all();
+//        $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
+//        $all_stats_sub_categoties = StatisticsSubCategory::all();
 
         return view('frontend.frontend-home')->with([
-            'all_stats_categoties' => $all_stats_categoties,
-            'all_stats_sub_categoties' => $all_stats_sub_categoties,
+//            'all_stats_categoties' => $all_stats_categoties,
+//            'all_stats_sub_categoties' => $all_stats_sub_categoties,
             'excel_sheets' => $data,
             'all_header_slider' => $all_header_slider,
             'all_events' => $all_events,
