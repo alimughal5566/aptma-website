@@ -154,7 +154,6 @@
                                                        data-title="{{$data->title}}"
                                                        data-imageid="{{$data->thumbnail}}"
                                                        data-image="{{$testimonial_img['img_url']}}"
-
                                                        data-status="{{$data->status}}"
                                                        data-is_featured="{{$data->is_featured}}"
                                                        data-publish_date="{{$data->publish_date}}"

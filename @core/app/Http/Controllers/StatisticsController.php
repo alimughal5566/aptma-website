@@ -14,7 +14,7 @@ class StatisticsController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth:admin');
     }
 
     public function categoriesIndex()
@@ -27,7 +27,6 @@ class StatisticsController extends Controller
 
     public function categoriesStore(Request $request)
     {
-        $this->middleware('auth:admin');
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
@@ -45,7 +44,6 @@ class StatisticsController extends Controller
 
     public function categoriesUpdate(Request $request)
     {
-        $this->middleware('auth:admin');
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
@@ -63,7 +61,6 @@ class StatisticsController extends Controller
 
     public function subCategoriesIndex()
     {
-        $this->middleware('auth:admin');
         $all_languages = Language::all();
         $all_category = StatisticsSubCategory::all();
         $all_main_categories = StatisticsCategory::all();
@@ -72,7 +69,6 @@ class StatisticsController extends Controller
 
     public function subCategoriesStore(Request $request)
     {
-        $this->middleware('auth:admin');
         $this->validate($request, [
             'title' => 'required|string',
             'status' => 'required',
@@ -98,16 +94,16 @@ class StatisticsController extends Controller
 
     public function index()
     {
-        $this->middleware('auth:admin');
         $all_languages = Language::all();
         $all_categories = StatisticsCategory::all();
         $all_sub_categories = StatisticsSubCategory::all();
-        return view('backend.statistics.index')->with(['all_sub_categories' => $all_sub_categories, 'all_languages' => $all_languages, 'all_categories' => $all_categories]);
+        $all_excel_sheets = ExcelSheet::all();
+//        dd($all_excel_sheets);
+        return view('backend.statistics.index')->with(['excel_sheets'=>$all_excel_sheets,'all_sub_categories' => $all_sub_categories, 'all_languages' => $all_languages, 'all_categories' => $all_categories]);
     }
 
     public function import(Request $request)
     {
-        $this->middleware('auth:admin');
         $this->validate($request, [
             "file" => "required|mimes:csv,xlsx,xls",
             "category" => "required",
@@ -154,5 +150,14 @@ class StatisticsController extends Controller
         return view('frontend.pages.statistics.table-data', compact('category_data', 'all_stats_categoties', 'all_stats_sub_categoties'));
     }
 
+    public function deleteExcelSheet($id){
+        $excel = ExcelSheet::find($id);
+        if ($excel){
+            $excel->delete();
+            return redirect()->back()->with(['msg', __('Sheet Deleted Successfully'), 'type' => 'success']);
+        }else{
+            return redirect()->back()->with(['msg' => __('Excel Sheet not found'), 'type' => 'danger']);
+        }
+    }
 
 }
