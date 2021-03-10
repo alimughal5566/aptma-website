@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Advertisement;
 use App\ExcelSheet;
-use App\ExchangeRates;
-use App\ExchangeRatesCategories;
 use App\Imports\ExcelSheetImports;
 use App\Language;
 use App\StatisticsCategory;
 use App\StatisticsSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Maatwebsite\Excel\Excel;
-use function GuzzleHttp\Promise\all;
 
 class StatisticsController extends Controller
 {
@@ -81,9 +76,9 @@ class StatisticsController extends Controller
             'category' => 'integer',
         ]);
         $sub_cat_check = StatisticsSubCategory::find($request->id);
-        if ($sub_cat_check){
+        if ($sub_cat_check) {
             $sub_cat = $sub_cat_check;
-        }else{
+        } else {
             $sub_cat = new StatisticsSubCategory();
         }
 
@@ -114,38 +109,44 @@ class StatisticsController extends Controller
         if ($request->file) {
             $file = $request->file('file');
             \Excel::import(new ExcelSheetImports($request->category, $request->sub_category), $file);
-            return redirect()->back()->with(['msg' => __('Sheet Imported Successfully'),'type' => 'success']);
-        }else{
-            return redirect()->back()->with(['msg' => __('Something went wrong'),'type' => 'danger']);
+            return redirect()->back()->with(['msg' => __('Sheet Imported Successfully'), 'type' => 'success']);
+        } else {
+            return redirect()->back()->with(['msg' => __('Something went wrong'), 'type' => 'danger']);
         }
     }
 
-    public function getStatisticsCategoryData($slug){
+    public function getStatisticsCategoryData($slug)
+    {
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
-        $category_data = ExcelSheet::where('cat_slug',$slug)->with('getCategory')->get();
+        $category_data = ExcelSheet::where('cat_slug', $slug)->with('getCategory')->get();
 
-        return view('frontend.pages.statistics.index-category-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
+        return view('frontend.pages.statistics.index-category-data', compact('category_data', 'all_stats_categoties', 'all_stats_sub_categoties'));
     }
-    public function getStatisticsSubCategoryData($slug){
+
+    public function getStatisticsSubCategoryData($slug)
+    {
 
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
-        $category_data = ExcelSheet::where('sub_cat_slug',$slug)->with('getSubCategory')->get();
-        return view('frontend.pages.statistics.index-sub-category-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
+        $category_data = ExcelSheet::where('sub_cat_slug', $slug)->with('getSubCategory')->get();
+        return view('frontend.pages.statistics.index-sub-category-data', compact('category_data', 'all_stats_categoties', 'all_stats_sub_categoties'));
     }
 
-    public function getCatData($slug,$id){
+    public function getCatData($slug, $id)
+    {
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
         $category_data = ExcelSheet::find($id);
-        return view('frontend.pages.statistics.table-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
+        return view('frontend.pages.statistics.table-data', compact('category_data', 'all_stats_categoties', 'all_stats_sub_categoties'));
     }
-    public function getSubCatData($slug,$id){
+
+    public function getSubCatData($slug, $id)
+    {
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
         $category_data = ExcelSheet::find($id);
-        return view('frontend.pages.statistics.table-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
+        return view('frontend.pages.statistics.table-data', compact('category_data', 'all_stats_categoties', 'all_stats_sub_categoties'));
     }
 
 
