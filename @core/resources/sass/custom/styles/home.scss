@@ -842,6 +842,19 @@
 
 }
 
+.apply-procedure {
+
+  &.btn-boxed {
+    background-color: color.$primary2;
+
+    &:hover, &:focus, &:active {
+      background-color: color.$primary1;
+    }
+
+  }
+
+}
+
 .dynamic-page-content-wrap {
   text-align: justify;
 
@@ -946,6 +959,7 @@
       margin-bottom: 1rem;
 
     }
+
   }
 
 }

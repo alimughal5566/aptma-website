@@ -1950,6 +1950,16 @@ body {
   margin-left: 0;
 }
 
+.apply-procedure.btn-boxed {
+  background-color: #439882;
+}
+
+.apply-procedure.btn-boxed:hover,
+.apply-procedure.btn-boxed:focus,
+.apply-procedure.btn-boxed:active {
+  background-color: #002a00;
+}
+
 .dynamic-page-content-wrap {
   text-align: justify;
 }

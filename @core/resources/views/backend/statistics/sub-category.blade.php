@@ -86,7 +86,6 @@
                                             </thead>
                                             <tbody>
                                             @foreach($all_category as $key => $category)
-                                            {{--                                                {{dd($category)}}--}}
                                             <tr>
                                                 <td>
                                                     <div class="bulk-checkbox-wrapper">
@@ -121,16 +120,14 @@
                                                     {{--                                                            ">--}}
                                                     {{--                                                            <i class="ti-trash"></i>--}}
                                                     {{--                                                        </a>--}}
-                                                    <a href="#"
-                                                       data-toggle="modal"
+                                                    <a href="#" data-toggle="modal"
                                                        data-target="#image_category_item_edit_modal"
                                                        class="btn btn-lg btn-primary btn-sm mb-3 mr-1 category_edit_btn"
                                                        data-id="{{$category->id}}"
                                                        data-name="{{$category->title}}"
                                                        data-main_cat="{{$category->category->id}}"
                                                        data-lang="{{$category->lang}}"
-                                                       data-status="{{$category->status}}"
-                                                    >
+                                                       data-status="{{$category->status}}">
                                                         <i class="ti-pencil"></i>
                                                     </a>
                                                 </td>
@@ -165,11 +162,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">{{__('Title')}}</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="title" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="title">{{__('Categories')}}</label>
-                                <select class="form-control" name="category">
+                                <select class="form-control" name="main_category">
                                     @isset($all_main_categories)
                                         @foreach($all_main_categories as $category)
                                             <option value="{{$category->id}}">{{$category->title}}</option>
