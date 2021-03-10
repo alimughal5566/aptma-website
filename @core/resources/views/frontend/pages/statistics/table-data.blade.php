@@ -32,17 +32,15 @@
                     <div class="service-details-item common-single-item exchange-rate-single-item position-relative">
 
                         <div class="d-flex flex-column align-items-center justify-content-lg-between flex-lg-row mb-3">
-                            <h2 class="common-single-title exchange-rate-single-title mb-0">Statistics
-                            {{--                                <span>{{Carbon\Carbon::parse($date)->format('d M Y')}}</span></h2>--}}
-                            {{--                            <a class="btn" href="{{route('frontend.export.excel.exchange-rates',['date'=>$date])}}">Download</a>--}}
+                            <h2 class="common-single-title exchange-rate-single-title mb-0">Statistics</h2>
+
                         </div>
                         @php $a = 1; @endphp
                         {{--                        {{dd($category_data->sheet_data[3])}}--}}
                         @isset($category_data->sheet_data[0])
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
-                                    <span>{{$category_data->sheet_data[0][0]}}</span>
-                                    {{--                                    <span>{{Carbon\Carbon::parse($date)->format('M d, Y')}}</span>--}}
+                                    <span>{{$category_data->sheet_data[0][1]}}</span>
                                 </h3>
                             </div>
                             <div class="table-responsive">
@@ -59,7 +57,7 @@
                                     @foreach($category_data->sheet_data as $key=>$data)
 
                                         @if($key>2)
-{{--                                            {{dd($data)}}--}}
+                                            {{--                                            {{dd($data)}}--}}
                                             <tr>
                                                 <th scope="row">{{$key+1}}</th>
                                                 @foreach($data as $d)
