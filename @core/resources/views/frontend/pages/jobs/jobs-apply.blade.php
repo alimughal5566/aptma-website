@@ -25,7 +25,7 @@
                             @csrf
                             <input type="hidden" name="job_id" value="{{$job->id}}">
                             <div class="form-group">
-                                <input type="text" name="name" placeholder="{{__('Your Name')}}" class="form-control">
+                                <input type="text" name="name" placeholder="{{__('Full Name')}}" class="form-control">
                             </div>
                             <div class="form-group">
                                 <input type="email" name="email" placeholder="{{__('Your Email')}}"
