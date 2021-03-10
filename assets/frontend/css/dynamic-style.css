@@ -1960,6 +1960,12 @@ body {
   background-color: #002a00;
 }
 
+.custom-table table tr th:first-child,
+.custom-table table tr td:first-child {
+  background-color: #439882;
+  color: #fff;
+}
+
 .dynamic-page-content-wrap {
   text-align: justify;
 }

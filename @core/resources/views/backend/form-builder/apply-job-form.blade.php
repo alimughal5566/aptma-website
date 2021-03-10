@@ -136,8 +136,7 @@
                         markup +=  '<div class="form-group">\n' +
                             '<label>File Type</label>\n' +
                             '<select name="mimes_type['+formFiledLength+']" class="form-control mime-type">\n' +
-                            '<option value="mimes:jpg,jpeg,png" >jpg,jpeg,png</option>\n' +
-                            '<option value="mimes:txt,pdf">txt,pdf</option>\n' +
+                            '<option value="mimes:pdf">pdf</option>\n' +
                             '<option value="mimes:doc,docx">doc,docx</option>\n' +
                             '</select>\n' +
                             '</div>';
@@ -151,3 +150,6 @@
         }(jQuery));
     </script>
 @endsection
+{{--'<option value="mimes:jpg,jpeg,png" >jpg,jpeg,png</option>\n' +--}}
+{{--'<option value="mimes:txt,pdf">txt,pdf</option>\n' +--}}
+{{--'<option value="mimes:doc,docx">doc,docx</option>\n' +--}}
