@@ -47,7 +47,7 @@
                                 <table class="table table-striped mb-0">
                                     <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+{{--                                        <th scope="col">#</th>--}}
                                         @foreach($category_data->sheet_data[2] as $key=> $data)
                                             <th scope="col">{{$data}}</th>
                                         @endforeach
@@ -59,7 +59,7 @@
                                         @if($key>2)
                                             {{--                                            {{dd($data)}}--}}
                                             <tr>
-                                                <th scope="row">{{$key+1}}</th>
+{{--                                                <th scope="row">{{$key+1}}</th>--}}
                                                 @foreach($data as $d)
                                                     <td>{{$d}}</td>
                                                 @endforeach

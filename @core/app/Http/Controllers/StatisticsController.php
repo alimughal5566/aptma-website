@@ -14,11 +14,12 @@ class StatisticsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin');
+
     }
 
     public function categoriesIndex()
     {
+        $this->middleware('auth:admin');
         $all_languages = Language::all();
         $all_category = StatisticsCategory::all();
         return view('backend.statistics.category', compact('all_languages', 'all_category'));
@@ -26,6 +27,7 @@ class StatisticsController extends Controller
 
     public function categoriesStore(Request $request)
     {
+        $this->middleware('auth:admin');
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
@@ -43,6 +45,7 @@ class StatisticsController extends Controller
 
     public function categoriesUpdate(Request $request)
     {
+        $this->middleware('auth:admin');
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
@@ -60,6 +63,7 @@ class StatisticsController extends Controller
 
     public function subCategoriesIndex()
     {
+        $this->middleware('auth:admin');
         $all_languages = Language::all();
         $all_category = StatisticsSubCategory::all();
         $all_main_categories = StatisticsCategory::all();
@@ -68,7 +72,7 @@ class StatisticsController extends Controller
 
     public function subCategoriesStore(Request $request)
     {
-
+        $this->middleware('auth:admin');
         $this->validate($request, [
             'title' => 'required|string',
             'status' => 'required',
@@ -94,6 +98,7 @@ class StatisticsController extends Controller
 
     public function index()
     {
+        $this->middleware('auth:admin');
         $all_languages = Language::all();
         $all_categories = StatisticsCategory::all();
         $all_sub_categories = StatisticsSubCategory::all();
@@ -102,6 +107,7 @@ class StatisticsController extends Controller
 
     public function import(Request $request)
     {
+        $this->middleware('auth:admin');
         $this->validate($request, [
             "file" => "required|mimes:csv,xlsx,xls",
             "category" => "required",
@@ -117,6 +123,7 @@ class StatisticsController extends Controller
 
     public function getStatisticsCategoryData($slug)
     {
+        dd('asdasd');
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
         $category_data = ExcelSheet::where('cat_slug', $slug)->with('getCategory')->get();
@@ -126,7 +133,6 @@ class StatisticsController extends Controller
 
     public function getStatisticsSubCategoryData($slug)
     {
-
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
         $category_data = ExcelSheet::where('sub_cat_slug', $slug)->with('getSubCategory')->get();

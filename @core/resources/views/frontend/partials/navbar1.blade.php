@@ -124,6 +124,7 @@
                         <li class=" menu-item-has-children ">
                             <a href="javascript:void(0);">About</a>
                             <ul class="sub-menu">
+
                                 @if($dynamic_pages->count()>0)
                                     @foreach($dynamic_pages as $page)
                                         <li>
@@ -131,50 +132,6 @@
                                         </li>
                                     @endforeach
                                 @endif
-
-                                {{--                                <li>--}}
-                                {{--                                    <a href="javascript:void(0);">Patron in Chief message</a>--}}
-                                {{--                                </li>--}}
-                                {{--                                <li>--}}
-                                {{--                                    <a href="javascript:void(0);">Chairman Message</a>--}}
-                                {{--                                </li>--}}
-                                {{--                                <li>--}}
-                                {{--                                    <a href="javascript:void(0);">Executive Director</a>--}}
-                                {{--                                </li>--}}
-                                {{--                                <li class="menu-item-has-children ">--}}
-                                {{--                                    <a href="javascript:void(0);">Members of Executive Committees</a>--}}
-                                {{--                                    <ul class="sub-menu">--}}
-                                {{--                                        <li>--}}
-                                {{--                                            <a href="javascript:void(0);">Executive Commitee</a>--}}
-                                {{--                                        </li>--}}
-                                {{--                                        <li>--}}
-                                {{--                                            <a href="javascript:void(0);">Admin and Finance</a>--}}
-                                {{--                                        </li>--}}
-                                {{--                                        <li class="menu-item-has-children ">--}}
-                                {{--                                            <a href="javascript:void(0);">Standing Committee</a>--}}
-                                {{--                                            <ul class="sub-menu">--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="javascript:void(0);">Cotton & Raw Material</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="javascript:void(0);">FBR</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="javascript:void(0);">Re-structure</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="javascript:void(0);">Energy</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="javascript:void(0);">Polyester, Fiber &amp; Synthetic fiber</a>--}}
-                                {{--                                                <li>--}}
-                                {{--                                                <li>--}}
-                                {{--                                                    <a href="javascript:void(0);">Others</a>--}}
-                                {{--                                                </li>--}}
-                                {{--                                            </ul>--}}
-                                {{--                                        </li>--}}
-                                {{--                                    </ul>--}}
-                                {{--                                </li>--}}
 
                                 @php $teamCategory=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
 
@@ -247,21 +204,6 @@
                                 {{--                                <li>--}}
                                 {{--                                    <a href="javascript:void(0);">Policy Document</a>--}}
                                 {{--                                </li>--}}
-
-                                {{--                                                                @php $bookCategories=\App\BookCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp--}}
-
-                                {{--                                                                <li class=" {{$bookCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
-                                {{--                                                                    <a href="{{route('frontend.book.index')}}">Books</a>--}}
-                                {{--                                                                    @if($bookCategories->count()>0)--}}
-                                {{--                                                                        <ul class="sub-menu">--}}
-                                {{--                                                                            @foreach($bookCategories as $category)--}}
-                                {{--                                                                                <li>--}}
-                                {{--                                                                                    <a href="{{route('frontend.book.index',[$category->slug])}}">{{$category->name}}</a>--}}
-                                {{--                                                                                </li>--}}
-                                {{--                                                                            @endforeach--}}
-                                {{--                                                                        </ul>--}}
-                                {{--                                                                    @endif--}}
-                                {{--                                                                </li>--}}
 
                             </ul>
                         </li>

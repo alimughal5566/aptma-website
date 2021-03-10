@@ -32,10 +32,10 @@
                                        class="form-control">
                             </div>
                             {!! render_form_field_for_frontend(get_static_option('apply_job_page_form_fields')) !!}
-                            @if(!empty($job->application_fee_status) && $job->application_fee > 0)
-                                <input type="hidden" name="application_fee" value="{{$job->application_fee}}">
-                                {!! render_payment_gateway_for_form()!!}
-                            @endif
+{{--                            @if(!empty($job->application_fee_status) && $job->application_fee > 0)--}}
+                            {{--                                <input type="hidden" name="application_fee" value="{{$job->application_fee}}">--}}
+                            {{--                                {!! render_payment_gateway_for_form()!!}--}}
+                            {{--                            @endif--}}
                             @if(!empty(get_static_option('manual_payment_gateway')))
                                 <div class="form-group manual_payment_transaction_field">
                                     <div class="label">{{__('Transaction ID')}}</div>
