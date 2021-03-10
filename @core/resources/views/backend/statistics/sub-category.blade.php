@@ -67,7 +67,7 @@
                         </ul>
                         <div class="tab-content margin-top-40" id="myTabContent">
                             @php $b=0; @endphp
-                            @foreach($all_category as $key => $category)
+{{--                            @foreach($all_category as $key => $category)--}}
                                 <div class="tab-pane fade @if($b == 0) show active @endif" id="slider_tab_{{$key}}"
                                      role="tabpanel">
                                     <div class="table-wrap table-responsive">
@@ -85,7 +85,7 @@
                                             <th>{{__('Action')}}</th>
                                             </thead>
                                             <tbody>
-
+                                            @foreach($all_category as $key => $category)
                                             {{--                                                {{dd($category)}}--}}
                                             <tr>
                                                 <td>
@@ -135,13 +135,14 @@
                                                     </a>
                                                 </td>
                                             </tr>
+                                            @endforeach
 
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 @php $b++; @endphp
-                            @endforeach
+{{--                            @endforeach--}}
                         </div>
                     </div>
                 </div>
@@ -196,7 +197,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{__('Edit Category')}}</h5>
+                    <h5 class="modal-title">{{__('Edit Sub Category')}}</h5>
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
                 <form action="{{route('admin.statistics.sub_categories.store')}}" method="post"
