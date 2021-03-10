@@ -13,6 +13,7 @@ use App\StatisticsSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Excel;
+use function GuzzleHttp\Promise\all;
 
 class StatisticsController extends Controller
 {
@@ -48,7 +49,7 @@ class StatisticsController extends Controller
     public function categoriesUpdate(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|string',
+            'name' => 'required|string',
             'status' => 'required',
             'lang' => 'required',
         ]);
@@ -72,16 +73,22 @@ class StatisticsController extends Controller
 
     public function subCategoriesStore(Request $request)
     {
-//dd($request->all());
+
         $this->validate($request, [
-            'name' => 'required|string',
+            'title' => 'required|string',
             'status' => 'required',
             'lang' => 'required',
             'category' => 'integer',
         ]);
-        $sub_cat = new StatisticsSubCategory();
-        $sub_cat->title = $request->name;
-        $sub_cat->cat_id = $request->category;
+        $sub_cat_check = StatisticsSubCategory::find($request->if);
+        if ($sub_cat_check){
+            $sub_cat = $sub_cat_check;
+        }else{
+            $sub_cat = new StatisticsSubCategory();
+        }
+  
+        $sub_cat->title = $request->title;
+        $sub_cat->cat_id = $request->main_category;
         $sub_cat->status = $request->status;
         $sub_cat->lang = $request->lang;
         $sub_cat->slug = Str::slug($request->title);

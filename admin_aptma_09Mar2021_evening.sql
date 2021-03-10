@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 02, 2021 at 01:35 PM
+-- Generation Time: Mar 09, 2021 at 02:19 PM
 -- Server version: 5.7.32-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `username`, `email`, `email_verified`, `role`, `image`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'APTMA', 'super_admin', 'dvrobin4@gmail.com', 1, '1', '135', '$2y$12$QRJRcYcZvFMAffKvNWWq7uCv4krCZdSGKmY.ZePHVeaMQpYsSRWf.', 'HmO8t0FZHR8K5QLfHiEsGNetZ7iYzSsrBcIqzorkvd58XfQEhcm3I7wHeden', '2020-07-16 06:47:46', '2021-02-03 02:24:40'),
+(1, 'APTMA', 'super_admin', 'dvrobin4@gmail.com', 1, '1', '135', '$2y$12$QRJRcYcZvFMAffKvNWWq7uCv4krCZdSGKmY.ZePHVeaMQpYsSRWf.', 'nqaskwC5HgnU5eaRd3I2AQOLtOMyU7rHqFRlvYNhLvJJOIs3s6vvTD7bSImK', '2020-07-16 06:47:46', '2021-02-03 02:24:40'),
 (2, 'Patricia Johnson', 'editor', 'editor@gmail.com', 1, '2', '49', '$2y$10$MudYFlfxgDC3HhAF4.5t1uxZVnCDqXyDP3tMFYoDp9uEwVpnUc7ma', 'SDtWXmVYWxvtqeTgasgbNicyx9OnUCRipJeOQKnVAcbbc01z3Oid9MbQwTau', '2020-07-27 00:47:09', '2020-07-27 00:47:09'),
 (3, 'Johnny C. Shavers', 'admin', 'admin@gmail.com', 0, '3', '47', '$2y$10$rUIo7ffAVtqg25WiTOjm2e6tGbYIsjxAriQmgRvMjU/ocQPAlIomO', 'E1cMVcW9veGHzvCcRWZlWliKYHoUQBAzzH6tOsgWOnk7jQv5wFPKZE8e1Sbt', '2020-07-27 00:49:41', '2020-07-27 00:49:41');
 
@@ -411,7 +411,7 @@ CREATE TABLE `contact_info_items` (
 INSERT INTO `contact_info_items` (`id`, `title`, `lang`, `icon`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Email Address', 'en', 'far fa-envelope', 'info.po@aptma.org.pk\r\n\r\nit.po@aptma.org.pk', '2020-07-20 06:45:32', '2021-03-02 11:42:58'),
 (2, 'Phone', 'en', 'fas fa-phone', 'Islamabad: \r\n+92 51 2827145 \r\n\r\nKarachi: \r\n+92 21 111 700 000\r\n\r\nLahore: \r\n+92 42 35754345', '2020-07-20 06:46:20', '2021-02-23 10:53:52'),
-(3, 'Open Hours', 'en', 'far fa-clock', 'Monday - Saturday\r\n9:30AM - 5:30PM', '2020-07-20 06:49:53', '2021-02-23 10:48:47'),
+(3, 'Open Hours', 'en', 'far fa-clock', 'Monday - Friday\r\n9:30 AM - 5:30 PM\r\n\r\nSaturday\r\n9:30 AM - 1:30 PM', '2020-07-20 06:49:53', '2021-03-05 10:22:35'),
 (4, 'Location', 'en', 'fas fa-map-marker-alt', 'Islamabad: \r\nOffice no. 504(b) APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Adjacent to Marriot Hotel Islamabad.\r\n\r\n\r\nKarachi: \r\nAPTMA House, 44-A, Street #1, Molvi Tamizuddim Khan road, Lalazar, Karachi.\r\n\r\n\r\nLahore: \r\nPunjab Zone, APTMA House, 97-A, Aziz Avenue, Canal Bank, Lahore.', '2020-07-20 06:51:00', '2021-02-23 10:54:47'),
 (5, 'E', 'tur', 'fas fa-envelope', 'example@gmail.com', '2020-07-27 08:26:49', '2020-07-27 08:26:49'),
 (6, 'Telefon', 'tur', 'fas fa-phone', '+123 444 5555 \r\n+32413432432', '2020-07-27 08:27:37', '2020-07-27 08:27:37'),
@@ -1241,6 +1241,21 @@ INSERT INTO `excel_published_date` (`id`, `date`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `excel_sheets`
+--
+
+CREATE TABLE `excel_sheets` (
+  `id` int(11) NOT NULL,
+  `category` int(11) NOT NULL,
+  `sub_category` int(11) DEFAULT NULL,
+  `sheet_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `exchange_categories`
 --
 
@@ -1332,6 +1347,78 @@ INSERT INTO `export_bills` (`id`, `currency`, `spot`, `sight_od`, `first_month`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `export_raw_of_cotton`
+--
+
+CREATE TABLE `export_raw_of_cotton` (
+  `id` int(11) NOT NULL,
+  `period` varchar(255) DEFAULT NULL,
+  `quantity_000kg` varchar(255) DEFAULT NULL,
+  `value_000usd` varchar(255) DEFAULT NULL,
+  `value_000rs` varchar(255) DEFAULT NULL,
+  `value_usd_per_kg` varchar(255) DEFAULT NULL,
+  `vaue_rs_per_kg` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `export_raw_of_cotton`
+--
+
+INSERT INTO `export_raw_of_cotton` (`id`, `period`, `quantity_000kg`, `value_000usd`, `value_000rs`, `value_usd_per_kg`, `vaue_rs_per_kg`, `created_at`, `updated_at`) VALUES
+(1, '1971-72', '260412', '200493', '954747', '=+C6/B6', '=+D6/B6', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(2, '1972-73', '216074', '106089', '1166975', '=+C7/B7', '=+D7/B7', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(3, '1973-74', '36122', '34192', '376111', '=+C8/B8', '=+D8/B8', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(4, '1974-75', '201550', '157934', '1553900', '=+C9/B9', '=+D9/B9', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(5, '1975-76', '109132', '96602', '950462', '=+C10/B10', '=+D10/B10', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(6, '1976-77', '14847', '29304', '288317', '=+C11/B11', '=+D11/B11', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(7, '1977-78', '100460', '112351', '1105413', '=+C12/B12', '=+D12/B12', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(8, '1978-79', '54830', '66593', '655200', '=+C13/B13', '=+D13/B13', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(9, '1979-80', '250770', '337538', '3321000', '=+C14/B14', '=+D14/B14', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(10, '1980-81', '325316', '525599', '5203400', '=+C15/B15', '=+D15/B15', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(11, '1981-82', '231413', '278501', '2938200', '=+C16/B16', '=+D16/B16', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(12, '1982-83', '254920', '306339', '3896600', '=+C17/B17', '=+D17/B17', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(13, '1983-84', '98222', '132355', '1771800', '=+C18/B18', '=+D18/B18', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(14, '1984-85', '262989', '279229', '4368000', '=+C19/B19', '=+D19/B19', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(15, '1985-86', '638510', '513271', '8290500', '=+C20/B20', '=+D20/B20', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(16, '1986-87', '640964', '446493', '7675800', '=+C21/B21', '=+D21/B21', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(17, '1987-88', '501977', '609967', '10758600', '=+C22/B22', '=+D22/B22', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(18, '1988-89', '840268', '929563', '18032500', '=+C23/B23', '=+D23/B23', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(19, '1989-90', '294519', '442995', '9550000', '=+C24/B24', '=+D24/B24', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(20, '1990-91', '281731', '411812', '9553400', '=+C25/B25', '=+D25/B25', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(21, '1991-92', '455217', '518302', '12943900', '=+C26/B26', '=+D26/B26', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(22, '1992-93', '262918', '270813', '7000700', '=+C27/B27', '=+D27/B27', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(23, '1993-94', '74899', '79461', '2383200', '=+C28/B28', '=+D28/B28', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(24, '1994-95', '31009', '62082', '1924331', '=+C29/B29', '=+D29/B29', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(25, '1995-96', '310930', '506765', '17421321', '=+C30/B30', '=+D30/B30', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(26, '1996-97', '20958', '30749', '1239384', '=+C31/B31', '=+D31/B31', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(27, '1997-98', '88650', '126139', '5482631', '=+C32/B32', '=+D32/B32', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(28, '1998-99', '1748', '2327', '116354', '=+C33/B33', '=+D33/B33', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(29, '1999-00', '82959', '72560', '3760760', '=+C34/B34', '=+D34/B34', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(30, '2000-01', '135094', '138138', '8072481', '=+C35/B35', '=+D35/B35', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(31, '2001-02', '34926', '24581', '1493295', '=+C36/B36', '=+D36/B36', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(32, ' 2002-03', '55100', '49016', '2875000', '=+C37/B37', '=+D37/B37', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(33, ' 2003-04', '37307', '47671', '=C38*57.57', '=+C38/B38', '=+D38/B38', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(34, ' 2004-05', '117084', '109957', '6545740', '=+C39/B39', '=+D39/B39', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(35, '2005-06', '62658', '68151', '4080000', '=+C40/B40', '=+D40/B40', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(36, '2006-07', '45065', '50226', '=C41*60.63', '=+C41/B41', '=+D41/B41', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(37, '2007-08', '57124', '70122', '=C42*62.55', '=+C42/B42', '=+D42/B42', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(38, '2008-09', '79540', '87966', '=C43*78.28', '=+C43/B43', '=+D43/B43', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(39, '2009-10', '160136', '195598', '16366000', '=+C44/B44', '=+D44/B44', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(40, '2010-11', '142239', '364802', '31168000', '=+C45/B45', '=+D45/B45', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(41, '2011-12', '256541', '462247', '41393000', '=+C46/B46', '=+D46/B46', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(42, '2012-13', '92498', '153872', '14982000', '=+C47/B47', '=+D47/B47', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(43, '2013-14', '114671', '205136', '21353000', '=+C48/B48', '=+D48/B48', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(44, '2014-15', '94074', '147060', '14933000', '=+C49/B49', '=+D49/B49', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(45, '2015-16', '49315', '76631', '7948000', '=+C50/B50', '=+D50/B50', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(46, '2016-17', '24976', '42852', '4484000', '=+C51/B51', '=+D51/B51', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(47, '2017-18', '35262', '58227', '6184000', '=+C52/B52', '=+D52/B52', '2021-03-05 10:24:14', '2021-03-05 10:24:14'),
+(48, '2018-19', '12665', '20396', '2708000', '=+C53/B53', '=+D53/B53', '2021-03-05 10:24:14', '2021-03-05 10:24:14');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -1415,6 +1502,172 @@ INSERT INTO `feedback` (`id`, `name`, `email`, `ratings`, `description`, `custom
 (11, 'kjkjkjk', 'admin@example.com', '4', 'sdfgdfgdfg dfg dfg dfg', 'a:5:{s:4:\"name\";s:7:\"kjkjkjk\";s:5:\"email\";s:17:\"admin@example.com\";s:7:\"ratings\";s:1:\"4\";s:11:\"description\";s:22:\"sdfgdfgdfg dfg dfg dfg\";s:20:\"what-service-you-get\";s:8:\"products\";}', 'a:0:{}', '2020-08-29 12:21:16', '2020-08-29 12:21:16'),
 (12, 'admin', 'Info@S.com', '5', 'ASDAD', 'a:5:{s:4:\"name\";s:5:\"admin\";s:5:\"email\";s:10:\"Info@S.com\";s:7:\"ratings\";s:1:\"5\";s:11:\"description\";s:5:\"ASDAD\";s:20:\"what-service-you-get\";s:8:\"products\";}', 'a:0:{}', '2020-09-14 02:58:11', '2020-09-14 02:58:11'),
 (13, 'Mazen Leno', 'mazenashraf2539@gmail.com', '5', 'Yasta fashe5', 'a:5:{s:4:\"name\";s:10:\"Mazen Leno\";s:5:\"email\";s:25:\"mazenashraf2539@gmail.com\";s:7:\"ratings\";s:1:\"5\";s:11:\"description\";s:12:\"Yasta fashe5\";s:20:\"what-service-you-get\";s:8:\"products\";}', 'a:0:{}', '2020-09-20 08:43:50', '2020-09-20 08:43:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `global_import`
+--
+
+CREATE TABLE `global_import` (
+  `id` int(11) NOT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `date_range` varchar(255) DEFAULT NULL,
+  `value` int(11) DEFAULT NULL,
+  `zone` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `global_import`
+--
+
+INSERT INTO `global_import` (`id`, `country`, `date_range`, `value`, `zone`, `created_at`, `updated_at`) VALUES
+(1, 'Canada', '1994-95', 51, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(2, 'Canada', '1995-96', 55, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(3, 'Canada', '1996-97', 57, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(4, 'Canada', '1997-98', 66, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(5, 'Canada', '1998-99', 72, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(6, 'Canada', '1999-00', 65, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(7, 'Canada', '2000-01', 77, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(8, 'Canada', '2001-02', 60, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(9, 'Canada', '2002-03', 69, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(10, 'Canada', '2003-04', 70, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(11, 'Canada', '2004-05', 60, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(12, 'Canada', '2005-06', 42, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(13, 'Cuba', '1994-95', 6, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(14, 'Cuba', '1995-96', 8, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(15, 'Cuba', '1996-97', 12, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(16, 'Cuba', '1997-98', 15, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(17, 'Cuba', '1998-99', 18, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(18, 'Cuba', '1999-00', 20, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(19, 'Cuba', '2000-01', 8, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(20, 'Cuba', '2001-02', 9, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(21, 'Cuba', '2002-03', 9, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(22, 'Cuba', '2003-04', 9, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(23, 'Cuba', '2004-05', 9, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(24, 'Cuba', '2005-06', 9, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(25, 'Dom rep', '1994-95', 1, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(26, 'Dom rep', '1995-96', 1, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(27, 'Dom rep', '1996-97', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(28, 'Dom rep', '1997-98', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(29, 'Dom rep', '1998-99', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(30, 'Dom rep', '1999-00', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(31, 'Dom rep', '2000-01', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(32, 'Dom rep', '2001-02', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(33, 'Dom rep', '2002-03', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(34, 'Dom rep', '2003-04', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(35, 'Dom rep', '2004-05', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(36, 'Dom rep', '2005-06', 2, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(37, 'Mexico', '1994-95', 128, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(38, 'Mexico', '1995-96', 151, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(39, 'Mexico', '1996-97', 207, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(40, 'Mexico', '1997-98', 335, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(41, 'Mexico', '1998-99', 308, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(42, 'Mexico', '1999-00', 436, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(43, 'Mexico', '2000-01', 410, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(44, 'Mexico', '2001-02', 450, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(45, 'Mexico', '2002-03', 507, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(46, 'Mexico', '2003-04', 68, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(47, 'Mexico', '2004-05', 401, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(48, 'Mexico', '2005-06', 325, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(49, 'USA', '1994-95', 4, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(50, 'USA', '1995-96', 89, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(51, 'USA', '1996-97', 88, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(52, 'USA', '1997-98', 3, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(53, 'USA', '1998-99', 97, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(54, 'USA', '1999-00', 22, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(55, 'USA', '2000-01', 3, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(56, 'USA', '2001-02', 5, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(57, 'USA', '2002-03', 0, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(58, 'USA', '2003-04', 0, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(59, 'USA', '2004-05', 6, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(60, 'USA', '2005-06', 7, 'N.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(61, 'El Salvador', '1994-95', 16, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(62, 'El Salvador', '1995-96', 25, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(63, 'El Salvador', '1996-97', 27, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(64, 'El Salvador', '1997-98', 28, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(65, 'El Salvador', '1998-99', 27, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(66, 'El Salvador', '1999-00', 33, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(67, 'El Salvador', '2000-01', 28, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(68, 'El Salvador', '2001-02', 28, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(69, 'El Salvador', '2002-03', 23, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(70, 'El Salvador', '2003-04', 22, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(71, 'El Salvador', '2004-05', 21, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(72, 'El Salvador', '2005-06', 20, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(73, 'Guatemala', '1994-95', 18, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(74, 'Guatemala', '1995-96', 22, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(75, 'Guatemala', '1996-97', 27, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(76, 'Guatemala', '1997-98', 31, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(77, 'Guatemala', '1998-99', 32, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(78, 'Guatemala', '1999-00', 33, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(79, 'Guatemala', '2000-01', 32, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(80, 'Guatemala', '2001-02', 32, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(81, 'Guatemala', '2002-03', 22, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(82, 'Guatemala', '2003-04', 22, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(83, 'Guatemala', '2004-05', 22, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(84, 'Guatemala', '2005-06', 24, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(85, 'Honduras ', '1994-95', 2, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(86, 'Honduras ', '1995-96', 1, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(87, 'Honduras ', '1996-97', 2, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(88, 'Honduras ', '1997-98', 3, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(89, 'Honduras ', '1998-99', 44, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(90, 'Honduras ', '1999-00', 4, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(91, 'Honduras ', '2000-01', 3, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(92, 'Honduras ', '2001-02', 3, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(93, 'Honduras ', '2002-03', 3, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(94, 'Honduras ', '2003-04', 4, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(95, 'Honduras ', '2004-05', 3, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(96, 'Honduras ', '2005-06', 0, 'C.AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(97, 'Argentina', '1994-95', 9, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(98, 'Argentina', '1995-96', 6, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(99, 'Argentina', '1996-97', 1, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(100, 'Argentina', '1997-98', 5, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(101, 'Argentina', '1998-99', 10, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(102, 'Argentina', '1999-00', 10, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(103, 'Argentina', '2000-01', 2, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(104, 'Argentina', '2001-02', 5, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(105, 'Argentina', '2002-03', 53, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(106, 'Argentina', '2003-04', 47, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(107, 'Argentina', '2004-05', 23, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(108, 'Argentina', '2005-06', 34, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(109, 'Bolivia', '1994-95', 1, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(110, 'Bolivia', '1995-96', 0, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(111, 'Bolivia', '1996-97', 0, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(112, 'Bolivia', '1997-98', 0, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(113, 'Bolivia', '1998-99', 0, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(114, 'Bolivia', '1999-00', 0, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(115, 'Bolivia', '2000-01', 2, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(116, 'Bolivia', '2001-02', 7, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(117, 'Bolivia', '2002-03', 7, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(118, 'Bolivia', '2003-04', 8, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(119, 'Bolivia', '2004-05', 8, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(120, 'Bolivia', '2005-06', 9, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(121, 'Brazil', '1994-95', 351, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(122, 'Brazil', '1995-96', 384, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(123, 'Brazil', '1996-97', 519, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(124, 'Brazil', '1997-98', 410, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(125, 'Brazil', '1998-99', 296, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(126, 'Brazil', '1999-00', 259, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(127, 'Brazil', '2000-01', 131, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(128, 'Brazil', '2001-02', 55, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(129, 'Brazil', '2002-03', 123, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(130, 'Brazil', '2003-04', 113, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(131, 'Brazil', '2004-05', 46, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(132, 'Brazil', '2005-06', 55, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(133, 'Colombia', '1994-95', 25, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(134, 'Colombia', '1995-96', 25, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(135, 'Colombia', '1996-97', 25, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(136, 'Colombia', '1997-98', 24, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(137, 'Colombia', '1998-99', 15, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(138, 'Colombia', '1999-00', 43, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(139, 'Colombia', '2000-01', 16, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(140, 'Colombia', '2001-02', 15, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(141, 'Colombia', '2002-03', 17, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(142, 'Colombia', '2003-04', 14, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(143, 'Colombia', '2004-05', 31, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32'),
+(144, 'Colombia', '2005-06', 55, 'S. AMERICA', '2021-03-05 10:24:32', '2021-03-05 10:24:32');
 
 -- --------------------------------------------------------
 
@@ -1548,7 +1801,7 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `title`, `position`, `company_name`, `category_id`, `vacancy`, `job_responsibility`, `employment_status`, `education_requirement`, `job_context`, `experience_requirement`, `additional_requirement`, `job_location`, `salary`, `other_benefits`, `email`, `status`, `lang`, `deadline`, `meta_tags`, `slug`, `meta_description`, `created_at`, `updated_at`, `application_fee`, `application_fee_status`) VALUES
-(4, 'Marketing/Media Manager and Staff Officer to Executive Director', 'Marketing/Media Manager and Staff Officer to Executive Director', 'APTMA', '1', '1', '<p>•	Proficiency in English language is a must. Able to speak fluently, attend seminars and meetings, articulately voice APTMA’s opinion/concerns/feedback at various government and non-government organizations. </p><p>\r\n•	Good communication skills as working with internal teams and external providers are central to the success of the role.\r\n</p><p>•	A person who is comfortable with multiple projects and deadlines and who is able to prioritize.\r\n</p><p>•	Record minutes and draft them into summarized notes.\r\n</p><p>•	A person who is happy to challenge the norm and generate ideas to enhance APTMA’s media footprint and market them excessively. </p><p>\r\n•	Willing to learn and grow within our awesome team.\r\n</p>', 'full_time', '<p>•	Masters degree in Mass Communication from highly ranked International University. </p><p>\r\n•	High proficiency in English language (speaking, writing, reading), close to a native speaker. </p><p>\r\n•	Meticulous attention to details, and able to work independently with minimal supervision. </p><p>\r\n•	Able to represent APTMA along with Executive Director at seminars, high-profile meetings etc.\r\n</p>', '<p>We are looking for smart, energetic, and entrepreneurial individuals who are passionate about media/marketing and making a difference.<br></p><p>\r\nAs a Media/Marketing Manager at APTMA, you’ll be working within our Research team to plan, create and optimize our media/marketing campaigns across our existing platforms. As we enter an exciting new stage in our journey you’ll also have the opportunity to test, evaluate and introduce new platforms. \r\n</p>', '<p>A Mass Communication graduate (preferably female) of a highly reputable institution with 2+ years experience in creating, managing, and optimizing campaigns across mainstream platforms i.e., Twitter, Facebook, Website, and Instagram (including paid campaigns). The selected candidate will assist the Executive Director in day-to-day tasks ensuring complete coverage of his meetings/webinars, media appearances, article, and publications, etc.<br></p><p>\r\nReporting to the Executive Director, the Manager will provide technical and media management support (SMS, Website, Articles, Social Media etc.) to APTMA. The Manager will act as the first point of contact for all media-related issues, will actively improve and maintain APTMA’s workflows, offer creative solutions to archive research briefs as well as comprehensive breakdowns for archiving, logging, reporting, and managing digital assets.\r\n</p>', '<p>We continue to build an inclusive culture where everyone can be their whole selves and produce their best work. Our focus on inclusion is intended to build greater diversity in order to reflect the society we serve and be an employer of choice.<br></p><p><br>\r\nPlease apply with CV and Cover Letter at <a href=\"mailto:careers@aptma.org.pk\" target=\"_blank\">careers@aptma.org.pk</a></p>', 'APTMA Head Office, Islamabad, Pakistan', 'Negotiable', '<p>APTMA offers highly competitive salary and benefits.<br></p>', NULL, 'publish', 'en', '2021-03-14', NULL, 'Marketing/Media Manager and Staff Officer to Executive Director', NULL, '2020-07-20 09:22:14', '2021-03-01 22:48:19', NULL, NULL);
+(4, 'Marketing/Media Manager and Staff Officer to Executive Director', 'Marketing/Media Manager and Staff Officer to Executive Director', 'APTMA', '1', '1', '<p>•	Proficiency in English language is a must. Able to speak fluently, attend seminars and meetings, articulately voice APTMA’s opinion/concerns/feedback at various government and non-government organizations. </p><p>\r\n•	Good communication skills as working with internal teams and external providers are central to the success of the role.\r\n</p><p>•	A person who is comfortable with multiple projects and deadlines and who is able to prioritize.\r\n</p><p>•	Record minutes and draft them into summarized notes.\r\n</p><p>•	A person who is happy to challenge the norm and generate ideas to enhance APTMA’s media footprint and market them excessively. </p><p>\r\n•	Willing to learn and grow within our awesome team.\r\n</p>', 'full_time', '<p>•	Masters degree in Mass Communication from highly ranked International University. </p><p>\r\n•	High proficiency in English language (speaking, writing, reading), close to a native speaker. </p><p>\r\n•	Meticulous attention to details, and able to work independently with minimal supervision. </p><p>\r\n•	Able to represent APTMA along with Executive Director at seminars, high-profile meetings etc.\r\n</p>', '<p>We are looking for smart, energetic, and entrepreneurial individuals who are passionate about media/marketing and making a difference.<br></p><p>\r\nAs a Media/Marketing Manager at APTMA, you’ll be working within our Research team to plan, create and optimize our media/marketing campaigns across our existing platforms. As we enter an exciting new stage in our journey you’ll also have the opportunity to test, evaluate and introduce new platforms. \r\n</p>', '<p>A Mass Communication graduate (preferably female) of a highly reputable institution with 2+ years experience in creating, managing, and optimizing campaigns across mainstream platforms i.e., Twitter, Facebook, Website, and Instagram (including paid campaigns). The selected candidate will assist the Executive Director in day-to-day tasks ensuring complete coverage of his meetings/webinars, media appearances, article, and publications, etc.<br></p><p>\r\nReporting to the Executive Director, the Manager will provide technical and media management support (SMS, Website, Articles, Social Media etc.) to APTMA. The Manager will act as the first point of contact for all media-related issues, will actively improve and maintain APTMA’s workflows, offer creative solutions to archive research briefs as well as comprehensive breakdowns for archiving, logging, reporting, and managing digital assets.\r\n</p>', '<p>We continue to build an inclusive culture where everyone can be their whole selves and produce their best work. Our focus on inclusion is intended to build greater diversity in order to reflect the society we serve and be an employer of choice.<br></p><p><br>\r\nPlease apply with CV and Cover Letter at <a href=\"mailto:careers@aptma.org.pk\" target=\"_blank\">careers@aptma.org.pk</a></p>', 'APTMA Head Office, Islamabad, Pakistan', 'Negotiable', '<p>APTMA offers highly competitive salary and benefits.<br></p>', NULL, 'publish', 'en', '2021-03-14', NULL, 'job', NULL, '2020-07-20 09:22:14', '2021-03-01 22:48:19', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1590,19 +1843,20 @@ CREATE TABLE `job_applicants` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `payment_gateway` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `payment_status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `application_fee` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `job_applicants`
 --
 
-INSERT INTO `job_applicants` (`id`, `jobs_id`, `form_content`, `attachment`, `created_at`, `updated_at`, `track`, `transaction_id`, `name`, `email`, `payment_gateway`, `payment_status`) VALUES
-(1, 1, 'a:4:{s:9:\"your-name\";s:15:\"Sharifur Rahmam\";s:10:\"your-email\";s:18:\"dvrobin4@gmail.com\";s:20:\"your-expected-salary\";s:7:\"1212532\";s:20:\"your-additional-info\";s:17:\"aaddsafsadfdsfdaf\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.pdf\";}', '2020-07-20 09:19:58', '2020-07-20 09:19:58', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:7:\"testman\";s:10:\"your-email\";s:15:\"satrapa@live.nl\";s:20:\"your-expected-salary\";s:7:\"1000000\";s:20:\"your-additional-info\";s:10:\"dfbfdsbfdb\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.txt\";}', '2020-08-09 20:59:34', '2020-08-09 20:59:34', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:7:\"stewart\";s:10:\"your-email\";s:15:\"admin@gmail.com\";s:20:\"your-expected-salary\";s:5:\"20000\";s:20:\"your-additional-info\";s:12:\"yunhiojhj8iu\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.pdf\";}', '2020-08-20 13:08:55', '2020-08-20 13:08:55', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:7:\"gfcghxd\";s:10:\"your-email\";s:17:\"sarty2k@gmail.com\";s:20:\"your-expected-salary\";s:5:\"20000\";s:20:\"your-additional-info\";s:9:\"zsfdf\\azd\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.txt\";}', '2020-08-23 05:19:02', '2020-08-23 05:19:02', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 4, 'a:5:{s:13:\"captcha_token\";N;s:9:\"your-name\";s:4:\"test\";s:10:\"your-email\";s:15:\"fdfdf@gmail.com\";s:20:\"your-expected-salary\";s:6:\"dsdsds\";s:20:\"your-additional-info\";s:6:\"sdsdsd\";}', 'a:1:{s:7:\"your-cv\";s:58:\"assets/uploads/attachment/applicant-attachment-your-cv.txt\";}', '2020-08-23 17:08:33', '2020-08-23 17:08:33', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `job_applicants` (`id`, `jobs_id`, `form_content`, `attachment`, `created_at`, `updated_at`, `track`, `transaction_id`, `name`, `email`, `payment_gateway`, `payment_status`, `application_fee`) VALUES
+(6, 4, NULL, NULL, '2021-03-09 13:17:40', '2021-03-09 13:17:40', 'z8Lhp0VB0tPkqHGju1E5GrajM7Vjz1', NULL, 'Aileen Burt', 'kaqojunid@mailinator.com', NULL, 'pending', NULL),
+(7, 4, NULL, NULL, '2021-03-09 13:23:07', '2021-03-09 13:23:07', 'hHLO83zI5f3PUacBcnMuNtGUtC2oRF', NULL, 'Benjamin Goodwin', 'hubuzybiq@mailinator.com', NULL, 'pending', NULL),
+(8, 4, NULL, NULL, '2021-03-09 13:36:40', '2021-03-09 13:36:40', 'RUnkcvL9sC4p0hlJWy9PKCkBZ7jn3A', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL),
+(9, 4, 'a:5:{s:7:\"contact\";s:11:\"03248414079\";s:11:\"designation\";s:2:\"QA\";s:20:\"your-expected-salary\";s:5:\"50000\";s:20:\"your-additional-info\";s:12:\"hello world!\";s:14:\"transaction_id\";N;}', 'a:1:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-9-your-cv.docx\";}', '2021-03-09 13:37:16', '2021-03-09 13:37:16', '1ZwweTUVSxbA9BfehiF7E3CBf55Pxc', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL),
+(10, 4, 'a:5:{s:7:\"contact\";s:11:\"03248414079\";s:11:\"designation\";s:2:\"QA\";s:20:\"your-expected-salary\";s:5:\"50000\";s:20:\"your-additional-info\";s:12:\"hello world!\";s:14:\"transaction_id\";N;}', 'a:1:{s:7:\"your-cv\";s:62:\"assets/uploads/attachment/applicant/attachment-10-your-cv.docx\";}', '2021-03-09 13:38:04', '2021-03-09 13:38:04', 'jReXdnhb4Bx8tpDU6mx6K315iWsTrx', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL);
 
 -- --------------------------------------------------------
 
@@ -2095,6 +2349,72 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (52, '2020_07_17_162008_create_image_galleries_table', 9),
 (53, '2020_07_21_053307_create_product_ratings_table', 10),
 (54, '2020_07_22_132250_create_popup_builders_table', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `month_wise_district_wise_arival_of_cotton`
+--
+
+CREATE TABLE `month_wise_district_wise_arival_of_cotton` (
+  `id` int(11) NOT NULL,
+  `district` varchar(255) NOT NULL,
+  `year` varchar(255) DEFAULT NULL,
+  `year_value` double DEFAULT NULL,
+  `month_1` varchar(255) DEFAULT NULL,
+  `month1_value` double DEFAULT NULL,
+  `month_2` varchar(255) DEFAULT NULL,
+  `month2_value` double DEFAULT NULL,
+  `month_3` varchar(255) DEFAULT NULL,
+  `month3_value` double DEFAULT NULL,
+  `month_4` varchar(255) DEFAULT NULL,
+  `month4_value` double DEFAULT NULL,
+  `month_5` varchar(255) DEFAULT NULL,
+  `month5_value` double DEFAULT NULL,
+  `month_6` varchar(255) DEFAULT NULL,
+  `month6_value` double DEFAULT NULL,
+  `month_7` varchar(255) DEFAULT NULL,
+  `month7_value` double DEFAULT NULL,
+  `month_8` varchar(255) DEFAULT NULL,
+  `month8_value` double DEFAULT NULL,
+  `month_9` varchar(255) DEFAULT NULL,
+  `month9_value` double DEFAULT NULL,
+  `month_10` varchar(255) DEFAULT NULL,
+  `month10_value` double DEFAULT NULL,
+  `month_11` varchar(255) DEFAULT NULL,
+  `month11_value` double DEFAULT NULL,
+  `month_12` varchar(255) DEFAULT NULL,
+  `month12_value` double DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `month_wise_district_wise_arival_of_cotton`
+--
+
+INSERT INTO `month_wise_district_wise_arival_of_cotton` (`id`, `district`, `year`, `year_value`, `month_1`, `month1_value`, `month_2`, `month2_value`, `month_3`, `month3_value`, `month_4`, `month4_value`, `month_5`, `month5_value`, `month_6`, `month6_value`, `month_7`, `month7_value`, `month_8`, `month8_value`, `month_9`, `month9_value`, `month_10`, `month10_value`, `month_11`, `month11_value`, `month_12`, `month12_value`, `created_at`, `updated_at`) VALUES
+(1, 'Multan', 'Previous Year', 283712, '2018-09-15 00:00:00', 25059, '2018-10-01 00:00:00', 57296, '2018-10-15 00:00:00', 113847, '2018-11-01 00:00:00', 162345, '2018-11-15 00:00:00', 185068, '2018-12-01 00:00:00', 201932, '2018-12-15 00:00:00', 221133, '2019-01-01 00:00:00', 232500, '2019-01-15 00:00:00', 236890, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(2, 'Lodhran', 'Previous Year', 173023, '2018-09-15 00:00:00', 20224, '2018-10-01 00:00:00', 27654, '2018-10-15 00:00:00', 55354, '2018-11-01 00:00:00', 77367, '2018-11-15 00:00:00', 93566, '2018-12-01 00:00:00', 109104, '2018-12-15 00:00:00', 121199, '2019-01-01 00:00:00', 130642, '2019-01-15 00:00:00', 135965, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(3, 'Khanewal', 'Previous Year', 709743, '2018-09-15 00:00:00', 161830, '2018-10-01 00:00:00', 253957, '2018-10-15 00:00:00', 356750, '2018-11-01 00:00:00', 414616, '2018-11-15 00:00:00', 447883, '2018-12-01 00:00:00', 459980, '2018-12-15 00:00:00', 487801, '2019-01-01 00:00:00', 500528, '2019-01-15 00:00:00', 513226, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(4, 'Muzaffar Garh', 'Previous Year', 379067, '2018-09-15 00:00:00', 42524, '2018-10-01 00:00:00', 94267, '2018-10-15 00:00:00', 180920, '2018-11-01 00:00:00', 238280, '2018-11-15 00:00:00', 267727, '2018-12-01 00:00:00', 295432, '2018-12-15 00:00:00', 311984, '2019-01-01 00:00:00', 318784, '2019-01-15 00:00:00', 322211, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(5, 'D.G.Khan', 'Previous Year', 437900, '2018-09-15 00:00:00', 54886, '2018-10-01 00:00:00', 118226, '2018-10-15 00:00:00', 210185, '2018-11-01 00:00:00', 286946, '2018-11-15 00:00:00', 343499, '2018-12-01 00:00:00', 382765, '2018-12-15 00:00:00', 426346, '2019-01-01 00:00:00', 452358, '2019-01-15 00:00:00', 462423, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(6, 'Rajanpur', 'Previous Year', 448597, '2018-09-15 00:00:00', 58497, '2018-10-01 00:00:00', 167542, '2018-10-15 00:00:00', 275455, '2018-11-01 00:00:00', 354626, '2018-11-15 00:00:00', 386703, '2018-12-01 00:00:00', 398390, '2018-12-15 00:00:00', 411204, '2019-01-01 00:00:00', 417344, '2019-01-15 00:00:00', 420043, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(7, 'Leiah', 'Previous Year', 294142, '2018-09-15 00:00:00', 14007, '2018-10-01 00:00:00', 43110, '2018-10-15 00:00:00', 87181, '2018-11-01 00:00:00', 134450, '2018-11-15 00:00:00', 168203, '2018-12-01 00:00:00', 194445, '2018-12-15 00:00:00', 218245, '2019-01-01 00:00:00', 233918, '2019-01-15 00:00:00', 236476, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(8, 'Vehari', 'Previous Year', 596782, '2018-09-15 00:00:00', 169712, '2018-10-01 00:00:00', 257386, '2018-10-15 00:00:00', 317866, '2018-11-01 00:00:00', 361635, '2018-11-15 00:00:00', 391238, '2018-12-01 00:00:00', 396668, '2018-12-15 00:00:00', 412787, '2019-01-01 00:00:00', 419517, '2019-01-15 00:00:00', 426142, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(9, 'Sahiwal', 'Previous Year', 275857, '2018-09-15 00:00:00', 99044, '2018-10-01 00:00:00', 121467, '2018-10-15 00:00:00', 144105, '2018-11-01 00:00:00', 161056, '2018-11-15 00:00:00', 170319, '2018-12-01 00:00:00', 179795, '2018-12-15 00:00:00', 193405, '2019-01-01 00:00:00', 200718, '2019-01-15 00:00:00', 205750, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(10, 'Pakpattan', 'Previous Year', 39130, '2018-09-15 00:00:00', 9500, '2018-10-01 00:00:00', 13850, '2018-10-15 00:00:00', 15900, '2018-11-01 00:00:00', 17094, '2018-11-15 00:00:00', 17694, '2018-12-01 00:00:00', 18294, '2018-12-15 00:00:00', 19224, '2019-01-01 00:00:00', 19274, '2019-01-15 00:00:00', 19274, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(11, 'Okara', 'Previous Year', 15775, '2018-09-15 00:00:00', 4700, '2018-10-01 00:00:00', 7250, '2018-10-15 00:00:00', 9700, '2018-11-01 00:00:00', 11650, '2018-11-15 00:00:00', 11900, '2018-12-01 00:00:00', 12600, '2018-12-15 00:00:00', 12600, '2019-01-01 00:00:00', 12600, '2019-01-15 00:00:00', 12600, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(12, 'Qasur', 'Previous Year', 21132, '2018-09-15 00:00:00', 123, '2018-10-01 00:00:00', 123, '2018-10-15 00:00:00', 123, '2018-11-01 00:00:00', 123, '2018-11-15 00:00:00', 213, '2018-12-01 00:00:00', 123, '2018-12-15 00:00:00', 123, '2019-01-01 00:00:00', 213, '2019-01-15 00:00:00', 213, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(13, 'T.T. Singh', 'Previous Year', 183125, '2018-09-15 00:00:00', 64097, '2018-10-01 00:00:00', 76056, '2018-10-15 00:00:00', 91353, '2018-11-01 00:00:00', 105899, '2018-11-15 00:00:00', 114737, '2018-12-01 00:00:00', 124416, '2018-12-15 00:00:00', 137360, '2019-01-01 00:00:00', 142419, '2019-01-15 00:00:00', 149212, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(14, 'Faisalabad', 'Previous Year', 40968, '2018-09-15 00:00:00', 17975, '2018-10-01 00:00:00', 23450, '2018-10-15 00:00:00', 25250, '2018-11-01 00:00:00', 25948, '2018-11-15 00:00:00', 26710, '2018-12-01 00:00:00', 27710, '2018-12-15 00:00:00', 29350, '2019-01-01 00:00:00', 30522, '2019-01-15 00:00:00', 32022, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(15, 'Jhang', 'Previous Year', 21328, '2018-09-15 00:00:00', 6750, '2018-10-01 00:00:00', 8810, '2018-10-15 00:00:00', 10590, '2018-11-01 00:00:00', 11896, '2018-11-15 00:00:00', 12550, '2018-12-01 00:00:00', 13050, '2018-12-15 00:00:00', 14050, '2019-01-01 00:00:00', 14600, '2019-01-15 00:00:00', 14967, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(16, 'Mianwali', 'Previous Year', 206265, '2018-09-15 00:00:00', 2170, '2018-10-01 00:00:00', 9745, '2018-10-15 00:00:00', 30874, '2018-11-01 00:00:00', 51600, '2018-11-15 00:00:00', 62782, '2018-12-01 00:00:00', 75216, '2018-12-15 00:00:00', 85360, '2019-01-01 00:00:00', 92615, '2019-01-15 00:00:00', 97655, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(17, 'Bhakkar', 'Previous Year', 85097, '2018-09-15 00:00:00', 4324, '2018-10-01 00:00:00', 10842, '2018-10-15 00:00:00', 18095, '2018-11-01 00:00:00', 22862, '2018-11-15 00:00:00', 25062, '2018-12-01 00:00:00', 27162, '2018-12-15 00:00:00', 29980, '2019-01-01 00:00:00', 30498, '2019-01-15 00:00:00', 31098, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(18, 'Sargodha', 'Previous Year', 7293, '2018-09-15 00:00:00', 123, '2018-10-01 00:00:00', 312, '2018-10-15 00:00:00', 213, '2018-11-01 00:00:00', 123, '2018-11-15 00:00:00', 123, '2018-12-01 00:00:00', 123, '2018-12-15 00:00:00', 213, '2019-01-01 00:00:00', 213, '2019-01-15 00:00:00', 123, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(19, 'R.Y.Khan', 'Previous Year', 1073190, '2018-09-15 00:00:00', 28118, '2018-10-01 00:00:00', 102835, '2018-10-15 00:00:00', 374494, '2018-11-01 00:00:00', 685831, '2018-11-15 00:00:00', 879702, '2018-12-01 00:00:00', 1003893, '2018-12-15 00:00:00', 1095437, '2019-01-01 00:00:00', 1139606, '2019-01-15 00:00:00', 1163074, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(20, 'Bhawal Pur', 'Previous Year', 1029043, '2018-09-15 00:00:00', 78238, '2018-10-01 00:00:00', 182099, '2018-10-15 00:00:00', 390187, '2018-11-01 00:00:00', 596245, '2018-11-15 00:00:00', 713717, '2018-12-01 00:00:00', 789681, '2018-12-15 00:00:00', 863442, '2019-01-01 00:00:00', 896585, '2019-01-15 00:00:00', 927665, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16'),
+(21, 'Bhawal Nagar', 'Previous Year', 1028474, '2018-09-15 00:00:00', 118484, '2018-10-01 00:00:00', 242225, '2018-10-15 00:00:00', 415590, '2018-11-01 00:00:00', 551098, '2018-11-15 00:00:00', 666056, '2018-12-01 00:00:00', 742584, '2018-12-15 00:00:00', 827116, '2019-01-01 00:00:00', 877678, '2019-01-15 00:00:00', 917847, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-05 10:23:16', '2021-03-05 10:23:16');
 
 -- --------------------------------------------------------
 
@@ -2839,6 +3159,80 @@ INSERT INTO `price_plan_categories` (`id`, `name`, `lang`, `status`, `created_at
 (6, 'التصميم', 'ar', 'publish', '2020-07-22 00:32:30', '2020-07-22 00:32:30'),
 (7, 'Diseño', 'sp', 'publish', '2020-07-22 00:32:43', '2020-07-22 00:32:43'),
 (8, 'Desarrollo', 'sp', 'publish', '2020-07-22 00:32:55', '2020-07-22 00:32:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productions_exports_and_domestic_requirements_of_yarn`
+--
+
+CREATE TABLE `productions_exports_and_domestic_requirements_of_yarn` (
+  `id` int(11) NOT NULL,
+  `peroid` varchar(255) DEFAULT NULL,
+  `production` double DEFAULT NULL,
+  `consumed_in_mill_quantity` double DEFAULT NULL,
+  `consumed_in_mill_prod` varchar(255) DEFAULT NULL,
+  `export_quantity` varchar(255) DEFAULT NULL,
+  `export_prod` varchar(255) DEFAULT NULL,
+  `available_for_local_market_quantity` varchar(255) DEFAULT NULL,
+  `available_for_local_market_prod` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `productions_exports_and_domestic_requirements_of_yarn`
+--
+
+INSERT INTO `productions_exports_and_domestic_requirements_of_yarn` (`id`, `peroid`, `production`, `consumed_in_mill_quantity`, `consumed_in_mill_prod`, `export_quantity`, `export_prod`, `available_for_local_market_quantity`, `available_for_local_market_prod`, `created_at`, `updated_at`) VALUES
+(1, '1971-72', 335702, 98785, '=+C7/B7*100', '130158', '=+E7/B7*100', '106759', '=+G7/B7*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(2, '1972-73', 376122, 89880, '=+C8/B8*100', '184404', '=+E8/B8*100', '101838', '=+G8/B8*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(3, '1973-74', 379460, 96056, '=+C9/B9*100', '100564', '=+E9/B9*100', '182840', '=+G9/B9*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(4, '1974-75', 351200, 88103, '=+C10/B10*100', '78365', '=+E10/B10*100', '184732', '=+G10/B10*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(5, '1975-76', 349653, 83943, '=+C11/B11*100', '112182', '=+E11/B11*100', '153528', '=+G11/B11*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(6, '1976-77', 282640, 65452, '=+C12/B12*100', '64294', '=+E12/B12*100', '152894', '=+G12/B12*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(7, '1977-78', 297895, 55165, '=+C13/B13*100', '59955', '=+E13/B13*100', '182775', '=+G13/B13*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(8, '1978-79', 327796, 51215, '=+C14/B14*100', '97929', '=+E14/B14*100', '178652', '=+G14/B14*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(9, '1979-80', 362862, 47910, '=+C15/B15*100', '99834', '=+E15/B15*100', '215118', '=+G15/B15*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(10, '1980-81', 374947, 43277, '=+C16/B16*100', '95232', '=+E16/B16*100', '236438', '=+G16/B16*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(11, '1981-82', 430154, 42624, '=+C17/B17*100', '95621', '=+E17/B17*100', '291909', '=+G17/B17*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(12, '1982-83', 448430, 50563, '=+C18/B18*100', '134100', '=+E18/B18*100', '263767', '=+G18/B18*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(13, '1983-84', 431580, 34972, '=+C19/B19*100', '101805', '=+E19/B19*100', '294803', '=+G19/B19*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(14, '1984-85', 431731, 53546, '=+C20/B20*100', '125855', '=+E20/B20*100', '252330', '=+G20/B20*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(15, '1985-86', 482186, 46052, '=+C21/B21*100', '157895', '=+E21/B21*100', '278239', '=+G21/B21*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(16, '1986-87', 586371, 36410, '=+C22/B22*100', '259668', '=+E22/B22*100', '290293', '=+G22/B22*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(17, '1987-88', 685031, 41566, '=+C23/B23*100', '210950', '=+E23/B23*100', '432515', '=+G23/B23*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(18, '1988-89', 767434, 38172, '=+C24/B24*100', '291953', '=+E24/B24*100', '437309', '=+G24/B24*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(19, '1989-90', 925382, 47119, '=+C25/B25*100', '374976', '=+E25/B25*100', '503287', '=+G25/B25*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(20, '1990-91', 1055228, 40215, '=+C26/B26*100', '501072', '=+E26/B26*100', '513941', '=+G26/B26*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(21, '1991-92', 1188270, 36022, '=+C27/B27*100', '505863', '=+E27/B27*100', '646385', '=+G27/B27*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(22, '1992-93', 1234539, 35101, '=+C28/B28*100', '555294', '=+E28/B28*100', '644144', '=+G28/B28*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(23, '1993-94', 1498948, 36846, '=+C29/B29*100', '578648', '=+E29/B29*100', '883454', '=+G29/B29*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(24, '1994-95', 1413648, 291111, '=+C30/B30*100', '522091', '=+E30/B30*100', '862446', '=+G30/B30*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(25, '1995-96', 1505244, 30164, '=+C31/B31*100', '535889', '=+E31/B31*100', '939191', '=+G31/B31*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(26, '1996-97', 1530855, 46962, '=+C32/B32*100', '508188', '=+E32/B32*100', '975705', '=+G32/B32*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(27, '1997-98', 1540720, 53445, '=+C33/B33*100', '461919', '=+E33/B33*100', '1025356', '=+G33/B33*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(28, '1998-99', 1547632, 55947, '=+C34/B34*100', '421481', '=+E34/B34*100', '1070204', '=+G34/B34*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(29, '1999-00', 1678536, 65481, '=+C35/B35*100', '512971', '=+E35/B35*100', '1100084', '=+G35/B35*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(30, '2000-01', 1729129, 68275, '=+C36/B36*100', '545134', '=+E36/B36*100', '=+B36-C36-E36', '=+G36/B36*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(31, '2001-02', 1818345, 77328, '=+C37/B37*100', '539500', '=+E37/B37*100', '1201517', '=+G37/B37*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(32, '2002-03', 1924936, 79435, '=+C38/B38*100', '525130', '=+E38/B38*100', '1320369', '=+G38/B38*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(33, '2003-04', 1938908, 93141, '=+C39/B39*100', '514279', '=+E39/B39*100', '1331487', '=+G39/B39*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(34, '2004-05', 2290340, 105362, '=+C40/B40*100', '520782', '=+E40/B40*100', '1664196', '=+G40/B40*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(35, '2005-06', 2216605, 95710, '=+C41/B41*100', '691492', '=+E41/B41*100', '1429403', '=+G41/B41*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(36, '2006-07', 2727556, 104423, '=+C42/B42*100', '699259', '=+E42/B42*100', '=B42-C42-E42', '=+G42/B42*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(37, '2007-08', 2809383, 105443, '=+C43/B43*100', '594936', '=+E43/B43*100', '=B43-C43-E43', '=+G43/B43*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(38, '2008-09', 2862411, 106416, '=+C44/B44*100', '526246', '=+E44/B44*100', '=B44-C44-E44', '=+G44/B44*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(39, '2009-10', 2880970, 104449, '=+C45/B45*100', '612413', '=+E45/B45*100', '=B45-C45-E45', '=+G45/B45*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(40, '2010-11', 2956972, 108790, '=+C46/B46*100', '549947', '=+E46/B46*100', '=B46-C46-E46', '=+G46/B46*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(41, '2011-12', 2964550, 107065, '=+C47/B47*100', '=575842+10272', '=+E47/B47*100', '=B47-C47-E47', '=+G47/B47*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(42, '2012-13', 3069696, 108830, '=+C48/B48*100', '=737586+11691', '=+E48/B48*100', '=B48-C48-E48', '=+G48/B48*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(43, '2013-14', 3333375, 111245, '=+C49/B49*100', '=663354+12889', '=+E49/B49*100', '=B49-C49-E49', '=+G49/B49*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(44, '2014-15', 3369698, 113266, '=+C50/B50*100', '=642052+14135', '=+E50/B50*100', '=B50-C50-E50', '=+G50/B50*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(45, '2015-16', 3405559, 115286, '=+C51/B51*100', '=423624+12565', '=+E51/B51*100', '=B51-C51-E51', '=+G51/B51*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(46, '2016-17', 3428073, 117342, '=+C52/B52*100', '=455345+8769', '=+E52/B52*100', '=B52-C52-E52', '=+G52/B52*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(47, '2017-18', 3430050, 116215, '=+C53/B53*100', '522396', '=+E53/B53*100', '=B53-C53-E53', '=+G53/B53*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45'),
+(48, '2018-19', 3431290, 116849, '=+C54/B54*100', '403580', '=+E54/B54*100', '=B54-C54-E54', '=+G54/B54*100', '2021-03-05 10:23:45', '2021-03-05 10:23:45');
 
 -- --------------------------------------------------------
 
@@ -4329,7 +4723,7 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (678, 'contact_page_map_section_location', 'Office no. 504-B APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Islamabad', '2020-07-20 06:40:44', '2021-02-18 09:21:20'),
 (679, 'contact_page_map_section_zoom', '10', '2020-07-20 06:40:44', '2021-02-18 09:21:20'),
 (680, 'event_attendance_form_fields', '{\"field_type\":[\"text\",\"email\",\"checkbox\",\"textarea\"],\"field_name\":[\"your-name\",\"your-email\",\"terms-condition\",\"your-messsage\"],\"field_placeholder\":[\"Your Name\",\"Your Email\",\"Agree With <a href=\'#\'>Terms Of Policy<\\/a>\",\"Message\"],\"field_required\":[\"on\",\"on\"]}', '2020-07-20 06:44:10', '2020-10-01 10:47:50'),
-(681, 'apply_job_page_form_fields', '{\"field_type\":[\"text\",\"email\",\"text\",\"file\",\"textarea\"],\"field_name\":[\"your-name\",\"your-email\",\"your-expected-salary\",\"your-cv\",\"your-additional-info\"],\"field_placeholder\":[\"Your Name\",\"Your Email\",\"Your Expected Salary\",\"Your CV\",\"About Yourself\"],\"field_required\":{\"1\":\"on\",\"2\":\"on\",\"3\":\"on\",\"4\":\"on\"},\"mimes_type\":{\"3\":\"mimes:txt,pdf\"}}', '2020-07-20 06:54:09', '2020-07-20 06:54:09'),
+(681, 'apply_job_page_form_fields', '{\"field_type\":[\"tel\",\"text\",\"text\",\"file\",\"file\",\"textarea\"],\"field_name\":[\"contact\",\"designation\",\"your-expected-salary\",\"your-cv\",\"cover-letter\",\"your-additional-info\"],\"field_placeholder\":[\"Contact #\",\"Designation\",\"Your Expected Salary\",\"Your CV\",\"Cover Letter\",\"About Yourself\"],\"field_required\":{\"2\":\"on\",\"3\":\"on\",\"5\":\"on\"},\"mimes_type\":{\"3\":\"mimes:doc,docx\",\"4\":\"mimes:doc,docx\"}}', '2020-07-20 06:54:09', '2021-03-09 12:11:44'),
 (682, 'job_single_page_en_job_context_label', 'Job Context', '2020-07-20 07:42:27', '2020-07-20 08:39:08'),
 (683, 'job_single_page_en_job_responsibility_label', 'Job Responsibility', '2020-07-20 07:42:27', '2020-07-20 08:39:08'),
 (684, 'job_single_page_en_education_requirement_label', 'Educational Requirement', '2020-07-20 07:42:27', '2020-07-20 08:39:08'),
@@ -4567,20 +4961,20 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (916, 'site_google_map_api', NULL, '2020-07-24 11:41:07', '2020-07-24 11:41:33'),
 (917, 'site_google_captcha_v3_site_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
 (918, 'site_google_captcha_v3_secret_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
-(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-02 12:24:33'),
-(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-03-02 12:24:33'),
-(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-02 12:24:33'),
-(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-03-02 12:24:33'),
+(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
+(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
+(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
+(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
 (923, 'item_purchase_key', 'dfgdfgdfgdfgdfg', '2020-07-25 00:27:03', '2020-10-04 11:00:51'),
-(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-02-26 17:38:42'),
-(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-02-26 17:38:42'),
-(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-03-02 12:24:33'),
+(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-03-09 11:51:28'),
+(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-03-09 11:51:28'),
+(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-03-09 14:11:04'),
 (927, 'site_sticky_navbar_enabled', 'on', '2020-07-25 07:32:50', '2021-02-19 15:09:30'),
 (928, 'popup_enable_status', NULL, '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (929, 'popup_delay_time', '10000', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
-(930, 'popup_selected_en_id', '1', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
-(931, 'popup_selected_tur_id', '6', '2020-07-26 04:34:23', '2021-02-01 03:37:14');
+(930, 'popup_selected_en_id', '1', '2020-07-26 04:34:23', '2021-02-01 03:37:14');
 INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`, `updated_at`) VALUES
+(931, 'popup_selected_tur_id', '6', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (932, 'popup_selected_ar_id', '7', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (933, 'popup_selected_sp_id', '8', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (934, 'about_page_en_about_section_title', 'We have 15 Years of Experience of any kind it solution', '2020-07-26 12:54:47', '2020-07-27 00:57:01'),
@@ -4852,6 +5246,50 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `statistics_categories`
+--
+
+CREATE TABLE `statistics_categories` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `lang` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `statistics_categories`
+--
+
+INSERT INTO `statistics_categories` (`id`, `title`, `lang`, `status`, `slug`, `created_at`, `updated_at`) VALUES
+(2, 'TEXTILE INDUSTRY', 'en', 'publish', 'textile-industry-oc', '2021-03-09 12:54:15', '2021-03-09 12:54:15'),
+(3, 'RAW MATERIAL', 'en', 'publish', 'raw-material-qd', '2021-03-09 12:58:14', '2021-03-09 12:58:14'),
+(4, 'TEXTILE PRODUCTS', 'en', 'publish', 'textile-products-q2', '2021-03-09 12:58:48', '2021-03-09 12:58:48'),
+(5, 'INTERNATIONAL TRADE', 'en', 'publish', 'international-trade-vz', '2021-03-09 12:58:59', '2021-03-09 12:58:59'),
+(6, 'GLOBAL STATISTICS', 'en', 'publish', 'global-statistics-28', '2021-03-09 12:59:10', '2021-03-09 12:59:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statistics_sub_categories`
+--
+
+CREATE TABLE `statistics_sub_categories` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `lang` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `team_categories`
 --
 
@@ -4947,7 +5385,7 @@ CREATE TABLE `team_members` (
 --
 
 INSERT INTO `team_members` (`id`, `cat_id`, `department_id`, `name`, `designation`, `lang`, `description`, `image`, `icon_one`, `icon_two`, `icon_three`, `icon_one_url`, `icon_two_url`, `icon_three_url`, `created_at`, `updated_at`, `about_me`, `order_no`, `slug`, `type_order`, `type`, `show_detail_status`, `is_research_member`) VALUES
-(2, 1, 20, 'Shahid Sattar', 'Executive Director', 'en', '<p><b>PUBLIC SECTOR EXPERIENCE:</b>\r\nHe has served as Member Energy of the Planning Commission of Pakistan &amp; has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp; Power.<br></p><p>\r\n<br>\r\n<b>PRIVATE SECTOR EXPERIENCE:</b>\r\nHe has held senior management positions with the various energy sector entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the All Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and Secretary-General of APTMA.</p><p>\r\n<br>\r\nHe has several international publications and has been regularly writing articles in Pakistani newspapers on industry and economic issues.</p>', '178', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2020-07-20 01:19:23', '2021-03-02 08:26:06', 'Mr. Shahid Sattar has served as Member Energy of the Planning Commission of Pakistan & has also been an advisor at: Ministry of Finance, Ministry of Petroleum, and Ministry of Water & Power.', 2, 'shahid-sattar-executive-director', 2, 26, 1, 0),
+(2, 1, 20, 'Shahid Sattar', 'Executive Director', 'en', '<p><b>PUBLIC SECTOR EXPERIENCE:</b>\r\nHe has served as Member Energy of the Planning Commission of Pakistan &amp; has also been an advisor at the Ministry of Finance, Ministry of Petroleum, and Ministry of Water &amp; Power.<br></p><p>\r\n<br>\r\n<b>PRIVATE SECTOR EXPERIENCE:</b>\r\nHe has held senior management positions with the various energy sector entities and has worked with the World Bank, USAID, and DFID since 1988. Mr. Shahid Sattar joined the All Pakistan Textile Mills Association in 2017 and holds the office of Executive Director and Secretary-General of APTMA.</p><p>\r\n<br>\r\nHe has several international publications and has been regularly writing articles in Pakistani newspapers on industry and economic issues.</p>', '178', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2020-07-20 01:19:23', '2021-03-05 10:19:49', 'Mr. Shahid Sattar has served as Member Energy of the Planning Commission of Pakistan & has also been an advisor at: Ministry of Finance, Ministry of Petroleum, and Ministry of Water & Power.', 3, 'shahid-sattar-executive-director', 3, 26, 1, 0),
 (22, 1, 19, 'Ayyaz Asim', 'CFO & Company Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Mr.\r\nAyyaz Asim is Chief Financial Officer &amp; Company Secretary of All Pakistan\r\nTextile Mills Association (APTMA) for more than the last three (3) years. He is an\r\nAssociate Member (ACA) of the Institute of Chartered Accountants of Pakistan (ICAP).\r\nHe has more than seven (7) years post qualification and eleven (11) years\r\nindustry experience of the large Manufacturing Units i.e., Textile Groups,\r\nBanking &amp; Fast-Moving Consumer Goods (FMCG) at key management positions in\r\nthe field of Finance, Accounts, Audit, ERP, Corporate Laws &amp; Taxation.<o:p></o:p></p>', '177', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:24:18', '2021-03-02 08:28:44', 'Mr. Ayyaz Asim is Chief Financial Officer & Company Secretary of All Pakistan Textile Mills Association (APTMA) for more than the last three (3) years.', 5, 'ayyaz-asim-cfo-company-secretary', 8, 26, 1, 0),
 (23, 1, 26, 'Muhammad Asif Farooqi', 'Secretary', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Muhammad\r\nAsif Farooqi has over 26 years of experience in Human Resource Management,\r\nAdministration and IT. He has worked with various National and Multinational\r\ncompanies in Pakistan including Daewoo and binder Inc. His core competencies\r\ninclude Human Resource Management, Administration, Legal and Regulatory\r\nCompliance. Asif Farooqi holds a Master of Business Administration (HRM) degree\r\nfrom Preston Institute of Management Sciences and Technology (PIMSAT), Karachi.&nbsp;<o:p></o:p></p>', '176', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:26:08', '2021-02-23 10:22:53', 'Muhammad Asif Farooqi has over 26 years of experience in Human Resource Management, Administration and IT. He has worked with various National and Multinational companies in Pakistan including Daewoo and binder Inc.', 8, 'muhammad-asif-farooqi-secretary', 4, 26, 1, 0),
 (24, 1, 20, 'Saad Umar', 'Senior Executive Officer', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\ncurrently working in the capacity of Senior Executive Officer at APTMA, and\r\noversees Procurement &amp; HR, IT, and Policy Research &amp; Analysis\r\ndepartments. He has a multidisciplinary background in economics, finance and\r\nrisk management, and possesses exceptional business acumen acquired via an\r\neclectic mix of professional and entrepreneurial endeavors. Saad has been with\r\nthe organization for almost a year. He has demonstrated capabilities in\r\nunderstanding the dynamics of the industry and how APTMA plays a pivotal role\r\nin addressing each and every issue faced by Textile Sector.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is\r\nbeing trained to enhance his expertise in the field of trade related matters\r\nincluding issues pertinent to Ministry of Commerce to become a specialist in\r\nthe field while addressing issues faced by members. He serves as a technical\r\nand research lead at APTMA and provide technical and strategic support for\r\ntextile promotion in Pakistan. He provides executive support to Senior\r\nManagement in almost every task from matters related to administrations,\r\ncommunications, publications, stakeholder management, high-profile meetings,\r\neconomic &amp; financial analysis, presentations, to current restructuring of\r\nAPTMA including budget, policy, and hiring of key resources for the\r\norganization.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad is a\r\ngraduate of University College London (UCL) with a Master’s degree in Financial\r\nRisk Management, and possesses 5 years of national and international financial\r\nindustry experience, including a placement at Nomura Investment Bank, London.<o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Saad’s\r\nprofile can be vied at<span style=\"font-family:&quot;Times New Roman&quot;,serif\">\r\n</span><a href=\"https://www.linkedin.com/in/saad-umar-b6225a36/\"><span style=\"font-family:&quot;Times New Roman&quot;,serif\">https://www.linkedin.com/in/saad-umar-b6225a36/</span></a><span style=\"font-family:&quot;Times New Roman&quot;,serif\"><o:p></o:p></span></p>', '175', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:28:01', '2021-02-23 10:36:44', 'Saad is currently working in the capacity of Senior Executive Officer at APTMA, and oversees Procurement & HR, IT, and Policy Research & Analysis departments.', 4, 'saad-umar-senior-executive-officer', 1, 21, 1, 1),
@@ -4959,7 +5397,7 @@ INSERT INTO `team_members` (`id`, `cat_id`, `department_id`, `name`, `designatio
 (31, 1, 21, 'Eman Ahmed', 'Economic Analyst', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">Eman\r\nis an Economic Analyst at APTMA. A recent graduate of the Lahore University of\r\nManagement Sciences (LUMS), she obtained her BSc Honors in Economics and\r\nPolitical Science in 2019. Her work at APTMA is centered around economic\r\nanalysis, policy research and publications. She has published over 20 articles\r\nwith APTMA in the past year, on topics ranging from export-led growth to\r\ninvestments and energy. <o:p></o:p></p>\r\n\r\n<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\">She\r\nhas previously worked with the United States Institute of Peace as a program\r\ncoordinator in the development sector in Pakistan, and served as the\r\nPublications Director for LUMS Model United Nations (LUMUN) during her\r\nundergrad. She has organised and hosted international development events in\r\ncollaboration with key partners, particularly UNDP.&nbsp;<o:p></o:p></p>', '169', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:33:54', '2021-02-23 10:35:55', 'Eman is an Economic Analyst at APTMA. A recent graduate of the Lahore University of Management Sciences (LUMS), she obtained her BSc Honors in Economics and Political Science in 2019.', 6, 'eman-ahmed-economic-analyst', 3, 21, 1, 1),
 (32, 1, 27, 'Zeeshan Lashari', 'IT & Network Administrator', 'en', '<p class=\"MsoNormal\" style=\"text-align:justify;text-justify:inter-ideograph\"><span style=\"color:black;mso-themecolor:text1\">Zeeshan is working as an IT\r\nAdministrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems\r\nSupport Engineer at PC Hotel Bhurban. Working in tech support for the past two\r\nyears, he has got extensive practical experience of managing servers, systems\r\nand networks. He possesses the ability to administer, and control the operation\r\nand configuration of computer-based information systems. Zeeshan earned his\r\nBachelors of Engineering degree from NED University of Engineering &amp;\r\nTechnology Karachi.<o:p></o:p></span></p>', '168', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-16 12:35:14', '2021-02-23 10:18:23', 'Zeeshan is working as an IT Administrator at APTMA. Prior to joining APTMA, Zeeshan worked as a Systems Support Engineer at PC Hotel Bhurban.', 12, 'zeeshan-lashari-it-network-administrator', 2, 26, 1, 0),
 (33, 1, 25, 'Mr. Gohar Ejaz', 'Patron in Chief', 'en', '<p>Dr. Gohar Ejaz is a prominent entrepreneur, philanthropist, and industrialist who has worked for the betterment and growth of Pakistan’s economy for over 30 years. For his dedication, passion, and significant services to the community, he was awarded Sitara-e-Imtiaz (the Highest Civilian Award) by the President of Pakistan. Dr. Ejaz has also been recognized for his outstanding services in business management with an Honorary Doctorate in Management from the University of Punjab, Lahore. His tenacity to resolve issues affecting Pakistan\'s industries and persistence in validating Pakistan’s export industry is outstanding.\r\n</p><p><br></p><p>\r\nDr. Ejaz has a kind heart with empathy and deep compassion for humanity. During the ongoing COVID-19 and pandemic and lockdown, the Gohar Ejaz Foundation and LHIS (Friends of Lahore, headed by Dr. Gohar Ejaz) have been instrumental in collecting donations and organizing the distribution of ration packs to the doorsteps of over 100,000 deserving families of manual laborers / daily wagers. In recognition of Dr. Ejaz’s relentless efforts to this noble cause, the President of Pakistan was pleased to confer upon him the award of “Shaan-e-Pakistan” (the Pride of Pakistan). Moreover, as Chairman LIHS, Dr. Ejaz has also ensured daily food delivery to more than 20,000 deserving hospital patients and attendants across hospitals in Lahore, such as Jinnah Hospital, Mayo Hospital, Children’s Hospital, and Services Hospital.\r\n</p><p><br></p><p>\r\nAt the same time, Dr. Ejaz has successfully endeavored to put Pakistan\'s textile industry on a growth trajectory. Being a fearless spokesman, Dr. Ejaz\'s representation for securing a free market operating regime brought benefit in the shape of increased production and enhanced textile exports. His endurance to boost the economy via export-led growth has resulted in an unprecedented increase in textile exports, with the industry now operating at full capacity. In fact, industrial activity has been so rapid that the sector is facing labor shortages to keep up with enhanced production and orders.\r\n</p><p><br></p><p>\r\nDr. Ejaz is also a strong advocate of research and development. Under his stewardship, APTMA is fostering research to explore avenues for speedy and sustainable economic growth. Dr. Ejaz also has numerous publications to his credit, highlighting pressing issues and making suggestions for steering the economy through challenges towards prosperity. His inputs for short and medium-term planning for ensuring energy security for industry and other areas have also been a welcome contribution. Dr. Gohar Ejaz’s vision for an interest rate regime that is globally competitive has its own merits and is all set to lead to increased industrial investment and growth when permitted internationally and provided domestically. For his exemplary contributions to Pakistan, and society at large, Dr. Ejaz has been presented with numerous nominations, awards, and accolades. Dr. Ejaz has also served as a board member for many reputable institutions, including King Edward Medical University Lahore (KEMU), Board of Investment (BOI), ADRC, PCCI, FBR, PIDE, UHS, and PCCC.<br></p>', '180', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-19 11:40:35', '2021-03-02 08:25:02', 'Mr. Gohar Ejaz is the Chief Executive of Ejaz Group of Companies, compromising of Ejaz Spinning Mills & Ejaz Textile Mills Limited.', 1, 'mr-gohar-ejaz-patron-in-chief', 1, 21, 1, 0),
-(34, 1, 20, 'Adil Bashir', 'Chairman', 'en', '<p>All Pakistan Textile Mills Association (APTMA) is the largest trade association in Pakistan. When we evaluate certain issues that relate to the fundamentals of the textile business, we aim to cultivate a solution-oriented approach, and this is notable not only in each of our published works but in the performance of Pakistan’s export-oriented sectors. As the premier industry association of the country, APTMA is well aware of its commitment to act as a partner in national development. Therefore, we pride ourselves on being a thought leader for the nation and identifying economic issues of a broad scope. We are focused on economic reform through our own contributions to Pakistan’s economic growth through an export-led strategy. In this regard, government support is a key paradigm that has been of value to us and we hope to continue receiving it. Furthermore, APTMA, being the largest and most well-organized trade association, has the ultimate responsibility to help facilitate the environment and socio-economic climate necessary for the positive performance and viability of our member mills.<br></p>', '147', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 07:48:17', '2021-03-02 08:04:58', 'Mr Adil Bashir', 3, 'adil-bashir-chairman', 1, 26, 1, 0),
+(34, 1, 20, 'Adil Bashir', 'Chairman', 'en', '<p>All Pakistan Textile Mills Association (APTMA) is the largest trade association in Pakistan. When we evaluate certain issues that relate to the fundamentals of the textile business, we aim to cultivate a solution-oriented approach, and this is notable not only in each of our published works but in the performance of Pakistan’s export-oriented sectors. As the premier industry association of the country, APTMA is well aware of its commitment to act as a partner in national development. Therefore, we pride ourselves on being a thought leader for the nation and identifying economic issues of a broad scope. We are focused on economic reform through our own contributions to Pakistan’s economic growth through an export-led strategy. In this regard, government support is a key paradigm that has been of value to us and we hope to continue receiving it. Furthermore, APTMA, being the largest and most well-organized trade association, has the ultimate responsibility to help facilitate the environment and socio-economic climate necessary for the positive performance and viability of our member mills.<br></p>', '147', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 07:48:17', '2021-03-05 10:21:12', 'Mr Adil Bashir', 2, 'adil-bashir-chairman', 1, 26, 1, 0),
 (35, 1, 22, 'Mr. Muhammad Ismail', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Muhammad Ismail</span><br></p>', '183', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:39:55', '2021-02-23 10:21:18', 'Mr. Muhammad Ismail', 14, 'mr-muhammad-ismail-staff-member', 7, 26, 0, 0),
 (36, 1, 22, 'Mr. Robat Masih', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Robat Masih</span><br></p>', '184', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:40:43', '2021-02-23 10:31:54', 'Mr. Robat Masih', 18, 'mr-robat-masih-staff-member', 8, 26, 0, 1),
 (37, 1, 22, 'Mr. Asif Ali', 'Staff Member', 'en', '<p><span style=\"font-size: 15px;\">Mr. Asif Ali</span><br></p>', '181', 'fab fa-instagram', 'fab fa-twitter', 'fab fa-facebook-f', NULL, NULL, NULL, '2021-02-22 10:42:10', '2021-02-23 10:20:55', 'Mr. Asif Ali', 16, 'mr-asif-ali-staff-member', 3, 26, 0, 0),
@@ -5514,6 +5952,12 @@ ALTER TABLE `excel_published_date`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `excel_sheets`
+--
+ALTER TABLE `excel_sheets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `exchange_categories`
 --
 ALTER TABLE `exchange_categories`
@@ -5532,6 +5976,12 @@ ALTER TABLE `export_bills`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `export_raw_of_cotton`
+--
+ALTER TABLE `export_raw_of_cotton`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -5547,6 +5997,12 @@ ALTER TABLE `faqs`
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `global_import`
+--
+ALTER TABLE `global_import`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5634,6 +6090,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `month_wise_district_wise_arival_of_cotton`
+--
+ALTER TABLE `month_wise_district_wise_arival_of_cotton`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `newsletters`
 --
 ALTER TABLE `newsletters`
@@ -5686,6 +6148,12 @@ ALTER TABLE `price_plans`
 -- Indexes for table `price_plan_categories`
 --
 ALTER TABLE `price_plan_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `productions_exports_and_domestic_requirements_of_yarn`
+--
+ALTER TABLE `productions_exports_and_domestic_requirements_of_yarn`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5764,6 +6232,18 @@ ALTER TABLE `social_icons`
 -- Indexes for table `static_options`
 --
 ALTER TABLE `static_options`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statistics_categories`
+--
+ALTER TABLE `statistics_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statistics_sub_categories`
+--
+ALTER TABLE `statistics_sub_categories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5963,10 +6443,15 @@ ALTER TABLE `event_payment_logs`
 ALTER TABLE `excel_published_date`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `excel_sheets`
+--
+ALTER TABLE `excel_sheets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `exchange_categories`
 --
 ALTER TABLE `exchange_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `exchange_rates`
 --
@@ -5977,6 +6462,11 @@ ALTER TABLE `exchange_rates`
 --
 ALTER TABLE `export_bills`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+--
+-- AUTO_INCREMENT for table `export_raw_of_cotton`
+--
+ALTER TABLE `export_raw_of_cotton`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
@@ -5992,6 +6482,11 @@ ALTER TABLE `faqs`
 --
 ALTER TABLE `feedback`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `global_import`
+--
+ALTER TABLE `global_import`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 --
 -- AUTO_INCREMENT for table `header_sliders`
 --
@@ -6021,7 +6516,7 @@ ALTER TABLE `jobs_categories`
 -- AUTO_INCREMENT for table `job_applicants`
 --
 ALTER TABLE `job_applicants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `kca_pak_rs_muand_fourty_kg`
 --
@@ -6063,6 +6558,11 @@ ALTER TABLE `menus`
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
+-- AUTO_INCREMENT for table `month_wise_district_wise_arival_of_cotton`
+--
+ALTER TABLE `month_wise_district_wise_arival_of_cotton`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
 -- AUTO_INCREMENT for table `newsletters`
 --
 ALTER TABLE `newsletters`
@@ -6102,6 +6602,11 @@ ALTER TABLE `price_plans`
 --
 ALTER TABLE `price_plan_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `productions_exports_and_domestic_requirements_of_yarn`
+--
+ALTER TABLE `productions_exports_and_domestic_requirements_of_yarn`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -6167,6 +6672,16 @@ ALTER TABLE `social_icons`
 --
 ALTER TABLE `static_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1209;
+--
+-- AUTO_INCREMENT for table `statistics_categories`
+--
+ALTER TABLE `statistics_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `statistics_sub_categories`
+--
+ALTER TABLE `statistics_sub_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `team_categories`
 --
