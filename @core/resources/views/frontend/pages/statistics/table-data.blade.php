@@ -40,10 +40,10 @@
                         @isset($category_data->sheet_data[0])
                             <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                 <h3 class="text-white mb-0">
-                                    <span>{{$category_data->sheet_data[0][1]}}</span>
+                                    <span>{{$category_data->sheet_data[1][0]}}</span>
                                 </h3>
                             </div>
-                            <div class="table-responsive">
+                            <div class="table-responsive custom-table">
                                 <table class="table table-striped mb-0">
                                     <thead>
                                     <tr>
