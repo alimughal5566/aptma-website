@@ -74,17 +74,19 @@ class StatisticsController extends Controller
 
     public function subCategoriesStore(Request $request)
     {
+//dd($request->all());
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
             'lang' => 'required',
             'category' => 'integer',
         ]);
-        $sub_cat = StatisticsSubCategory::find($request->id);
-        $sub_cat->title = $request->title;
-        $sub_cat->cat_id = $request->main_category;
+        $sub_cat = new StatisticsSubCategory();
+        $sub_cat->title = $request->name;
+        $sub_cat->cat_id = $request->category;
         $sub_cat->status = $request->status;
         $sub_cat->lang = $request->lang;
+        $sub_cat->slug = Str::slug($request->title);
         $sub_cat->save();
         return redirect()->back()->with(['msg' => __('New Sub Category added...'), 'type' => 'success']);
 
