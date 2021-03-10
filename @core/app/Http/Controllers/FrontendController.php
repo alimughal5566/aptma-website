@@ -569,8 +569,8 @@ class FrontendController extends Controller
         } else {
             $all_dates = DailyEconomic::all();
             $all_services = DailyEconomic::where('status', '1')
-                ->whereBetween('publish_date', [Carbon::now()->subDays(30), now()])
-                ->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+//                ->whereBetween('publish_date', [Carbon::now()->subDays(30), now()])
+                ->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->take(30)->paginate(get_static_option('service_page_service_items'));
         }
 //        $all_services = Circular::where('status','1')->orderBy('is_featured', 'desc')->orderBy('id','desc')->paginate(get_static_option('service_page_service_items'));
         return view('frontend.pages.dailyEconomic.index')->with(['all_services' => $all_services, 'category' => $category,'all_dates'=>$all_dates]);

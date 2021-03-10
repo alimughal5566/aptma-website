@@ -11,6 +11,9 @@ class ExcelSheet extends Model
         'category',
         'sub_category',
         'sheet_data',
+        'slug',
+        'cat_slug',
+        'sub_cat_slug',
     ];
     protected $casts = ['sheet_data'=>'array'];
 

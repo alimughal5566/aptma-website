@@ -54,6 +54,7 @@
                             <div class="form-group">
                                 <label for="sub_category">Sub Category</label>
                                 <select name="sub_category" class="form-control" required>
+                                    <option value="">Choose Sub Category</option>
                                     @foreach($all_sub_categories as $category)
                                         <option {{(old('sub_category')==$category->id)?'selected':''}} value="{{$category->title}}">{{$category->title}}</option>
                                     @endforeach
@@ -86,7 +87,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="sub_category">Sub Category</label>
-                                <select name="sub_category" class="form-control" required>
+                                <select name="sub_category" class="form-control" >
+                                    <option value="">Choose Sub Category</option>
                                     @foreach($all_sub_categories as $category)
                                         <option {{(old('sub_category')==$category->id)?'selected':''}} value="{{$category->id}}">{{$category->title}}</option>
                                     @endforeach

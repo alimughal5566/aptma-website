@@ -23,7 +23,6 @@ class StatisticsController extends Controller
 
     public function categoriesIndex()
     {
-
         $all_languages = Language::all();
         $all_category = StatisticsCategory::all();
         return view('backend.statistics.category', compact('all_languages', 'all_category'));
@@ -31,7 +30,6 @@ class StatisticsController extends Controller
 
     public function categoriesStore(Request $request)
     {
-
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
@@ -59,7 +57,7 @@ class StatisticsController extends Controller
         $data->status = $request->status;
         $data->title = $request->title;
         $data->lang = $request->lang;
-        $data->slug = Str::slug($request->title . '-' . Str::random(2));
+        $data->slug = Str::slug($request->title);
         $data->save();
         return redirect()->back()->with(['msg' => __('Data Updated...'), 'type' => 'success']);
     }
@@ -74,17 +72,19 @@ class StatisticsController extends Controller
 
     public function subCategoriesStore(Request $request)
     {
+//dd($request->all());
         $this->validate($request, [
             'name' => 'required|string',
             'status' => 'required',
             'lang' => 'required',
             'category' => 'integer',
         ]);
-        $sub_cat = StatisticsSubCategory::find($request->id);
-        $sub_cat->title = $request->title;
-        $sub_cat->cat_id = $request->main_category;
+        $sub_cat = new StatisticsSubCategory();
+        $sub_cat->title = $request->name;
+        $sub_cat->cat_id = $request->category;
         $sub_cat->status = $request->status;
         $sub_cat->lang = $request->lang;
+        $sub_cat->slug = Str::slug($request->title);
         $sub_cat->save();
         return redirect()->back()->with(['msg' => __('New Sub Category added...'), 'type' => 'success']);
 
@@ -103,7 +103,6 @@ class StatisticsController extends Controller
         $this->validate($request, [
             "file" => "required|mimes:csv,xlsx,xls",
             "category" => "required",
-            "sub_category" => "required",
         ]);
         if ($request->file) {
             $file = $request->file('file');
@@ -114,22 +113,28 @@ class StatisticsController extends Controller
         }
     }
 
-    public function getStatisticsCategoryData($id){
-
+    public function getStatisticsCategoryData($slug){
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
-        $category_data = ExcelSheet::where('category',$id)->with('getCategory')->get();
+        $category_data = ExcelSheet::where('cat_slug',$slug)->with('getCategory')->get();
+
         return view('frontend.pages.statistics.index-category-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
     }
-    public function getStatisticsSubCategoryData($id){
+    public function getStatisticsSubCategoryData($slug){
 
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
-        $category_data = ExcelSheet::where('sub_category',$id)->with('getSubCategory')->get();
+        $category_data = ExcelSheet::where('sub_cat_slug',$slug)->with('getSubCategory')->get();
         return view('frontend.pages.statistics.index-sub-category-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
     }
 
-    public function getData($id){
+    public function getCatData($slug,$id){
+        $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
+        $all_stats_sub_categoties = StatisticsSubCategory::all();
+        $category_data = ExcelSheet::find($id);
+        return view('frontend.pages.statistics.table-data',compact('category_data','all_stats_categoties','all_stats_sub_categoties'));
+    }
+    public function getSubCatData($slug,$id){
         $all_stats_categoties = StatisticsCategory::with('subCategories')->get();
         $all_stats_sub_categoties = StatisticsSubCategory::all();
         $category_data = ExcelSheet::find($id);

@@ -187,6 +187,9 @@
                                                     <a href="{{route('frontend.team',[$team->slug])}}">{{$team->name}}</a>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="{{route('frontend.members')}}">Member List</a>
+                                            </li>
                                         </ul>
                                     @endif
                                 </li>
@@ -290,15 +293,16 @@
 
                                 @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
-                                        <li class=" @if($category->subCategories->count()>0) menu-item-has-children @else @endif  ">
-                                            <a href="{{route('frontend.statistics.get.statistics.for.category',['id'=>$category->id])}}">{{$category->title}}</a>
+{{--                                        {{dd($category->slug)}}--}}
+                                        <li class=" menu-item-has-children ">
+                                            <a href="{{route('frontend.statistics.get.statistics.for.category',[$category->slug])}}">{{$category->title}}</a>
                                             @isset($category->subCategories)
                                                 <ul class="sub-menu">
-                                                    @foreach($category->subCategories as $sub_category)
-                                                        <li>
-                                                            <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_category->id])}}">{{$sub_category->title}}</a>
-                                                        </li>
-                                                    @endforeach
+                                                        @foreach($category->subCategories as $sub_category)
+                                                            <li>
+                                                                <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_category->slug])}}">{{$sub_category->title}}</a>
+                                                            </li>
+                                                        @endforeach
                                                 </ul>
                                             @endisset
                                         </li>
