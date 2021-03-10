@@ -23,7 +23,7 @@
                                             <span>{{$data->getSubCategory->title}}</span>
                                         @endisset
                                     </p>
-                                    <a href="{{route('frontend.statistics.get.statistics.data',['id'=>$data->id])}}"
+                                    <a href="{{route('frontend.statistics.get.statistics.data',[$data->slug,$data->id])}}"
                                        class="btn text-center">View</a>
                                 </div>
                             </div>

@@ -23,8 +23,13 @@
                                             <span>{{$data->getCategory->title}}</span>
                                         @endisset
                                         <br>
+                                        @isset($data->getCategory->subCategories[0])
+                                            @foreach($data->getCategory->subCategories as $sub_cat)
+                                                    <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_cat->slug])}}">{{$sub_cat->title}}</a>
+                                            @endforeach
+                                        @endisset
                                     </p>
-                                    <a href="{{route('frontend.statistics.get.statistics.data',['id'=>$data->id])}}"
+                                    <a href="{{route('frontend.statistics.get.statistics.data',[$data->slug,'id'=>$data->id])}}"
                                        class="btn text-center">View</a>
                                 </div>
                             </div>

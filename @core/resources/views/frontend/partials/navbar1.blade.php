@@ -289,13 +289,14 @@
                             <ul class="sub-menu">
                                 @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
+{{--                                        {{dd($category->slug)}}--}}
                                         <li class=" menu-item-has-children ">
-                                            <a href="{{route('frontend.statistics.get.statistics.for.category',['id'=>$category->id])}}">{{$category->title}}</a>
+                                            <a href="{{route('frontend.statistics.get.statistics.for.category',[$category->slug])}}">{{$category->title}}</a>
                                             @isset($category->subCategories)
                                                 <ul class="sub-menu">
                                                         @foreach($category->subCategories as $sub_category)
                                                             <li>
-                                                                <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_category->id])}}">{{$sub_category->title}}</a>
+                                                                <a href="{{route('frontend.statistics.get.statistics.for.sub_category',[$sub_category->slug])}}">{{$sub_category->title}}</a>
                                                             </li>
                                                         @endforeach
                                                 </ul>

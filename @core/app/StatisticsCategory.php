@@ -16,4 +16,7 @@ class StatisticsCategory extends Model
     public function subCategories(){
         return $this->hasMany(StatisticsSubCategory::class,'cat_id','id');
     }
+    public function excelSheet(){
+        return $this->hasMany(ExcelSheet::class,'category','id');
+    }
 }

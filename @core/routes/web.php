@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // Clear all views,cache, config, storage
 Route::get('test',function (){
-   $cat = \App\StatisticsCategory::with('subCategories')->get();
+   $cat = \App\StatisticsCategory::with('subCategories','excelSheet')->get();
+   dd($cat[0]->excelSheet[0]->cat_slug);
    $sub = \App\StatisticsSubCategory::all();
    $excel = \App\ExcelSheet::with('getCategory')->get();
    dd($excel);
@@ -246,9 +247,10 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('/frontend/statistics', 'ImportController@statistics')->name('frontend.statistics');
     Route::get('/frontend/statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
 
-    Route::get('statistics/category/{id}','StatisticsController@getStatisticsCategoryData')->name('frontend.statistics.get.statistics.for.category');
-    Route::get('statistics/subcategory/{id}','StatisticsController@getStatisticsSubCategoryData')->name('frontend.statistics.get.statistics.for.sub_category');
-    Route::get('statistics/data/{id}','StatisticsController@getData')->name('frontend.statistics.get.statistics.data');
+    Route::get('statistics/category/{slug?}','StatisticsController@getStatisticsCategoryData')->name('frontend.statistics.get.statistics.for.category');
+    Route::get('statistics/subcategory/{slug?}','StatisticsController@getStatisticsSubCategoryData')->name('frontend.statistics.get.statistics.for.sub_category');
+    Route::get('statistics/category/data/{slug?}/{id}','StatisticsController@getCatData')->name('frontend.statistics.get.statistics.data');
+    Route::get('statistics/sub-category/data/{slug?}/{id}','StatisticsController@getSubCatData')->name('frontend.statistics.get.statistics.sub.data');
 
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
