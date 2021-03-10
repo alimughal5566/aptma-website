@@ -103,7 +103,6 @@ class StatisticsController extends Controller
         $this->validate($request, [
             "file" => "required|mimes:csv,xlsx,xls",
             "category" => "required",
-            "sub_category" => "required",
         ]);
         if ($request->file) {
             $file = $request->file('file');

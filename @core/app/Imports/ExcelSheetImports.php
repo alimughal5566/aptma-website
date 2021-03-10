@@ -27,9 +27,13 @@ class ExcelSheetImports implements ToCollection
      */
     public function collection(Collection $collection)
     {
-//        dd($collection[1][0]);
         $slug1 = Str::slug(StatisticsCategory::find($this->category)->title);
-        $slug2 = Str::slug(StatisticsSubCategory::find($this->sub_category)->title);
+        if ($this->sub_category!=null){
+            $slug2 = Str::slug(StatisticsSubCategory::find($this->sub_category)->title);
+        }else{
+            $slug2 =null;
+        }
+
         $slug = Str::slug($collection[1][0]);
         ExcelSheet::create([
             'category'=>$this->category,
