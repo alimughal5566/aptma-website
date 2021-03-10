@@ -229,10 +229,10 @@
                                 <li>
                                     <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
                                 </li>
-@php
-    $all_stats_categoties = \App\StatisticsCategory::with('subCategories')->get();
-        $all_stats_sub_categoties = \App\StatisticsSubCategory::all();
-@endphp
+                                @php
+                                    $all_stats_categoties = \App\StatisticsCategory::with('subCategories')->get();
+                                        $all_stats_sub_categoties = \App\StatisticsSubCategory::all();
+                                @endphp
                                 @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
                                         {{--                                        {{dd($category->slug)}}--}}
