@@ -80,13 +80,13 @@ class StatisticsController extends Controller
             'lang' => 'required',
             'category' => 'integer',
         ]);
-        $sub_cat_check = StatisticsSubCategory::find($request->if);
+        $sub_cat_check = StatisticsSubCategory::find($request->id);
         if ($sub_cat_check){
             $sub_cat = $sub_cat_check;
         }else{
             $sub_cat = new StatisticsSubCategory();
         }
-  
+
         $sub_cat->title = $request->title;
         $sub_cat->cat_id = $request->main_category;
         $sub_cat->status = $request->status;
