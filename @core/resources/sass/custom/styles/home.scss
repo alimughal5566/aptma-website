@@ -855,6 +855,27 @@
 
 }
 
+.custom-table {
+
+  table {
+
+    tr {
+
+      th,td {
+
+        &:first-child {
+          background-color: color.$primary2;
+          color: #fff;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
 .dynamic-page-content-wrap {
   text-align: justify;
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 09, 2021 at 02:19 PM
+-- Generation Time: Mar 10, 2021 at 02:07 PM
 -- Server version: 5.7.32-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `username`, `email`, `email_verified`, `role`, `image`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'APTMA', 'super_admin', 'dvrobin4@gmail.com', 1, '1', '135', '$2y$12$QRJRcYcZvFMAffKvNWWq7uCv4krCZdSGKmY.ZePHVeaMQpYsSRWf.', 'nqaskwC5HgnU5eaRd3I2AQOLtOMyU7rHqFRlvYNhLvJJOIs3s6vvTD7bSImK', '2020-07-16 06:47:46', '2021-02-03 02:24:40'),
+(1, 'APTMA', 'super_admin', 'info@aptma.org.pk', 1, '1', '135', '$2y$12$QRJRcYcZvFMAffKvNWWq7uCv4krCZdSGKmY.ZePHVeaMQpYsSRWf.', 'nqaskwC5HgnU5eaRd3I2AQOLtOMyU7rHqFRlvYNhLvJJOIs3s6vvTD7bSImK', '2020-07-16 06:47:46', '2021-03-10 11:26:30'),
 (2, 'Patricia Johnson', 'editor', 'editor@gmail.com', 1, '2', '49', '$2y$10$MudYFlfxgDC3HhAF4.5t1uxZVnCDqXyDP3tMFYoDp9uEwVpnUc7ma', 'SDtWXmVYWxvtqeTgasgbNicyx9OnUCRipJeOQKnVAcbbc01z3Oid9MbQwTau', '2020-07-27 00:47:09', '2020-07-27 00:47:09'),
 (3, 'Johnny C. Shavers', 'admin', 'admin@gmail.com', 0, '3', '47', '$2y$10$rUIo7ffAVtqg25WiTOjm2e6tGbYIsjxAriQmgRvMjU/ocQPAlIomO', 'E1cMVcW9veGHzvCcRWZlWliKYHoUQBAzzH6tOsgWOnk7jQv5wFPKZE8e1Sbt', '2020-07-27 00:49:41', '2020-07-27 00:49:41');
 
@@ -513,11 +513,24 @@ CREATE TABLE `daily_economics` (
 --
 
 INSERT INTO `daily_economics` (`id`, `cat_id`, `title`, `description`, `thumbnail`, `url`, `publish_date`, `status`, `is_featured`, `created_at`, `updated_at`, `slug`) VALUES
-(18, 2, 'Daily Economic Update - 2nd February 2021', NULL, '198', '1614603243.pdf', '2021-02-02', 1, 1, '2021-03-01 12:54:03.00000', '2021-03-02 11:17:53.00000', 'daily-economic-update-2nd-february-2021-2'),
-(19, 2, 'Daily Economic Update - 3rd February 2021', NULL, '199', '1614603294.pdf', '2021-02-03', 1, 1, '2021-03-01 12:54:54.00000', '2021-03-02 11:18:07.00000', 'daily-economic-update-3rd-february-2021-2'),
-(20, 2, 'Daily Economic Update - 4th February 2021', NULL, '200', '1614603320.pdf', '2021-02-04', 1, 1, '2021-03-01 12:55:20.00000', '2021-03-02 11:18:20.00000', 'daily-economic-update-4th-february-2021-2'),
-(21, 2, 'Daily Economic Update - 7th  & 8th February 2021', NULL, '201', '1614603367.pdf', '2021-02-08', 1, 1, '2021-03-01 12:56:07.00000', '2021-03-02 11:18:38.00000', 'daily-economic-update-7th-8th-february-2021-2'),
-(22, 2, 'Daily Economic Update - 9th February 2021', NULL, '202', '1614603403.pdf', '2021-02-09', 1, 1, '2021-03-01 12:56:43.00000', '2021-03-02 11:18:52.00000', 'daily-economic-update-9th-february-2021-2');
+(18, 2, 'Daily Economic Update - 2nd February 2021', NULL, '203', '1614603243.pdf', '2021-02-02', 1, 1, '2021-03-01 12:54:03.00000', '2021-03-10 08:35:35.00000', 'daily-economic-update-2nd-february-2021-2'),
+(19, 2, 'Daily Economic Update - 3rd February 2021', NULL, '203', '1614603294.pdf', '2021-02-03', 1, 1, '2021-03-01 12:54:54.00000', '2021-03-10 08:38:26.00000', 'daily-economic-update-3rd-february-2021-2'),
+(20, 2, 'Daily Economic Update - 4th February 2021', NULL, '203', '1614603320.pdf', '2021-02-04', 1, 1, '2021-03-01 12:55:20.00000', '2021-03-10 08:38:48.00000', 'daily-economic-update-4th-february-2021-2'),
+(21, 2, 'Daily Economic Update - 7th  & 8th February 2021', NULL, '203', '1614603367.pdf', '2021-02-08', 1, 1, '2021-03-01 12:56:07.00000', '2021-03-10 08:39:06.00000', 'daily-economic-update-7th-8th-february-2021-2'),
+(22, 2, 'Daily Economic Update - 9th February 2021', NULL, '203', '1614603403.pdf', '2021-02-09', 1, 1, '2021-03-01 12:56:43.00000', '2021-03-10 08:40:44.00000', 'daily-economic-update-9th-february-2021-2'),
+(23, 2, 'Daily Economic Update - 22nd February 2021', NULL, '203', '1615379878.pdf', '2021-02-22', 1, 1, '2021-03-10 12:37:58.00000', '2021-03-10 12:51:27.00000', 'daily-economic-update-22nd-february-2021-2'),
+(24, 2, 'Daily Economic Update - 23rd February 2021', NULL, '203', '1615379940.pdf', '2021-02-23', 1, 1, '2021-03-10 12:39:00.00000', '2021-03-10 12:53:24.00000', 'daily-economic-update-23rd-february-2021-2'),
+(25, 2, 'Daily Economic Update - 24th February 2021', NULL, '203', '1615379983.pdf', '2021-02-24', 1, 1, '2021-03-10 12:39:43.00000', '2021-03-10 12:53:04.00000', 'daily-economic-update-24th-february-2021-2'),
+(26, 2, 'Daily Economic Update - 25th February 2021', NULL, '203', '1615380014.pdf', '2021-02-25', 1, 1, '2021-03-10 12:40:14.00000', '2021-03-10 12:52:29.00000', 'daily-economic-update-25th-february-2021-2'),
+(27, 2, 'Daily Economic Update - 26th February 2021', NULL, '203', '1615380047.pdf', '2021-02-26', 1, 1, '2021-03-10 12:40:47.00000', '2021-03-10 12:52:15.00000', 'daily-economic-update-26th-february-2021-2'),
+(28, 2, 'Daily Economic Update - 27th February 2021', NULL, '203', '1615380082.pdf', '2021-02-27', 1, 1, '2021-03-10 12:41:22.00000', '2021-03-10 12:51:51.00000', 'daily-economic-update-27th-february-2021-2'),
+(29, 2, 'Daily Economic Update - 1st March 2021', NULL, '203', '1615380188.pdf', '2021-03-01', 1, 1, '2021-03-10 12:43:08.00000', '2021-03-10 12:43:08.00000', 'daily-economic-update-1st-march-2021-2'),
+(30, 2, 'Daily Economic Update - 2nd March 2021', NULL, '203', '1615380226.pdf', '2021-03-02', 1, 1, '2021-03-10 12:43:46.00000', '2021-03-10 12:43:46.00000', 'daily-economic-update-2nd-march-2021-2'),
+(31, 2, 'Daily Economic Update - 3rd March 2021', NULL, '203', '1615380260.pdf', '2021-03-03', 1, 1, '2021-03-10 12:44:20.00000', '2021-03-10 12:44:20.00000', 'daily-economic-update-3rd-march-2021-2'),
+(32, 2, 'Daily Economic Update - 4th March 2021', NULL, '203', '1615380302.pdf', '2021-03-04', 1, 1, '2021-03-10 12:45:02.00000', '2021-03-10 12:45:02.00000', 'daily-economic-update-4th-march-2021-2'),
+(33, 2, 'Daily Economic Update - 5th March 2021', NULL, '203', '1615380334.pdf', '2021-03-05', 1, 1, '2021-03-10 12:45:34.00000', '2021-03-10 12:45:34.00000', 'daily-economic-update-5th-march-2021-2'),
+(34, 2, 'Daily Economic Update - 8th March 2021', NULL, '203', '1615380370.pdf', '2021-03-08', 1, 1, '2021-03-10 12:46:10.00000', '2021-03-10 12:46:10.00000', 'daily-economic-update-8th-march-2021-2'),
+(35, 2, 'Daily Economic Update - 9th March 2021', NULL, '203', '1615380404.pdf', '2021-03-09', 1, 1, '2021-03-10 12:46:44.00000', '2021-03-10 12:46:44.00000', 'daily-economic-update-9th-march-2021-2');
 
 -- --------------------------------------------------------
 
@@ -1249,9 +1262,19 @@ CREATE TABLE `excel_sheets` (
   `category` int(11) NOT NULL,
   `sub_category` int(11) DEFAULT NULL,
   `sheet_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `cat_slug` varchar(255) NOT NULL,
+  `sub_cat_slug` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `excel_sheets`
+--
+
+INSERT INTO `excel_sheets` (`id`, `category`, `sub_category`, `sheet_data`, `slug`, `cat_slug`, `sub_cat_slug`, `created_at`, `updated_at`) VALUES
+(9, 3, 2, '[[\"ALL PAKISTAN TEXTILE MILLS ASSOCIATION\",null,null,null,null,null,null,null,null,null,null],[\"Month Wise & District Wise Arrival of Cotton\",null,null,null,null,null,null,null,null,null,null],[\"District\",\"Previous Year Total\",43358,43374,43388,43405,43419,43435,43449,43466,43480],[\"Multan\",283712,25059,57296,113847,162345,185068,201932,221133,232500,236890],[\"Lodhran\",173023,20224,27654,55354,77367,93566,109104,121199,130642,135965],[\"Khanewal\",709743,161830,253957,356750,414616,447883,459980,487801,500528,513226],[\"Muzaffar Garh\",379067,42524,94267,180920,238280,267727,295432,311984,318784,322211],[\"D.G.Khan\",437900,54886,118226,210185,286946,343499,382765,426346,452358,462423],[\"Rajanpur\",448597,58497,167542,275455,354626,386703,398390,411204,417344,420043],[\"Leiah\",294142,14007,43110,87181,134450,168203,194445,218245,233918,236476],[\"Vehari\",596782,169712,257386,317866,361635,391238,396668,412787,419517,426142],[\"Sahiwal\",275857,99044,121467,144105,161056,170319,179795,193405,200718,205750],[\"Pakpattan\",39130,9500,13850,15900,17094,17694,18294,19224,19274,19274],[\"Okara\",15775,4700,7250,9700,11650,11900,12600,12600,12600,12600],[\"Qasur\",21132,123,123,123,123,213,123,123,213,213],[\"T.T. Singh\",183125,64097,76056,91353,105899,114737,124416,137360,142419,149212],[\"Faisalabad\",40968,17975,23450,25250,25948,26710,27710,29350,30522,32022],[\"Jhang\",21328,6750,8810,10590,11896,12550,13050,14050,14600,14967],[\"Mianwali\",206265,2170,9745,30874,51600,62782,75216,85360,92615,97655],[\"Bhakkar\",85097,4324,10842,18095,22862,25062,27162,29980,30498,31098],[\"Sargodha\",7293,123,312,213,123,123,123,213,213,123],[\"R.Y.Khan\",1073190,28118,102835,374494,685831,879702,1003893,1095437,1139606,1163074],[\"Bhawal Pur\",1029043,78238,182099,390187,596245,713717,789681,863442,896585,927665],[\"Bhawal Nagar\",1028474,118484,242225,415590,551098,666056,742584,827116,877678,917847]]', 'month-wise-district-wise-arrival-of-cotton', 'raw-material', 'cotton', '2021-03-10 10:36:51', '2021-03-10 10:36:51');
 
 -- --------------------------------------------------------
 
@@ -1856,7 +1879,19 @@ INSERT INTO `job_applicants` (`id`, `jobs_id`, `form_content`, `attachment`, `cr
 (7, 4, NULL, NULL, '2021-03-09 13:23:07', '2021-03-09 13:23:07', 'hHLO83zI5f3PUacBcnMuNtGUtC2oRF', NULL, 'Benjamin Goodwin', 'hubuzybiq@mailinator.com', NULL, 'pending', NULL),
 (8, 4, NULL, NULL, '2021-03-09 13:36:40', '2021-03-09 13:36:40', 'RUnkcvL9sC4p0hlJWy9PKCkBZ7jn3A', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL),
 (9, 4, 'a:5:{s:7:\"contact\";s:11:\"03248414079\";s:11:\"designation\";s:2:\"QA\";s:20:\"your-expected-salary\";s:5:\"50000\";s:20:\"your-additional-info\";s:12:\"hello world!\";s:14:\"transaction_id\";N;}', 'a:1:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-9-your-cv.docx\";}', '2021-03-09 13:37:16', '2021-03-09 13:37:16', '1ZwweTUVSxbA9BfehiF7E3CBf55Pxc', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL),
-(10, 4, 'a:5:{s:7:\"contact\";s:11:\"03248414079\";s:11:\"designation\";s:2:\"QA\";s:20:\"your-expected-salary\";s:5:\"50000\";s:20:\"your-additional-info\";s:12:\"hello world!\";s:14:\"transaction_id\";N;}', 'a:1:{s:7:\"your-cv\";s:62:\"assets/uploads/attachment/applicant/attachment-10-your-cv.docx\";}', '2021-03-09 13:38:04', '2021-03-09 13:38:04', 'jReXdnhb4Bx8tpDU6mx6K315iWsTrx', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL);
+(10, 4, 'a:5:{s:7:\"contact\";s:11:\"03248414079\";s:11:\"designation\";s:2:\"QA\";s:20:\"your-expected-salary\";s:5:\"50000\";s:20:\"your-additional-info\";s:12:\"hello world!\";s:14:\"transaction_id\";N;}', 'a:1:{s:7:\"your-cv\";s:62:\"assets/uploads/attachment/applicant/attachment-10-your-cv.docx\";}', '2021-03-09 13:38:04', '2021-03-09 13:38:04', 'jReXdnhb4Bx8tpDU6mx6K315iWsTrx', NULL, 'SidraNayyer', 'sidra.nayyer@ivylabtech.com', NULL, 'pending', NULL),
+(11, 4, NULL, NULL, '2021-03-10 06:41:02', '2021-03-10 06:41:02', 'JhzNwUp6lOvhaINy23EEXBQmhtsJV3', NULL, 'Zeeshan Lashari', 'it.po@aptma.org.pk', NULL, 'pending', NULL),
+(12, 4, 'a:5:{s:7:\"contact\";s:17:\"+1 (117) 203-9243\";s:11:\"designation\";s:20:\"Ex et cupidatat quae\";s:20:\"your-expected-salary\";s:20:\"Quia mollitia dolore\";s:20:\"your-additional-info\";s:19:\"Dolores consectetur\";s:14:\"transaction_id\";N;}', 'a:1:{s:7:\"your-cv\";s:62:\"assets/uploads/attachment/applicant/attachment-12-your-cv.docx\";}', '2021-03-10 07:44:22', '2021-03-10 07:44:22', '0zZEvbjPt6cuU3rqZQNZaF8UrGzGSl', NULL, 'Hiroko Roberson', 'hogupizy@mailinator.com', NULL, 'pending', NULL),
+(13, 4, NULL, NULL, '2021-03-10 09:21:14', '2021-03-10 09:21:14', 'LkK9tqNoVhTaShX3gLpJCYXfJFjxzR', NULL, 'Fuller Stone', 'dezusyli@mailinator.net', NULL, 'pending', NULL),
+(14, 4, 'a:4:{s:7:\"contact\";s:17:\"+1 (536) 574-4781\";s:20:\"your-expected-salary\";s:19:\"Ut distinctio Qui a\";s:20:\"your-additional-info\";s:20:\"Aut odio nostrum vol\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-14-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-14-cover-letter.pdf\";}', '2021-03-10 09:22:52', '2021-03-10 09:22:52', '38KYHDNTjyezt10v1JE8KNmF3rUGpt', NULL, 'Ignatius Best', 'wivokom@mailinator.com', NULL, 'pending', NULL),
+(15, 4, 'a:4:{s:7:\"contact\";s:9:\"667888888\";s:20:\"your-expected-salary\";s:5:\"50000\";s:20:\"your-additional-info\";s:10:\"hjygtygtyu\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-15-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-15-cover-letter.pdf\";}', '2021-03-10 10:45:52', '2021-03-10 10:45:52', 'iCrPcHI7GkxpeEN2FuHiggBJoqkvUh', NULL, 'hej', 'muhammad.omer359@gmail.com', NULL, 'pending', NULL),
+(16, 4, NULL, NULL, '2021-03-10 11:05:47', '2021-03-10 11:05:47', 'AwRQwJ7r6bzOj8Ejpn5cisSp5KTJDJ', NULL, 'Noman Fareed', 'nomaanfareed@gmail.com', NULL, 'pending', NULL),
+(17, 4, 'a:4:{s:7:\"contact\";s:11:\"03336883886\";s:20:\"your-expected-salary\";s:3:\"000\";s:20:\"your-additional-info\";s:3:\"N/A\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-17-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-17-cover-letter.pdf\";}', '2021-03-10 11:07:02', '2021-03-10 11:07:02', 'KdI9UkTYMbvUc1uG5yj3UItjTTp3Di', NULL, 'Noman Fareed', 'nomaanfareed@gmail.com', NULL, 'pending', NULL),
+(18, 4, 'a:4:{s:7:\"contact\";s:11:\"03336883886\";s:20:\"your-expected-salary\";s:3:\"000\";s:20:\"your-additional-info\";s:3:\"N/A\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-18-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-18-cover-letter.pdf\";}', '2021-03-10 11:15:31', '2021-03-10 11:15:31', 'EC6mwOLS2efQ4UDAAWW9XYSDVbHSva', NULL, 'Noman Fareed', 'nomaanfareed@gmail.com', NULL, 'pending', NULL),
+(19, 4, 'a:4:{s:7:\"contact\";s:11:\"03336883886\";s:20:\"your-expected-salary\";s:3:\"000\";s:20:\"your-additional-info\";s:3:\"N/A\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-19-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-19-cover-letter.pdf\";}', '2021-03-10 11:23:55', '2021-03-10 11:23:55', 'wGPyXbkSCfilYl680YqXXdt7HkrJv0', NULL, 'Brenda Russell', 'comirudive@mailinator.com', NULL, 'pending', NULL),
+(20, 4, 'a:4:{s:7:\"contact\";s:11:\"03336883886\";s:20:\"your-expected-salary\";s:3:\"000\";s:20:\"your-additional-info\";s:3:\"N?A\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-20-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-20-cover-letter.pdf\";}', '2021-03-10 11:28:11', '2021-03-10 11:28:11', '0hbl75PQUrx2Fbo3lJGjelcaM94tSA', NULL, 'Jade Rivers', 'hahagyv@mailinator.com', NULL, 'pending', NULL),
+(21, 4, NULL, NULL, '2021-03-10 13:39:11', '2021-03-10 13:39:11', '1GUASchJr61XxmmlCwLj31LrZQ7nI9', NULL, 'April Garcia', 'lyqobata@mailinator.com', NULL, 'pending', NULL),
+(22, 4, 'a:4:{s:7:\"contact\";s:17:\"+1 (519) 129-6385\";s:20:\"your-expected-salary\";s:20:\"Quia reprehenderit p\";s:20:\"your-additional-info\";s:20:\"Id consectetur sed o\";s:14:\"transaction_id\";N;}', 'a:2:{s:7:\"your-cv\";s:61:\"assets/uploads/attachment/applicant/attachment-22-your-cv.pdf\";s:12:\"cover-letter\";s:66:\"assets/uploads/attachment/applicant/attachment-22-cover-letter.pdf\";}', '2021-03-10 13:43:18', '2021-03-10 13:43:18', 'e18HYzDUl91AwzyfTWkSoRN2UILGbF', NULL, 'Dora Terrell', 'quzi@mailinator.com', NULL, 'pending', NULL);
 
 -- --------------------------------------------------------
 
@@ -2246,7 +2281,8 @@ INSERT INTO `media_uploads` (`id`, `title`, `path`, `alt`, `size`, `dimensions`,
 (199, '03rd-Feb-2021.jpg', '03rd-feb-20211614683852.jpg', NULL, '223.03 KB', '1280 x 1700 pixels', '2021-03-02 11:17:32', '2021-03-02 11:17:32'),
 (200, '04th-Feb-2021.jpg', '04th-feb-20211614683853.jpg', NULL, '219.47 KB', '1280 x 1700 pixels', '2021-03-02 11:17:33', '2021-03-02 11:17:33'),
 (201, '07th-_-8th-Feb-2021.jpg', '07th-8th-feb-20211614683854.jpg', NULL, '222.51 KB', '1280 x 1700 pixels', '2021-03-02 11:17:34', '2021-03-02 11:17:34'),
-(202, '09th-Feb-2021.jpg', '09th-feb-20211614683854.jpg', NULL, '219.64 KB', '1280 x 1700 pixels', '2021-03-02 11:17:35', '2021-03-02 11:17:35');
+(202, '09th-Feb-2021.jpg', '09th-feb-20211614683854.jpg', NULL, '219.64 KB', '1280 x 1700 pixels', '2021-03-02 11:17:35', '2021-03-02 11:17:35'),
+(203, 'DEU-thumb.jpg', 'deu-thumb1615365324.jpg', NULL, '209.52 KB', '1278 x 963 pixels', '2021-03-10 08:35:25', '2021-03-10 08:35:25');
 
 -- --------------------------------------------------------
 
@@ -4272,8 +4308,8 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (228, 'site_smtp_mail_encryption', 'ssl', '2020-06-13 17:29:43', '2020-10-04 12:20:35'),
 (229, 'language_select_option', NULL, '2020-06-18 16:22:13', '2021-02-19 15:09:30'),
 (230, 'site_secondary_color', '#1d2228', '2020-06-18 16:32:38', '2021-02-19 15:09:29'),
-(231, 'site_global_email', 'contact@xgenious.com', '2020-06-20 07:36:38', '2020-12-22 01:22:19'),
-(232, 'site_global_email_template', '<p>Hello @username,</p><p><br></p><p>@message</p><p><br></p><p>Regards</p><p>@company</p>', '2020-06-20 07:36:38', '2020-12-22 01:22:19'),
+(231, 'site_global_email', 'careers@aptma.org.pk', '2020-06-20 07:36:38', '2021-03-10 11:23:20'),
+(232, 'site_global_email_template', '<p>Hello @username,</p><p><br></p><p>@message</p><p><br></p><p>Regards</p><p>@company</p>', '2020-06-20 07:36:38', '2021-03-10 11:23:20'),
 (233, 'service_page_service_items', '6', '2020-06-20 15:47:52', '2020-06-20 15:48:13'),
 (234, 'service_single_page_en_query_form_title', 'Have Query ?', '2020-06-20 16:11:26', '2020-06-20 16:11:26'),
 (235, 'service_single_page_tur_query_form_title', 'Sorunuz mu Var?', '2020-06-20 16:11:26', '2020-06-20 16:11:26'),
@@ -4723,7 +4759,7 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (678, 'contact_page_map_section_location', 'Office no. 504-B APTMA, 5th Floor, Evacuee Trust Complex, F-5/1, Agha Khan Road, Islamabad', '2020-07-20 06:40:44', '2021-02-18 09:21:20'),
 (679, 'contact_page_map_section_zoom', '10', '2020-07-20 06:40:44', '2021-02-18 09:21:20'),
 (680, 'event_attendance_form_fields', '{\"field_type\":[\"text\",\"email\",\"checkbox\",\"textarea\"],\"field_name\":[\"your-name\",\"your-email\",\"terms-condition\",\"your-messsage\"],\"field_placeholder\":[\"Your Name\",\"Your Email\",\"Agree With <a href=\'#\'>Terms Of Policy<\\/a>\",\"Message\"],\"field_required\":[\"on\",\"on\"]}', '2020-07-20 06:44:10', '2020-10-01 10:47:50'),
-(681, 'apply_job_page_form_fields', '{\"field_type\":[\"tel\",\"text\",\"text\",\"file\",\"file\",\"textarea\"],\"field_name\":[\"contact\",\"designation\",\"your-expected-salary\",\"your-cv\",\"cover-letter\",\"your-additional-info\"],\"field_placeholder\":[\"Contact #\",\"Designation\",\"Your Expected Salary\",\"Your CV\",\"Cover Letter\",\"About Yourself\"],\"field_required\":{\"2\":\"on\",\"3\":\"on\",\"5\":\"on\"},\"mimes_type\":{\"3\":\"mimes:doc,docx\",\"4\":\"mimes:doc,docx\"}}', '2020-07-20 06:54:09', '2021-03-09 12:11:44'),
+(681, 'apply_job_page_form_fields', '{\"field_type\":[\"tel\",\"text\",\"textarea\",\"file\",\"file\"],\"field_name\":[\"contact\",\"your-expected-salary\",\"your-additional-info\",\"your-cv\",\"cover-letter\"],\"field_placeholder\":[\"Contact #\",\"Your Expected Salary\",\"About Yourself\",\"Your CV\",\"Cover Letter\"],\"field_required\":{\"3\":\"on\",\"4\":\"on\"},\"mimes_type\":{\"3\":\"mimes:txt,pdf\",\"4\":\"mimes:txt,pdf\"}}', '2020-07-20 06:54:09', '2021-03-10 14:07:12'),
 (682, 'job_single_page_en_job_context_label', 'Job Context', '2020-07-20 07:42:27', '2020-07-20 08:39:08'),
 (683, 'job_single_page_en_job_responsibility_label', 'Job Responsibility', '2020-07-20 07:42:27', '2020-07-20 08:39:08'),
 (684, 'job_single_page_en_education_requirement_label', 'Educational Requirement', '2020-07-20 07:42:27', '2020-07-20 08:39:08'),
@@ -4961,20 +4997,20 @@ INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`,
 (916, 'site_google_map_api', NULL, '2020-07-24 11:41:07', '2020-07-24 11:41:33'),
 (917, 'site_google_captcha_v3_site_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
 (918, 'site_google_captcha_v3_secret_key', NULL, '2020-07-24 11:41:07', '2021-02-02 09:38:10'),
-(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
-(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
-(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
-(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-03-09 14:11:04'),
+(919, 'site_install_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-10 12:49:11'),
+(920, 'site_admin_path', 'http://aptma.ivylabtech.com/admin-home', '2020-07-24 23:56:42', '2021-03-10 12:49:11'),
+(921, 'site_frontend_path', 'http://aptma.ivylabtech.com', '2020-07-24 23:56:42', '2021-03-10 12:49:11'),
+(922, 'site_script_version', '2.0', '2020-07-24 23:56:42', '2021-03-10 12:49:11'),
 (923, 'item_purchase_key', 'dfgdfgdfgdfgdfg', '2020-07-25 00:27:03', '2020-10-04 11:00:51'),
-(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-03-09 11:51:28'),
-(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-03-09 11:51:28'),
-(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-03-09 14:11:04'),
+(924, 'item_license_status', 'not_verified', '2020-07-25 00:27:03', '2021-03-10 06:50:23'),
+(925, 'item_license_msg', 'license your cms from \"General Settings > License\". &nbsp; To stay safe and get update also get best support.', '2020-07-25 00:27:03', '2021-03-10 06:50:23'),
+(926, 'site_script_unique_key', 'NB2GLtODUjYOc9bFkPq2pKI8uma3G6WX', '2020-07-25 00:57:35', '2021-03-10 12:49:11'),
 (927, 'site_sticky_navbar_enabled', 'on', '2020-07-25 07:32:50', '2021-02-19 15:09:30'),
 (928, 'popup_enable_status', NULL, '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (929, 'popup_delay_time', '10000', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
-(930, 'popup_selected_en_id', '1', '2020-07-26 04:34:23', '2021-02-01 03:37:14');
+(930, 'popup_selected_en_id', '1', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
+(931, 'popup_selected_tur_id', '6', '2020-07-26 04:34:23', '2021-02-01 03:37:14');
 INSERT INTO `static_options` (`id`, `option_name`, `option_value`, `created_at`, `updated_at`) VALUES
-(931, 'popup_selected_tur_id', '6', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (932, 'popup_selected_ar_id', '7', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (933, 'popup_selected_sp_id', '8', '2020-07-26 04:34:23', '2021-02-01 03:37:14'),
 (934, 'about_page_en_about_section_title', 'We have 15 Years of Experience of any kind it solution', '2020-07-26 12:54:47', '2020-07-27 00:57:01'),
@@ -5286,6 +5322,18 @@ CREATE TABLE `statistics_sub_categories` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `statistics_sub_categories`
+--
+
+INSERT INTO `statistics_sub_categories` (`id`, `title`, `cat_id`, `status`, `lang`, `slug`, `created_at`, `updated_at`) VALUES
+(2, 'Cotton', 3, 'publish', 'en', 'cotton', '2021-03-10 08:18:02', '2021-03-10 08:57:35'),
+(3, 'Man-Made Fibre', 3, 'publish', 'en', 'man-made-fibre', '2021-03-10 08:18:17', '2021-03-10 10:08:46'),
+(4, 'Yarn', 4, 'publish', 'en', 'yarn', '2021-03-10 10:18:29', '2021-03-10 10:19:01'),
+(5, 'Cloth', 4, 'publish', 'en', 'cloth', '2021-03-10 10:18:52', '2021-03-10 10:18:52'),
+(6, 'Export', 5, 'publish', 'en', 'export', '2021-03-10 10:19:24', '2021-03-10 10:19:24'),
+(7, 'Imports', 5, 'publish', 'en', 'imports', '2021-03-10 10:19:42', '2021-03-10 10:19:42');
 
 -- --------------------------------------------------------
 
@@ -6401,7 +6449,7 @@ ALTER TABLE `counterups`
 -- AUTO_INCREMENT for table `daily_economics`
 --
 ALTER TABLE `daily_economics`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `daily_economic_categories`
 --
@@ -6446,7 +6494,7 @@ ALTER TABLE `excel_published_date`
 -- AUTO_INCREMENT for table `excel_sheets`
 --
 ALTER TABLE `excel_sheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `exchange_categories`
 --
@@ -6516,7 +6564,7 @@ ALTER TABLE `jobs_categories`
 -- AUTO_INCREMENT for table `job_applicants`
 --
 ALTER TABLE `job_applicants`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `kca_pak_rs_muand_fourty_kg`
 --
@@ -6546,7 +6594,7 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `media_uploads`
 --
 ALTER TABLE `media_uploads`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 --
 -- AUTO_INCREMENT for table `menus`
 --
@@ -6681,7 +6729,7 @@ ALTER TABLE `statistics_categories`
 -- AUTO_INCREMENT for table `statistics_sub_categories`
 --
 ALTER TABLE `statistics_sub_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `team_categories`
 --

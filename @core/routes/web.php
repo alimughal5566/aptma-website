@@ -247,10 +247,10 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
     Route::get('statistics', 'ImportController@statistics')->name('frontend.statistics');
     Route::get('statistics/{type}', 'ImportController@statisticsTables')->name('frontend.statistics.get.table');
 
-    Route::get('statistics/category/{slug?}','StatisticsController@getStatisticsCategoryData')->name('frontend.statistics.get.statistics.for.category');
-    Route::get('statistics/subcategory/{slug?}','StatisticsController@getStatisticsSubCategoryData')->name('frontend.statistics.get.statistics.for.sub_category');
-    Route::get('statistics/category/data/{slug?}/{id}','StatisticsController@getCatData')->name('frontend.statistics.get.statistics.data');
-    Route::get('statistics/sub-category/data/{slug?}/{id}','StatisticsController@getSubCatData')->name('frontend.statistics.get.statistics.sub.data');
+    Route::get('statistics/category/{slug?}','StatisticsFrontController@getStatisticsCategoryData')->name('frontend.statistics.get.statistics.for.category');
+    Route::get('statistics/subcategory/{slug?}','StatisticsFrontController@getStatisticsSubCategoryData')->name('frontend.statistics.get.statistics.for.sub_category');
+    Route::get('statistics/category/data/{slug?}/{id}','StatisticsFrontController@getCatData')->name('frontend.statistics.get.statistics.data');
+    Route::get('statistics/sub-category/data/{slug?}/{id}','StatisticsFrontController@getSubCatData')->name('frontend.statistics.get.statistics.sub.data');
     Route::get('remove/excel/{id}','StatisticsController@deleteExcelSheet')->name('admin.statistics.remove.excel.sheet');
 
     Route::get('/advertisement/{cat?}', 'FrontendController@advertisement_page')->name('frontend.advertisement.index');
