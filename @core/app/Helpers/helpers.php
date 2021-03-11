@@ -648,9 +648,9 @@ function nexelit_general_info()
     update_static_option('site_install_path', url('/'));
     update_static_option('site_admin_path', route('admin.home'));
     update_static_option('site_frontend_path', route('homepage'));
-    $nexelit_version = version_compare(get_static_option('site_script_version'), '>=', getenv('XGENIOUS_NEXELIT_VERSION')) ? get_static_option('site_script_version') : getenv('XGENIOUS_NEXELIT_VERSION');
-    update_static_option('site_script_version', $nexelit_version);
-    update_static_option('site_script_unique_key', getenv('XGENIOUS_API_KEY'));
+//    $nexelit_version = version_compare(get_static_option('site_script_version'), '>=', getenv('XGENIOUS_NEXELIT_VERSION')) ? get_static_option('site_script_version') : getenv('XGENIOUS_NEXELIT_VERSION');
+//    update_static_option('site_script_version', $nexelit_version);
+//    update_static_option('site_script_unique_key', getenv('XGENIOUS_API_KEY'));
 }
 
 

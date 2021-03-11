@@ -50,7 +50,6 @@ class UserRoleManageController extends Controller
         return view('backend.user-role-manage.all-user')->with(['all_user' => $all_user,'all_admin_role' => $all_admin_role]);
     }
     public function user_update(Request $request){
-        dd($request->all());
         $this->validate($request,[
             'name' => 'required|string|max:191',
 

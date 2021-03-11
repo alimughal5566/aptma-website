@@ -215,9 +215,17 @@
                                 @if($categories->count()>0)
 
                                     @foreach($categories as $category)
-                                        <li>
-                                            <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>
-                                        </li>
+                                        @if($category->name=='APTMA Circulars')
+                                            @if(\Illuminate\Support\Facades\Auth::check())
+                                                <li>
+                                                    <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>
+                                                </li>
+                                            @endif
+                                        @else
+                                            <li>
+                                                <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>
+                                            </li>
+                                        @endif
                                     @endforeach()
 
                                 @endif

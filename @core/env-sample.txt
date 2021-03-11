@@ -1,4 +1,4 @@
-APP_NAME=Nexelit
+APP_NAME=APTMA
 APP_ENV=production
 APP_KEY=base64:1wy3vbqvu0NyfqN5i6gFvFQapA2YHxIPbqeyzyiL3aY=
 APP_DEBUG=false

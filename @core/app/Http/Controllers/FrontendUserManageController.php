@@ -42,9 +42,9 @@ class FrontendUserManageController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:191',
-            'email' => 'required|unique:users|string|max:191',
+            'email' => 'required|string|max:191',
             'address' => 'nullable|string|max:191',
-            'username' => 'required|unique:users|max:191',
+            'username' => 'required|max:191',
             'zipcode' => 'nullable|string|max:191',
             'city' => 'nullable|string|max:191',
             'state' => 'nullable|string|max:191',
