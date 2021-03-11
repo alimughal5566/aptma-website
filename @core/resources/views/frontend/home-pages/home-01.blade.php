@@ -1,6 +1,5 @@
 @section('site-title','Home')
 
-
 <div class="header-slider-one">
     @foreach($all_header_slider as $data)
         <div class="header-area header-bg" {!! render_background_image_markup_by_attachment_id($data->image) !!}>
@@ -33,8 +32,7 @@
 <section class="common-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container">
         <div class="row">
-            {{--            <div class="col-12 col-lg-1"></div>--}}
-            {{--            <div class="col-12 col-lg-10">--}}
+
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 col-lg-9">
@@ -247,10 +245,9 @@
                                     <div class="tab-content" id="pills-tabContent">
                                         <div class="tab-pane fade show active" id="pills-exchange-rate" role="tabpanel"
                                              aria-labelledby="pills-exchange-rate-tab">
-                                            {{--                                            Exchange Rate--}}
-                                            {{--                                            {{dd($daily_state_categories)}}--}}
+
                                             @php $a = 1; @endphp
-                                            {{--                                            {{dd($excel_sheets->nyc)}}--}}
+
                                             @isset($excel_sheets->exchange[0])
                                                 <div class="px-3 py-2 background-primary2 text-center font-weight-bold">
                                                     <h3 class="text-white mb-0">
@@ -318,8 +315,7 @@
                                                     </table>
                                                 </div>
                                             @endisset
-                                            <br>
-                                            <br>
+
                                             <div class="row">
                                                 <div class="col-12 col-md-6">
                                                     @isset($excel_sheets->kca[0])
@@ -554,8 +550,6 @@ This Section will be displayed to only Members & When code for that then we will
 <section class="common-area economic-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container economic-container">
         <div class="row">
-            {{--            <div class="col-12 col-lg-1"></div>--}}
-            {{--            <div class="col-12 col-lg-10">--}}
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
@@ -602,7 +596,6 @@ This Section will be displayed to only Members & When code for that then we will
                     </div>
                 </div>
             </div>
-            {{--            <div class="col-12 col-lg-1"></div>--}}
         </div>
     </div>
 </section>
@@ -610,8 +603,6 @@ This Section will be displayed to only Members & When code for that then we will
 <section class="common-area advertise-area background-gray-light-lightest padding-top-50 ">
     <div class="container-fluid common-container advertise-container">
         <div class="row">
-            {{--            <div class="col-12 col-lg-1"></div>--}}
-            {{--            <div class="col-12 col-lg-10">--}}
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
@@ -649,7 +640,6 @@ This Section will be displayed to only Members & When code for that then we will
                     </div>
                 </div>
             </div>
-            {{--            <div class="col-12 col-lg-1"></div>--}}
         </div>
     </div>
 </section>
@@ -657,8 +647,6 @@ This Section will be displayed to only Members & When code for that then we will
 <section class="common-area video-area background-gray-light-lightest padding-50 ">
     <div class="container-fluid common-container video-container">
         <div class="row">
-            {{--            <div class="col-12 col-lg-1"></div>--}}
-            {{--            <div class="col-12 col-lg-10">--}}
             <div class="col-12">
                 <div class="row">
                     <div class="col-12">
@@ -704,7 +692,6 @@ This Section will be displayed to only Members & When code for that then we will
                     </div>
                 </div>
             </div>
-            {{--            <div class="col-12 col-lg-1"></div>--}}
         </div>
     </div>
 </section>
@@ -764,8 +751,6 @@ This Section will be displayed to only Members & When code for that then we will
     <section class="common-area blog-area background-gray-light-lightest padding-50">
         <div class="container-fluid common-container">
             <div class="row">
-                {{--                <div class="col-12 col-lg-1"></div>--}}
-                {{--                <div class="col-12 col-lg-10">--}}
                 <div class="col-12">
                     <div class="row">
                         <div class="col-12">
@@ -808,7 +793,6 @@ This Section will be displayed to only Members & When code for that then we will
                         </div>
                     </div>
                 </div>
-                {{--                <div class="col-12 col-lg-1"></div>--}}
             </div>
         </div>
     </section>
@@ -1348,7 +1332,7 @@ This Section will be displayed to only Members & When code for that then we will
                             @foreach($all_brand_logo as $data)
                                 <div class="single-brand">
                                     <div class="img-wrapper">
-                                        @if(!empty($data->url) )<a href="{{$data->url}}">@endif
+                                            @if(!empty($data->url) )<a href="{{$data->url}}">@endif
                                             {!! render_image_markup_by_attachment_id($data->image) !!}
                                             @if(!empty($data->url) )  </a>@endif
                                     </div>
