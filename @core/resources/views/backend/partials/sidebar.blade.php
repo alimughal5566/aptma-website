@@ -23,7 +23,7 @@
                             <span>@lang('dashboard')</span>
                         </a>
                     </li>
-                    @if(check_page_permission('admin_manage'))
+                    @if(check_page_permission('admin_manage') || check_page_permission('Admin Manage'))
                         <li
                                 class="main_dropdown {{active_menu('admin-home/new-user')}}
                                 {{active_menu('admin-home/all-user')}}
@@ -42,7 +42,7 @@
                             </ul>
                         </li>
                     @endif
-                    @if(check_page_permission_by_string('Users Manage'))
+                    @if(check_page_permission_by_string('Users Manage') || check_page_permission_by_string('users_manage'))
                         <li
                                 class="main_dropdown {{active_menu('admin-home/frontend/new-user')}}
                                 {{active_menu('admin-home/frontend/all-user')}}
@@ -60,6 +60,7 @@
                             </ul>
                         </li>
                     @endif
+                    @if(check_page_permission('publications'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/publication-page')}}
                     @if(request()->is('admin-home/publication-page/*')) active @endif
@@ -78,6 +79,8 @@
                             {{--                            </li>--}}
                         </ul>
                     </li>
+                    @endif
+                    @if(check_page_permission('exchange_rates') || check_page_permission('Exchange Rates'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/exchange-rates')}}
                     @if(request()->is('admin-home/exchange-rates/*')) active @endif
@@ -96,6 +99,8 @@
                             {{--                            </li>--}}
                         </ul>
                     </li>
+                    @endif
+                    @if(check_page_permission('gallery_videos') || check_page_permission('Gallery Videos'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/video-page')}}
                     @if(request()->is('admin-home/video-page/*')) active @endif
@@ -127,6 +132,9 @@
                     {{--                            </li>--}}
                     {{--                        </ul>--}}
                     {{--                    </li>--}}
+                    @endif
+
+                    @if(check_page_permission('circular'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/circular')}}
                     @if(request()->is('admin-home/circular/*')) active @endif
@@ -145,6 +153,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if(check_page_permission('economic_update') || check_page_permission('Economic Update'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/daily-economic-update')}}
                     @if(request()->is('admin-home/daily-economic-update/*')) active @endif
@@ -160,6 +170,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if(check_page_permission('advertisement'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/advertisement')}}
                     @if(request()->is('admin-home/advertisement/*')) active @endif
@@ -175,6 +187,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if(check_page_permission('statistics'))
                     <li class="main_dropdown
                         {{active_menu('admin-home/advertisement')}}
                     @if(request()->is('admin-home/advertisement/*')) active @endif
@@ -193,8 +207,8 @@
                             </li>
                         </ul>
                     </li>
-
-                    @if(check_page_permission_by_string('Gallery Page'))
+                    @endif
+                    @if(check_page_permission_by_string('Gallery Page') || check_page_permission_by_string('image_gallery') || check_page_permission_by_string('Image Gallery'))
                         <li class="main_dropdown
                         {{active_menu('admin-home/gallery-page')}}
                         @if(request()->is('admin-home/gallery-page/*')) active @endif
@@ -212,7 +226,7 @@
                         </li>
                     @endif
 
-                    @if(check_page_permission_by_string('Team Members'))
+                    @if(check_page_permission_by_string('Team Members') || check_page_permission_by_string('team_members'))
 
                         <li class="main_dropdown
                         {{active_menu('admin-home/team-member')}}
@@ -252,7 +266,7 @@
 {{--                    </li>--}}
 {{--                    @endif--}}
 
-                    @if(check_page_permission_by_string('Blogs Manage'))
+                    @if(check_page_permission_by_string('Blogs Manage') || check_page_permission_by_string('blogs_manage'))
                         <li
                                 class="main_dropdown
                         {{active_menu('admin-home/blog')}}
@@ -272,7 +286,7 @@
                         </li>
                     @endif
 
-                    @if(check_page_permission_by_string('Job Post Manage') && !empty(get_static_option('job_module_status')))
+                    @if(check_page_permission_by_string('Job Post Manage') || check_page_permission_by_string('job_post_manage') && !empty(get_static_option('job_module_status')))
                         <li
                                 class="main_dropdown
                         {{active_menu('admin-home/jobs')}}
@@ -308,7 +322,7 @@
                         </li>
                     @endif
 
-                    @if(check_page_permission_by_string('Events Manage') && !empty(get_static_option('events_module_status')))
+                    @if(check_page_permission_by_string('Events Manage') || check_page_permission_by_string('events_manage') && !empty(get_static_option('events_module_status')))
                         <li class="main_dropdown
                     {{active_menu('admin-home/events')}}
                         @if(request()->is('admin-home/events/*')) active @endif
@@ -354,7 +368,7 @@
                         </li>
                     @endif
 
-                    @if(check_page_permission_by_string('Contact Page Manage'))
+                    @if(check_page_permission_by_string('Contact Page Manage') || check_page_permission_by_string('contact_page_manage'))
                         <li class="main_dropdown @if(request()->is('admin-home/contact-page/*')  ) active @endif">
                             <a href="javascript:void(0)"
                                aria-expanded="true">
@@ -386,7 +400,7 @@
                         </li>
                     @endif
 
-                    @if(check_page_permission_by_string('General Settings'))
+                    @if(check_page_permission_by_string('General Settings') || check_page_permission_by_string('general_settings'))
                         <li class="main_dropdown @if(request()->is('admin-home/general-settings/*')) active @endif">
                             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-settings"></i>
                                 <span>{{__('General Settings')}}</span></a>

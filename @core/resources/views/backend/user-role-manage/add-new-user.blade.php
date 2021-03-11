@@ -51,7 +51,9 @@
                                 <label for="role">{{'Role'}}</label>
                                 <select name="role" id="role" class="form-control">
                                     @foreach( $all_admin_role as $role)
+                                        @if($role->name!='Super Admin')
                                     <option value="{{$role->id}}">{{$role->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

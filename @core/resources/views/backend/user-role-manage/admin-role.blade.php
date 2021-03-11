@@ -9,41 +9,23 @@
 
 @php
     $all_permission_list = array(
-        "Admin Manage",
-        "About Page Manage",
-        "Users Manage",
-        "Quote Manage",
-        "Newsletter Manage",
-        "Package Orders Manage",
-        "All Payment Logs",
-        "Pages Manage",
-        "Menus Manage",
-        "Widgets Manage",
-        "Popup Builder",
-        "Form Builder",
-        "Blogs Manage",
-        "Job Post Manage",
-        "Events Manage",
-        "Products Manage",
-        "Donations Manage",
-        "Knowledgebase",
-        "Home Variant",
-        "Topbar Settings",
-        "Home Page Manage",
-        "Contact Page Manage",
-        "Feedback Page Manage",
-        "Services",
-        "Case Study",
-        "Gallery Page",
-        "404 Page Manage",
-        "Faq",
-        "Brand Logos",
-        "Price Plan",
-        "Team Members",
-        "Testimonial",
-        "Counterup",
-        "General Settings",
-        "Languages",
+      'Admin Manage',
+      'Users Manage',
+      'publications',
+      'Exchange Rates',
+      'Gallery Videos',
+      'Circular',
+      'Economic Update',
+      'Advertisement',
+      'Statistics',
+      'Image Gallery',
+      'Team Members',
+      'Blogs Manage',
+      'Job Post Manage',
+      'Events Manage',
+      'About Page Manage',
+      'Contact Page Manage',
+      'General Settings',
     );
 @endphp
 
@@ -68,6 +50,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($all_role as $data)
+                                        @if($data->name!='Super Admin')
                                         <tr>
                                             <td>{{$data->id}}</td>
                                             <td>{{$data->name}}</td>
@@ -102,6 +85,7 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
