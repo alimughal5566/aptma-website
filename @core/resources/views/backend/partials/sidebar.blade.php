@@ -357,14 +357,6 @@
                         </li>
                     @endif
 
-                    @if(check_page_permission_by_string('404 Page Manage'))
-                        <li class="main_dropdown {{active_menu('admin-home/404-page-manage')}}">
-                            <a href="{{route('admin.404.page.settings')}}" aria-expanded="true"><i
-                                        class="ti-control-forward"></i>
-                                <span>{{__('404 Page Manage')}}</span></a>
-                        </li>
-                    @endif
-
                     @if(!empty(get_static_option('site_maintenance_mode')))
                         <li class="main_dropdown {{active_menu('admin-home/maintains-page/settings')}}">
                             <a href="{{route('admin.maintains.page.settings')}}"
