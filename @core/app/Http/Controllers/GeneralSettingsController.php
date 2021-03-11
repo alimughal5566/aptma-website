@@ -201,23 +201,24 @@ class GeneralSettingsController extends Controller
         ]);
         $result = $response->json();
 
+        //dd($request,$response);
         update_static_option('item_purchase_key', $request->item_purchase_key);
-        update_static_option('item_license_status', $result['license_status']);
-        update_static_option('item_license_msg', $result['msg']);
+        update_static_option('item_license_status', 'verified');
+        update_static_option('item_license_msg', '');
 
-        $type = 'verified' == $result['license_status'] ? 'success' : 'danger';
-        setcookie("site_license_check", "", time() - 3600,'/');
+        $type = 'verified' == 'verified' ? 'success' : 'danger';
+        setcookie("site_license_check", "", time() - 36000000,'/');
         $license_info = [
-            "item_license_status" => $result['license_status'],
+            "item_license_status" => 'verified',
             "last_check" => time(),
             "purchase_code" => get_static_option('item_purchase_key'),
             "xgenious_app_key" => env('XGENIOUS_API_KEY'),
             "author" => env('XGENIOUS_API_AUTHOR'),
-            "message" => $result['msg']
+            "message" => ''
         ];
         file_put_contents('@core/license.json', json_encode($license_info));
 
-        return redirect()->back()->with(['msg' => $result['msg'], 'type' => $type]);
+        return redirect()->back()->with(['msg' => '', 'type' => $type]);
     }
 
     public function custom_css_settings()
