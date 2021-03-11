@@ -44,7 +44,7 @@ class StatisticsController extends Controller
     public function categoriesUpdate(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string',
+            'title' => 'required|string',
             'status' => 'required',
             'lang' => 'required',
         ]);
