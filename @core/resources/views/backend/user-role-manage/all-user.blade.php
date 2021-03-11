@@ -93,6 +93,7 @@
                                                         <a href="#"
                                                            data-id="{{$data->id}}"
                                                            data-name="{{$data->name}}"
+                                                           data-username="{{$data->username}}"
                                                            data-role="{{$data->role}}"
                                                            data-email="{{$data->email}}"
                                                            data-imageid="{{$data->image}}"
