@@ -134,6 +134,7 @@
                 <h2>{{get_static_option('error_404_page_'.get_user_lang().'_subtitle')}}</h2>
                 <p>{{get_static_option('error_404_page_'.get_user_lang().'_paragraph')}}</p>
                 <a href="{{route('homepage')}}">{{get_static_option('error_404_page_'.get_user_lang().'_button_text')}}</a>
+                <a href="http://ivylabtech.com/">Contact Support</a>
             </div>
         </div>
     </body>
