@@ -23,6 +23,25 @@
                             <span>@lang('dashboard')</span>
                         </a>
                     </li>
+                    @if(check_page_permission('admin_manage'))
+                        <li
+                                class="main_dropdown {{active_menu('admin-home/new-user')}}
+                                {{active_menu('admin-home/all-user')}}
+                                {{active_menu('admin-home/all-user/role')}}
+                                        "
+                        >
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i>
+                                <span>{{__('Admin Manage')}}</span></a>
+                            <ul class="collapse">
+                                <li class="{{active_menu('admin-home/all-user')}}"><a
+                                            href="{{route('admin.all.user')}}">{{__('All Admin')}}</a></li>
+                                <li class="{{active_menu('admin-home/new-user')}}"><a
+                                            href="{{route('admin.new.user')}}">{{__('Add New Admin')}}</a></li>
+                                <li class="{{active_menu('admin-home/all-user/role')}}"><a
+                                            href="{{route('admin.all.user.role')}}">{{__('All Admin Role')}}</a></li>
+                            </ul>
+                        </li>
+                    @endif
                     @if(check_page_permission_by_string('Users Manage'))
                         <li
                                 class="main_dropdown {{active_menu('admin-home/frontend/new-user')}}

@@ -130,7 +130,7 @@
                 <div class="notfound-404">
                     <h1>{{__('500')}}</h1>
                     <h3>{{__('Server Errors')}}</h3>
-                    <p>{{__('Please contact support ')}} <a href="http://ivylabtech.com/">IvyLabTech</a></p>
+                    <p>{{__('Please contact support ')}} <a href="http://ivylabtech.com/">IvyLab Technologies</a></p>
                 </div>
             </div>
         </div>

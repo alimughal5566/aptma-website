@@ -54,6 +54,7 @@
                                             </thead>
                                             <tbody>
                                             @foreach($all_user as $data)
+                                                @if($data->username!='super_admin')
                                                 <tr>
                                                     <td>{{$data->id}}</td>
                                                     <td>{{$data->name}}</td>
@@ -114,6 +115,7 @@
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                @endif
                                             @endforeach
                                             </tbody>
                                         </table>
