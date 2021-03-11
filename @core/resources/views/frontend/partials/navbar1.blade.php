@@ -215,9 +215,17 @@
                                 @if($categories->count()>0)
 
                                     @foreach($categories as $category)
-                                        <li>
-                                            <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>
-                                        </li>
+                                        @if($category->name=='APTMA Circulars')
+                                            @if(\Illuminate\Support\Facades\Auth::check())
+                                                <li>
+                                                    <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>
+                                                </li>
+                                            @endif
+                                        @else
+                                            <li>
+                                                <a href="{{route('frontend.circular.index',[$category->slug])}}">{{$category->name}}</a>
+                                            </li>
+                                        @endif
                                     @endforeach()
 
                                 @endif
@@ -229,10 +237,10 @@
                                 <li>
                                     <a href="{{route('frontend.daily.stats')}}">Daily Exchange & Cotton Rates</a>
                                 </li>
-@php
-    $all_stats_categoties = \App\StatisticsCategory::with('subCategories')->get();
-        $all_stats_sub_categoties = \App\StatisticsSubCategory::all();
-@endphp
+                                @php
+                                    $all_stats_categoties = \App\StatisticsCategory::with('subCategories')->get();
+                                        $all_stats_sub_categoties = \App\StatisticsSubCategory::all();
+                                @endphp
                                 @isset($all_stats_categoties)
                                     @foreach($all_stats_categoties as $category)
                                         {{--                                        {{dd($category->slug)}}--}}
