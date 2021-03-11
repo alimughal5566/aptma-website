@@ -154,6 +154,10 @@
                             <input type="text" class="form-control"  id="name" name="name" placeholder="{{__('Enter name')}}">
                         </div>
                         <div class="form-group">
+                            <label for="name">{{__('User Name')}}</label>
+                            <input type="text" class="form-control"  id="username" name="username" placeholder="{{__('username')}}">
+                        </div>
+                        <div class="form-group">
                             <label for="email">{{__('Email')}}</label>
                             <input type="text" class="form-control"  id="email" name="email" placeholder="{{__('Email')}}">
                         </div>
