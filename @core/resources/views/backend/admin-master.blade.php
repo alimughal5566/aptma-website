@@ -131,7 +131,7 @@
             <p>
                 {!! get_footer_copyright_text() !!}
             </p>
-            <p>{!! __('Powered By ').'<a href="https://ivylabtech.com" target="_blank">IvyLabtech</a>' !!}</p>
+            <p>{!! __('Powered By ').'<a href="https://ivylabtech.com" target="_blank">IvyLab Technologies</a>' !!}</p>
         </div>
     </footer>
 
