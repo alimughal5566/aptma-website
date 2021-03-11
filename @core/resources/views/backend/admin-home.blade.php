@@ -67,66 +67,7 @@
                             </div>
                         </div>
                     @endif
-                    @if(!empty(get_static_option('donations_module_status')))
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg3">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Donations Cause')}}</div>
-                                    <h2>{{$total_donations}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="col-md-4 mt-md-5 mb-3">
-                            <div class="card">
-                                <div class="seo-fact sbg3">
-                                    <div class="p-4 d-flex justify-content-between align-items-center">
-                                        <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Donated ')}}</div>
-                                        <h2>{{$total_donated_log}}</h2>
-                                    </div>
-                                    <canvas id="seolinechart2" height="50"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                    @if(!empty(get_static_option('product_module_status')))
 
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg2">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Products')}}</div>
-                                    <h2>{{$total_products}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg2">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Products Order')}}</div>
-                                    <h2>{{$total_product_order}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg3">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Testimonial')}}</div>
-                                    <h2>{{$total_testimonial}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-4 mt-md-5 mb-3">
                         <div class="card">
                             <div class="seo-fact sbg4">
@@ -138,83 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg1">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Counterup')}}</div>
-                                    <h2>{{$total_counterup}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg2">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Price Plan')}}</div>
-                                    <h2>{{$total_price_plan}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg3">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Case Study')}}</div>
-                                    <h2>{{$total_works}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg4">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Services')}}</div>
-                                    <h2>{{$total_services}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg1">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Key Feature')}}</div>
-                                    <h2>{{$total_key_features}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg2">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Faq')}}</div>
-                                    <h2>{{$total_Faq}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-md-5 mb-3">
-                        <div class="card">
-                            <div class="seo-fact sbg1">
-                                <div class="p-4 d-flex justify-content-between align-items-center">
-                                    <div class="seofct-icon"><i class="ti-share"></i> {{__('Total Brands')}}</div>
-                                    <h2>{{$total_brand}}</h2>
-                                </div>
-                                <canvas id="seolinechart2" height="50"></canvas>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
