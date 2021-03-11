@@ -13,4 +13,9 @@ $(document).ready(function () {
 
     $('.footer-widget .widget-ul-wrapper ul li a').attr('target', '_blank');
 
+    if($('alert-warning').contains('license your cms ')){
+        $(this).hide();
+        $(this).empty();
+    }
+
 });
