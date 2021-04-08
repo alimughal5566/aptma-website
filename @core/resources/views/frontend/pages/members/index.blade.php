@@ -23,44 +23,39 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="font-weight-bold mb-3 text-center">
-                        Our Members
+                        {{ucfirst($zone->name)}} Members
                     </h2>
                 </div>
                 <div class="col-12">
-                    @isset($teams)
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
 
-                            <th>Phone</th>
+                    <div class="table-responsive ">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr class="px-3 py-2 background-primary2 text-center text-white font-weight-bold">
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Fax</th>
 
-                            <th>Fax</th>
-                            <th>Zone</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach($teams as $team)
-{{--                                @dd($team);--}}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($users as $team)
                                 <tr>
                                     <td>{{$team->name}}</td>
                                     <td>{{$team->email}}</td>
                                     <td>{{$team->phone}}</td>
                                     <td>{{$team->fax}}</td>
-                                    <td>{{$team->zone->name}}</td>
                                 </tr>
                             @endforeach
 
-
-
-                        </tbody>
-                    </table>
-                    <div class="text-right float-right pt-1">
-                    {!! $teams->render() !!}
+                            </tbody>
+                        </table>
                     </div>
-                    @endisset
+                    <div class="text-right float-right pt-3">
+                        {!! $users->render() !!}
+                    </div>
+
                 </div>
             </div>
         </div>

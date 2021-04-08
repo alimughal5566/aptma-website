@@ -22,10 +22,10 @@
 @section('content')
     <div class="col-lg-12 col-ml-12 padding-bottom-30">
         <div class="row">
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-0">
                 <div class="card">
                     <div class="card-body">
-                        <div class="col-12 mt-5">
+                        <div class="col-12 ">
                             <div class="card">
                                 <div class="card-body">
                                     @include('backend/partials/message')
@@ -99,6 +99,7 @@
                                                            data-zipcode="{{$data->zipcode}}"
                                                            data-country="{{$data->country}}"
                                                            data-email_verified="{{$data->email_verified}}"
+                                                           data-zone="{{$data->zone_id}}"
                                                            data-toggle="modal"
                                                            data-target="#user_edit_modal"
                                                            class="btn btn-primary btn-sm mb-3 mr-1 user_edit_btn"
@@ -137,8 +138,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="user_edit_modal" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade " id="user_edit_modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{__('User Details Edit')}}</h5>
@@ -164,6 +165,16 @@
                         <div class="form-group">
                             <label for="phone">{{__('Phone')}}</label>
                             <input type="text" class="form-control"  id="phone" name="phone" placeholder="{{__('Phone')}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Select Zone</label>
+                            <select name="zone" id="zone" class="form-control">
+                                @isset($zones)
+                                    @foreach($zones as $zone)
+                                        <option value="{{$zone->id}}">{{$zone->name}}</option>
+                                    @endforeach
+                                @endisset
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="country">{{__('Country')}}</label>
@@ -274,6 +285,7 @@
                 form.find('#zipcode').val(el.data('zipcode'));
                 form.find('#address').val(el.data('address'));
                 form.find('#country option[value="'+el.data('country')+'"]').attr('selected',true);
+                form.find('#zone option[value="'+el.data('zone')+'"]').attr('selected',true);
 
             });
 

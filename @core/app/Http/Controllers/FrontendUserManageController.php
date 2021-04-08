@@ -18,8 +18,9 @@ class FrontendUserManageController extends Controller
 
     public function all_user()
     {
-        $all_user = User::all();
-        return view('backend.frontend-user.all-user')->with(['all_user' => $all_user]);
+        $all_user = User::with('zone')->get();
+        $zones = Zone::all();
+        return view('backend.frontend-user.all-user')->with(['all_user' => $all_user,'zones' => $zones]);
     }
 
     public function user_password_change(Request $request)
@@ -40,6 +41,7 @@ class FrontendUserManageController extends Controller
 
     public function user_update(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required|string|max:191',
             'email' => 'required|string|max:191',
@@ -50,6 +52,7 @@ class FrontendUserManageController extends Controller
             'state' => 'nullable|string|max:191',
             'country' => 'nullable|string|max:191',
             'phone' => 'nullable|string|max:191',
+            'zone' => 'required|string|max:191',
         ],[
             'name.required' => __('Name is required'),
             'email.required' => __('Email is required'),
@@ -57,6 +60,7 @@ class FrontendUserManageController extends Controller
 
         User::find($request->user_id)->update([
             'name' => $request->name,
+            'zone_id' => $request->zone,
             'username' => $request->username,
             'email' => $request->email,
             'address' => $request->address,
@@ -86,8 +90,10 @@ class FrontendUserManageController extends Controller
 
     public function new_user_add(Request $request)
     {
+//        dd();
         $this->validate($request, [
             'username' => 'required|string|max:191|unique:users',
+            'zone' => 'required|string|max:191',
             'name' => 'required|string|max:191',
             'email' => 'required|string|max:191',
             'address' => 'nullable|string|max:191',
@@ -98,7 +104,6 @@ class FrontendUserManageController extends Controller
             'phone' => 'nullable|string|max:191',
             'password' => 'required|string|min:8|confirmed'
         ]);
-
         User::create([
             'username' => $request->username,
             'name' => $request->name,
@@ -109,7 +114,8 @@ class FrontendUserManageController extends Controller
             'state' => $request->state,
             'country' => $request->country,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'zone_id' => $request->zone
         ]);
 
         return redirect()->back()->with(['msg' => __('New User Created..'), 'type' => 'success']);

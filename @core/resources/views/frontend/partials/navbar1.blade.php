@@ -135,26 +135,25 @@
 
                                 @php $teamCategory=\App\TeamCategory::where(['status' =>'publish','lang'=>'en'])->orderBy('id','desc')->get(); @endphp
 
-                                <li class=" {{$teamCategory->count()>0 ? ' menu-item-has-children ' : ' '}} ">
-                                    <a href="{{route('frontend.teams')}}">Team</a>
-                                    @if($teamCategory->count()>0)
-                                        <ul class="sub-menu">
-                                            @foreach($teamCategory as $team)
-                                                <li>
-                                                    <a href="{{route('frontend.team',[$team->slug])}}">{{$team->name}}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </li>
-
+{{--                                <li class=" {{$teamCategory->count()>0 ? ' menu-item-has-children ' : ' '}} ">--}}
+{{--                                    <a href="{{route('frontend.teams')}}">Team</a>--}}
+{{--                                    @if($teamCategory->count()>0)--}}
+{{--                                        <ul class="sub-menu">--}}
+{{--                                            @foreach($teamCategory as $team)--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="{{route('frontend.team',[$team->slug])}}">{{$team->name}}</a>--}}
+{{--                                                </li>--}}
+{{--                                            @endforeach--}}
+{{--                                        </ul>--}}
+{{--                                    @endif--}}
+{{--                                </li>--}}
                             </ul>
                         </li>
 
                         @php $blogCategories=\App\BlogCategory::where(['status' =>'publish','lang'=>'en'])->withCount('blogs')->orderBy('id','desc')->get(); @endphp
                         @php $teamtypes=\App\TeamType::where(['status' =>'publish','lang'=>'en'])->whereHas('type_members')->orderby('order_no','asc')->get(); @endphp
 
-                        <li class=" {{$blogCategories->count()>0 ? ' menu-item-has-children ' : ' '}} ">
+                        <li class=" {{$blogCategories->count()>0 ? 'menu-item-has-children' : ' '}} ">
                             <a href="javascript:void(0);">Research & Publications</a>
                             <ul class="sub-menu">
                                 @foreach($teamtypes as $type)
@@ -274,9 +273,22 @@
                         <li class=" menu-item-has-children">
                             <a href="javascript:void(0);">Members Directory</a>
                             <ul class="sub-menu">
-                                <li>
-                                    <a href="javascript:void(0);">Members List</a>
-                                </li>
+                                @php $zones= \App\Zone::withCount('users')->orderBy('id','desc')->get(); @endphp
+                                @if($zones->count()>0)
+                                    <li class="menu-item-has-children">
+                                        <a href="javascript:void(0)">Members</a>
+                                        <ul class="sub-menu">
+                                            @foreach($zones as $zone)
+                                                @if($zone->users_count>0)
+                                                    <li>
+                                                        <a href="{{route('frontend.zone.members',[$zone->id])}}">{{$zone->name}}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+
+                                    </li>
+                                @endif
                                 <li>
                                     <a href="javascript:void(0);">Become a member</a>
                                 </li>

@@ -6,10 +6,10 @@
     <div class="col-lg-12 col-ml-12 padding-bottom-30">
         <div class="row">
             <!-- basic form start -->
-            <div class="col-12 mt-5">
+            <div class="col-8 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">{{__('New User')}}</h4>
+{{--                        <h4 class="header-title">{{__('New User')}}</h4>--}}
                         @include('backend/partials/message')
                         @if($errors->any())
                             <div class="alert alert-danger">
@@ -31,7 +31,7 @@
                                 <label for="username">{{__('Username')}}</label>
                                 <input type="text" class="form-control" id="username" name="username"
                                        placeholder="{{__('Username')}}">
-                                <small class="text text-danger">{{__('Remember this username, user will login using this username')}}</small>
+                                <small class="text is-valid text-right">{{__('Note: user will login using this username')}}</small>
                             </div>
                             <div class="form-group">
                                 <label for="email">{{__('Email')}}</label>
@@ -43,6 +43,18 @@
                                 <input type="text" class="form-control" id="phone" name="phone"
                                        placeholder="{{__('Phone')}}">
                             </div>
+
+                                                <div class="form-group">
+                                                    <label>Select Zone</label>
+                                                    <select name="zone" class="form-control">
+                                                        @isset($zones)
+                                                            @foreach($zones as $zone)
+                                                                <option value="{{$zone->id}}">{{$zone->name}}</option>
+                                                            @endforeach
+                                                        @endisset
+                                                    </select>
+                                                </div>
+
                             <div class="form-group">
                                 <label for="country">{{__('Country')}}</label>
                                 {!! get_country_field('country','country','form-control') !!}
@@ -82,25 +94,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 mt-5">
+            <div class="col-3 mt-5  pt-3 card">
                 <form action="{{route('admin.frontend.import.users')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="file">Import File</label>
-                        <input type="file" class="form-control" name="file" id="file">
+                        <label for="file">Import User</label>
+                        <input type="file" class="form-control" name="file" id="file" required>
                     </div>
-                    <div class="form-group">
-                        <label>Select Zone</label>
-                        <select name="zone" class="form-control">
-                            @isset($zones)
-                                @foreach($zones  as $zone)
-                                    <option value="{{$zone->id}}">{{$zone->name}}</option>
-                                @endforeach
-                            @endisset
-                        </select>
-                    </div>
-                    <div class="w-100">
-                        <button type="submit" class="btn btn-primary">Import</button>
+{{--                    <div class="form-group">--}}
+{{--                        <label>Select Zone</label>--}}
+{{--                        <select name="zone" class="form-control">--}}
+{{--                            @isset($zones)--}}
+{{--                                @foreach($zones  as $zone)--}}
+{{--                                    <option value="{{$zone->id}}">{{$zone->name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            @endisset--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+                    <div class="w-100 text-right ">
+                        <button type="submit" class="btn btn-primary text-right">Import</button>
                     </div>
                 </form>
             </div>

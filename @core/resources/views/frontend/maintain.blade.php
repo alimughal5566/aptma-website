@@ -121,10 +121,9 @@
         @yield('og-meta')
         <title>@yield('site-title')</title>
     @elseif(request()->is('about') || request()->is('service') || request()->is('work') || request()->is('team') || request()->is('faq') || request()->is('blog') || request()->is('contact') || request()->is('p/*') || request()->is('blog/*') || request()->is('services/*'))
-        <title>@yield('site-title') - {{get_static_option('site_'.$user_select_lang_slug.'_title')}} </title>
+        <title>@yield('site-title') </title>
     @else
-        <title>{{get_static_option('site_'.$user_select_lang_slug.'_title')}}
-            - {{get_static_option('site_'.$user_select_lang_slug.'_tag_line')}}</title>
+        <title>@yield('site-title')</title>
     @endif
 </head>
 <body>
@@ -134,30 +133,32 @@
 >
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-8 ">
                 <div class="maintenance-page-inner-content">
                     <div class="page-content-wrap">
-                        <div class="logo-wrap">
-                            {!! render_image_markup_by_attachment_id(get_static_option('maintain_page_logo')) !!}
-                        </div>
-                        <h2 class="maintain-title">{{get_static_option('maintain_page_'.$user_select_lang_slug.'_title')}}</h2>
-                        <p>{{get_static_option('maintain_page_'.$user_select_lang_slug.'_description')}}</p>
-                        <div class="subscriber-form">
+{{--                        <div class="logo-wrap">--}}
+{{--                            {!! render_image_markup_by_attachment_id(get_static_option('maintain_page_logo')) !!}--}}
+{{--                        </div>--}}
+{{--                        <h2 class="maintain-title">{{get_static_option('maintain_page_'.$user_select_lang_slug.'_title')}}</h2>--}}
+{{--                        <p>{{get_static_option('maintain_page_'.$user_select_lang_slug.'_description')}}</p>--}}
+                        <div class="subscriber-form text-fluid">
                             @include('backend.partials.message')
-                            @if($errors->any())
-                                @foreach($errors->all() as $error)
-                                    <p class="text-danger">{{$error}}</p>
-                                @endforeach
-                            @endif
-                            <form action="{{route('frontend.subscribe.newsletter')}}" method="post"
-                                  enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="{{__('Enter your email')}}"
-                                           class="form-control">
-                                </div>
-                                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i></button>
-                            </form>
+{{--                            @if($errors->any())--}}
+{{--                                @foreach($errors->all() as $error)--}}
+{{--                                    <p class="text-danger">{{$error}}</p>--}}
+{{--                                @endforeach--}}
+{{--                            @endif--}}
+                            <h2 class="maintain-title " style="color: #439882 !important">Site on maintanence mode </h2>
+{{--                            <p class="text-danger">Site on mainanence mode</p>--}}
+{{--                            <form action="{{route('frontend.subscribe.newsletter')}}" method="post"--}}
+{{--                                  enctype="multipart/form-data">--}}
+{{--                                @csrf--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <input type="email" name="email" placeholder="{{__('Enter your email')}}"--}}
+{{--                                           class="form-control">--}}
+{{--                                </div>--}}
+{{--                                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i></button>--}}
+{{--                            </form>--}}
                         </div>
                     </div>
                 </div>

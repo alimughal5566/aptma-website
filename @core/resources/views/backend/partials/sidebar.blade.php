@@ -188,7 +188,7 @@
                         </ul>
                     </li>
                     @endif
-                    @if(check_page_permission('statistics'))
+{{--                    @if(check_page_permission('statistics'))--}}
                     <li class="main_dropdown
                         {{active_menu('admin-home/advertisement')}}
                     @if(request()->is('admin-home/advertisement/*')) active @endif
@@ -207,7 +207,8 @@
                             </li>
                         </ul>
                     </li>
-                    @endif
+{{--                    @endif--}}
+
                     @if(check_page_permission_by_string('Gallery Page') || check_page_permission_by_string('image_gallery') || check_page_permission_by_string('Image Gallery'))
                         <li class="main_dropdown
                         {{active_menu('admin-home/gallery-page')}}

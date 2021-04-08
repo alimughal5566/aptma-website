@@ -498,6 +498,15 @@ class GeneralSettingsController extends Controller
             update_static_option($_footer_copyright, $request->$_footer_copyright);
         }
 
+
+       if($request->site_maintenance_mode=='on') {
+           Artisan::call('down');
+       }
+       if($request->site_maintenance_mode=='off') {
+           Artisan::call('up');
+       }
+
+
         $all_fields = [
           'site_admin_panel_nav_sticky',
           'site_frontend_nav_sticky',

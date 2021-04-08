@@ -69,6 +69,7 @@ use App\VideoGallery;
 use App\VideoGalleryCategory;
 use App\Works;
 use App\WorksCategory;
+use App\Zone;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -509,6 +510,26 @@ class FrontendController extends Controller
             $all_services = Publication::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
         }
         return view('frontend.pages.publication.index')->with(['all_services' => $all_services, 'category' => $category]);
+    }
+
+    public function members($cat_id = null)
+    {
+//        dd('d');
+
+//        $default_lang = Language::where('default', 1)->first();
+//        $lang = !empty(session()->get('lang')) ? session()->get('lang') : $cat_id;
+        if (!is_null($cat_id)) {
+            $zone = Zone::where('id', $cat_id)->first();
+            $users = User::where('zone_id', $zone->id)->orderBy('id', 'desc')->paginate(20);
+        }
+//        dd($users);
+//        dd($users);
+//
+//        } else {
+//
+//            $all_services = Publication::where('status', '1')->orderBy('is_featured', 'desc')->orderBy('id', 'desc')->paginate(get_static_option('service_page_service_items'));
+//        }
+        return view('frontend.pages.members.index')->with(['users' => $users, 'zone' => $zone]);
     }
 
     public function video_page($cat_id = null)

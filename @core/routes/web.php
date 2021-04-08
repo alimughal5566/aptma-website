@@ -226,6 +226,7 @@ Route::group(['middleware' => ['setlang', 'globalVariable']], function () {
 
     // Frontend Wasim
     Route::get('/publications/{slug?}', 'FrontendController@publication_page')->name('frontend.publication');
+    Route::get('/zone/{id?}', 'FrontendController@members')->name('frontend.zone.members');
     Route::get('/publication/{slug}', 'FrontendController@publication_single_page')->name('frontend.publication.single');
     Route::get('/gallery-videos/{slug?}', 'FrontendController@video_page')->name('frontend.gallery.video.index');
     Route::get('/gallery-videos/show/{slug}', 'FrontendController@video_single_page')->name('frontend.gallery.video.single');

@@ -22,15 +22,17 @@ class UserImport implements ToCollection,WithStartRow,WithValidation
     public function collection(Collection $rows)
     {
         foreach ($rows as $row) {
-            $zone = Zone::where('name',$row[5])->first();
+            $zone = Zone::firstOrCreate(array('name'=>$row[5]));
             $slug = Str::slug($row[2]);
             User::create([
-                'email'=>$slug.'@aptma.com',
-                'username'=>$slug.Str::random(5),
+                'email'=>$slug.'@aptma.org',
+                'name'=>$row[2],
+                'username'=>$slug.'-'.strtolower(Str::random(2)),
+                'email_verified'=>1,
                 'phone'=>$row[3],
                 'fax'=>$row[4],
                 'zone_id'=>$zone->id,
-                'password'=>Hash::make('12345678'),
+                'password'=>Hash::make('1234'),
             ]);
         }
 
